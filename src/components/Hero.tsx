@@ -10,9 +10,9 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center bg-gradient-to-br from-background via-background to-accent/10">
-      <div className="container mx-auto px-4 py-16">
-        <div className="max-w-4xl mx-auto text-center space-y-12">
+    <section className="relative py-20 lg:py-32 bg-gradient-to-br from-background via-background to-accent/10">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto text-center space-y-12 flex flex-col justify-center min-h-[80vh]">
           {/* Trust Badge */}
           <div className="inline-flex items-center space-x-3 bg-accent px-6 py-3 rounded-full border border-accent-foreground/20">
             <div className="flex space-x-1">
@@ -67,7 +67,7 @@ const Hero = () => {
           </div>
 
           {/* Trust Indicators */}
-          <div className="flex flex-wrap justify-center gap-6 pt-8 border-t border-border/50">
+          <div className="flex flex-wrap justify-center gap-6 pt-8 pb-8 border-t border-border/50">
             <div className="flex items-center space-x-2 text-sm text-muted-foreground">
               <Shield className="w-4 h-4 text-primary" />
               <span>SOC 2 Certified</span>
