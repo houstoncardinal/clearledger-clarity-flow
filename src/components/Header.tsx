@@ -18,10 +18,12 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <ArrowRight className="w-4 h-4 text-primary-foreground transform rotate-45" />
-            </div>
+          <div className="flex items-center space-x-3">
+            <img 
+              src="/logo.png" 
+              alt="ClearLedger Logo" 
+              className="w-10 h-10 object-contain"
+            />
             <span className="font-heading text-xl font-bold text-foreground">
               ClearLedger
             </span>
