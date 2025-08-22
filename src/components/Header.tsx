@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X, ArrowRight, Calculator, PieChart, Users, FileText, TrendingUp, Shield, Zap, Target, BarChart3, CheckCircle, Star, Clock, Award } from 'lucide-react';
+import { Menu, X, ArrowRight, Calculator, PieChart, Users, FileText, TrendingUp, Shield, Zap, Target, BarChart3, CheckCircle, Star, Clock, Award, Calendar } from 'lucide-react';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,9 +44,9 @@ const Header = () => {
         }
       ],
       additionalServices: [
-        { name: 'Billing & A/R', icon: FileText, description: 'Streamlined invoicing & collections' },
+        { name: 'Accounts Payable', icon: FileText, description: 'Streamlined vendor payment management' },
         { name: 'Cleanup & Advisory', icon: TrendingUp, description: 'Financial cleanup & strategy' },
-        { name: 'Compliance & Security', icon: Shield, description: 'SOC 2 certified security' }
+        { name: 'Year-End Services', icon: Calendar, description: 'Comprehensive year-end support' }
       ],
       stats: [
         { value: '99.9%', label: 'Accuracy Rate', icon: Award },
@@ -207,9 +207,11 @@ const Header = () => {
             <Button variant="ghost" size="sm">
               Request Pricing
             </Button>
-            <Button className="btn-primary">
-              Book Free Consultation
-            </Button>
+            <a href="#contact">
+              <Button className="btn-primary">
+                Book Free Consultation
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}

@@ -70,38 +70,58 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-subtle">
+    <section id="contact" className="py-24 bg-gradient-to-br from-background via-background to-accent/10">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-accent px-4 py-2 rounded-full mb-6">
-            <Calendar className="w-4 h-4 text-accent-foreground" />
-            <span className="text-sm font-medium text-accent-foreground">
-              Get Started Today
-            </span>
+        <div className="max-w-4xl mx-auto text-center space-y-16">
+          {/* Section Header */}
+          <div className="space-y-4">
+            <h2 className="font-heading text-4xl lg:text-5xl font-bold text-foreground">
+              Ready to Get Started?
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Schedule a free consultation or reach out to discuss how we can help streamline your bookkeeping.
+            </p>
           </div>
-          <h2 className="font-heading text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Ready to Simplify Your Finances?
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Schedule your free consultation or get in touch with our team. 
-            We're here to help you achieve financial clarity and compliance.
-          </p>
-        </div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
-          {/* Left Column - Contact Form */}
-          <div className="bg-card rounded-2xl p-8 shadow-premium">
-            <div className="mb-8">
-              <div className="flex items-center space-x-3 mb-4">
-                <Calendar className="w-6 h-6 text-primary" />
-                <h3 className="font-heading text-xl font-bold text-foreground">
-                  Book Your Free Consultation
+          {/* Calendly Integration */}
+          <div className="space-y-6">
+            <div className="bg-card border border-border rounded-2xl p-8 shadow-lg">
+              <div className="text-center space-y-4 mb-6">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+                  <Calendar className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="font-heading text-2xl font-bold text-foreground">
+                  Schedule Your Free Consultation
                 </h3>
+                <p className="text-muted-foreground max-w-md mx-auto">
+                  Book a 30-minute strategy session with our bookkeeping experts. 
+                  No commitment required - just honest advice and a custom proposal.
+                </p>
               </div>
+              
+              {/* Calendly Inline Widget */}
+              <div className="calendly-inline-widget" 
+                   data-url="https://calendly.com/clearledger-solutions/free-consultation" 
+                   style={{minWidth: '320px', height: '700px'}}>
+              </div>
+              <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+              
+              <div className="text-center mt-6">
+                <p className="text-sm text-muted-foreground">
+                  Can't find a time that works? <a href="#contact-form" className="text-primary hover:underline">Send us a message</a> and we'll find a time that fits your schedule.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <div id="contact-form" className="bg-card border border-border rounded-2xl p-8 shadow-lg">
+            <div className="text-center space-y-4 mb-8">
+              <h3 className="font-heading text-2xl font-bold text-foreground">
+                Send Us a Message
+              </h3>
               <p className="text-muted-foreground">
-                Tell us about your business and we'll schedule a personalized consultation 
-                to discuss your financial management needs.
+                Have questions? Need a quote? We'd love to hear from you.
               </p>
             </div>
 

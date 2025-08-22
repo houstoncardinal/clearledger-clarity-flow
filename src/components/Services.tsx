@@ -15,106 +15,137 @@ import {
   BarChart3,
   Lock,
   Globe,
-  Star
+  Star,
+  Calendar
 } from 'lucide-react';
 
 const Services = () => {
   const services = [
     {
+      title: "QuickBooks Management",
+      description: "Expert bookkeeping with QuickBooks Online and Desktop. We handle all your QB needs including setup, training, and ongoing maintenance.",
       icon: Calculator,
-      title: 'QuickBooks Online & Desktop',
-      description: 'Expert bookkeeping with both QB Online and Desktop platforms, ensuring your books are accurate and up-to-date.',
       features: [
-        'Monthly transaction categorization',
-        'Account reconciliation',
-        'Financial statement preparation',
-        'Multi-entity management',
-        'Real-time data synchronization',
-        'Automated error detection'
+        "QuickBooks setup & configuration",
+        "Chart of accounts optimization",
+        "Bank & credit card reconciliation",
+        "Financial statement preparation",
+        "User training & support",
+        "Regular maintenance & updates"
       ],
-      idealFor: 'Small to mid-sized businesses with 50-500+ transactions monthly',
-      benefits: ['99.9% accuracy rate', '24-hour turnaround', 'Expert QB ProAdvisors'],
-      popular: true
+      benefits: [
+        "Save 10+ hours monthly on bookkeeping",
+        "Real-time financial insights",
+        "Professional QB expertise",
+        "Ongoing support & maintenance"
+      ],
+      popular: true,
+      idealFor: "Small businesses using QuickBooks"
     },
     {
+      title: "Monthly Bookkeeping",
+      description: "Comprehensive monthly bookkeeping services that keep your financial records organized and up-to-date.",
       icon: PieChart,
-      title: 'Monthly Management & Reconciliation',
-      description: 'Comprehensive monthly financial management to keep your business on track and compliant.',
       features: [
-        'Bank & credit card reconciliation',
-        'Monthly financial reporting',
-        'Variance analysis',
-        'Cash flow monitoring',
-        'Budget vs. actual tracking',
-        'KPI dashboard creation'
+        "Transaction categorization & coding",
+        "Monthly bank reconciliation",
+        "Accounts payable management",
+        "Accounts receivable tracking",
+        "Monthly financial reports",
+        "Year-end preparation support"
       ],
-      idealFor: 'Growing businesses needing regular financial insights',
-      benefits: ['Monthly insights', 'Proactive alerts', 'Strategic recommendations'],
-      popular: false
+      benefits: [
+        "Always know your financial position",
+        "Professional record keeping",
+        "Tax-ready financial statements",
+        "Monthly insights & analysis"
+      ],
+      popular: false,
+      idealFor: "Growing businesses needing regular bookkeeping"
     },
     {
+      title: "Payroll Processing",
+      description: "Complete payroll services including processing, tax filing, and compliance management.",
       icon: Users,
-      title: 'Payroll & HR Support',
-      description: 'Complete payroll processing and HR support to manage your team efficiently and compliantly.',
       features: [
-        'Bi-weekly/monthly payroll processing',
-        'Tax filing & compliance',
-        'Employee benefits administration',
-        'HR documentation support',
-        'Time tracking integration',
-        'Compliance monitoring'
+        "Bi-weekly or monthly payroll processing",
+        "Federal & state tax filing",
+        "Direct deposit setup",
+        "Payroll tax deposits",
+        "W-2 & 1099 preparation",
+        "Compliance monitoring"
       ],
-      idealFor: 'Companies with 5-50+ employees requiring reliable payroll',
-      benefits: ['Zero compliance issues', 'Automated processing', '24/7 support'],
-      popular: false
+      benefits: [
+        "Eliminate payroll headaches",
+        "Ensure tax compliance",
+        "Save time on payroll tasks",
+        "Professional payroll expertise"
+      ],
+      popular: false,
+      idealFor: "Businesses with employees"
     },
     {
+      title: "Accounts Payable",
+      description: "Streamlined accounts payable management to keep your vendor relationships and cash flow organized.",
       icon: FileText,
-      title: 'Billing & Accounts Receivable',
-      description: 'Streamlined invoicing and A/R management to improve cash flow and customer relationships.',
       features: [
-        'Automated invoice generation',
-        'Payment tracking & follow-up',
-        'Collections management',
-        'Customer credit analysis',
-        'Recurring billing setup',
-        'Payment gateway integration'
+        "Vendor invoice processing",
+        "Payment scheduling & tracking",
+        "Expense categorization",
+        "Vendor relationship management",
+        "Payment approval workflows",
+        "Cash flow optimization"
       ],
-      idealFor: 'Service-based businesses with recurring billing needs',
-      benefits: ['Improved cash flow', 'Reduced DSO', 'Better customer relations'],
-      popular: false
+      benefits: [
+        "Never miss vendor payments",
+        "Optimize cash flow timing",
+        "Maintain vendor relationships",
+        "Organized expense tracking"
+      ],
+      popular: false,
+      idealFor: "Businesses with regular vendor payments"
     },
     {
+      title: "Financial Cleanup & Advisory",
+      description: "Get your books in order with our cleanup services and receive strategic financial guidance.",
       icon: TrendingUp,
-      title: 'Cleanup & Advisory',
-      description: 'Comprehensive financial cleanup and strategic advisory services to get your books pristine.',
       features: [
-        'Historical data cleanup',
-        'Process optimization',
-        'Financial strategy consulting',
-        'System implementation',
-        'Audit preparation',
-        'Best practices training'
+        "Historical transaction review",
+        "Account reconciliation cleanup",
+        "Financial statement preparation",
+        "Cash flow analysis",
+        "Financial strategy consulting",
+        "Growth planning support"
       ],
-      idealFor: 'Businesses transitioning or upgrading their financial systems',
-      benefits: ['Clean financial records', 'Optimized processes', 'Strategic guidance'],
-      popular: false
+      benefits: [
+        "Clean, organized financial records",
+        "Strategic financial insights",
+        "Better decision making",
+        "Growth-focused guidance"
+      ],
+      popular: false,
+      idealFor: "Businesses needing financial organization"
     },
     {
-      icon: Shield,
-      title: 'Compliance & Security',
-      description: 'Robust security measures and compliance expertise to protect your financial data.',
+      title: "Year-End Services",
+      description: "Comprehensive year-end bookkeeping and preparation for tax season.",
+      icon: Calendar,
       features: [
-        'SOC 2 Type II certified processes',
-        'Bank-level encryption',
-        'Regular compliance audits',
-        'Data backup & recovery',
-        'GDPR & CCPA compliance',
-        'Security monitoring'
+        "Year-end account reconciliation",
+        "Financial statement preparation",
+        "Tax preparation support",
+        "1099 preparation & filing",
+        "Year-end adjustments",
+        "Tax planning consultation"
       ],
-      idealFor: 'All businesses requiring secure, compliant financial management',
-      benefits: ['Enterprise security', 'Full compliance', 'Peace of mind'],
-      popular: false
+      benefits: [
+        "Stress-free tax season",
+        "Complete financial picture",
+        "Tax optimization opportunities",
+        "Professional year-end support"
+      ],
+      popular: false,
+      idealFor: "All businesses needing year-end support"
     }
   ];
 
