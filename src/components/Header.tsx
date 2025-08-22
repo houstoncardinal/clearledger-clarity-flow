@@ -22,7 +22,7 @@ const Header = () => {
             <img 
               src="/logo.png" 
               alt="ClearLedger Logo" 
-              className="w-28 h-28 object-contain"
+              className="w-[200px] h-[200px] object-contain"
             />
           </div>
 
