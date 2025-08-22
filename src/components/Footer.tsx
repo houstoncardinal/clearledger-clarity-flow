@@ -107,11 +107,9 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-4">
             <div className="flex items-center space-x-3 mb-8">
-              <img 
-                src="/logo.png" 
-                alt="ClearLedger Logo" 
-                className="w-12 h-12 object-contain"
-              />
+              <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center">
+                <Shield className="w-6 h-6 text-primary-foreground" />
+              </div>
               <div>
                 <div className="font-heading text-2xl font-bold">ClearLedger</div>
                 <div className="text-sm text-background/70">Financial Solutions</div>

@@ -274,11 +274,9 @@ const Admin = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <img 
-                src="/logo.png" 
-                alt="ClearLedger Logo" 
-                className="w-10 h-10 object-contain"
-              />
+              <div className="w-10 h-10 bg-gradient-to-r from-primary to-primary-dark rounded-xl flex items-center justify-center">
+                <BarChart3 className="w-6 h-6 text-primary-foreground" />
+              </div>
               <div>
                 <h1 className="font-heading text-2xl font-bold text-foreground">
                   ClearLedger Admin

@@ -1,296 +1,211 @@
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { CheckCircle, Star, ArrowRight, Calculator, PieChart, Users } from 'lucide-react';
+import { 
+  CheckCircle, 
+  Star, 
+  ArrowRight,
+  Calculator,
+  Users,
+  TrendingUp
+} from 'lucide-react';
 
 const Pricing = () => {
-  const [isAnnual, setIsAnnual] = useState(true);
-
-  const plans = [
+  const pricingTiers = [
     {
-      name: "Starter",
-      description: "Perfect for small businesses just getting started",
-      price: isAnnual ? 199 : 249,
-      period: isAnnual ? "month" : "month",
+      name: 'Essentials',
+      price: 'Starting at $299',
+      period: '/month',
+      description: 'Perfect for small businesses with basic bookkeeping needs',
       icon: Calculator,
-      features: [
-        "Monthly bookkeeping & reconciliation",
-        "Basic financial reporting",
-        "Email support",
-        "QuickBooks setup assistance",
-        "Tax preparation support",
-        "Year-end closing"
-      ],
       popular: false,
-      idealFor: "Small businesses with <50 transactions/month"
+      features: [
+        'Monthly QuickBooks reconciliation',
+        'Basic financial statements',
+        'Transaction categorization',
+        'Email support',
+        'Up to 100 transactions/month',
+        'Monthly financial summary'
+      ],
+      idealFor: 'Startups, sole proprietors, small service businesses'
     },
     {
-      name: "Professional",
-      description: "Comprehensive solution for growing businesses",
-      price: isAnnual ? 399 : 499,
-      period: isAnnual ? "month" : "month",
-      icon: PieChart,
-      features: [
-        "Everything in Starter, plus:",
-        "Advanced financial reporting",
-        "Cash flow analysis",
-        "Budget planning & monitoring",
-        "Priority support",
-        "Quarterly business reviews",
-        "Strategic financial guidance"
-      ],
+      name: 'Professional',
+      price: 'Starting at $599',
+      period: '/month',
+      description: 'Comprehensive financial management for growing businesses',
+      icon: TrendingUp,
       popular: true,
-      idealFor: "Growing businesses with 50-200 transactions/month"
+      features: [
+        'Everything in Essentials',
+        'Payroll processing (up to 10 employees)',
+        'Accounts receivable management',
+        'Advanced financial reporting',
+        'Phone & email support',
+        'Up to 500 transactions/month',
+        'Quarterly business reviews',
+        'Tax preparation coordination'
+      ],
+      idealFor: 'Growing companies, service businesses, small manufacturers'
     },
     {
-      name: "Enterprise",
-      description: "Full-service financial management for established companies",
-      price: isAnnual ? 799 : 999,
-      period: isAnnual ? "month" : "month",
+      name: 'Enterprise',
+      price: 'Custom Pricing',
+      period: '',
+      description: 'Full-service financial management for established businesses',
       icon: Users,
-      features: [
-        "Everything in Professional, plus:",
-        "Dedicated account manager",
-        "Custom reporting & dashboards",
-        "Payroll processing",
-        "Tax planning & strategy",
-        "Multi-entity management",
-        "24/7 priority support"
-      ],
       popular: false,
-      idealFor: "Established businesses with 200+ transactions/month"
+      features: [
+        'Everything in Professional',
+        'Unlimited payroll processing',
+        'Multi-entity management',
+        'Custom financial reporting',
+        'Dedicated account manager',
+        'Unlimited transactions',
+        'Monthly strategy calls',
+        'Priority support',
+        'Custom integrations'
+      ],
+      idealFor: 'Established businesses, multi-location companies, complex entities'
     }
   ];
 
   const addOns = [
-    {
-      name: "Payroll Processing",
-      price: 99,
-      period: "month",
-      description: "Complete payroll services including tax filing",
-      features: ["Bi-weekly processing", "Tax deposits", "W-2 preparation", "Compliance monitoring"]
-    },
-    {
-      name: "Accounts Payable Management",
-      price: 149,
-      period: "month",
-      description: "Streamlined vendor payment management",
-      features: ["Invoice processing", "Payment scheduling", "Vendor management", "Cash flow optimization"]
-    },
-    {
-      name: "Financial Cleanup",
-      price: 299,
-      period: "one-time",
-      description: "Get your books organized and up-to-date",
-      features: ["Historical review", "Account reconciliation", "Process optimization", "Training & support"]
-    },
-    {
-      name: "Tax Preparation",
-      price: 199,
-      period: "year",
-      description: "Professional tax preparation and filing",
-      features: ["Personal & business returns", "Tax planning", "IRS correspondence", "Audit support"]
-    }
+    { name: 'Additional Payroll Employee', price: '$25/month per employee' },
+    { name: 'Extra Transaction Blocks (100)', price: '$50/month' },
+    { name: 'Expedited Monthly Close', price: '$150/month' },
+    { name: 'Custom Integration Setup', price: '$500 one-time' },
+    { name: 'Financial Planning & Analysis', price: '$200/month' },
+    { name: 'Audit Support Services', price: '$150/hour' }
   ];
 
-  const savings = isAnnual ? "Save 20% with annual billing" : "Monthly billing available";
-
   return (
-    <section id="pricing" className="py-20 bg-gradient-to-br from-background via-background to-accent/5">
+    <section id="pricing" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6">
-              <Calculator className="w-5 h-5" />
-              <span className="text-sm font-semibold">Pricing</span>
-            </div>
-            <h2 className="font-heading text-4xl lg:text-5xl font-bold text-foreground mb-6">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center space-x-2 bg-accent px-4 py-2 rounded-full mb-6">
+            <Calculator className="w-4 h-4 text-accent-foreground" />
+            <span className="text-sm font-medium text-accent-foreground">
               Transparent Pricing
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Choose the plan that fits your business needs. All plans include our core bookkeeping services with transparent pricing and no hidden fees.
-            </p>
+            </span>
           </div>
+          <h2 className="font-heading text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            Choose Your Plan
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Clear, predictable pricing with no hidden fees. All plans include our 
+            commitment to accuracy, security, and exceptional service.
+          </p>
+        </div>
 
-          {/* Billing Toggle */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center bg-card border border-border rounded-full p-1">
-              <button
-                onClick={() => setIsAnnual(false)}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  !isAnnual 
-                    ? 'bg-primary text-primary-foreground' 
-                    : 'text-muted-foreground hover:text-foreground'
+        {/* Pricing Cards */}
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
+          {pricingTiers.map((tier, index) => {
+            const IconComponent = tier.icon;
+            return (
+              <div 
+                key={index} 
+                className={`relative ${
+                  tier.popular 
+                    ? 'card-service ring-2 ring-primary shadow-premium scale-105' 
+                    : 'card-service'
                 }`}
               >
-                Monthly
-              </button>
-              <button
-                onClick={() => setIsAnnual(true)}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  isAnnual 
-                    ? 'bg-primary text-primary-foreground' 
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
-              >
-                Annual
-              </button>
-            </div>
-            <p className="text-sm text-muted-foreground mt-3">{savings}</p>
-          </div>
+                {/* Popular Badge */}
+                {tier.popular && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <div className="bg-gradient-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-medium flex items-center space-x-1">
+                      <Star className="w-3 h-3" />
+                      <span>Most Popular</span>
+                    </div>
+                  </div>
+                )}
 
-          {/* Main Plans */}
-          <div className="grid lg:grid-cols-3 gap-8 mb-20">
-            {plans.map((plan, index) => {
-              const IconComponent = plan.icon;
-              return (
-                <Card 
-                  key={index}
-                  className={`relative group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 ${
-                    plan.popular ? 'ring-2 ring-primary shadow-lg scale-105' : ''
-                  }`}
+                {/* Icon */}
+                <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mb-6">
+                  <IconComponent className="w-6 h-6 text-primary-foreground" />
+                </div>
+
+                {/* Header */}
+                <div className="mb-8">
+                  <h3 className="font-heading text-xl font-bold text-foreground mb-2">
+                    {tier.name}
+                  </h3>
+                  <div className="flex items-baseline mb-4">
+                    <span className="font-heading text-3xl font-bold text-foreground">
+                      {tier.price}
+                    </span>
+                    <span className="text-muted-foreground ml-1">
+                      {tier.period}
+                    </span>
+                  </div>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {tier.description}
+                  </p>
+                </div>
+
+                {/* Features */}
+                <div className="space-y-3 mb-8">
+                  {tier.features.map((feature, featureIndex) => (
+                    <div key={featureIndex} className="flex items-start space-x-3">
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-sm text-foreground">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Ideal For */}
+                <div className="bg-accent p-4 rounded-lg mb-8">
+                  <h4 className="font-medium text-accent-foreground mb-2">Ideal For:</h4>
+                  <p className="text-sm text-accent-foreground">{tier.idealFor}</p>
+                </div>
+
+                {/* CTA */}
+                <Button 
+                  className={`w-full ${tier.popular ? 'btn-primary' : 'btn-secondary'} group`}
                 >
-                  {plan.popular && (
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <Badge className="bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2">
-                        Most Popular
-                      </Badge>
-                    </div>
-                  )}
-                  
-                  <CardHeader className="text-center pb-6">
-                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                      <IconComponent className="w-8 h-8 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
-                    </div>
-                    <CardTitle className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                      {plan.name}
-                    </CardTitle>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {plan.description}
-                    </p>
-                  </CardHeader>
-                  
-                  <CardContent className="space-y-6">
-                    {/* Pricing */}
-                    <div className="text-center">
-                      <div className="flex items-baseline justify-center space-x-2">
-                        <span className="text-4xl font-bold text-foreground">${plan.price}</span>
-                        <span className="text-muted-foreground">/{plan.period}</span>
-                      </div>
-                      <p className="text-sm text-muted-foreground mt-2">{plan.idealFor}</p>
-                    </div>
-
-                    {/* Features */}
-                    <div className="space-y-3">
-                      {plan.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                          <span className="text-sm text-muted-foreground leading-relaxed">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* CTA */}
-                    <div className="pt-4">
-                      <Button 
-                        className={`w-full group ${
-                          plan.popular ? 'btn-primary' : 'border-2 hover:border-primary hover:bg-primary/5'
-                        }`}
-                        variant={plan.popular ? 'default' : 'outline'}
-                      >
-                        Get Started
-                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-
-          {/* Add-on Services */}
-          <div className="mb-20">
-            <div className="text-center mb-12">
-              <h3 className="font-heading text-3xl font-bold text-foreground mb-4">
-                Additional Services
-              </h3>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Enhance your bookkeeping package with specialized services tailored to your specific needs.
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-6">
-              {addOns.map((addon, index) => (
-                <Card key={index} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <CardContent className="p-6">
-                    <div className="flex items-start justify-between mb-4">
-                      <div>
-                        <h4 className="font-semibold text-foreground text-lg mb-2">
-                          {addon.name}
-                        </h4>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
-                          {addon.description}
-                        </p>
-                      </div>
-                      <div className="text-right">
-                        <div className="text-2xl font-bold text-foreground">
-                          ${addon.price}
-                        </div>
-                        <div className="text-sm text-muted-foreground">
-                          /{addon.period}
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-2 mb-4">
-                      {addon.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center space-x-2 text-sm text-muted-foreground">
-                          <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                          <span>{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                    
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
-                      className="w-full group-hover:border-primary group-hover:text-primary transition-all duration-300"
-                    >
-                      Add Service
-                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          {/* CTA Section */}
-          <div className="text-center bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 border border-primary/20">
-            <h3 className="font-heading text-2xl font-bold text-foreground mb-4">
-              Need a Custom Solution?
-            </h3>
-            <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Every business is unique. Let's discuss how we can tailor our services to meet your specific financial management needs and goals.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="#contact">
-                <Button size="lg" className="btn-primary text-lg px-8 py-5">
-                  Schedule Free Consultation
-                  <ArrowRight className="w-5 h-5 ml-2" />
+                  {tier.name === 'Enterprise' ? 'Contact Sales' : 'Get Started'}
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
-              </a>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-5 border-2">
-                Request Custom Quote
-              </Button>
-            </div>
-            <p className="text-sm text-muted-foreground mt-6">
-              Free 30-minute strategy session • No commitment required • Custom proposal within 24 hours
-            </p>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Add-ons */}
+        <div className="bg-gradient-subtle rounded-2xl p-12 mb-16">
+          <h3 className="font-heading text-2xl font-bold text-foreground text-center mb-8">
+            Optional Add-On Services
+          </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {addOns.map((addon, index) => (
+              <div key={index} className="bg-card p-6 rounded-xl shadow-card">
+                <h4 className="font-medium text-foreground mb-2">{addon.name}</h4>
+                <p className="text-primary font-bold">{addon.price}</p>
+              </div>
+            ))}
           </div>
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="text-center bg-card p-12 rounded-2xl shadow-premium">
+          <h3 className="font-heading text-2xl font-bold text-foreground mb-4">
+            Not Sure Which Plan is Right for You?
+          </h3>
+          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Schedule a free consultation with our team. We'll assess your needs and 
+            recommend the perfect plan for your business.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="btn-primary">
+              Book Free Consultation
+            </Button>
+            <Button size="lg" variant="outline" className="btn-secondary">
+              Request Custom Quote
+            </Button>
+          </div>
+          <p className="text-sm text-muted-foreground mt-4">
+            All plans include a 30-day satisfaction guarantee
+          </p>
         </div>
       </div>
     </section>

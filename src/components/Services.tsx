@@ -1,224 +1,172 @@
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { 
   Calculator, 
   PieChart, 
   Users, 
   FileText, 
   TrendingUp, 
-  Calendar,
+  Shield,
   ArrowRight,
-  CheckCircle
+  CheckCircle 
 } from 'lucide-react';
 
 const Services = () => {
-  const [hoveredService, setHoveredService] = useState<number | null>(null);
-
   const services = [
     {
-      title: "QuickBooks Management",
-      description: "Expert setup, training, and ongoing maintenance",
-      price: "From $199/month",
       icon: Calculator,
+      title: 'QuickBooks Online & Desktop',
+      description: 'Expert bookkeeping with both QB Online and Desktop platforms, ensuring your books are accurate and up-to-date.',
       features: [
-        "Setup & configuration",
-        "Monthly reconciliation",
-        "User training",
-        "Ongoing support"
+        'Monthly transaction categorization',
+        'Account reconciliation',
+        'Financial statement preparation',
+        'Multi-entity management'
       ],
-      popular: true,
-      cta: "Get Started"
+      idealFor: 'Small to mid-sized businesses with 50-500+ transactions monthly'
     },
     {
-      title: "Monthly Bookkeeping",
-      description: "Complete monthly financial management",
-      price: "From $299/month",
       icon: PieChart,
+      title: 'Monthly Management & Reconciliation',
+      description: 'Comprehensive monthly financial management to keep your business on track and compliant.',
       features: [
-        "Transaction categorization",
-        "Bank reconciliation",
-        "Monthly reports",
-        "Year-end prep"
+        'Bank & credit card reconciliation',
+        'Monthly financial reporting',
+        'Variance analysis',
+        'Cash flow monitoring'
       ],
-      popular: false,
-      cta: "Learn More"
+      idealFor: 'Growing businesses needing regular financial insights'
     },
     {
-      title: "Payroll Processing",
-      description: "Complete payroll and tax compliance",
-      price: "From $99/month",
       icon: Users,
+      title: 'Payroll & HR Support',
+      description: 'Complete payroll processing and HR support to manage your team efficiently and compliantly.',
       features: [
-        "Bi-weekly processing",
-        "Tax filing",
-        "Direct deposit",
-        "Compliance monitoring"
+        'Bi-weekly/monthly payroll processing',
+        'Tax filing & compliance',
+        'Employee benefits administration',
+        'HR documentation support'
       ],
-      popular: false,
-      cta: "Learn More"
+      idealFor: 'Companies with 5-50+ employees requiring reliable payroll'
     },
     {
-      title: "Accounts Payable",
-      description: "Streamlined vendor payment management",
-      price: "From $149/month",
       icon: FileText,
+      title: 'Billing & Accounts Receivable',
+      description: 'Streamlined invoicing and A/R management to improve cash flow and customer relationships.',
       features: [
-        "Invoice processing",
-        "Payment scheduling",
-        "Vendor management",
-        "Cash flow optimization"
+        'Automated invoice generation',
+        'Payment tracking & follow-up',
+        'Collections management',
+        'Customer credit analysis'
       ],
-      popular: false,
-      cta: "Learn More"
+      idealFor: 'Service-based businesses with recurring billing needs'
     },
     {
-      title: "Financial Cleanup",
-      description: "Get your books organized and up-to-date",
-      price: "From $299",
       icon: TrendingUp,
+      title: 'Cleanup & Advisory',
+      description: 'Comprehensive financial cleanup and strategic advisory services to get your books pristine.',
       features: [
-        "Historical review",
-        "Account cleanup",
-        "Process optimization",
-        "Training & support"
+        'Historical data cleanup',
+        'Process optimization',
+        'Financial strategy consulting',
+        'System implementation'
       ],
-      popular: false,
-      cta: "Learn More"
+      idealFor: 'Businesses transitioning or upgrading their financial systems'
     },
     {
-      title: "Year-End Services",
-      description: "Comprehensive year-end preparation",
-      price: "From $199",
-      icon: Calendar,
+      icon: Shield,
+      title: 'Compliance & Security',
+      description: 'Robust security measures and compliance expertise to protect your financial data.',
       features: [
-        "Account reconciliation",
-        "Financial statements",
-        "Tax preparation support",
-        "1099 filing"
+        'SOC 2 Type II certified processes',
+        'Bank-level encryption',
+        'Regular compliance audits',
+        'Data backup & recovery'
       ],
-      popular: false,
-      cta: "Learn More"
+      idealFor: 'All businesses requiring secure, compliant financial management'
     }
   ];
 
-  const trustMetrics = [
-    { value: "99.9%", label: "Accuracy Rate" },
-    { value: "24h", label: "Response Time" },
-    { value: "500+", label: "Businesses Served" },
-    { value: "15+", label: "Years Experience" }
-  ];
-
   return (
-    <section id="services" className="py-20 bg-gradient-to-br from-background via-background to-accent/5">
+    <section id="services" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6">
-              <Calculator className="w-5 h-5" />
-              <span className="text-sm font-semibold">Our Services</span>
-            </div>
-            <h2 className="font-heading text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Simple, Effective Bookkeeping
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Choose the service that fits your needs. All plans include our commitment to accuracy and exceptional support.
-            </p>
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center space-x-2 bg-accent px-4 py-2 rounded-full mb-6">
+            <PieChart className="w-4 h-4 text-accent-foreground" />
+            <span className="text-sm font-medium text-accent-foreground">
+              Our Services
+            </span>
           </div>
+          <h2 className="font-heading text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            Complete Financial Management
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            From daily bookkeeping to strategic financial planning, we provide comprehensive 
+            outsourced financial services tailored to your business needs.
+          </p>
+        </div>
 
-          {/* Trust Metrics Bar */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {trustMetrics.map((metric, index) => (
-              <div key={index} className="bg-card border border-border rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
-                <div className="text-3xl font-bold text-primary mb-2">{metric.value}</div>
-                <div className="text-sm text-muted-foreground">{metric.label}</div>
+        {/* Services Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {services.map((service, index) => {
+            const IconComponent = service.icon;
+            return (
+              <div key={index} className="card-service group">
+                {/* Icon */}
+                <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <IconComponent className="w-6 h-6 text-primary-foreground" />
+                </div>
+
+                {/* Content */}
+                <h3 className="font-heading text-xl font-bold text-foreground mb-4">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  {service.description}
+                </p>
+
+                {/* Features */}
+                <div className="space-y-3 mb-6">
+                  {service.features.map((feature, featureIndex) => (
+                    <div key={featureIndex} className="flex items-start space-x-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-sm text-foreground">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Ideal For */}
+                <div className="bg-accent p-4 rounded-lg mb-6">
+                  <h4 className="font-medium text-accent-foreground mb-2">Ideal For:</h4>
+                  <p className="text-sm text-accent-foreground">{service.idealFor}</p>
+                </div>
+
+                {/* CTA */}
+                <Button variant="outline" className="w-full btn-secondary group">
+                  Learn More
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
               </div>
-            ))}
-          </div>
+            );
+          })}
+        </div>
 
-          {/* Services Grid */}
-          <div className="grid lg:grid-cols-2 gap-8 mb-20">
-            {services.map((service, index) => {
-              const IconComponent = service.icon;
-              const isHovered = hoveredService === index;
-              
-              return (
-                <Card 
-                  key={index}
-                  className={`group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-2 ${
-                    isHovered ? 'ring-2 ring-primary/20' : ''
-                  }`}
-                  onMouseEnter={() => setHoveredService(index)}
-                  onMouseLeave={() => setHoveredService(null)}
-                >
-                  <CardHeader className="pb-4">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                        <IconComponent className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
-                      </div>
-                      {service.popular && (
-                        <Badge className="bg-primary text-primary-foreground hover:bg-primary/90">
-                          Most Popular
-                        </Badge>
-                      )}
-                    </div>
-                    <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                      {service.title}
-                    </CardTitle>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {service.description}
-                    </p>
-                    <div className="text-2xl font-bold text-primary mt-2">
-                      {service.price}
-                    </div>
-                  </CardHeader>
-                  
-                  <CardContent className="space-y-6">
-                    {/* Features */}
-                    <div className="grid grid-cols-1 gap-2">
-                      {service.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center space-x-2 text-sm text-muted-foreground">
-                          <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                          <span>{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* CTA */}
-                    <div className="pt-4">
-                      <Button 
-                        className={`w-full ${
-                          service.popular ? 'btn-primary' : 'border-2 hover:border-primary hover:bg-primary/5'
-                        }`}
-                        variant={service.popular ? 'default' : 'outline'}
-                      >
-                        {service.cta}
-                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-
-          {/* Simple CTA Section */}
-          <div className="text-center bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 border border-primary/20">
-            <h3 className="font-heading text-2xl font-bold text-foreground mb-4">
-              Not Sure Which Service You Need?
-            </h3>
-            <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Get a free consultation and we'll recommend the perfect solution for your business.
-            </p>
-            <a href="#contact">
-              <Button size="lg" className="btn-primary text-lg px-8 py-5">
-                Book Free Consultation
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </a>
+        {/* Bottom CTA */}
+        <div className="text-center bg-gradient-subtle p-12 rounded-2xl">
+          <h3 className="font-heading text-2xl font-bold text-foreground mb-4">
+            Need a Custom Solution?
+          </h3>
+          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Every business is unique. Let's discuss how we can tailor our services 
+            to meet your specific financial management needs.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="btn-primary">
+              Schedule Consultation
+            </Button>
+            <Button size="lg" variant="outline" className="btn-secondary">
+              Request Custom Quote
+            </Button>
           </div>
         </div>
       </div>

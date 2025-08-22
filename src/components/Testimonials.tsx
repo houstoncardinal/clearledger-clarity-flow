@@ -1,275 +1,280 @@
-import { useState, useEffect } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { ChevronLeft, ChevronRight, Star, Quote, ArrowRight } from 'lucide-react';
+import { 
+  Star, 
+  Quote, 
+  ArrowRight, 
+  ArrowLeft,
+  CheckCircle,
+  TrendingUp,
+  Users,
+  Award
+} from 'lucide-react';
+import { useState } from 'react';
 
 const Testimonials = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   const testimonials = [
     {
-      name: "Sarah Chen",
-      company: "TechStart Solutions",
-      role: "CEO & Founder",
+      name: 'Sarah Chen',
+      title: 'CEO & Founder',
+      company: 'TechFlow Solutions',
+      companySize: '25 employees',
+      industry: 'SaaS',
       rating: 5,
-      content: "ClearLedger has transformed our financial management. Their team is incredibly responsive and professional. We've saved countless hours on bookkeeping and gained valuable insights into our business performance.",
-      avatar: "SC",
-      industry: "Technology",
-      service: "Monthly Bookkeeping"
+      content: 'ClearLedger transformed our financial management. Their team\'s expertise in QuickBooks and attention to detail has saved us countless hours. We\'ve seen a 40% improvement in our month-end close process.',
+      results: ['40% faster month-end close', 'Eliminated manual reconciliation', 'Improved cash flow visibility'],
+      avatar: 'SC',
+      featured: true
     },
     {
-      name: "Michael Rodriguez",
-      company: "Green Earth Construction",
-      role: "Operations Manager",
+      name: 'Michael Rodriguez',
+      title: 'Operations Director',
+      company: 'GreenBuild Construction',
+      companySize: '45 employees',
+      industry: 'Construction',
       rating: 5,
-      content: "The level of detail and accuracy in their work is outstanding. They've helped us streamline our accounts payable process and improved our cash flow management significantly.",
-      avatar: "MR",
-      industry: "Construction",
-      service: "Accounts Payable"
+      content: 'The payroll and HR support has been exceptional. ClearLedger handles everything from processing to compliance, giving us peace of mind. Their response time is incredible - always under 24 hours.',
+      results: ['Streamlined payroll process', 'Zero compliance issues', '24h response guarantee met'],
+      avatar: 'MR'
     },
     {
-      name: "Lisa Thompson",
-      company: "Bella's Boutique",
-      role: "Owner",
+      name: 'Lisa Thompson',
+      title: 'CFO',
+      company: 'HealthFirst Medical',
+      companySize: '120 employees',
+      industry: 'Healthcare',
       rating: 5,
-      content: "As a small business owner, I was overwhelmed with bookkeeping. ClearLedger made everything simple and transparent. Their QuickBooks expertise saved us money and time.",
-      avatar: "LT",
-      industry: "Retail",
-      service: "QuickBooks Management"
+      content: 'As a healthcare provider, compliance is critical. ClearLedger\'s expertise in regulatory requirements and their SOC 2 certification gives us confidence that our financial data is secure and compliant.',
+      results: ['100% compliance maintained', 'Enhanced data security', 'Reduced audit preparation time'],
+      avatar: 'LT'
     },
     {
-      name: "David Kim",
-      company: "Urban Fitness Studio",
-      role: "Managing Partner",
+      name: 'David Kim',
+      title: 'Managing Partner',
+      company: 'Innovate Law Group',
+      companySize: '18 employees',
+      industry: 'Legal Services',
       rating: 5,
-      content: "Their payroll processing is flawless and their compliance knowledge gives us peace of mind. The team is always available when we need them and provides excellent strategic advice.",
-      avatar: "DK",
-      industry: "Fitness",
-      service: "Payroll & HR"
+      content: 'The monthly reconciliation and reporting has been game-changing. We now have clear insights into our financial performance and can make data-driven decisions. ClearLedger feels like an extension of our team.',
+      results: ['Real-time financial insights', 'Improved decision making', 'Professional reporting'],
+      avatar: 'DK'
     }
   ];
 
   const stats = [
-    { value: "98%", label: "Client Retention Rate", description: "Long-term partnerships built on trust" },
-    { value: "4.9/5", label: "Average Rating", description: "Consistently exceeding expectations" },
-    { value: "500+", label: "Businesses Served", description: "Diverse industry experience" },
-    { value: "15+", label: "Years Experience", description: "Proven track record of success" }
+    { value: '98%', label: 'Client Satisfaction', icon: Star },
+    { value: '500+', label: 'Businesses Served', icon: Users },
+    { value: '15+', label: 'Years Experience', icon: Award },
+    { value: '24h', label: 'Response Time', icon: TrendingUp }
   ];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    
-    return () => clearInterval(interval);
-  }, [testimonials.length]);
-
   const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
   };
 
   const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
-  const goToTestimonial = (index: number) => {
-    setCurrentIndex(index);
-  };
+  const current = testimonials[currentTestimonial];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-background via-background to-accent/5">
+    <section className="py-20 bg-gradient-to-br from-background via-accent/10 to-background">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6">
-              <Star className="w-5 h-5" />
-              <span className="text-sm font-semibold">Testimonials</span>
-            </div>
-            <h2 className="font-heading text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              What Our Clients Say
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Don't just take our word for it. Here's what business owners across various industries have to say about working with ClearLedger.
-            </p>
+        {/* Section Header */}
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center space-x-2 bg-accent px-6 py-3 rounded-full mb-8">
+            <Star className="w-5 h-5 text-accent-foreground" />
+            <span className="text-sm font-semibold text-accent-foreground">
+              Client Success Stories
+            </span>
           </div>
+          <h2 className="font-heading text-5xl lg:text-6xl font-bold text-foreground mb-8 leading-tight">
+            Trusted by{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dark">
+              500+ Businesses
+            </span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            See how ClearLedger has transformed financial management for businesses across 
+            various industries, helping them achieve clarity, compliance, and growth.
+          </p>
+        </div>
 
-          {/* Stats Bar */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {stats.map((stat, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-6">
-                  <div className="text-3xl font-bold text-primary mb-2">{stat.value}</div>
-                  <div className="font-semibold text-foreground mb-2">{stat.label}</div>
-                  <p className="text-sm text-muted-foreground">{stat.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+        {/* Trust Stats */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+          {stats.map((stat, index) => {
+            const IconComponent = stat.icon;
+            return (
+              <div key={index} className="text-center group">
+                <div className="w-16 h-16 bg-gradient-to-r from-primary/20 to-primary-dark/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <IconComponent className="w-8 h-8 text-primary" />
+                </div>
+                <div className="font-heading text-4xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                  {stat.value}
+                </div>
+                <div className="text-muted-foreground font-medium">
+                  {stat.label}
+                </div>
+              </div>
+            );
+          })}
+        </div>
 
-          {/* Testimonials Carousel */}
-          <div className="mb-16">
-            <div className="relative">
-              {/* Main Testimonial */}
-              <Card className="relative overflow-hidden">
-                <CardContent className="p-8 lg:p-12">
-                  {/* Quote Icon */}
-                  <div className="absolute top-6 right-6 lg:top-8 lg:right-8">
-                    <Quote className="w-12 h-12 text-primary/10" />
+        {/* Featured Testimonial */}
+        <div className="mb-20">
+          <div className="bg-card rounded-3xl p-12 shadow-2xl border border-border/50 relative overflow-hidden">
+            {/* Background Pattern */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-primary/5 to-primary-dark/5 rounded-full -translate-y-32 translate-x-32"></div>
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-accent/10 to-accent/5 rounded-full translate-y-24 -translate-x-24"></div>
+            
+            <div className="relative z-10">
+              {/* Quote Icon */}
+              <div className="w-16 h-16 bg-gradient-to-r from-primary/20 to-primary-dark/20 rounded-2xl flex items-center justify-center mb-8">
+                <Quote className="w-8 h-8 text-primary" />
+              </div>
+
+              {/* Testimonial Content */}
+              <div className="grid lg:grid-cols-3 gap-12 items-center">
+                <div className="lg:col-span-2">
+                  <div className="flex items-center space-x-1 mb-6">
+                    {[...Array(current.rating)].map((_, i) => (
+                      <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
+                    ))}
                   </div>
                   
-                  {/* Content */}
-                  <div className="max-w-4xl mx-auto text-center">
-                    <div className="flex justify-center mb-6">
-                      {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                        <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
-                      ))}
+                  <blockquote className="text-2xl lg:text-3xl text-foreground font-light leading-relaxed mb-8 italic">
+                    "{current.content}"
+                  </blockquote>
+
+                  {/* Results */}
+                  <div className="space-y-3 mb-8">
+                    {current.results.map((result, index) => (
+                      <div key={index} className="flex items-center space-x-3">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span className="text-foreground font-medium">{result}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Client Info */}
+                  <div className="flex items-center space-x-4">
+                    <div className="w-16 h-16 bg-gradient-to-r from-primary to-primary-dark rounded-2xl flex items-center justify-center text-primary-foreground font-bold text-xl">
+                      {current.avatar}
                     </div>
-                    
-                    <blockquote className="text-lg lg:text-xl text-foreground leading-relaxed mb-8 italic">
-                      "{testimonials[currentIndex].content}"
-                    </blockquote>
-                    
-                    {/* Author Info */}
-                    <div className="flex flex-col items-center space-y-4">
-                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-                        <span className="text-xl font-bold text-primary">
-                          {testimonials[currentIndex].avatar}
-                        </span>
+                    <div>
+                      <div className="font-heading text-xl font-bold text-foreground">
+                        {current.name}
                       </div>
-                      
-                      <div className="text-center">
-                        <div className="font-semibold text-foreground text-lg">
-                          {testimonials[currentIndex].name}
-                        </div>
-                        <div className="text-muted-foreground">
-                          {testimonials[currentIndex].role} at {testimonials[currentIndex].company}
-                        </div>
+                      <div className="text-muted-foreground">
+                        {current.title} at {current.company}
                       </div>
-                      
-                      {/* Service & Industry Badges */}
-                      <div className="flex flex-wrap justify-center gap-2">
-                        <Badge variant="outline" className="text-xs">
-                          {testimonials[currentIndex].industry}
-                        </Badge>
-                        <Badge className="bg-primary/10 text-primary text-xs">
-                          {testimonials[currentIndex].service}
-                        </Badge>
+                      <div className="text-sm text-muted-foreground">
+                        {current.companySize} • {current.industry}
                       </div>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
 
-              {/* Navigation Arrows */}
-              <button
-                onClick={prevTestimonial}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-background border border-border rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-lg"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              
-              <button
-                onClick={nextTestimonial}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-background border border-border rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-lg"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
+                {/* Navigation */}
+                <div className="flex flex-col items-center space-y-6">
+                  <div className="text-center">
+                    <div className="text-sm text-muted-foreground mb-2">Testimonial</div>
+                    <div className="font-heading text-2xl font-bold text-foreground">
+                      {currentTestimonial + 1} of {testimonials.length}
+                    </div>
+                  </div>
+                  
+                  <div className="flex space-x-3">
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      onClick={prevTestimonial}
+                      className="w-12 h-12 rounded-xl hover:bg-accent/50"
+                    >
+                      <ArrowLeft className="w-5 h-5" />
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      onClick={nextTestimonial}
+                      className="w-12 h-12 rounded-xl hover:bg-accent/50"
+                    >
+                      <ArrowRight className="w-5 h-5" />
+                    </Button>
+                  </div>
 
-            {/* Dots Indicator */}
-            <div className="flex justify-center mt-8 space-x-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentIndex 
-                      ? 'bg-primary scale-125' 
-                      : 'bg-border hover:bg-primary/50'
-                  }`}
-                />
-              ))}
+                  {/* Featured Badge */}
+                  {current.featured && (
+                    <div className="bg-gradient-to-r from-primary to-primary-dark text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold">
+                      Featured Story
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
+        </div>
 
-          {/* All Testimonials Grid */}
-          <div className="mb-16">
-            <div className="text-center mb-12">
-              <h3 className="font-heading text-2xl font-bold text-foreground mb-4">
-                More Client Success Stories
-              </h3>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                See how we've helped businesses across different industries achieve financial clarity and growth.
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-6">
-              {testimonials.map((testimonial, index) => (
-                <Card key={index} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4 mb-4">
-                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                        <span className="text-lg font-bold text-primary">
-                          {testimonial.avatar}
-                        </span>
-                      </div>
-                      
-                      <div className="flex-1">
-                        <div className="font-semibold text-foreground mb-1">
-                          {testimonial.name}
-                        </div>
-                        <div className="text-sm text-muted-foreground mb-2">
-                          {testimonial.role} at {testimonial.company}
-                        </div>
-                        <div className="flex items-center space-x-1">
-                          {[...Array(testimonial.rating)].map((_, i) => (
-                            <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <blockquote className="text-sm text-muted-foreground leading-relaxed mb-4 italic">
-                      "{testimonial.content}"
-                    </blockquote>
-                    
-                    <div className="flex flex-wrap gap-2">
-                      <Badge variant="outline" className="text-xs">
-                        {testimonial.industry}
-                      </Badge>
-                      <Badge className="bg-primary/10 text-primary text-xs">
-                        {testimonial.service}
-                      </Badge>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          {/* CTA Section */}
-          <div className="text-center bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 border border-primary/20">
-            <h3 className="font-heading text-2xl font-bold text-foreground mb-4">
-              Ready to Join Our Success Stories?
+        {/* All Testimonials Grid */}
+        <div className="mb-20">
+          <div className="flex items-center justify-between mb-12">
+            <h3 className="font-heading text-3xl font-bold text-foreground">
+              More Success Stories
             </h3>
-            <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Experience the same level of service and expertise that our clients rave about. 
-              Start your journey to financial clarity today.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="#contact">
-                <Button size="lg" className="btn-primary text-lg px-8 py-5">
-                  Start Free Consultation
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-              </a>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-5 border-2">
-                View Case Studies
-              </Button>
-            </div>
+            <Button variant="outline" className="btn-secondary">
+              View All Testimonials
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="card-service group hover:shadow-2xl transition-all duration-500">
+                <div className="flex items-center space-x-1 mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                
+                <blockquote className="text-foreground mb-6 italic leading-relaxed">
+                  "{testimonial.content}"
+                </blockquote>
+                
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-gradient-to-r from-primary to-primary-dark rounded-xl flex items-center justify-center text-primary-foreground font-bold text-sm">
+                    {testimonial.avatar}
+                  </div>
+                  <div>
+                    <div className="font-medium text-foreground">{testimonial.name}</div>
+                    <div className="text-sm text-muted-foreground">
+                      {testimonial.title} at {testimonial.company}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="bg-gradient-to-br from-primary/10 to-primary-dark/10 rounded-3xl p-12 text-center">
+          <h3 className="font-heading text-3xl font-bold text-foreground mb-4">
+            Ready to Join Our Success Stories?
+          </h3>
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Schedule your free consultation today and discover how ClearLedger can 
+            transform your financial management and help your business grow.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="btn-primary text-lg px-8 py-4">
+              Book Free Consultation
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
+            <Button size="lg" variant="outline" className="btn-secondary text-lg px-8 py-4">
+              View Case Studies
+            </Button>
           </div>
         </div>
       </div>
