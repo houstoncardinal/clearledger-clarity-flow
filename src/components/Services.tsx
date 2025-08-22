@@ -1,25 +1,25 @@
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { 
   Calculator, 
   PieChart, 
   Users, 
   FileText, 
   TrendingUp, 
-  Shield,
+  Calendar,
   ArrowRight,
   CheckCircle,
-  Award,
-  Clock,
-  Zap,
-  Target,
-  BarChart3,
-  Lock,
-  Globe,
   Star,
-  Calendar
+  Shield,
+  Clock,
+  Award
 } from 'lucide-react';
 
 const Services = () => {
+  const [hoveredService, setHoveredService] = useState<number | null>(null);
+
   const services = [
     {
       title: "QuickBooks Management",
@@ -150,210 +150,214 @@ const Services = () => {
   ];
 
   const trustMetrics = [
-    { value: '15+', label: 'Years Experience', icon: Clock },
-    { value: '500+', label: 'Businesses Served', icon: Users },
-    { value: '99.9%', label: 'Accuracy Rate', icon: Award },
-    { value: '24h', label: 'Response Time', icon: Zap },
-    { value: 'SOC 2', label: 'Type II Certified', icon: Shield },
-    { value: '4.9/5', label: 'Client Rating', icon: Star }
+    { value: "99.9%", label: "Accuracy Rate", icon: Award, color: "text-green-500" },
+    { value: "24h", label: "Response Time", icon: Clock, color: "text-blue-500" },
+    { value: "500+", label: "Businesses Served", icon: Star, color: "text-purple-500" },
+    { value: "15+", label: "Years Experience", icon: Shield, color: "text-orange-500" }
   ];
 
   const processSteps = [
     {
-      step: '01',
-      title: 'Discovery & Assessment',
-      description: 'We analyze your current financial processes and identify areas for improvement.',
-      icon: Target
+      step: "01",
+      title: "Initial Consultation",
+      description: "Free 30-minute strategy session to understand your needs",
+      icon: Calculator
     },
     {
-      step: '02',
-      title: 'Custom Solution Design',
-      description: 'We create a tailored plan that addresses your specific business needs and goals.',
-      icon: BarChart3
+      step: "02",
+      title: "Custom Proposal",
+      description: "Tailored solution designed for your business requirements",
+      icon: FileText
     },
     {
-      step: '03',
-      title: 'Implementation & Training',
-      description: 'We implement the solution and train your team on best practices.',
-      icon: Zap
+      step: "03",
+      title: "Implementation",
+      description: "Seamless setup and onboarding with dedicated support",
+      icon: TrendingUp
     },
     {
-      step: '04',
-      title: 'Ongoing Support',
-      description: 'We provide continuous support and optimization to ensure long-term success.',
-      icon: Shield
+      step: "04",
+      title: "Ongoing Support",
+      description: "Continuous monitoring, reporting, and optimization",
+      icon: Clock
     }
   ];
 
   return (
-    <section id="services" className="py-24 bg-gradient-to-br from-background via-background to-accent/5">
+    <section id="services" className="py-20 bg-gradient-to-br from-background via-background to-accent/5">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center space-x-2 bg-accent px-6 py-3 rounded-full mb-8">
-            <PieChart className="w-5 h-5 text-accent-foreground" />
-            <span className="text-sm font-semibold text-accent-foreground">
-              Professional Services
-            </span>
-          </div>
-          <h2 className="font-heading text-5xl lg:text-6xl font-bold text-foreground mb-8 leading-tight">
-            Complete Financial{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dark">
-              Management
-            </span>
-          </h2>
-          <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            From daily bookkeeping to strategic financial planning, we provide comprehensive 
-            outsourced financial services that scale with your business growth.
-          </p>
-        </div>
-
-        {/* Trust Metrics */}
-        <div className="grid grid-cols-2 lg:grid-cols-6 gap-8 mb-20">
-          {trustMetrics.map((metric, index) => {
-            const IconComponent = metric.icon;
-            return (
-              <div key={index} className="text-center group">
-                <div className="w-16 h-16 bg-gradient-to-r from-primary/20 to-primary-dark/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <IconComponent className="w-8 h-8 text-primary" />
-                </div>
-                <div className="font-heading text-3xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
-                  {metric.value}
-                </div>
-                <div className="text-sm text-muted-foreground font-medium">
-                  {metric.label}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-          {services.map((service, index) => {
-            const IconComponent = service.icon;
-            return (
-              <div key={index} className={`card-service group relative overflow-hidden ${
-                service.popular ? 'ring-2 ring-primary shadow-premium scale-105' : ''
-              }`}>
-                {/* Popular Badge */}
-                {service.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-gradient-to-r from-primary to-primary-dark text-primary-foreground px-4 py-1 rounded-full text-sm font-medium flex items-center space-x-1">
-                      <Star className="w-3 h-3" />
-                      <span>Most Popular</span>
-                    </div>
-                  </div>
-                )}
-
-                {/* Icon */}
-                <div className="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <IconComponent className="w-7 h-7 text-primary-foreground" />
-                </div>
-
-                {/* Content */}
-                <h3 className="font-heading text-xl font-bold text-foreground mb-4">
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  {service.description}
-                </p>
-
-                {/* Features */}
-                <div className="space-y-3 mb-6">
-                  {service.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-start space-x-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-sm text-foreground">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Benefits */}
-                <div className="mb-6">
-                  <h4 className="font-medium text-primary mb-3">Key Benefits:</h4>
-                  <div className="space-y-2">
-                    {service.benefits.map((benefit, benefitIndex) => (
-                      <div key={benefitIndex} className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-primary rounded-full"></div>
-                        <span className="text-sm text-primary font-medium">{benefit}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Ideal For */}
-                <div className="bg-accent p-4 rounded-lg mb-6">
-                  <h4 className="font-medium text-accent-foreground mb-2">Ideal For:</h4>
-                  <p className="text-sm text-accent-foreground">{service.idealFor}</p>
-                </div>
-
-                {/* CTA */}
-                <Button variant="outline" className="w-full btn-secondary group">
-                  Learn More
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Process Steps */}
-        <div className="mb-20">
+        <div className="max-w-6xl mx-auto">
+          
+          {/* Section Header */}
           <div className="text-center mb-16">
-            <h3 className="font-heading text-3xl lg:text-4xl font-bold text-foreground mb-6">
-              Our Proven Process
-            </h3>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              We follow a systematic approach to ensure your financial management is set up for success
+            <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6">
+              <Calculator className="w-5 h-5" />
+              <span className="text-sm font-semibold">Our Services</span>
+            </div>
+            <h2 className="font-heading text-4xl lg:text-5xl font-bold text-foreground mb-6">
+              Comprehensive Bookkeeping Solutions
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Professional financial management services designed to keep your business organized, compliant, and positioned for growth.
             </p>
           </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {processSteps.map((step, index) => {
-              const IconComponent = step.icon;
+
+          {/* Trust Metrics Bar */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            {trustMetrics.map((metric, index) => {
+              const IconComponent = metric.icon;
               return (
-                <div key={index} className="text-center group">
-                  <div className="relative mb-6">
-                    <div className="w-20 h-20 bg-gradient-to-r from-primary/20 to-primary-dark/20 rounded-2xl flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
-                      <IconComponent className="w-10 h-10 text-primary" />
-                    </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold">
-                      {step.step}
-                    </div>
+                <div key={index} className="bg-card border border-border rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                  <div className={`w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4 ${metric.color} bg-primary/10`}>
+                    <IconComponent className="w-6 h-6" />
                   </div>
-                  <h4 className="font-heading text-xl font-bold text-foreground mb-4">
-                    {step.title}
-                  </h4>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {step.description}
-                  </p>
+                  <div className="text-2xl font-bold text-foreground mb-2">{metric.value}</div>
+                  <div className="text-sm text-muted-foreground">{metric.label}</div>
                 </div>
               );
             })}
           </div>
-        </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center bg-gradient-to-br from-primary/10 to-primary-dark/10 p-16 rounded-3xl border border-primary/20">
-          <h3 className="font-heading text-3xl lg:text-4xl font-bold text-foreground mb-6">
-            Need a Custom Solution?
-          </h3>
-          <p className="text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
-            Every business is unique. Let's discuss how we can tailor our services 
-            to meet your specific financial management needs and goals.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button size="lg" className="btn-primary text-lg px-8 py-4">
-              Schedule Consultation
-            </Button>
-            <Button size="lg" variant="outline" className="btn-secondary text-lg px-8 py-4">
-              Request Custom Quote
-            </Button>
+          {/* Services Grid */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-20">
+            {services.map((service, index) => {
+              const IconComponent = service.icon;
+              const isHovered = hoveredService === index;
+              
+              return (
+                <Card 
+                  key={index}
+                  className={`group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-2 ${
+                    isHovered ? 'ring-2 ring-primary/20' : ''
+                  }`}
+                  onMouseEnter={() => setHoveredService(index)}
+                  onMouseLeave={() => setHoveredService(null)}
+                >
+                  <CardHeader className="pb-4">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                        <IconComponent className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
+                      </div>
+                      {service.popular && (
+                        <Badge className="bg-primary text-primary-foreground hover:bg-primary/90">
+                          Most Popular
+                        </Badge>
+                      )}
+                    </div>
+                    <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                      {service.title}
+                    </CardTitle>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {service.description}
+                    </p>
+                  </CardHeader>
+                  
+                  <CardContent className="space-y-6">
+                    {/* Features */}
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-3">What's Included:</h4>
+                      <div className="grid grid-cols-1 gap-2">
+                        {service.features.map((feature, featureIndex) => (
+                          <div key={featureIndex} className="flex items-center space-x-2 text-sm text-muted-foreground">
+                            <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                            <span>{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Benefits */}
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-3">Key Benefits:</h4>
+                      <div className="grid grid-cols-1 gap-2">
+                        {service.benefits.map((benefit, benefitIndex) => (
+                          <div key={benefitIndex} className="flex items-center space-x-2 text-sm text-muted-foreground">
+                            <Star className="w-4 h-4 text-primary flex-shrink-0" />
+                            <span>{benefit}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Ideal For */}
+                    <div className="pt-4 border-t border-border/50">
+                      <div className="flex items-center justify-between">
+                        <div className="text-sm text-muted-foreground">
+                          <span className="font-medium text-foreground">Ideal for:</span> {service.idealFor}
+                        </div>
+                        <Button 
+                          variant="outline" 
+                          size="sm"
+                          className="group-hover:border-primary group-hover:text-primary transition-all duration-300"
+                        >
+                          Learn More
+                          <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                        </Button>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
-          <p className="text-sm text-muted-foreground mt-6">
-            Free 30-minute strategy session • No commitment required • Custom proposal within 24 hours
-          </p>
+
+          {/* Proven Process */}
+          <div className="bg-card border border-border rounded-2xl p-8 mb-16">
+            <div className="text-center mb-12">
+              <h3 className="font-heading text-3xl font-bold text-foreground mb-4">
+                Our Proven Process
+              </h3>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                A systematic approach to financial management that ensures accuracy, compliance, and peace of mind.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {processSteps.map((step, index) => {
+                const IconComponent = step.icon;
+                return (
+                  <div key={index} className="text-center group">
+                    <div className="relative mb-6">
+                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                        <IconComponent className="w-8 h-8 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
+                      </div>
+                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold">
+                        {step.step}
+                      </div>
+                    </div>
+                    <h4 className="font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                      {step.title}
+                    </h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* CTA Section */}
+          <div className="text-center bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 border border-primary/20">
+            <h3 className="font-heading text-2xl font-bold text-foreground mb-4">
+              Ready to Get Started?
+            </h3>
+            <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
+              Join hundreds of businesses that trust ClearLedger for their financial management needs. 
+              Get a free consultation and custom proposal today.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="#contact">
+                <Button size="lg" className="btn-primary text-lg px-8 py-5">
+                  Book Free Consultation
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+              </a>
+              <Button size="lg" variant="outline" className="text-lg px-8 py-5 border-2">
+                View Pricing
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
