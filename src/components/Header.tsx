@@ -15,14 +15,14 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-background/95 backdrop-blur-sm border-b border-border z-50">
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-2">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
             <img 
               src="/logo.png" 
               alt="ClearLedger Logo" 
-              className="w-24 h-24 object-contain"
+              className="w-28 h-28 object-contain"
             />
           </div>
 
