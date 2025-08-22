@@ -84,6 +84,9 @@ const Hero = () => {
                   <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
                     With our motto, <span className="italic text-primary font-medium">"Where Clarity Meets Compliance,"</span> we're committed to making your financial records easy to understand while ensuring full adherence to the latest regulations.
                   </p>
+                  <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
+                    Whether you're managing day-to-day expenses, need monthly maintenance for your business accounts, or just need assistance with the annual work at the end of the year, our expert team brings peace of mind through organized, compliant financial reporting.
+                  </p>
                 </div>
               </div>
 
