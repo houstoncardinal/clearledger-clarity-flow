@@ -18,15 +18,12 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center">
             <img 
               src="/logo.png" 
               alt="ClearLedger Logo" 
-              className="w-10 h-10 object-contain"
+              className="w-16 h-16 object-contain"
             />
-            <span className="font-heading text-xl font-bold text-foreground">
-              ClearLedger
-            </span>
           </div>
 
           {/* Desktop Navigation */}
