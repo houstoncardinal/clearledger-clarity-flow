@@ -22,11 +22,9 @@ const Footer = () => {
       title: 'Services',
       links: [
         { name: 'QuickBooks Management', href: '#services' },
-        { name: 'Payroll & HR Support', href: '#services' },
         { name: 'Monthly Reconciliation', href: '#services' },
-        { name: 'Billing & A/R', href: '#services' },
-        { name: 'Cleanup & Advisory', href: '#services' },
-        { name: 'Compliance & Security', href: '#services' }
+        { name: 'Billing & A/P', href: '#services' },
+        { name: 'Cleanup & Advisory', href: '#services' }
       ]
     },
     {
@@ -76,26 +74,26 @@ const Footer = () => {
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 (555) 123-4567',
-      subtext: 'Mon-Fri 8AM-6PM EST'
+      value: '(903) 815-9488',
+      subtext: 'M-Th 7:30am-4:30pm, Fri 7:30am-1:00pm'
     },
     {
       icon: Mail,
       label: 'Email',
-      value: 'hello@clearledger.com',
+      value: 'jj@yourclearledger.com',
       subtext: '24-hour response guarantee'
     },
     {
       icon: MapPin,
       label: 'Headquarters',
-      value: 'Toronto, ON',
-      subtext: 'Serving clients across North America'
+      value: 'Whitewright, TX',
+      subtext: 'Serving clients across various industries'
     },
     {
       icon: Clock,
       label: 'Business Hours',
-      value: 'Mon-Fri 8AM-6PM EST',
-      subtext: 'Emergency support available'
+      value: 'M-Th 7:30am-4:30pm, Fri 7:30am-1:00pm',
+      subtext: 'Saturday & Sunday - Closed'
     }
   ];
 
@@ -111,14 +109,14 @@ const Footer = () => {
                 <Shield className="w-6 h-6 text-primary-foreground" />
               </div>
               <div>
-                <div className="font-heading text-2xl font-bold">ClearLedger</div>
+                <div className="font-heading text-2xl font-bold">ClearLedger Solutions LLC</div>
                 <div className="text-sm text-background/70">Financial Solutions</div>
               </div>
             </div>
             
             <p className="text-background/80 leading-relaxed mb-8 max-w-md">
-              For over 15 years, ClearLedger has been providing exceptional financial 
-              management services to growing businesses across North America.
+              ClearLedger Solutions LLC specializes in providing accurate, reliable, and transparent
+              bookkeeping services tailored to small businesses and entrepreneurs across various industries.
             </p>
 
             {/* Contact Info */}
@@ -229,11 +227,11 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <div className="flex items-center space-x-6 text-sm text-background/70">
-              <span>&copy; {currentYear} ClearLedger Solutions. All rights reserved.</span>
+              <span>&copy; {currentYear} ClearLedger Solutions LLC. All rights reserved.</span>
               <span>•</span>
-              <span>SOC 2 Type II Certified</span>
+              <span>QuickBooks ProAdvisor Certified</span>
               <span>•</span>
-              <span>QuickBooks ProAdvisor</span>
+              <span>10+ Years Experience</span>
             </div>
             
             <div className="flex items-center space-x-6 text-sm">

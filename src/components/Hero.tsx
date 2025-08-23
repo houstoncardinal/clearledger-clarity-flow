@@ -5,8 +5,8 @@ const Hero = () => {
   const keyBenefits = [
     'QuickBooks Online & Desktop Expertise',
     'Monthly Bookkeeping & Reconciliation',
-    'Payroll & HR Support',
-    'Secure & Compliant'
+    'Accounts Payable Management',
+    'Compliant Financial Reporting'
   ];
 
   return (
@@ -21,23 +21,25 @@ const Hero = () => {
               ))}
             </div>
             <span className="text-sm font-semibold text-accent-foreground">
-              Trusted by 500+ Businesses • 4.9/5 Rating
+              Expert Bookkeeping Services • 4.9/5 Rating
             </span>
           </div>
 
           {/* Main Headline */}
           <div className="space-y-6">
             <h1 className="font-heading text-5xl lg:text-7xl font-bold text-foreground leading-tight">
-              Professional{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dark">
-                QuickBooks
-              </span>{' '}
-              Bookkeeping
+                ClearLedger Solutions
+              </span>
             </h1>
             
+            <h2 className="font-heading text-3xl lg:text-4xl font-semibold text-foreground mb-6">
+              Where Clarity Meets Compliance
+            </h2>
+            
             <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-              Get your books done right, on time, every month. 
-              <span className="font-semibold text-foreground"> Save 15+ hours per month</span> with our expert team.
+              Expert bookkeeping services tailored to small businesses and entrepreneurs. 
+              <span className="font-semibold text-foreground"> Save 15+ hours per month</span> with our transparent, compliant financial reporting.
             </p>
           </div>
 
@@ -69,16 +71,16 @@ const Hero = () => {
           {/* Trust Indicators */}
           <div className="flex flex-wrap justify-center gap-6 pt-8 border-t border-border/50">
             <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-              <Shield className="w-4 h-4 text-primary" />
-              <span>SOC 2 Certified</span>
+              <CheckCircle className="w-4 h-4 text-primary" />
+              <span>2024-2025 Top 25 Up-N-Coming ProAdvisor</span>
             </div>
             <div className="flex items-center space-x-2 text-sm text-muted-foreground">
               <CheckCircle className="w-4 h-4 text-primary" />
-              <span>QuickBooks ProAdvisor</span>
+              <span>QuickBooks ProAdvisor Certified</span>
             </div>
             <div className="flex items-center space-x-2 text-sm text-muted-foreground">
               <Star className="w-4 h-4 text-primary" />
-              <span>15+ Years Experience</span>
+              <span>10+ Years Experience</span>
             </div>
           </div>
         </div>

@@ -5,33 +5,23 @@ import {
   Users, 
   Clock,
   CheckCircle,
-  Lock,
   FileText,
   TrendingUp
 } from 'lucide-react';
 
 const About = () => {
   const certifications = [
-    { name: 'QuickBooks ProAdvisor', icon: Award },
-    { name: 'CPA Partnership', icon: FileText },
-    { name: 'SOC 2 Type II', icon: Shield },
-    { name: 'Bank-Level Encryption', icon: Lock }
+    { name: '2024-2025 Top 25 Up-N-Coming ProAdvisor', icon: Award },
+    { name: 'QuickBooks Online Advanced Certified ProAdvisor', icon: FileText },
+    { name: 'QuickBooks Desktop Certified ProAdvisor', icon: Shield },
+    { name: 'QuickBooks Desktop Enterprise Certified', icon: CheckCircle }
   ];
 
   const teamStats = [
-    { value: '15+', label: 'Years Experience', icon: Clock },
-    { value: '25+', label: 'Team Members', icon: Users },
-    { value: '500+', label: 'Clients Served', icon: TrendingUp },
+    { value: '10+', label: 'Years Experience', icon: Clock },
+    { value: 'Small', label: 'Dedicated Team', icon: Users },
+    { value: 'Various', label: 'Industries Served', icon: TrendingUp },
     { value: '99.9%', label: 'Accuracy Rate', icon: CheckCircle }
-  ];
-
-  const securityFeatures = [
-    'SOC 2 Type II certified security processes',
-    'Bank-level 256-bit SSL encryption',
-    'Daily encrypted data backups',
-    'Multi-factor authentication required',
-    'Regular security audits and updates',
-    'GDPR and CCPA compliant data handling'
   ];
 
   return (
@@ -49,8 +39,8 @@ const About = () => {
             Your Trusted Financial Partner
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            For over 15 years, ClearLedger Solutions has been providing exceptional 
-            financial management services to growing businesses across North America.
+            At ClearLedger Solutions, we specialize in providing accurate, reliable, and transparent
+            bookkeeping services tailored to small businesses and entrepreneurs.
           </p>
         </div>
 
@@ -62,15 +52,17 @@ const About = () => {
                 Our Story
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Founded by certified accounting professionals, ClearLedger was born from 
-                the recognition that small and mid-sized businesses deserve the same 
-                high-quality financial management that larger corporations enjoy.
+                Founded by a certified accounting professional, ClearLedger Solutions was born from 
+                the recognition that small and mid-sized businesses deserve high-quality financial 
+                management. Our founder JJ brings over 10+ years of experience in bookkeeping.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Today, we serve over 500 businesses across various industries, from 
-                startups to established companies with complex financial needs. Our 
-                commitment to accuracy, transparency, and exceptional service has made 
-                us a trusted partner in our clients' growth journeys.
+                With our motto, "Where Clarity Meets Compliance," we're committed to making your 
+                financial records easy to understand while ensuring full adherence to the latest 
+                regulations. Whether you're managing day-to-day expenses, need monthly maintenance 
+                for your business accounts, or just need assistance with the annual work at the 
+                end of the year, our expert team brings peace of mind through organized, compliant 
+                financial reporting.
               </p>
             </div>
 
@@ -107,8 +99,8 @@ const About = () => {
                     <Users className="w-6 h-6 text-primary-foreground" />
                   </div>
                   <div>
-                    <h5 className="font-medium text-foreground">Sarah Chen, CPA</h5>
-                    <p className="text-sm text-muted-foreground">Founder & CEO</p>
+                    <h5 className="font-medium text-foreground">JJ Eldredge</h5>
+                    <p className="text-sm text-muted-foreground">Owner - Certified ProAdvisor</p>
                   </div>
                 </div>
                 
@@ -117,18 +109,8 @@ const About = () => {
                     <TrendingUp className="w-6 h-6 text-primary-foreground" />
                   </div>
                   <div>
-                    <h5 className="font-medium text-foreground">Michael Rodriguez</h5>
-                    <p className="text-sm text-muted-foreground">Head of Operations</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center space-x-4 p-4 bg-secondary rounded-lg">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
-                    <Shield className="w-6 h-6 text-primary-foreground" />
-                  </div>
-                  <div>
-                    <h5 className="font-medium text-foreground">Lisa Thompson</h5>
-                    <p className="text-sm text-muted-foreground">Head of Compliance</p>
+                    <h5 className="font-medium text-foreground">Regan Eldredge</h5>
+                    <p className="text-sm text-muted-foreground">Office Manager & Head of Marketing</p>
                   </div>
                 </div>
               </div>
@@ -154,52 +136,18 @@ const About = () => {
           </div>
         </div>
 
-        {/* Security & Compliance */}
-        <div className="bg-card rounded-2xl p-12 shadow-premium">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="flex items-center space-x-3 mb-6">
-                <Shield className="w-8 h-8 text-primary" />
-                <h3 className="font-heading text-2xl font-bold text-foreground">
-                  Security & Compliance
-                </h3>
-              </div>
-              <p className="text-muted-foreground leading-relaxed mb-8">
-                Your financial data security is our top priority. We maintain the highest 
-                standards of data protection and compliance to ensure your information 
-                remains safe and confidential.
-              </p>
-              
-              <div className="space-y-3">
-                {securityFeatures.map((feature, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-foreground">{feature}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              {/* Security Badges */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="text-center p-6 bg-accent rounded-xl">
-                  <Lock className="w-8 h-8 text-accent-foreground mx-auto mb-3" />
-                  <div className="font-bold text-lg text-accent-foreground">256-bit</div>
-                  <div className="text-sm text-accent-foreground">SSL Encryption</div>
-                </div>
-                <div className="text-center p-6 bg-accent rounded-xl">
-                  <Shield className="w-8 h-8 text-accent-foreground mx-auto mb-3" />
-                  <div className="font-bold text-lg text-accent-foreground">SOC 2</div>
-                  <div className="text-sm text-accent-foreground">Type II Certified</div>
-                </div>
-              </div>
-
-              <Button className="w-full btn-primary">
-                View Security Documentation
-              </Button>
-            </div>
-          </div>
+        {/* Contact CTA */}
+        <div className="bg-card rounded-2xl p-12 shadow-premium text-center">
+          <h3 className="font-heading text-2xl font-bold text-foreground mb-4">
+            Ready to Get Started?
+          </h3>
+          <p className="text-muted-foreground leading-relaxed mb-8 max-w-2xl mx-auto">
+            Let us help you achieve financial clarity and compliance. Contact us today 
+            to discuss your bookkeeping needs and get a custom solution for your business.
+          </p>
+          <Button className="btn-primary" size="lg">
+            Schedule Your Free Consultation
+          </Button>
         </div>
       </div>
     </section>

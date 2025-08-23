@@ -23,7 +23,7 @@ const Header = () => {
               <ArrowRight className="w-4 h-4 text-primary-foreground transform rotate-45" />
             </div>
             <span className="font-heading text-xl font-bold text-foreground">
-              ClearLedger
+              ClearLedger Solutions
             </span>
           </div>
 

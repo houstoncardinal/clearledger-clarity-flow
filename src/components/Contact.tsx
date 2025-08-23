@@ -39,26 +39,26 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Phone',
-      details: '+1 (555) 123-4567',
-      subtext: 'Mon-Fri 8AM-6PM EST'
+      details: '(903) 815-9488',
+      subtext: 'M-Th 7:30am-4:30pm, Fri 7:30am-1:00pm'
     },
     {
       icon: Mail,
       title: 'Email',
-      details: 'hello@clearledger.com',
+      details: 'jj@yourclearledger.com',
       subtext: '24-hour response guarantee'
     },
     {
       icon: MapPin,
       title: 'Headquarters',
-      details: 'Toronto, ON',
-      subtext: 'Serving clients across North America'
+      details: 'Whitewright, TX',
+      subtext: 'Serving clients across various industries'
     },
     {
       icon: Clock,
       title: 'Business Hours',
-      details: 'Mon-Fri 8AM-6PM EST',
-      subtext: 'Emergency support available'
+      details: 'M-Th 7:30am-4:30pm, Fri 7:30am-1:00pm',
+      subtext: 'Saturday & Sunday - Closed'
     }
   ];
 
@@ -199,9 +199,8 @@ const Contact = () => {
                 >
                   <option value="">Select a service</option>
                   <option value="bookkeeping">QuickBooks Bookkeeping</option>
-                  <option value="payroll">Payroll & HR</option>
                   <option value="reconciliation">Monthly Reconciliation</option>
-                  <option value="billing">Billing & A/R</option>
+                  <option value="billing">Billing & A/P</option>
                   <option value="cleanup">Cleanup & Advisory</option>
                   <option value="custom">Custom Solution</option>
                 </select>
@@ -263,31 +262,32 @@ const Contact = () => {
               <div className="space-y-4">
                 <Button className="w-full btn-primary">
                   <Phone className="w-4 h-4 mr-2" />
-                  Call Now: (555) 123-4567
+                  Call Now: (903) 815-9488
                 </Button>
                 <Button variant="outline" className="w-full btn-secondary">
                   <Mail className="w-4 h-4 mr-2" />
                   Send Email
                 </Button>
+                
+                {/* Calendly Integration */}
+                <div className="mt-6 p-4 bg-accent rounded-lg">
+                  <h4 className="font-medium text-accent-foreground mb-2">
+                    Schedule Online
+                  </h4>
+                  <p className="text-sm text-accent-foreground mb-4">
+                    Book your free consultation directly on our calendar
+                  </p>
+                  <Button variant="outline" className="w-full text-accent-foreground border-accent-foreground">
+                    <Calendar className="w-4 h-4 mr-2" />
+                    Schedule Meeting
+                  </Button>
+                </div>
               </div>
-              <p className="text-sm text-muted-foreground mt-4 text-center">
-                Average response time: Under 2 hours
-              </p>
+                  <p className="text-sm text-muted-foreground mt-4 text-center">
+                    Average response time: Under 2 hours
+                  </p>
             </div>
 
-            {/* Emergency Contact */}
-            <div className="bg-accent p-6 rounded-xl">
-              <h4 className="font-medium text-accent-foreground mb-2">
-                Need Urgent Help?
-              </h4>
-              <p className="text-sm text-accent-foreground mb-4">
-                For existing clients with urgent financial matters, 
-                call our emergency line available 24/7.
-              </p>
-              <Button variant="outline" size="sm" className="text-accent-foreground border-accent-foreground">
-                Emergency Support
-              </Button>
-            </div>
           </div>
         </div>
       </div>

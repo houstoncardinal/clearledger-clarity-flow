@@ -37,26 +37,14 @@ const Services = () => {
       idealFor: 'Growing businesses needing regular financial insights'
     },
     {
-      icon: Users,
-      title: 'Payroll & HR Support',
-      description: 'Complete payroll processing and HR support to manage your team efficiently and compliantly.',
-      features: [
-        'Bi-weekly/monthly payroll processing',
-        'Tax filing & compliance',
-        'Employee benefits administration',
-        'HR documentation support'
-      ],
-      idealFor: 'Companies with 5-50+ employees requiring reliable payroll'
-    },
-    {
       icon: FileText,
-      title: 'Billing & Accounts Receivable',
-      description: 'Streamlined invoicing and A/R management to improve cash flow and customer relationships.',
+      title: 'Billing & Accounts Payable',
+      description: 'Streamlined invoicing and A/P management to improve cash flow and vendor relationships.',
       features: [
         'Automated invoice generation',
         'Payment tracking & follow-up',
-        'Collections management',
-        'Customer credit analysis'
+        'Vendor payment management',
+        'Cash flow optimization'
       ],
       idealFor: 'Service-based businesses with recurring billing needs'
     },
@@ -71,18 +59,6 @@ const Services = () => {
         'System implementation'
       ],
       idealFor: 'Businesses transitioning or upgrading their financial systems'
-    },
-    {
-      icon: Shield,
-      title: 'Compliance & Security',
-      description: 'Robust security measures and compliance expertise to protect your financial data.',
-      features: [
-        'SOC 2 Type II certified processes',
-        'Bank-level encryption',
-        'Regular compliance audits',
-        'Data backup & recovery'
-      ],
-      idealFor: 'All businesses requiring secure, compliant financial management'
     }
   ];
 
@@ -107,7 +83,7 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
