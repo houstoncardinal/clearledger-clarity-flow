@@ -22,19 +22,19 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8 lg:space-y-10">
           {/* Trust Badge */}
           <div 
-            className="inline-flex items-center space-x-3 bg-accent px-6 py-3 rounded-full border border-accent-foreground/20 animate-fade-in"
+            className="inline-flex items-center space-x-2 sm:space-x-3 bg-accent/90 backdrop-blur-sm px-4 sm:px-6 py-2 sm:py-3 rounded-full border border-accent-foreground/20 shadow-sm animate-fade-in"
             style={{animationDelay: '0.2s'}}
           >
             <div className="flex space-x-1">
               {[...Array(5)].map((_, i) => (
                 <Star 
                   key={i} 
-                  className="w-4 h-4 fill-yellow-400 text-yellow-400 animate-bounce" 
+                  className="w-3 h-3 sm:w-4 sm:h-4 fill-yellow-400 text-yellow-400 animate-bounce" 
                   style={{animationDelay: `${i * 0.1}s`}}
                 />
               ))}
             </div>
-            <span className="text-sm font-semibold text-accent-foreground">
+            <span className="text-xs sm:text-sm font-semibold text-accent-foreground whitespace-nowrap">
               Expert Bookkeeping Services • 4.9/5 Rating
             </span>
           </div>
