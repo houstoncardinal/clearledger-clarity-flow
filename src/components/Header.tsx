@@ -32,28 +32,28 @@ const Header = () => {
       title: 'QuickBooks Services',
       description: 'Expert bookkeeping with both QB Online and Desktop platforms',
       icon: Calculator,
-      href: '/services#quickbooks',
+      href: '/quickbooks-services',
       features: ['Monthly reconciliation', 'Transaction categorization', 'Multi-entity management']
     },
     {
       title: 'Monthly Management',
       description: 'Comprehensive monthly financial management and reporting',
       icon: PieChart,
-      href: '/services#monthly-management',
+      href: '/monthly-management',
       features: ['Bank reconciliation', 'Financial reporting', 'Cash flow monitoring']
     },
     {
       title: 'Billing & Accounts Payable',
       description: 'Streamlined invoicing and accounts payable management',
       icon: FileText,
-      href: '/services#billing-ap',
+      href: '/billing-accounts-payable',
       features: ['Automated invoicing', 'Payment tracking', 'Vendor management']
     },
     {
       title: 'Cleanup & Advisory',
       description: 'Financial cleanup and strategic advisory services',
       icon: TrendingUp,
-      href: '/services#cleanup-advisory',
+      href: '/cleanup-advisory',
       features: ['Historical cleanup', 'Process optimization', 'Strategic consulting']
     }
   ];

@@ -122,10 +122,14 @@ const Services = () => {
                 </div>
 
                 {/* CTA */}
-                <Button variant="outline" className="w-full btn-secondary group">
-                  Learn More
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                <Link to={index === 0 ? '/quickbooks-services' : 
+                         index === 1 ? '/monthly-management' : 
+                         index === 2 ? '/billing-accounts-payable' : '/cleanup-advisory'}>
+                  <Button variant="outline" className="w-full btn-secondary group">
+                    Learn More
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
               </div>
             );
           })}
