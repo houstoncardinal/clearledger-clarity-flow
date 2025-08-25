@@ -36,7 +36,7 @@ const About = () => {
               About ClearLedger
             </span>
           </div>
-          <h2 className="font-heading text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Your Trusted Financial Partner
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
@@ -49,7 +49,7 @@ const About = () => {
           {/* Left Column - Story */}
           <div className="space-y-8">
             <div>
-              <h3 className="font-heading text-2xl font-bold text-foreground mb-4">
+              <h3 className="font-heading text-xl sm:text-2xl font-bold text-foreground mb-4">
                 Our Story
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-6">

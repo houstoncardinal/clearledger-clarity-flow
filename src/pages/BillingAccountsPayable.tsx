@@ -156,39 +156,39 @@ const BillingAccountsPayable = () => {
       
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
-        <section className="pt-32 pb-20 bg-gradient-to-br from-background via-accent/10 to-background">
+        <section className="pt-32 pb-20 bg-gradient-to-br from-background via-accent/10 to-background overflow-hidden">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center space-x-2 bg-accent px-6 py-3 rounded-full mb-8">
+              <div className="inline-flex items-center space-x-2 bg-accent px-4 sm:px-6 py-3 rounded-full mb-8">
                 <FileText className="w-5 h-5 text-accent-foreground" />
                 <span className="text-sm font-semibold text-accent-foreground">
                   Billing & A/P Services
                 </span>
               </div>
               
-              <h1 className="font-heading text-5xl lg:text-6xl font-bold text-foreground mb-8 leading-tight">
+              <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-8 leading-tight">
                 Billing &{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dark">
                   Accounts Payable
                 </span>
-                <br />
+                <br className="hidden sm:block" />
                 Services
               </h1>
               
-              <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed mb-12 max-w-3xl mx-auto">
+              <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground leading-relaxed mb-12 max-w-3xl mx-auto px-2">
                 Streamlined invoicing and accounts payable management to improve cash flow and vendor relationships. 
                 Reduce processing time by 60% with our automated workflows.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center px-4 sm:px-0">
                 <Link to="/contact">
-                  <Button size="lg" className="btn-primary text-lg px-8 py-4">
+                  <Button size="lg" className="btn-primary text-lg px-6 sm:px-8 py-4 w-full sm:w-auto">
                     Get Started Today
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
                 </Link>
                 <Link to="/contact">
-                  <Button size="lg" variant="outline" className="btn-secondary text-lg px-8 py-4">
+                  <Button size="lg" variant="outline" className="btn-secondary text-lg px-6 sm:px-8 py-4 w-full sm:w-auto">
                     Free Consultation
                   </Button>
                 </Link>

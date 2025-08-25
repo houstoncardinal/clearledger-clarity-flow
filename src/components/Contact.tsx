@@ -82,7 +82,7 @@ const Contact = () => {
               Get Started Today
             </span>
           </div>
-          <h2 className="font-heading text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Ready to Simplify Your Finances?
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">

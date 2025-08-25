@@ -114,7 +114,7 @@ const Header = () => {
               {/* Mega Menu Dropdown */}
               {isServicesOpen && (
                 <div 
-                  className="absolute top-full left-0 mt-2 w-[800px] bg-card border border-border rounded-2xl shadow-2xl z-50 overflow-hidden"
+                  className="absolute top-full left-0 mt-2 w-[min(800px,calc(100vw-2rem))] bg-card border border-border rounded-2xl shadow-2xl z-50 overflow-hidden"
                   onMouseEnter={() => {
                     if (servicesTimeout) {
                       clearTimeout(servicesTimeout);

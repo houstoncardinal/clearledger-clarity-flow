@@ -42,7 +42,7 @@ const Hero = () => {
           {/* Main Headline */}
           <div className="space-y-4 sm:space-y-5 lg:space-y-6">
             <h1 
-              className="font-heading text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight animate-slide-up"
+              className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight animate-slide-up px-2"
               style={{animationDelay: '0.4s'}}
             >
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dark">
@@ -51,7 +51,7 @@ const Hero = () => {
             </h1>
             
             <h2 
-              className="font-heading text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground animate-slide-up"
+              className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground animate-slide-up px-2"
               style={{animationDelay: '0.6s'}}
             >
               Where Clarity Meets Compliance
