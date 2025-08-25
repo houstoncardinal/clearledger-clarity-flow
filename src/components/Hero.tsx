@@ -19,10 +19,10 @@ const Hero = () => {
       </div>
       
       <div className="container mx-auto px-4 py-20 sm:py-24 lg:py-32">
-        <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8 lg:space-y-10">
+        <div className="max-w-4xl mx-auto text-left sm:text-center space-y-6 sm:space-y-8 lg:space-y-10">
           {/* Trust Badge */}
           <div 
-            className="inline-flex items-center space-x-2 sm:space-x-3 bg-accent/90 backdrop-blur-sm px-4 sm:px-6 py-2 sm:py-3 rounded-full border border-accent-foreground/20 shadow-sm animate-fade-in"
+            className="inline-flex items-center space-x-2 sm:space-x-3 bg-accent/90 backdrop-blur-sm px-4 sm:px-6 py-2 sm:py-3 rounded-full border border-accent-foreground/20 shadow-sm animate-fade-in sm:mx-auto"
             style={{animationDelay: '0.2s'}}
           >
             <div className="flex space-x-1">
@@ -58,7 +58,7 @@ const Hero = () => {
             </h2>
             
             <p 
-              className="text-lg sm:text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto px-4 sm:px-0 animate-fade-in"
+              className="text-lg sm:text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto sm:mx-auto px-4 sm:px-0 animate-fade-in"
               style={{animationDelay: '0.8s'}}
             >
               Expert bookkeeping services tailored to small businesses and entrepreneurs. 
@@ -68,7 +68,7 @@ const Hero = () => {
 
           {/* Key Benefits */}
           <div 
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto px-4 sm:px-0 animate-fade-in"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto sm:mx-auto px-4 sm:px-0 animate-fade-in"
             style={{animationDelay: '1s'}}
           >
             {keyBenefits.map((benefit, index) => (
@@ -85,7 +85,7 @@ const Hero = () => {
 
           {/* Primary CTA */}
           <div 
-            className="space-y-4 animate-fade-in px-4 sm:px-0"
+            className="space-y-4 animate-fade-in px-4 sm:px-0 sm:text-center"
             style={{animationDelay: '1.6s'}}
           >
             <Link to="/contact">
@@ -105,20 +105,20 @@ const Hero = () => {
 
           {/* Trust Indicators */}
           <div 
-            className="flex flex-wrap justify-center gap-3 sm:gap-6 pt-6 border-t border-border/50 animate-fade-in px-4 sm:px-0"
+            className="flex flex-wrap justify-start sm:justify-center gap-3 sm:gap-6 pt-6 border-t border-border/50 animate-fade-in px-4 sm:px-0"
             style={{animationDelay: '1.8s'}}
           >
             <div className="flex items-center space-x-2 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300">
               <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
-              <span className="text-center">2024-2025 Top 25 Up-N-Coming ProAdvisor</span>
+              <span className="text-left sm:text-center">2024-2025 Top 25 Up-N-Coming ProAdvisor</span>
             </div>
             <div className="flex items-center space-x-2 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300">
               <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
-              <span className="text-center">QuickBooks ProAdvisor Certified</span>
+              <span className="text-left sm:text-center">QuickBooks ProAdvisor Certified</span>
             </div>
             <div className="flex items-center space-x-2 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300">
               <Star className="w-3 h-3 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
-              <span className="text-center">10+ Years Experience</span>
+              <span className="text-left sm:text-center">10+ Years Experience</span>
             </div>
           </div>
         </div>
