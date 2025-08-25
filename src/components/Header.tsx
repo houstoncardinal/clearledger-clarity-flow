@@ -1,53 +1,252 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { 
+  Menu, 
+  X, 
+  ArrowRight, 
+  Calculator, 
+  PieChart, 
+  FileText, 
+  TrendingUp,
+  ChevronDown,
+  CheckCircle,
+  Clock,
+  Users,
+  Shield
+} from 'lucide-react';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [servicesTimeout, setServicesTimeout] = useState<NodeJS.Timeout | null>(null);
 
   const navItems = [
-    { name: 'Services', href: '#services' },
-    { name: 'About', href: '#about' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'Resources', href: '#resources' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'About', href: '/about' },
+    { name: 'Contact', href: '/contact' },
+    { name: 'Consultation', href: '/consultation' }
+  ];
+
+  const servicesMenu = [
+    {
+      title: 'QuickBooks Services',
+      description: 'Expert bookkeeping with both QB Online and Desktop platforms',
+      icon: Calculator,
+      href: '/services#quickbooks',
+      features: ['Monthly reconciliation', 'Transaction categorization', 'Multi-entity management']
+    },
+    {
+      title: 'Monthly Management',
+      description: 'Comprehensive monthly financial management and reporting',
+      icon: PieChart,
+      href: '/services#monthly-management',
+      features: ['Bank reconciliation', 'Financial reporting', 'Cash flow monitoring']
+    },
+    {
+      title: 'Billing & Accounts Payable',
+      description: 'Streamlined invoicing and accounts payable management',
+      icon: FileText,
+      href: '/services#billing-ap',
+      features: ['Automated invoicing', 'Payment tracking', 'Vendor management']
+    },
+    {
+      title: 'Cleanup & Advisory',
+      description: 'Financial cleanup and strategic advisory services',
+      icon: TrendingUp,
+      href: '/services#cleanup-advisory',
+      features: ['Historical cleanup', 'Process optimization', 'Strategic consulting']
+    }
+  ];
+
+  const quickLinks = [
+    { name: 'Free Consultation', href: '/consultation', icon: Clock },
+    { name: 'Our Team', href: '/about', icon: Users },
+    { name: 'Certifications', href: '/about', icon: Shield }
   ];
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-background/95 backdrop-blur-sm border-b border-border z-50">
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <ArrowRight className="w-4 h-4 text-primary-foreground transform rotate-45" />
-            </div>
-            <span className="font-heading text-xl font-bold text-foreground">
-              ClearLedger Solutions
-            </span>
-          </div>
+          <Link to="/" className="flex items-center">
+            <img 
+              src="/logo.png" 
+              alt="ClearLedger Solutions Logo" 
+              className="h-10 sm:h-12 lg:h-14 w-auto"
+            />
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
+            {/* Home Navigation */}
+            <Link to="/" className="text-foreground hover:text-foreground transition-colors duration-200 font-medium">
+              Home
+            </Link>
+
+            {/* Services Mega Menu */}
+            <div 
+              className="relative group"
+              onMouseEnter={() => {
+                if (servicesTimeout) {
+                  clearTimeout(servicesTimeout);
+                  setServicesTimeout(null);
+                }
+                setIsServicesOpen(true);
+              }}
+              onMouseLeave={() => {
+                const timeout = setTimeout(() => setIsServicesOpen(false), 150);
+                setServicesTimeout(timeout);
+              }}
+            >
+              <div className="flex items-baseline space-x-1">
+                <Link to="/services" className="text-foreground hover:text-foreground transition-colors duration-200 font-medium">
+                  Services
+                </Link>
+                <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-200 flex-shrink-0" />
+              </div>
+              
+              {/* Invisible Bridge for Smooth Hover */}
+              {isServicesOpen && (
+                <div className="absolute top-full left-0 w-full h-2 bg-transparent" />
+              )}
+              
+              {/* Mega Menu Dropdown */}
+              {isServicesOpen && (
+                <div 
+                  className="absolute top-full left-0 mt-2 w-[800px] bg-card border border-border rounded-2xl shadow-2xl z-50 overflow-hidden"
+                  onMouseEnter={() => {
+                    if (servicesTimeout) {
+                      clearTimeout(servicesTimeout);
+                      setServicesTimeout(null);
+                    }
+                    setIsServicesOpen(true);
+                  }}
+                  onMouseLeave={() => {
+                    const timeout = setTimeout(() => setIsServicesOpen(false), 150);
+                    setServicesTimeout(timeout);
+                  }}
+                >
+                  <div className="p-6">
+                    <div className="grid grid-cols-2 gap-6">
+                      {/* Services Column */}
+                      <div className="space-y-4">
+                        <div className="flex items-center space-x-3 mb-4">
+                          <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
+                            <Calculator className="w-4 h-4 text-primary-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-heading text-base font-bold text-foreground">Our Services</h3>
+                            <p className="text-xs text-muted-foreground">Comprehensive financial solutions</p>
+                          </div>
+                        </div>
+                        
+                        <div className="space-y-3">
+                          {servicesMenu.map((service, index) => {
+                            const IconComponent = service.icon;
+                            return (
+                              <Link
+                                key={index}
+                                to={service.href}
+                                className="group block p-3 rounded-lg hover:bg-accent/50 transition-all duration-200"
+                                onClick={() => setIsServicesOpen(false)}
+                              >
+                                <div className="flex items-start space-x-2">
+                                  <div className="w-6 h-6 bg-gradient-primary/20 rounded-md flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                    <IconComponent className="w-3 h-3 text-primary" />
+                                  </div>
+                                  <div className="flex-1">
+                                    <h4 className="font-medium text-foreground group-hover:text-foreground transition-colors duration-200 text-sm">
+                                      {service.title}
+                                    </h4>
+                                    <p className="text-xs text-muted-foreground mt-1">
+                                      {service.description}
+                                    </p>
+                                    <div className="flex flex-wrap gap-1 mt-1">
+                                      {service.features.slice(0, 1).map((feature, featureIndex) => (
+                                        <span 
+                                          key={featureIndex}
+                                          className="text-xs bg-accent px-1.5 py-0.5 rounded text-accent-foreground"
+                                        >
+                                          {feature}
+                                        </span>
+                                      ))}
+                                    </div>
+                                  </div>
+                                </div>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      </div>
+
+                      {/* Quick Links Column */}
+                      <div className="border-l border-border pl-6">
+                        <div className="mb-4">
+                          <h3 className="font-heading text-base font-bold text-foreground mb-1">Quick Links</h3>
+                          <p className="text-xs text-muted-foreground">Get started or learn more</p>
+                        </div>
+                        
+                        <div className="space-y-2">
+                          {quickLinks.map((link, index) => {
+                            const IconComponent = link.icon;
+                            return (
+                              <Link
+                                key={index}
+                                to={link.href}
+                                className="flex items-center space-x-2 p-2 rounded-md hover:bg-accent/50 transition-all duration-200 group"
+                                onClick={() => setIsServicesOpen(false)}
+                              >
+                                <div className="w-6 h-6 bg-gradient-primary/20 rounded-md flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+                                  <IconComponent className="w-3 h-3 text-primary" />
+                                </div>
+                                <span className="font-medium text-foreground group-hover:text-foreground transition-colors duration-200 text-sm">
+                                  {link.name}
+                                </span>
+                              </Link>
+                            );
+                          })}
+                        </div>
+
+                        {/* CTA Section */}
+                        <div className="mt-6 p-3 bg-gradient-subtle rounded-lg border border-border/50">
+                          <h4 className="font-medium text-foreground mb-1 text-sm">Ready to get started?</h4>
+                          <p className="text-xs text-muted-foreground mb-3">
+                            Schedule your free consultation today
+                          </p>
+                          <Link to="/consultation">
+                            <Button size="sm" className="btn-primary w-full text-xs py-1">
+                              Book Free Consultation
+                              <ArrowRight className="w-3 h-3 ml-1" />
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Other Navigation Items */}
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium"
+                to={item.href}
+                className="text-foreground hover:text-foreground transition-colors duration-200 font-medium"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </nav>
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" size="sm">
-              Request Pricing
-            </Button>
-            <Button className="btn-primary">
-              Book Free Consultation
-            </Button>
+            <Link to="/contact">
+              <Button className="btn-primary">
+                Book Free Consultation
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -63,23 +262,72 @@ const Header = () => {
         {isOpen && (
           <div className="md:hidden mt-4 py-4 border-t border-border">
             <nav className="flex flex-col space-y-4">
+              {/* Services Section */}
+              <div className="space-y-3">
+                <div className="flex items-center space-x-2 text-muted-foreground font-medium py-2">
+                  <Calculator className="w-4 h-4" />
+                  <span>Services</span>
+                </div>
+                <div className="pl-6 space-y-2">
+                  {servicesMenu.map((service, index) => {
+                    const IconComponent = service.icon;
+                    return (
+                      <Link
+                        key={index}
+                        to={service.href}
+                        className="flex items-center space-x-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 py-2"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        <IconComponent className="w-4 h-4" />
+                        <span>{service.title}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Separator */}
+              <div className="border-t border-border my-2"></div>
+
+              {/* Other Navigation Items */}
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.href}
                   className="text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium py-2"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
+
+              {/* Quick Links */}
+              <div className="border-t border-border pt-4">
+                <div className="text-sm font-medium text-muted-foreground mb-3">Quick Links</div>
+                <div className="space-y-2">
+                  {quickLinks.map((link, index) => {
+                    const IconComponent = link.icon;
+                    return (
+                      <Link
+                        key={index}
+                        to={link.href}
+                        className="flex items-center space-x-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 py-2"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        <IconComponent className="w-4 h-4" />
+                        <span>{link.name}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+
               <div className="flex flex-col space-y-3 pt-4">
-                <Button variant="ghost" size="sm">
-                  Request Pricing
-                </Button>
-                <Button className="btn-primary">
-                  Book Free Consultation
-                </Button>
+                <Link to="/contact">
+                  <Button className="btn-primary">
+                    Book Free Consultation
+                  </Button>
+                </Link>
               </div>
             </nav>
           </div>

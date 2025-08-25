@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import { 
   Shield, 
   Award, 
@@ -126,47 +127,12 @@ const About = () => {
           
           {/* QuickBooks Certification Banners */}
           <div className="flex justify-center mb-8">
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <div className="flex flex-wrap justify-center gap-6 items-center">
-                {/* QuickBooks Online ProAdvisor Badge */}
-                <div className="flex flex-col items-center">
-                  <div className="w-24 h-24 bg-gradient-to-b from-blue-900 to-blue-800 rounded-full flex items-center justify-center border-4 border-blue-900 relative">
-                    <div className="text-white text-xs font-bold text-center leading-tight">
-                      <div>QB</div>
-                      <div className="text-green-400">Certified</div>
-                    </div>
-                    <div className="absolute -bottom-2 bg-green-500 text-white px-3 py-1 rounded text-xs font-bold">
-                      Online
-                    </div>
-                  </div>
-                  <span className="text-xs text-center mt-2 font-medium">ProAdvisor</span>
-                </div>
-
-                {/* QuickBooks Advanced Online ProAdvisor Badge */}
-                <div className="flex flex-col items-center">
-                  <div className="w-24 h-24 bg-gradient-to-b from-blue-900 to-blue-800 rounded-full flex items-center justify-center border-4 border-blue-900 relative">
-                    <div className="text-white text-xs font-bold text-center leading-tight">
-                      <div>QB</div>
-                      <div className="text-green-400">Certified</div>
-                    </div>
-                    <div className="absolute -bottom-2 bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">
-                      Advanced
-                    </div>
-                  </div>
-                  <span className="text-xs text-center mt-2 font-medium">ProAdvisor</span>
-                </div>
-
-                {/* QuickBooks Desktop ProAdvisor Badge */}
-                <div className="flex flex-col items-center">
-                  <div className="w-24 h-24 bg-gradient-to-b from-blue-500 to-blue-600 transform rotate-45 flex items-center justify-center border-4 border-blue-700">
-                    <div className="text-white text-xs font-bold text-center leading-tight transform -rotate-45">
-                      <div>QB</div>
-                      <div>Desktop</div>
-                    </div>
-                  </div>
-                  <span className="text-xs text-center mt-2 font-medium">Certified ProAdvisor</span>
-                </div>
-              </div>
+            <div className="bg-gradient-to-br from-white to-gray-50 p-8 rounded-2xl shadow-2xl border border-gray-200/50">
+              <img 
+                src="/banners.png" 
+                alt="QuickBooks Certifications and Partnerships" 
+                className="max-w-full h-auto rounded-xl shadow-lg"
+              />
             </div>
           </div>
 
@@ -192,9 +158,11 @@ const About = () => {
             Let us help you achieve financial clarity and compliance. Contact us today 
             to discuss your bookkeeping needs and get a custom solution for your business.
           </p>
-          <Button className="btn-primary" size="lg">
-            Schedule Your Free Consultation
-          </Button>
+          <Link to="/contact">
+            <Button className="btn-primary" size="lg">
+              Schedule Your Free Consultation
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

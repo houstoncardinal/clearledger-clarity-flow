@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import { 
   Star, 
   Quote, 
@@ -34,8 +35,8 @@ const Testimonials = () => {
       companySize: '45 employees',
       industry: 'Construction',
       rating: 5,
-      content: 'The payroll and HR support has been exceptional. ClearLedger handles everything from processing to compliance, giving us peace of mind. Their response time is incredible - always under 24 hours.',
-      results: ['Streamlined payroll process', 'Zero compliance issues', '24h response guarantee met'],
+      content: 'The bookkeeping and compliance support has been exceptional. ClearLedger handles everything from processing to compliance, giving us peace of mind. Their response time is incredible - always under 24 hours.',
+      results: ['Streamlined bookkeeping process', 'Zero compliance issues', '24h response guarantee met'],
       avatar: 'MR'
     },
     {
@@ -45,27 +46,16 @@ const Testimonials = () => {
       companySize: '120 employees',
       industry: 'Healthcare',
       rating: 5,
-      content: 'As a healthcare provider, compliance is critical. ClearLedger\'s expertise in regulatory requirements and their SOC 2 certification gives us confidence that our financial data is secure and compliant.',
-      results: ['100% compliance maintained', 'Enhanced data security', 'Reduced audit preparation time'],
+      content: 'As a healthcare provider, compliance is critical. ClearLedger\'s expertise in regulatory requirements gives us confidence that our financial data is compliant and well-managed.',
+      results: ['100% compliance maintained', 'Reduced audit preparation time', 'Improved financial clarity'],
       avatar: 'LT'
-    },
-    {
-      name: 'David Kim',
-      title: 'Managing Partner',
-      company: 'Innovate Law Group',
-      companySize: '18 employees',
-      industry: 'Legal Services',
-      rating: 5,
-      content: 'The monthly reconciliation and reporting has been game-changing. We now have clear insights into our financial performance and can make data-driven decisions. ClearLedger feels like an extension of our team.',
-      results: ['Real-time financial insights', 'Improved decision making', 'Professional reporting'],
-      avatar: 'DK'
     }
   ];
 
   const stats = [
     { value: '98%', label: 'Client Satisfaction', icon: Star },
-    { value: '500+', label: 'Businesses Served', icon: Users },
-    { value: '15+', label: 'Years Experience', icon: Award },
+    { value: 'Various', label: 'Industries Served', icon: Users },
+    { value: '10+', label: 'Years Experience', icon: Award },
     { value: '24h', label: 'Response Time', icon: TrendingUp }
   ];
 
@@ -93,7 +83,7 @@ const Testimonials = () => {
           <h2 className="font-heading text-5xl lg:text-6xl font-bold text-foreground mb-8 leading-tight">
             Trusted by{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dark">
-              500+ Businesses
+              Various Industries
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
@@ -229,7 +219,7 @@ const Testimonials = () => {
             </Button>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="card-service group hover:shadow-2xl transition-all duration-500">
                 <div className="flex items-center space-x-1 mb-4">
@@ -268,13 +258,17 @@ const Testimonials = () => {
             transform your financial management and help your business grow.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="btn-primary text-lg px-8 py-4">
-              Book Free Consultation
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-            <Button size="lg" variant="outline" className="btn-secondary text-lg px-8 py-4">
-              View Case Studies
-            </Button>
+            <Link to="/contact">
+              <Button size="lg" className="btn-primary text-lg px-8 py-4">
+                Book Free Consultation
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
+            <Link to="/resources">
+              <Button size="lg" variant="outline" className="btn-secondary text-lg px-8 py-4">
+                View Case Studies
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

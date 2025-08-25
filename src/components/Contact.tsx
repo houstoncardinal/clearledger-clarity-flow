@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Link } from 'react-router-dom';
+import CalendlyWidget from './CalendlyWidget';
 import { 
   Phone, 
   Mail, 
@@ -260,14 +262,18 @@ const Contact = () => {
                 Prefer to Talk?
               </h3>
               <div className="space-y-4">
-                <Button className="w-full btn-primary">
-                  <Phone className="w-4 h-4 mr-2" />
-                  Call Now: (903) 815-9488
-                </Button>
-                <Button variant="outline" className="w-full btn-secondary">
-                  <Mail className="w-4 h-4 mr-2" />
-                  Send Email
-                </Button>
+                <a href="tel:(903) 815-9488">
+                  <Button className="w-full btn-primary">
+                    <Phone className="w-4 h-4 mr-2" />
+                    Call Now: (903) 815-9488
+                  </Button>
+                </a>
+                <a href="mailto:jj@yourclearledger.com">
+                  <Button variant="outline" className="w-full btn-secondary">
+                    <Mail className="w-4 h-4 mr-2" />
+                    Send Email
+                  </Button>
+                </a>
                 
                 {/* Calendly Integration */}
                 <div className="mt-6 p-4 bg-accent rounded-lg">
@@ -277,10 +283,7 @@ const Contact = () => {
                   <p className="text-sm text-accent-foreground mb-4">
                     Book your free consultation directly on our calendar
                   </p>
-                  <Button variant="outline" className="w-full text-accent-foreground border-accent-foreground">
-                    <Calendar className="w-4 h-4 mr-2" />
-                    Schedule Meeting
-                  </Button>
+                  <CalendlyWidget url="https://calendly.com/your-calendar-link" height={400} />
                 </div>
               </div>
                   <p className="text-sm text-muted-foreground mt-4 text-center">

@@ -112,11 +112,44 @@
 
   body {
     @apply bg-background text-foreground font-body;
+    /* Prevent horizontal scroll on mobile */
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
   }
+
+  /* Ensure proper touch targets on mobile */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Improve text rendering on all devices */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Prevent zoom on input focus on iOS */
+  input, textarea, select {
+    font-size: 16px;
+  }
+
+  /* Force Services navigation alignment */
+  .nav-services {
+    display: inline-block;
+    vertical-align: baseline;
+    line-height: 1;
+  }
+
+  .nav-services span {
+    display: inline-block;
+    vertical-align: baseline;
+  }
+
+
 }
 
 @layer base {
@@ -175,5 +208,59 @@
     border-left: 4px solid currentColor;
     border-top: 4px solid transparent;
     border-bottom: 4px solid transparent;
+  }
+
+  /* Custom Animations */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 1s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  /* Staggered animation delays for children */
+  .animate-stagger > * {
+    animation-delay: calc(var(--stagger-index, 0) * 0.1s);
   }
 }

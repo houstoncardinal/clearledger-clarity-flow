@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import { 
   Calculator, 
   PieChart, 
@@ -86,8 +87,11 @@ const Services = () => {
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {services.map((service, index) => {
             const IconComponent = service.icon;
+            const anchorId = index === 0 ? 'quickbooks' : 
+                           index === 1 ? 'monthly-management' : 
+                           index === 2 ? 'billing-ap' : 'cleanup-advisory';
             return (
-              <div key={index} className="card-service group">
+              <div key={index} id={anchorId} className="card-service group">
                 {/* Icon */}
                 <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <IconComponent className="w-6 h-6 text-primary-foreground" />
@@ -137,12 +141,16 @@ const Services = () => {
             to meet your specific financial management needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="btn-primary">
-              Schedule Consultation
-            </Button>
-            <Button size="lg" variant="outline" className="btn-secondary">
-              Request Custom Quote
-            </Button>
+            <Link to="/contact">
+              <Button size="lg" className="btn-primary">
+                Schedule Consultation
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button size="lg" variant="outline" className="btn-secondary">
+                Request Custom Quote
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

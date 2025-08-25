@@ -26,7 +26,7 @@ const CaseStudies = () => {
       industry: 'SaaS',
       companySize: '25 employees',
       challenge: 'TechFlow was experiencing rapid growth but struggling with manual financial processes, delayed month-end closes, and lack of real-time financial insights. Their in-house team was overwhelmed with transaction volume.',
-      solution: 'Implemented comprehensive QuickBooks Online management with automated reconciliation, real-time reporting, and dedicated account management. Added payroll processing and HR support.',
+      solution: 'Implemented comprehensive QuickBooks Online management with automated reconciliation, real-time reporting, and dedicated account management.',
       results: [
         { metric: '40%', label: 'Faster month-end close', icon: Clock },
         { metric: '300%', label: 'Revenue growth supported', icon: TrendingUp },
@@ -41,18 +41,18 @@ const CaseStudies = () => {
     {
       id: 'greenbuild-construction',
       title: 'GreenBuild Construction: Operational Excellence',
-      subtitle: 'Streamlined payroll and compliance for a growing construction company',
+      subtitle: 'Streamlined bookkeeping and compliance for a growing construction company',
       industry: 'Construction',
       companySize: '45 employees',
-      challenge: 'GreenBuild was expanding rapidly but struggling with payroll complexity, compliance requirements, and manual HR processes. They needed reliable, scalable financial management.',
-      solution: 'Deployed full-service payroll processing, HR documentation support, and automated compliance monitoring. Implemented multi-entity management for different project divisions.',
+      challenge: 'GreenBuild was expanding rapidly but struggling with bookkeeping complexity, compliance requirements, and manual financial processes. They needed reliable, scalable financial management.',
+      solution: 'Deployed comprehensive bookkeeping services, automated compliance monitoring, and multi-entity management for different project divisions.',
       results: [
         { metric: '0', label: 'Compliance issues', icon: Shield },
-        { metric: '60%', label: 'Payroll processing time reduced', icon: Clock },
+        { metric: '60%', label: 'Bookkeeping processing time reduced', icon: Clock },
         { metric: '3', label: 'Entities managed seamlessly', icon: Users },
         { metric: '24h', label: 'Response time guaranteed', icon: Clock }
       ],
-      testimonial: 'The payroll and HR support has been exceptional. ClearLedger handles everything from processing to compliance, giving us peace of mind.',
+      testimonial: 'The bookkeeping and compliance support has been exceptional. ClearLedger handles everything from processing to compliance, giving us peace of mind.',
       client: 'Michael Rodriguez, Operations Director',
       featured: false,
       image: 'construction-site'
@@ -64,14 +64,14 @@ const CaseStudies = () => {
       industry: 'Healthcare',
       companySize: '120 employees',
       challenge: 'As a healthcare provider, HealthFirst needed to maintain strict compliance standards while scaling operations. They required secure, auditable financial processes.',
-      solution: 'Implemented SOC 2 Type II certified processes, enhanced security measures, and comprehensive compliance monitoring. Added specialized healthcare industry expertise.',
+      solution: 'Implemented comprehensive compliance monitoring and specialized healthcare industry expertise.',
       results: [
         { metric: '100%', label: 'Compliance maintained', icon: Award },
         { metric: '50%', label: 'Audit preparation time reduced', icon: Clock },
-        { metric: 'SOC 2', label: 'Type II certification', icon: Shield },
-        { metric: '24/7', label: 'Security monitoring', icon: Shield }
+        { metric: '100%', label: 'Accuracy maintained', icon: Shield },
+        { metric: '24h', label: 'Response time', icon: Clock }
       ],
-      testimonial: 'ClearLedger\'s expertise in regulatory requirements and their SOC 2 certification gives us confidence that our financial data is secure and compliant.',
+      testimonial: 'ClearLedger\'s expertise in regulatory requirements gives us confidence that our financial data is compliant and well-managed.',
       client: 'Lisa Thompson, CFO',
       featured: false,
       image: 'medical-office'

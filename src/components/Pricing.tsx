@@ -36,8 +36,8 @@ const Pricing = () => {
       popular: true,
       features: [
         'Everything in Essentials',
-        'Payroll processing (up to 10 employees)',
-        'Accounts receivable management',
+        'Advanced QuickBooks support',
+        'Accounts payable management',
         'Advanced financial reporting',
         'Phone & email support',
         'Up to 500 transactions/month',
@@ -55,7 +55,7 @@ const Pricing = () => {
       popular: false,
       features: [
         'Everything in Professional',
-        'Unlimited payroll processing',
+        'Unlimited QuickBooks support',
         'Multi-entity management',
         'Custom financial reporting',
         'Dedicated account manager',
@@ -69,7 +69,7 @@ const Pricing = () => {
   ];
 
   const addOns = [
-    { name: 'Additional Payroll Employee', price: '$25/month per employee' },
+    { name: 'Additional QuickBooks Company File', price: '$25/month per file' },
     { name: 'Extra Transaction Blocks (100)', price: '$50/month' },
     { name: 'Expedited Monthly Close', price: '$150/month' },
     { name: 'Custom Integration Setup', price: '$500 one-time' },
@@ -93,7 +93,7 @@ const Pricing = () => {
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Clear, predictable pricing with no hidden fees. All plans include our 
-            commitment to accuracy, security, and exceptional service.
+            commitment to accuracy and exceptional service.
           </p>
         </div>
 

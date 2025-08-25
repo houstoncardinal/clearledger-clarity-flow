@@ -38,17 +38,7 @@ const Footer = () => {
         { name: 'Contact', href: '#contact' }
       ]
     },
-    {
-      title: 'Resources',
-      links: [
-        { name: 'Knowledge Center', href: '#resources' },
-        { name: 'Whitepapers', href: '#resources' },
-        { name: 'Webinars', href: '#resources' },
-        { name: 'Free Tools', href: '#resources' },
-        { name: 'Blog', href: '#' },
-        { name: 'Support Center', href: '#' }
-      ]
-    },
+
     {
       title: 'Legal',
       links: [
@@ -56,7 +46,7 @@ const Footer = () => {
         { name: 'Terms of Service', href: '#' },
         { name: 'Cookie Policy', href: '#' },
         { name: 'GDPR Compliance', href: '#' },
-        { name: 'Security', href: '#' },
+
         { name: 'Accessibility', href: '#' }
       ]
     }
