@@ -204,7 +204,7 @@ const Pricing = () => {
             </Button>
           </div>
           <p className="text-sm text-muted-foreground mt-4">
-            All plans include a 30-day satisfaction guarantee
+            All plans include a 30-day service commitment
           </p>
         </div>
       </div>

@@ -64,13 +64,13 @@ const Footer = () => {
       icon: Mail,
       label: 'Email',
       value: 'jj@yourclearledger.com',
-      subtext: '24-hour response guarantee'
+      subtext: '24-hour response commitment'
     },
     {
       icon: MapPin,
       label: 'Headquarters',
       value: 'Whitewright, TX',
-      subtext: 'Serving clients across various industries'
+      subtext: 'Serving clients across 15+ industries'
     },
     {
       icon: Clock,
@@ -99,7 +99,7 @@ const Footer = () => {
             
             <p className="text-background/80 leading-relaxed mb-8 max-w-md">
               ClearLedger Solutions LLC specializes in providing accurate, reliable, and transparent
-              bookkeeping services tailored to small businesses and entrepreneurs across various industries.
+              bookkeeping services tailored to small businesses and entrepreneurs across 15+ industries.
             </p>
 
             {/* Contact Info */}

@@ -50,7 +50,7 @@ const CaseStudies = () => {
         { metric: '0', label: 'Compliance issues', icon: Shield },
         { metric: '60%', label: 'Bookkeeping processing time reduced', icon: Clock },
         { metric: '3', label: 'Entities managed seamlessly', icon: Users },
-        { metric: '24h', label: 'Response time guaranteed', icon: Clock }
+        { metric: '24h', label: 'Response time commitment', icon: Clock }
       ],
       testimonial: 'The bookkeeping and compliance support has been exceptional. ClearLedger handles everything from processing to compliance, giving us peace of mind.',
       client: 'Michael Rodriguez, Operations Director',
@@ -122,7 +122,7 @@ const CaseStudies = () => {
             </h1>
             <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed mb-12">
               Discover how ClearLedger has transformed financial management for businesses 
-              across various industries, helping them achieve clarity, compliance, and growth.
+              across 15+ industries, helping them achieve clarity, compliance, and growth.
             </p>
             
             {/* Filters */}

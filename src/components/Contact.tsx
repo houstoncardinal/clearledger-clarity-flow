@@ -48,13 +48,13 @@ const Contact = () => {
       icon: Mail,
       title: 'Email',
       details: 'jj@yourclearledger.com',
-      subtext: '24-hour response guarantee'
+      subtext: '24-hour response commitment'
     },
     {
       icon: MapPin,
       title: 'Headquarters',
       details: 'Whitewright, TX',
-      subtext: 'Serving clients across various industries'
+      subtext: 'Serving clients across 15+ industries'
     },
     {
       icon: Clock,
@@ -68,7 +68,7 @@ const Contact = () => {
     'Free 30-minute financial assessment',
     'Custom service recommendations',
     'No-obligation pricing quote',
-    'Same-day response guaranteed'
+    'Same-day response commitment'
   ];
 
   return (

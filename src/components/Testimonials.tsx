@@ -8,7 +8,8 @@ import {
   CheckCircle,
   TrendingUp,
   Users,
-  Award
+  Award,
+  Shield
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -17,44 +18,44 @@ const Testimonials = () => {
 
   const testimonials = [
     {
-      name: 'Sarah Chen',
+      name: 'Client A',
       title: 'CEO & Founder',
-      company: 'TechFlow Solutions',
+      company: 'Tech Solutions Inc.',
       companySize: '25 employees',
       industry: 'SaaS',
       rating: 5,
       content: 'ClearLedger transformed our financial management. Their team\'s expertise in QuickBooks and attention to detail has saved us countless hours. We\'ve seen a 40% improvement in our month-end close process.',
       results: ['40% faster month-end close', 'Eliminated manual reconciliation', 'Improved cash flow visibility'],
-      avatar: 'SC',
+      avatar: 'CA',
       featured: true
     },
     {
-      name: 'Michael Rodriguez',
+      name: 'Client B',
       title: 'Operations Director',
-      company: 'GreenBuild Construction',
+      company: 'Construction Co.',
       companySize: '45 employees',
       industry: 'Construction',
       rating: 5,
       content: 'The bookkeeping and compliance support has been exceptional. ClearLedger handles everything from processing to compliance, giving us peace of mind. Their response time is incredible - always under 24 hours.',
       results: ['Streamlined bookkeeping process', 'Zero compliance issues', '24h response guarantee met'],
-      avatar: 'MR'
+      avatar: 'CB'
     },
     {
-      name: 'Lisa Thompson',
+      name: 'Client C',
       title: 'CFO',
-      company: 'HealthFirst Medical',
+      company: 'Healthcare Partners',
       companySize: '120 employees',
       industry: 'Healthcare',
       rating: 5,
       content: 'As a healthcare provider, compliance is critical. ClearLedger\'s expertise in regulatory requirements gives us confidence that our financial data is compliant and well-managed.',
       results: ['100% compliance maintained', 'Reduced audit preparation time', 'Improved financial clarity'],
-      avatar: 'LT'
+      avatar: 'CC'
     }
   ];
 
   const stats = [
-    { value: '98%', label: 'Client Satisfaction', icon: Star },
-    { value: 'Various', label: 'Industries Served', icon: Users },
+    { value: '100%', label: 'Compliance Rate', icon: Shield },
+    { value: '15+', label: 'Industries Served', icon: Users },
     { value: '10+', label: 'Years Experience', icon: Award },
     { value: '24h', label: 'Response Time', icon: TrendingUp }
   ];
@@ -83,12 +84,12 @@ const Testimonials = () => {
           <h2 className="font-heading text-5xl lg:text-6xl font-bold text-foreground mb-8 leading-tight">
             Trusted by{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dark">
-              Various Industries
+              Growing Businesses
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             See how ClearLedger has transformed financial management for businesses across 
-            various industries, helping them achieve clarity, compliance, and growth.
+            15+ industries, helping them achieve clarity, compliance, and growth.
           </p>
         </div>
 

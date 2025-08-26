@@ -21,7 +21,7 @@ const About = () => {
   const teamStats = [
     { value: '10+', label: 'Years Experience', icon: Clock },
     { value: 'Small', label: 'Dedicated Team', icon: Users },
-    { value: 'Various', label: 'Industries Served', icon: TrendingUp },
+    { value: '15+', label: 'Industries Served', icon: TrendingUp },
     { value: '99.9%', label: 'Accuracy Rate', icon: CheckCircle }
   ];
 

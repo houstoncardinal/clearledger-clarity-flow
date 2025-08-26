@@ -501,7 +501,7 @@ const Consultation = () => {
                       </div>
                       <div className="flex items-center space-x-2">
                         <CheckCircle className="w-4 h-4 text-primary" />
-                        <span className="text-sm text-foreground">24-hour response guarantee</span>
+                        <span className="text-sm text-foreground">24-hour response commitment</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <CheckCircle className="w-4 h-4 text-primary" />
