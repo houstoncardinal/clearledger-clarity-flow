@@ -171,25 +171,25 @@ const MobileToolbar = () => {
             setTimeout(() => setIsOpen(true), 150);
           });
         }}
-        className={`fixed bottom-6 right-6 z-50 w-14 h-14 bg-gradient-to-br from-primary via-primary to-primary-dark text-white rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 flex items-center justify-center group backdrop-blur-sm border border-white/20 ${
+        className={`fixed bottom-4 right-4 z-50 w-12 h-12 bg-gradient-to-br from-primary via-primary to-primary-dark text-white rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center group backdrop-blur-md border border-white/30 hover:scale-110 hover:border-white/40 ${
           pulseEffect ? 'animate-pulse scale-110' : ''
         } ${isAnimating ? 'scale-95' : 'scale-100'} ${isOpen ? 'rotate-180' : 'rotate-0'}`}
         aria-label="Open mobile toolbar"
         style={{
           boxShadow: pulseEffect 
-            ? '0 0 20px rgba(203, 108, 230, 0.4), 0 8px 32px rgba(0, 0, 0, 0.12)' 
-            : '0 8px 32px rgba(0, 0, 0, 0.12)',
+            ? '0 0 16px rgba(203, 108, 230, 0.3), 0 4px 20px rgba(0, 0, 0, 0.1)' 
+            : '0 4px 20px rgba(0, 0, 0, 0.1)',
           willChange: 'transform'
         }}
       >
         {/* Optimized animated background rings */}
-        <div className={`absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-primary-dark/20 animate-ping ${pulseEffect ? 'scale-125' : 'scale-100'}`} style={{ willChange: 'transform' }}></div>
+        <div className={`absolute inset-0 rounded-full bg-gradient-to-br from-primary/15 to-primary-dark/15 animate-ping ${pulseEffect ? 'scale-120' : 'scale-100'}`} style={{ willChange: 'transform' }}></div>
         
         {/* Main button content */}
         <div className="relative z-10 flex items-center justify-center">
-          <Plus className={`w-6 h-6 transition-all duration-300 ${isOpen ? 'rotate-45 scale-110' : 'rotate-0 scale-100'}`} />
+          <Plus className={`w-5 h-5 transition-all duration-300 ${isOpen ? 'rotate-45 scale-110' : 'rotate-0 scale-100'}`} />
           {pulseEffect && (
-            <Sparkles className="absolute -top-1 -right-1 w-3 h-3 text-yellow-300 animate-bounce" />
+            <Sparkles className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 text-yellow-300 animate-bounce" />
           )}
         </div>
       </button>
@@ -216,11 +216,9 @@ const MobileToolbar = () => {
             <div className={`relative flex items-center justify-between p-4 border-b border-white/10 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 transition-all duration-200 ${
               revealStep >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
             }`} style={{ willChange: 'transform, opacity' }}>
-              <div className="flex items-center space-x-3">
-                <div className="w-2 h-2 bg-gradient-to-r from-emerald-400 to-blue-500 rounded-full animate-pulse"></div>
-                <div>
-                  <h3 className="text-sm font-bold text-foreground flex items-center">
-                    <Crown className="w-4 h-4 mr-2 text-yellow-500" />
+              <div className="flex items-center flex-1">
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-sm font-bold text-foreground leading-tight">
                     ClearLedger Solutions Helper
                   </h3>
                   <p className="text-xs text-muted-foreground">ClearLedger excellence</p>
@@ -228,7 +226,7 @@ const MobileToolbar = () => {
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-1 hover:bg-white/10 rounded-full transition-all duration-300 hover:scale-110"
+                className="p-1 hover:bg-white/10 rounded-full transition-all duration-300 hover:scale-110 flex-shrink-0"
               >
                 <X className="w-3 h-3" />
               </button>
@@ -238,7 +236,7 @@ const MobileToolbar = () => {
             <div className={`relative p-3 transition-all duration-200 ${
               revealStep >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`} style={{ willChange: 'transform, opacity' }}>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-3 mobile-toolbar-grid">
                 {toolbarItems.map((item, index) => {
                   const IconComponent = item.icon;
                   const isActive = activeIndex === index;
@@ -259,7 +257,7 @@ const MobileToolbar = () => {
                   const content = (
                     <div 
                       ref={(el) => itemsRef.current[index] = el}
-                      className={`relative flex flex-col items-center text-center p-4 rounded-xl border transition-all duration-300 group cursor-pointer overflow-hidden ${
+                      className={`relative flex flex-col items-center text-center p-4 rounded-xl border transition-all duration-300 group cursor-pointer overflow-hidden mobile-toolbar-item ${
                         isActive 
                           ? 'border-primary/50 bg-gradient-to-br from-primary/10 to-primary/5 scale-105 shadow-xl' 
                           : 'border-white/10 hover:border-primary/30 bg-card/50 hover:bg-card/80 hover:scale-105'

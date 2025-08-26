@@ -72,8 +72,8 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-subtle">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="py-16 lg:py-20 bg-gradient-subtle">
+      <div className="container mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-2 bg-accent px-4 py-2 rounded-full mb-6">
@@ -91,9 +91,9 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-16">
           {/* Left Column - Contact Form */}
-          <div className="bg-card rounded-2xl p-6 lg:p-8 shadow-premium">
+          <div className="bg-card rounded-2xl p-4 sm:p-6 lg:p-8 shadow-premium">
             <div className="mb-8">
               <div className="flex items-center space-x-3 mb-4">
                 <Calendar className="w-6 h-6 text-primary" />
@@ -233,7 +233,7 @@ const Contact = () => {
           {/* Right Column - Contact Info & Map */}
           <div className="space-y-6 lg:space-y-8">
             {/* Contact Information */}
-            <div className="bg-card rounded-2xl p-6 lg:p-8 shadow-premium">
+            <div className="bg-card rounded-2xl p-4 sm:p-6 lg:p-8 shadow-premium">
               <h3 className="font-heading text-xl font-bold text-foreground mb-6">
                 Get In Touch
               </h3>
@@ -257,7 +257,7 @@ const Contact = () => {
             </div>
 
             {/* Quick Actions */}
-            <div className="bg-card rounded-2xl p-6 lg:p-8 shadow-premium">
+            <div className="bg-card rounded-2xl p-4 sm:p-6 lg:p-8 shadow-premium">
               <h3 className="font-heading text-xl font-bold text-foreground mb-6">
                 Prefer to Talk?
               </h3>
