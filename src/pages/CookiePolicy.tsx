@@ -1,10 +1,25 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
+import { getBreadcrumbSchema } from '@/utils/schemaMarkup';
 
 const CookiePolicy = () => {
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Cookie Policy", url: "/cookie-policy" }
+  ];
+
   return (
-    <main className="min-h-screen bg-background">
-      <Header />
+    <>
+      <SEO 
+        title="Cookie Policy | ClearLedger Solutions"
+        description="ClearLedger Solutions cookie policy. Learn how we use cookies and similar technologies to improve your experience on our website."
+        keywords="cookie policy, cookies, ClearLedger cookies, website cookies"
+        canonical="/cookie-policy"
+        schema={getBreadcrumbSchema(breadcrumbs)}
+      />
+      <main className="min-h-screen bg-background">
+        <Header />
       <div className="pt-20">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto">
@@ -126,6 +141,7 @@ const CookiePolicy = () => {
       </div>
       <Footer />
     </main>
+    </>
   );
 };
 

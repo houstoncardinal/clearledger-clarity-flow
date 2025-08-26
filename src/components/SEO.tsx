@@ -17,7 +17,7 @@ const SEO = ({
   description, 
   keywords, 
   canonical, 
-  ogImage = "https://clearledger.com/og-image.jpg",
+  ogImage = "https://clearledger.com/thumbnail.png",
   ogType = "website",
   schema,
   noindex = false,

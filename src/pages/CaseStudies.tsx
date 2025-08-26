@@ -1,6 +1,8 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
+import SEO from '@/components/SEO';
+import { getBreadcrumbSchema } from '@/utils/schemaMarkup';
 import { 
   ArrowRight, 
   TrendingUp, 
@@ -100,9 +102,22 @@ const CaseStudies = () => {
   const industries = ['All Industries', 'SaaS', 'Construction', 'Healthcare', 'Legal Services', 'Manufacturing', 'Retail'];
   const companySizes = ['All Sizes', '1-10', '11-50', '51-100', '100+'];
 
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Case Studies", url: "/case-studies" }
+  ];
+
   return (
-    <main className="min-h-screen bg-background">
-      <Header />
+    <>
+      <SEO 
+        title="Case Studies & Success Stories | ClearLedger Solutions"
+        description="Real success stories from our clients. See how ClearLedger Solutions helped businesses achieve 300% growth, maintain 100% compliance, and streamline operations."
+        keywords="case studies, success stories, client testimonials, business growth, financial management, bookkeeping success"
+        canonical="/case-studies"
+        schema={getBreadcrumbSchema(breadcrumbs)}
+      />
+      <main className="min-h-screen bg-background">
+        <Header />
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-background via-accent/10 to-background">
@@ -296,6 +311,7 @@ const CaseStudies = () => {
 
       <Footer />
     </main>
+    </>
   );
 };
 

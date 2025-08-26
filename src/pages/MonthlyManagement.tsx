@@ -1,8 +1,9 @@
-import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
+import { getServiceSchema, getBreadcrumbSchema } from '@/utils/schemaMarkup';
 import { 
   PieChart, 
   CheckCircle, 
@@ -99,58 +100,24 @@ const MonthlyManagement = () => {
     }
   ];
 
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Services", url: "/services" },
+    { name: "Monthly Management", url: "/monthly-management" }
+  ];
+
   return (
     <>
-      <Helmet>
-        <title>Monthly Management & Reconciliation Services | ClearLedger Solutions</title>
-        <meta name="description" content="Professional monthly bookkeeping and reconciliation services. Bank reconciliation, financial reporting, and variance analysis. Get your financial reports within 5 business days." />
-        <meta name="keywords" content="monthly reconciliation, bank reconciliation, financial reporting, bookkeeping services, variance analysis, cash flow monitoring" />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content="Monthly Management & Reconciliation Services | ClearLedger Solutions" />
-        <meta property="og:description" content="Professional monthly bookkeeping and reconciliation services. Bank reconciliation, financial reporting, and variance analysis." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://yourclearledger.com/monthly-management" />
-        
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Monthly Management & Reconciliation Services | ClearLedger Solutions" />
-        <meta name="twitter:description" content="Professional monthly bookkeeping and reconciliation services." />
-        
-        {/* Schema.org Structured Data */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "Monthly Management & Reconciliation Services",
-            "description": "Professional monthly bookkeeping and reconciliation services including bank reconciliation, financial reporting, and variance analysis.",
-            "provider": {
-              "@type": "Organization",
-              "name": "ClearLedger Solutions LLC",
-              "url": "https://yourclearledger.com",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Whitewright",
-                "addressRegion": "TX",
-                "addressCountry": "US"
-              },
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "(903) 815-9488",
-                "email": "jj@yourclearledger.com",
-                "contactType": "customer service"
-              }
-            },
-            "areaServed": "United States",
-            "serviceType": "Bookkeeping Services",
-            "offers": {
-              "@type": "Offer",
-              "description": "Monthly reconciliation and financial management services"
-            }
-          })}
-        </script>
-      </Helmet>
-
+      <SEO 
+        title="Monthly Management & Reconciliation Services | ClearLedger Solutions"
+        description="Professional monthly bookkeeping and reconciliation services. Bank reconciliation, financial reporting, and variance analysis. Get your financial reports within 5 business days."
+        keywords="monthly reconciliation, bank reconciliation, financial reporting, bookkeeping services, variance analysis, cash flow monitoring"
+        canonical="/monthly-management"
+        schema={[
+          getServiceSchema("Monthly Management & Reconciliation Services", "Professional monthly bookkeeping and reconciliation services including bank reconciliation, financial reporting, and variance analysis."),
+          getBreadcrumbSchema(breadcrumbs)
+        ]}
+      />
       <Header />
       
       <main className="min-h-screen bg-background">

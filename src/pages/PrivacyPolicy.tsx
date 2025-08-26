@@ -1,10 +1,25 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
+import { getBreadcrumbSchema } from '@/utils/schemaMarkup';
 
 const PrivacyPolicy = () => {
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Privacy Policy", url: "/privacy-policy" }
+  ];
+
   return (
-    <main className="min-h-screen bg-background">
-      <Header />
+    <>
+      <SEO 
+        title="Privacy Policy | ClearLedger Solutions"
+        description="ClearLedger Solutions privacy policy. Learn how we collect, use, and protect your personal information when you use our bookkeeping and financial services."
+        keywords="privacy policy, data protection, personal information, ClearLedger privacy"
+        canonical="/privacy-policy"
+        schema={getBreadcrumbSchema(breadcrumbs)}
+      />
+      <main className="min-h-screen bg-background">
+        <Header />
       <div className="pt-20">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto">
@@ -86,6 +101,7 @@ const PrivacyPolicy = () => {
       </div>
       <Footer />
     </main>
+    </>
   );
 };
 

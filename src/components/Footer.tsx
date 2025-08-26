@@ -176,35 +176,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Newsletter Signup */}
-      <div className="border-t border-background/20">
-        <div className="container mx-auto px-4 py-12">
-          <div className="max-w-4xl mx-auto text-center">
-            <h3 className="font-heading text-2xl font-bold text-background mb-4">
-              Stay Updated with Financial Insights
-            </h3>
-            <p className="text-background/80 mb-8 max-w-2xl mx-auto">
-              Get the latest financial management tips, industry updates, and exclusive 
-              content delivered to your inbox monthly.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email address"
-                className="flex-1 px-4 py-3 border border-background/20 rounded-lg bg-background/10 text-background placeholder-background/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-              />
-              <Button className="bg-primary hover:bg-primary-dark text-primary-foreground whitespace-nowrap">
-                Subscribe
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
-            </div>
-            <p className="text-sm text-background/60 mt-4">
-              No spam, unsubscribe at any time. We respect your privacy.
-            </p>
-          </div>
-        </div>
-      </div>
-
       {/* Bottom Bar */}
       <div className="border-t border-background/20">
         <div className="container mx-auto px-4 py-6">

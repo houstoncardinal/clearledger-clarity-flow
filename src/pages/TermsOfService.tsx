@@ -1,10 +1,25 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
+import { getBreadcrumbSchema } from '@/utils/schemaMarkup';
 
 const TermsOfService = () => {
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Terms of Service", url: "/terms-of-service" }
+  ];
+
   return (
-    <main className="min-h-screen bg-background">
-      <Header />
+    <>
+      <SEO 
+        title="Terms of Service | ClearLedger Solutions"
+        description="ClearLedger Solutions terms of service. Read our terms and conditions for using our bookkeeping and financial management services."
+        keywords="terms of service, terms and conditions, ClearLedger terms, service agreement"
+        canonical="/terms-of-service"
+        schema={getBreadcrumbSchema(breadcrumbs)}
+      />
+      <main className="min-h-screen bg-background">
+        <Header />
       <div className="pt-20">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto">
@@ -112,6 +127,7 @@ const TermsOfService = () => {
       </div>
       <Footer />
     </main>
+    </>
   );
 };
 

@@ -1,8 +1,9 @@
-import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
+import { getServiceSchema, getBreadcrumbSchema } from '@/utils/schemaMarkup';
 import { 
   TrendingUp, 
   CheckCircle, 
@@ -100,58 +101,24 @@ const CleanupAdvisory = () => {
     }
   ];
 
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Services", url: "/services" },
+    { name: "Cleanup & Advisory", url: "/cleanup-advisory" }
+  ];
+
   return (
     <>
-      <Helmet>
-        <title>Cleanup & Advisory Services | ClearLedger Solutions - Financial Optimization</title>
-        <meta name="description" content="Professional financial cleanup and advisory services. Historical data cleanup, process optimization, and strategic consulting. Transform your financial operations with expert guidance." />
-        <meta name="keywords" content="financial cleanup, advisory services, process optimization, financial consulting, data cleanup, strategic planning" />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content="Cleanup & Advisory Services | ClearLedger Solutions" />
-        <meta property="og:description" content="Professional financial cleanup and advisory services. Historical data cleanup, process optimization, and strategic consulting." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://yourclearledger.com/cleanup-advisory" />
-        
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Cleanup & Advisory Services | ClearLedger Solutions" />
-        <meta name="twitter:description" content="Professional financial cleanup and advisory services." />
-        
-        {/* Schema.org Structured Data */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "Cleanup & Advisory Services",
-            "description": "Professional financial cleanup and advisory services including historical data cleanup, process optimization, and strategic consulting.",
-            "provider": {
-              "@type": "Organization",
-              "name": "ClearLedger Solutions LLC",
-              "url": "https://yourclearledger.com",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Whitewright",
-                "addressRegion": "TX",
-                "addressCountry": "US"
-              },
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "(903) 815-9488",
-                "email": "jj@yourclearledger.com",
-                "contactType": "customer service"
-              }
-            },
-            "areaServed": "United States",
-            "serviceType": "Bookkeeping Services",
-            "offers": {
-              "@type": "Offer",
-              "description": "Financial cleanup and advisory services"
-            }
-          })}
-        </script>
-      </Helmet>
-
+      <SEO 
+        title="Cleanup & Advisory Services | ClearLedger Solutions"
+        description="Professional financial cleanup and advisory services. Historical data cleanup, process optimization, and strategic financial consulting. Get your books pristine and compliant."
+        keywords="financial cleanup, advisory services, historical data cleanup, process optimization, financial consulting, compliance"
+        canonical="/cleanup-advisory"
+        schema={[
+          getServiceSchema("Cleanup & Advisory Services", "Professional financial cleanup and advisory services including historical data cleanup, process optimization, and strategic consulting."),
+          getBreadcrumbSchema(breadcrumbs)
+        ]}
+      />
       <Header />
       
       <main className="min-h-screen bg-background">

@@ -1,8 +1,9 @@
-import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
+import { getServiceSchema, getBreadcrumbSchema } from '@/utils/schemaMarkup';
 import { 
   FileText, 
   CheckCircle, 
@@ -100,58 +101,24 @@ const BillingAccountsPayable = () => {
     }
   ];
 
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Services", url: "/services" },
+    { name: "Billing & A/P", url: "/billing-accounts-payable" }
+  ];
+
   return (
     <>
-      <Helmet>
-        <title>Billing & Accounts Payable Services | ClearLedger Solutions</title>
-        <meta name="description" content="Professional billing and accounts payable services. Invoice processing, payment tracking, and vendor management. Optimize cash flow with our streamlined A/P solutions." />
-        <meta name="keywords" content="accounts payable, billing services, invoice processing, vendor management, payment tracking, cash flow optimization" />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content="Billing & Accounts Payable Services | ClearLedger Solutions" />
-        <meta property="og:description" content="Professional billing and accounts payable services. Invoice processing, payment tracking, and vendor management." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://yourclearledger.com/billing-accounts-payable" />
-        
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Billing & Accounts Payable Services | ClearLedger Solutions" />
-        <meta name="twitter:description" content="Professional billing and accounts payable services." />
-        
-        {/* Schema.org Structured Data */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "Billing & Accounts Payable Services",
-            "description": "Professional billing and accounts payable services including invoice processing, payment tracking, and vendor management.",
-            "provider": {
-              "@type": "Organization",
-              "name": "ClearLedger Solutions LLC",
-              "url": "https://yourclearledger.com",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Whitewright",
-                "addressRegion": "TX",
-                "addressCountry": "US"
-              },
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "(903) 815-9488",
-                "email": "jj@yourclearledger.com",
-                "contactType": "customer service"
-              }
-            },
-            "areaServed": "United States",
-            "serviceType": "Bookkeeping Services",
-            "offers": {
-              "@type": "Offer",
-              "description": "Billing and accounts payable management services"
-            }
-          })}
-        </script>
-      </Helmet>
-
+      <SEO 
+        title="Billing & Accounts Payable Services | ClearLedger Solutions"
+        description="Professional billing and accounts payable management services. Streamlined invoicing, payment processing, and vendor management. Improve cash flow and vendor relationships."
+        keywords="billing services, accounts payable, invoice processing, vendor management, payment tracking, cash flow optimization"
+        canonical="/billing-accounts-payable"
+        schema={[
+          getServiceSchema("Billing & Accounts Payable Services", "Professional billing and accounts payable management services including invoice processing, payment tracking, and vendor management."),
+          getBreadcrumbSchema(breadcrumbs)
+        ]}
+      />
       <Header />
       
       <main className="min-h-screen bg-background">

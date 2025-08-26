@@ -19,6 +19,8 @@ import {
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CalendlyWidget from '@/components/CalendlyWidget';
+import SEO from '@/components/SEO';
+import { getBreadcrumbSchema } from '@/utils/schemaMarkup';
 
 const Consultation = () => {
   const [formData, setFormData] = useState({
@@ -95,9 +97,22 @@ const Consultation = () => {
     }
   ];
 
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Consultation", url: "/consultation" }
+  ];
+
   return (
-    <main className="min-h-screen bg-background">
-      <Header />
+    <>
+      <SEO 
+        title="Free Consultation | ClearLedger Solutions"
+        description="Schedule your free 30-minute consultation with ClearLedger Solutions. Get expert advice on bookkeeping, QuickBooks, and financial management tailored to your business."
+        keywords="free consultation, bookkeeping consultation, QuickBooks consultation, financial management advice, business consultation"
+        canonical="/consultation"
+        schema={getBreadcrumbSchema(breadcrumbs)}
+      />
+      <main className="min-h-screen bg-background">
+        <Header />
       <div className="pt-20">
         {/* Hero Section */}
         <section className="py-16 lg:py-24 bg-gradient-subtle">
@@ -529,6 +544,7 @@ const Consultation = () => {
       </div>
       <Footer />
     </main>
+    </>
   );
 };
 
