@@ -1,11 +1,8 @@
 import { Button } from '@/components/ui/button';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Shield, Star } from 'lucide-react';
-import { useRef, useEffect } from 'react';
 
 const Hero = () => {
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const navigate = useNavigate();
 
   const keyBenefits = [
@@ -15,121 +12,7 @@ const Hero = () => {
     'Compliant Financial Reporting'
   ];
 
-  // Create ASMR sound effect
-  useEffect(() => {
-    let audioContext: AudioContext | null = null;
-    let hasInteracted = false;
-
-    const createASMRSound = () => {
-      if (!hasInteracted) return;
-      
-      if (!audioContext) {
-        audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
-      }
-      
-      const oscillator = audioContext.createOscillator();
-      const gainNode = audioContext.createGain();
-      
-      // Simple mouse hover sound
-      oscillator.type = 'sine';
-      oscillator.frequency.setValueAtTime(1000, audioContext.currentTime);
-      oscillator.frequency.exponentialRampToValueAtTime(800, audioContext.currentTime + 0.1);
-      
-      // Quick, subtle volume
-      gainNode.gain.setValueAtTime(0, audioContext.currentTime);
-      gainNode.gain.linearRampToValueAtTime(0.02, audioContext.currentTime + 0.01);
-      gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.1);
-      
-      oscillator.connect(gainNode);
-      gainNode.connect(audioContext.destination);
-      
-      oscillator.start(audioContext.currentTime);
-      oscillator.stop(audioContext.currentTime + 0.1);
-    };
-
-    const createClickSound = () => {
-      if (!hasInteracted) return;
-      
-      if (!audioContext) {
-        audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
-      }
-      
-      // Create a realistic physical button click sound
-      const oscillator = audioContext.createOscillator();
-      const gainNode = audioContext.createGain();
-      const filter = audioContext.createBiquadFilter();
-      
-      // Physical button click characteristics
-      oscillator.type = 'sawtooth';
-      oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
-      oscillator.frequency.exponentialRampToValueAtTime(200, audioContext.currentTime + 0.015);
-      
-      // Low-pass filter to simulate button material
-      filter.type = 'lowpass';
-      filter.frequency.setValueAtTime(2000, audioContext.currentTime);
-      filter.Q.setValueAtTime(0.5, audioContext.currentTime);
-      
-      // Quick, sharp envelope like a real button
-      gainNode.gain.setValueAtTime(0, audioContext.currentTime);
-      gainNode.gain.linearRampToValueAtTime(0.08, audioContext.currentTime + 0.002);
-      gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.02);
-      
-      oscillator.connect(filter);
-      filter.connect(gainNode);
-      gainNode.connect(audioContext.destination);
-      
-      oscillator.start(audioContext.currentTime);
-      oscillator.stop(audioContext.currentTime + 0.02);
-    };
-
-    // Enable audio on first user interaction
-    const enableAudio = () => {
-      hasInteracted = true;
-      if (audioContext && audioContext.state === 'suspended') {
-        audioContext.resume();
-      }
-      document.removeEventListener('click', enableAudio);
-      document.removeEventListener('touchstart', enableAudio);
-    };
-
-    document.addEventListener('click', enableAudio);
-    document.addEventListener('touchstart', enableAudio);
-
-    // Store the functions globally for hover events
-    (window as any).playASMRSound = createASMRSound;
-    (window as any).playClickSound = createClickSound;
-    
-    return () => {
-      delete (window as any).playASMRSound;
-      delete (window as any).playClickSound;
-      document.removeEventListener('click', enableAudio);
-      document.removeEventListener('touchstart', enableAudio);
-    };
-  }, []);
-
-  const handlePillHover = () => {
-    if (hoverTimeoutRef.current) {
-      clearTimeout(hoverTimeoutRef.current);
-    }
-    
-    // Play ASMR sound with slight delay for smooth effect
-    hoverTimeoutRef.current = setTimeout(() => {
-      if ((window as any).playASMRSound) {
-        (window as any).playASMRSound();
-      }
-    }, 50);
-  };
-
-  const handlePillLeave = () => {
-    if (hoverTimeoutRef.current) {
-      clearTimeout(hoverTimeoutRef.current);
-    }
-  };
-
   const handlePillClick = () => {
-    if ((window as any).playClickSound) {
-      (window as any).playClickSound();
-    }
     // Navigate to consultation page
     navigate('/consultation');
   };
@@ -148,8 +31,6 @@ const Hero = () => {
           <div 
             className="inline-flex items-center space-x-2 sm:space-x-3 bg-white/5 backdrop-blur-md px-4 sm:px-6 py-2 sm:py-3 rounded-full border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.12)] hover:shadow-[0_12px_48px_rgba(0,0,0,0.16)] animate-fade-in sm:mx-auto group hover:scale-102 transition-all duration-300 cursor-pointer relative overflow-hidden"
             style={{animationDelay: '0.2s'}}
-            onMouseEnter={handlePillHover}
-            onMouseLeave={handlePillLeave}
             onClick={handlePillClick}
           >
             {/* Luxury glow effect */}
