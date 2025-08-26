@@ -359,18 +359,7 @@ const Header = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col space-y-3 pt-4">
-                <Link to="/contact">
-                  <Button className="w-full btn-primary">
-                    Book Free Consultation
-                  </Button>
-                </Link>
-                <a href="https://calendly.com/jj-yourclearledger" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" className="w-full btn-secondary">
-                    📅 Book Directly
-                  </Button>
-                </a>
-              </div>
+
             </nav>
           </div>
         )}
