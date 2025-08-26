@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import CalendlyWidget from '@/components/CalendlyWidget';
 
 const Consultation = () => {
   const [formData, setFormData] = useState({
@@ -443,6 +444,17 @@ const Consultation = () => {
                       <ArrowRight className="w-6 h-6 ml-3" />
                     </Button>
                   </form>
+
+                  {/* Calendly Integration */}
+                  <div className="mt-8 p-6 bg-accent rounded-xl border border-accent-foreground/20">
+                    <h3 className="font-heading text-lg font-bold text-accent-foreground mb-2">
+                      📅 Schedule Your Consultation Online
+                    </h3>
+                    <p className="text-sm text-accent-foreground mb-4">
+                      Prefer to book directly? Use our calendar to schedule your free 30-minute consultation at your convenience.
+                    </p>
+                    <CalendlyWidget url="https://calendly.com/jj-yourclearledger" height={600} />
+                  </div>
                 </div>
 
                 {/* Contact Info */}

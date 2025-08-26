@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowRight, CheckCircle, Shield, Star } from 'lucide-react';
+import { ArrowRight, CheckCircle, Shield, Star, Calendar } from 'lucide-react';
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -101,15 +101,28 @@ const Hero = () => {
             className="space-y-4 animate-fade-in px-4 sm:px-0 sm:text-center"
             style={{animationDelay: '1.6s'}}
           >
-            <Link to="/contact">
-              <Button 
-                size="lg" 
-                className="btn-primary text-base sm:text-lg lg:text-xl px-6 sm:px-8 lg:px-12 py-4 sm:py-5 lg:py-6 shadow-xl hover:shadow-2xl group hover:scale-105 transition-all duration-300 w-full sm:w-auto"
-              >
-                Get Started Today - Free Consultation
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 ml-2 sm:ml-3 group-hover:translate-x-1 transition-transform duration-300" />
-              </Button>
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              <Link to="/contact">
+                <Button 
+                  size="lg" 
+                  className="btn-primary text-base sm:text-lg lg:text-xl px-6 sm:px-8 lg:px-12 py-4 sm:py-5 lg:py-6 shadow-xl hover:shadow-2xl group hover:scale-105 transition-all duration-300 w-full sm:w-auto"
+                >
+                  Get Started Today - Free Consultation
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 ml-2 sm:ml-3 group-hover:translate-x-1 transition-transform duration-300" />
+                </Button>
+              </Link>
+              
+              <a href="https://calendly.com/jj-yourclearledger" target="_blank" rel="noopener noreferrer">
+                <Button 
+                  size="lg" 
+                  variant="outline"
+                  className="btn-secondary text-base sm:text-lg lg:text-xl px-6 sm:px-8 lg:px-12 py-4 sm:py-5 lg:py-6 shadow-xl hover:shadow-2xl group hover:scale-105 transition-all duration-300 w-full sm:w-auto"
+                >
+                  📅 Book Directly
+                  <Calendar className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 ml-2 sm:ml-3 group-hover:scale-110 transition-transform duration-300" />
+                </Button>
+              </a>
+            </div>
             
             <p className="text-xs sm:text-sm text-muted-foreground">
               No commitment • 30-minute strategy session • Custom proposal within 24 hours

@@ -12,7 +12,7 @@ interface CalendlyWidgetProps {
 }
 
 const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({ 
-  url = "https://calendly.com/your-calendar-link", 
+  url = "https://calendly.com/jj-yourclearledger", 
   height = 700 
 }) => {
   useEffect(() => {

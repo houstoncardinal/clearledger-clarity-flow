@@ -1,3 +1,6 @@
+# ClearLedger Solutions Robots.txt
+# https://www.robotstxt.org/robotstxt.html
+
 User-agent: Googlebot
 Allow: /
 
@@ -12,3 +15,27 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+# Allow important pages
+Allow: /services/
+Allow: /about/
+Allow: /contact/
+Allow: /quickbooks-services/
+Allow: /monthly-management/
+Allow: /billing-accounts-payable/
+Allow: /cleanup-advisory/
+
+# Crawl delay (optional)
+Crawl-delay: 1
+
+# Sitemap
+Sitemap: https://clearledger.com/sitemap.xml
+
+# Host
+Host: https://clearledger.com

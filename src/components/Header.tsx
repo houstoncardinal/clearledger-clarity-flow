@@ -233,12 +233,19 @@ const Header = () => {
                           <p className="text-xs text-muted-foreground mb-3">
                             Schedule your free consultation today
                           </p>
-                          <Link to="/consultation">
-                            <Button size="sm" className="btn-primary w-full text-xs py-1">
-                              Book Free Consultation
-                              <ArrowRight className="w-3 h-3 ml-1" />
-                            </Button>
-                          </Link>
+                          <div className="space-y-2">
+                            <Link to="/consultation">
+                              <Button size="sm" className="btn-primary w-full text-xs py-1">
+                                Book Free Consultation
+                                <ArrowRight className="w-3 h-3 ml-1" />
+                              </Button>
+                            </Link>
+                            <a href="https://calendly.com/jj-yourclearledger" target="_blank" rel="noopener noreferrer">
+                              <Button size="sm" variant="outline" className="btn-secondary w-full text-xs py-1">
+                                📅 Book Directly
+                              </Button>
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -266,6 +273,11 @@ const Header = () => {
                 Book Free Consultation
               </Button>
             </Link>
+            <a href="https://calendly.com/jj-yourclearledger" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" className="btn-secondary">
+                📅 Book Directly
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -353,6 +365,11 @@ const Header = () => {
                     Book Free Consultation
                   </Button>
                 </Link>
+                <a href="https://calendly.com/jj-yourclearledger" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" className="w-full btn-secondary">
+                    📅 Book Directly
+                  </Button>
+                </a>
               </div>
             </nav>
           </div>

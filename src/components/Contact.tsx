@@ -283,7 +283,7 @@ const Contact = () => {
                   <p className="text-sm text-accent-foreground mb-4">
                     Book your free consultation directly on our calendar
                   </p>
-                  <CalendlyWidget url="https://calendly.com/your-calendar-link" height={400} />
+                  <CalendlyWidget url="https://calendly.com/jj-yourclearledger" height={400} />
                 </div>
               </div>
                   <p className="text-sm text-muted-foreground mt-4 text-center">

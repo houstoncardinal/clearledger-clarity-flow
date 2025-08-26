@@ -1,8 +1,9 @@
-import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
+import { getServiceSchema, getBreadcrumbSchema } from '@/utils/schemaMarkup';
 import { 
   Calculator, 
   CheckCircle, 
@@ -19,6 +20,12 @@ import {
 } from 'lucide-react';
 
 const QuickBooksServices = () => {
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Services", url: "/services" },
+    { name: "QuickBooks Services", url: "/quickbooks-services" }
+  ];
+
   const features = [
     'Monthly transaction categorization and coding',
     'Account reconciliation and balancing',
@@ -77,56 +84,16 @@ const QuickBooksServices = () => {
 
   return (
     <>
-      <Helmet>
-        <title>QuickBooks Bookkeeping Services | ClearLedger Solutions - Expert QB Online & Desktop</title>
-        <meta name="description" content="Professional QuickBooks bookkeeping services for Online and Desktop. Expert transaction categorization, reconciliation, and financial reporting. Save 15+ hours monthly with our certified ProAdvisor team." />
-        <meta name="keywords" content="QuickBooks bookkeeping, QuickBooks Online, QuickBooks Desktop, ProAdvisor, bookkeeping services, financial reconciliation, transaction categorization" />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content="QuickBooks Bookkeeping Services | ClearLedger Solutions" />
-        <meta property="og:description" content="Expert QuickBooks Online and Desktop bookkeeping services. Certified ProAdvisor team providing transaction categorization, reconciliation, and financial reporting." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://yourclearledger.com/quickbooks-services" />
-        
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="QuickBooks Bookkeeping Services | ClearLedger Solutions" />
-        <meta name="twitter:description" content="Expert QuickBooks Online and Desktop bookkeeping services. Certified ProAdvisor team." />
-        
-        {/* Schema.org Structured Data */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "QuickBooks Bookkeeping Services",
-            "description": "Professional QuickBooks Online and Desktop bookkeeping services including transaction categorization, account reconciliation, and financial statement preparation.",
-            "provider": {
-              "@type": "Organization",
-              "name": "ClearLedger Solutions LLC",
-              "url": "https://yourclearledger.com",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Whitewright",
-                "addressRegion": "TX",
-                "addressCountry": "US"
-              },
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "(903) 815-9488",
-                "email": "jj@yourclearledger.com",
-                "contactType": "customer service"
-              }
-            },
-            "areaServed": "United States",
-            "serviceType": "Bookkeeping Services",
-            "offers": {
-              "@type": "Offer",
-              "description": "QuickBooks Online and Desktop bookkeeping services"
-            }
-          })}
-        </script>
-      </Helmet>
-
+      <SEO 
+        title="QuickBooks Bookkeeping Services | ClearLedger Solutions - Expert QB Online & Desktop"
+        description="Professional QuickBooks bookkeeping services for Online and Desktop. Expert transaction categorization, reconciliation, and financial reporting. Save 15+ hours monthly with our certified ProAdvisor team."
+        keywords="QuickBooks bookkeeping, QuickBooks Online, QuickBooks Desktop, ProAdvisor, bookkeeping services, financial reconciliation, transaction categorization, QuickBooks setup, QuickBooks training"
+        canonical="/quickbooks-services"
+        schema={[
+          getServiceSchema("QuickBooks Bookkeeping Services", "Professional QuickBooks Online and Desktop bookkeeping services including transaction categorization, account reconciliation, and financial statement preparation."),
+          getBreadcrumbSchema(breadcrumbs)
+        ]}
+      />
       <Header />
       
       <main className="min-h-screen bg-background">
