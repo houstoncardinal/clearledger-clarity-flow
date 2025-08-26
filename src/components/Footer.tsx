@@ -200,6 +200,21 @@ const Footer = () => {
               </Link>
             </div>
           </div>
+          
+          {/* Cardinal Consulting Fineprint */}
+          <div className="text-center mt-4">
+            <p className="text-xs text-background/50">
+              Website created by{' '}
+              <a 
+                href="https://www.cardinalhtx.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-background/70 transition-colors"
+              >
+                Cardinal Consulting
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
