@@ -21,43 +21,36 @@ const Footer = () => {
     {
       title: 'Services',
       links: [
-        { name: 'QuickBooks Management', href: '#services' },
-        { name: 'Monthly Reconciliation', href: '#services' },
-        { name: 'Billing & A/P', href: '#services' },
-        { name: 'Cleanup & Advisory', href: '#services' }
+        { name: 'QuickBooks Services', href: '/quickbooks-services' },
+        { name: 'Monthly Management', href: '/monthly-management' },
+        { name: 'Billing & A/P', href: '/billing-accounts-payable' },
+        { name: 'Cleanup & Advisory', href: '/cleanup-advisory' }
       ]
     },
     {
       title: 'Company',
       links: [
-        { name: 'About Us', href: '#about' },
+        { name: 'About Us', href: '/about' },
         { name: 'Case Studies', href: '/case-studies' },
-        { name: 'Team', href: '#about' },
-        { name: 'Careers', href: '#' },
-        { name: 'News & Updates', href: '#' },
-        { name: 'Contact', href: '#contact' }
+        { name: 'Team', href: '/about' },
+        { name: 'Contact', href: '/contact' },
+        { name: 'Consultation', href: '/consultation' }
       ]
     },
-
     {
       title: 'Legal',
       links: [
-        { name: 'Privacy Policy', href: '#' },
-        { name: 'Terms of Service', href: '#' },
-        { name: 'Cookie Policy', href: '#' },
-        { name: 'GDPR Compliance', href: '#' },
-
-        { name: 'Accessibility', href: '#' }
+        { name: 'Privacy Policy', href: '/privacy-policy' },
+        { name: 'Terms of Service', href: '/terms-of-service' },
+        { name: 'Cookie Policy', href: '/cookie-policy' }
       ]
     }
   ];
 
   const socialLinks = [
-    { name: 'LinkedIn', icon: Linkedin, href: '#' },
-    { name: 'Twitter', icon: Twitter, href: '#' },
-    { name: 'Facebook', icon: Facebook, href: '#' },
-    { name: 'Instagram', icon: Instagram, href: '#' },
-    { name: 'YouTube', icon: Youtube, href: '#' }
+    { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com/company/clearledger-solutions' },
+    { name: 'Email', icon: Mail, href: 'mailto:jj@yourclearledger.com' },
+    { name: 'Phone', icon: Phone, href: 'tel:(903) 815-9488' }
   ];
 
   const contactInfo = [
@@ -225,15 +218,15 @@ const Footer = () => {
             </div>
             
             <div className="flex items-center space-x-6 text-sm">
-              <a href="#" className="text-background/70 hover:text-background transition-colors">
+              <Link to="/privacy-policy" className="text-background/70 hover:text-background transition-colors">
                 Privacy Policy
-              </a>
-              <a href="#" className="text-background/70 hover:text-background transition-colors">
+              </Link>
+              <Link to="/terms-of-service" className="text-background/70 hover:text-background transition-colors">
                 Terms of Service
-              </a>
-              <a href="#" className="text-background/70 hover:text-background transition-colors">
+              </Link>
+              <Link to="/cookie-policy" className="text-background/70 hover:text-background transition-colors">
                 Cookie Policy
-              </a>
+              </Link>
             </div>
           </div>
         </div>

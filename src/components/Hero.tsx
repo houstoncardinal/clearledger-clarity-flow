@@ -1,14 +1,138 @@
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Shield, Star } from 'lucide-react';
+import { useRef, useEffect } from 'react';
 
 const Hero = () => {
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const navigate = useNavigate();
+
   const keyBenefits = [
     'QuickBooks Online & Desktop Expertise',
     'Monthly Bookkeeping & Reconciliation',
     'Accounts Payable Management',
     'Compliant Financial Reporting'
   ];
+
+  // Create ASMR sound effect
+  useEffect(() => {
+    let audioContext: AudioContext | null = null;
+    let hasInteracted = false;
+
+    const createASMRSound = () => {
+      if (!hasInteracted) return;
+      
+      if (!audioContext) {
+        audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+      }
+      
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+      
+      // Simple mouse hover sound
+      oscillator.type = 'sine';
+      oscillator.frequency.setValueAtTime(1000, audioContext.currentTime);
+      oscillator.frequency.exponentialRampToValueAtTime(800, audioContext.currentTime + 0.1);
+      
+      // Quick, subtle volume
+      gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+      gainNode.gain.linearRampToValueAtTime(0.02, audioContext.currentTime + 0.01);
+      gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.1);
+      
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+      
+      oscillator.start(audioContext.currentTime);
+      oscillator.stop(audioContext.currentTime + 0.1);
+    };
+
+    const createClickSound = () => {
+      if (!hasInteracted) return;
+      
+      if (!audioContext) {
+        audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+      }
+      
+      // Create a realistic physical button click sound
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+      const filter = audioContext.createBiquadFilter();
+      
+      // Physical button click characteristics
+      oscillator.type = 'sawtooth';
+      oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+      oscillator.frequency.exponentialRampToValueAtTime(200, audioContext.currentTime + 0.015);
+      
+      // Low-pass filter to simulate button material
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(2000, audioContext.currentTime);
+      filter.Q.setValueAtTime(0.5, audioContext.currentTime);
+      
+      // Quick, sharp envelope like a real button
+      gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+      gainNode.gain.linearRampToValueAtTime(0.08, audioContext.currentTime + 0.002);
+      gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.02);
+      
+      oscillator.connect(filter);
+      filter.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+      
+      oscillator.start(audioContext.currentTime);
+      oscillator.stop(audioContext.currentTime + 0.02);
+    };
+
+    // Enable audio on first user interaction
+    const enableAudio = () => {
+      hasInteracted = true;
+      if (audioContext && audioContext.state === 'suspended') {
+        audioContext.resume();
+      }
+      document.removeEventListener('click', enableAudio);
+      document.removeEventListener('touchstart', enableAudio);
+    };
+
+    document.addEventListener('click', enableAudio);
+    document.addEventListener('touchstart', enableAudio);
+
+    // Store the functions globally for hover events
+    (window as any).playASMRSound = createASMRSound;
+    (window as any).playClickSound = createClickSound;
+    
+    return () => {
+      delete (window as any).playASMRSound;
+      delete (window as any).playClickSound;
+      document.removeEventListener('click', enableAudio);
+      document.removeEventListener('touchstart', enableAudio);
+    };
+  }, []);
+
+  const handlePillHover = () => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+    }
+    
+    // Play ASMR sound with slight delay for smooth effect
+    hoverTimeoutRef.current = setTimeout(() => {
+      if ((window as any).playASMRSound) {
+        (window as any).playASMRSound();
+      }
+    }, 50);
+  };
+
+  const handlePillLeave = () => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+    }
+  };
+
+  const handlePillClick = () => {
+    if ((window as any).playClickSound) {
+      (window as any).playClickSound();
+    }
+    // Navigate to consultation page
+    navigate('/consultation');
+  };
 
   return (
     <section className="relative min-h-screen flex items-center bg-gradient-to-br from-background via-background to-accent/10">
@@ -20,22 +144,30 @@ const Hero = () => {
       
       <div className="container mx-auto px-4 py-20 sm:py-24 lg:py-32">
         <div className="max-w-4xl mx-auto text-left sm:text-center space-y-6 sm:space-y-8 lg:space-y-10">
-          {/* Trust Badge */}
+          {/* Luxury Badge */}
           <div 
-            className="inline-flex items-center space-x-2 sm:space-x-3 bg-accent/90 backdrop-blur-sm px-4 sm:px-6 py-2 sm:py-3 rounded-full border border-accent-foreground/20 shadow-sm animate-fade-in sm:mx-auto"
+            className="inline-flex items-center space-x-2 sm:space-x-3 bg-white/5 backdrop-blur-md px-4 sm:px-6 py-2 sm:py-3 rounded-full border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.12)] hover:shadow-[0_12px_48px_rgba(0,0,0,0.16)] animate-fade-in sm:mx-auto group hover:scale-102 transition-all duration-300 cursor-pointer relative overflow-hidden"
             style={{animationDelay: '0.2s'}}
+            onMouseEnter={handlePillHover}
+            onMouseLeave={handlePillLeave}
+            onClick={handlePillClick}
           >
-            <div className="flex space-x-1">
-              {[...Array(5)].map((_, i) => (
-                <Star 
+            {/* Luxury glow effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            
+            {/* Subtle inner glow */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-white/5 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div className="flex space-x-1 relative z-10">
+              {[...Array(3)].map((_, i) => (
+                <div 
                   key={i} 
-                  className="w-3 h-3 sm:w-4 sm:h-4 fill-yellow-400 text-yellow-400 animate-bounce" 
-                  style={{animationDelay: `${i * 0.1}s`}}
+                  className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full animate-pulse shadow-sm"
+                  style={{animationDelay: `${i * 0.15}s`}}
                 />
               ))}
             </div>
-            <span className="text-xs sm:text-sm font-semibold text-accent-foreground whitespace-nowrap">
-              Expert Bookkeeping Services • 4.9/5 Rating
+            <span className="text-xs sm:text-sm font-medium text-foreground whitespace-nowrap group-hover:text-primary transition-colors duration-300 relative z-10">
+              Transform Your Finances Today • Free Consultation
             </span>
           </div>
 

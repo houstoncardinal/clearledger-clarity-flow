@@ -221,7 +221,7 @@ const MobileToolbar = () => {
                 <div>
                   <h3 className="text-sm font-bold text-foreground flex items-center">
                     <Crown className="w-4 h-4 mr-2 text-yellow-500" />
-                    Premium Services
+                    ClearLedger Solutions Helper
                   </h3>
                   <p className="text-xs text-muted-foreground">ClearLedger excellence</p>
                 </div>

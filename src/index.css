@@ -362,6 +362,20 @@
     animation: morph 3s ease-in-out infinite;
   }
 
+  /* Animated gradient border */
+  .animate-gradient-x {
+    animation: gradient-x 3s ease-in-out infinite;
+  }
+
+  @keyframes gradient-x {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
   /* Glassmorphism effects */
   .glass-effect {
     background: rgba(255, 255, 255, 0.1);
@@ -373,5 +387,69 @@
     background: rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Text overflow fixes */
+  .break-words {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Container overflow protection */
+  .container {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Responsive text sizing */
+  .text-responsive {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+  }
+
+  /* Grid overflow protection */
+  .grid {
+    min-width: 0;
+  }
+
+  /* Card overflow protection */
+  .card-service,
+  .card-premium {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  /* Form overflow protection */
+  input, textarea, select {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Header dropdown overlay fix */
+  header {
+    position: relative;
+    z-index: 50;
+    overflow: visible !important;
+  }
+
+  /* Ensure dropdown appears above everything */
+  .z-\[9999\] {
+    z-index: 9999 !important;
+  }
+
+  /* Force dropdown to appear above all content */
+  [style*="zIndex: 99999"] {
+    z-index: 99999 !important;
+    position: absolute !important;
+  }
+
+  /* Ensure header containers don't clip dropdowns */
+  header * {
+    overflow: visible !important;
+  }
+
+  /* Specific dropdown positioning */
+  .absolute.top-full {
+    position: absolute !important;
+    z-index: 99999 !important;
   }
 }

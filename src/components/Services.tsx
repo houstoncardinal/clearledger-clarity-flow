@@ -84,7 +84,7 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-16">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             const anchorId = index === 0 ? 'quickbooks' : 
@@ -101,7 +101,7 @@ const Services = () => {
                 <h3 className="font-heading text-xl font-bold text-foreground mb-4">
                   {service.title}
                 </h3>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
+                <p className="text-muted-foreground mb-6 leading-relaxed text-sm lg:text-base break-words">
                   {service.description}
                 </p>
 
@@ -110,15 +110,15 @@ const Services = () => {
                   {service.features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-start space-x-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-sm text-foreground">{feature}</span>
+                      <span className="text-xs lg:text-sm text-foreground break-words">{feature}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* Ideal For */}
-                <div className="bg-accent p-4 rounded-lg mb-6">
-                  <h4 className="font-medium text-accent-foreground mb-2">Ideal For:</h4>
-                  <p className="text-sm text-accent-foreground">{service.idealFor}</p>
+                <div className="bg-accent p-3 lg:p-4 rounded-lg mb-6">
+                  <h4 className="font-medium text-accent-foreground mb-2 text-sm lg:text-base">Ideal For:</h4>
+                  <p className="text-xs lg:text-sm text-accent-foreground break-words">{service.idealFor}</p>
                 </div>
 
                 {/* CTA */}

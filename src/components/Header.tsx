@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { createPortal } from 'react-dom';
 import { 
   Menu, 
   X, 
@@ -20,6 +21,13 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [servicesTimeout, setServicesTimeout] = useState<NodeJS.Timeout | null>(null);
+  const servicesTriggerRef = useRef<HTMLDivElement>(null);
+  const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0, width: 0 });
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const navItems = [
     { name: 'About', href: '/about' },
@@ -86,6 +94,7 @@ const Header = () => {
 
             {/* Services Mega Menu */}
             <div 
+              ref={servicesTriggerRef}
               className="relative group"
               onMouseEnter={() => {
                 if (servicesTimeout) {
@@ -93,6 +102,15 @@ const Header = () => {
                   setServicesTimeout(null);
                 }
                 setIsServicesOpen(true);
+                // Calculate dropdown position
+                if (servicesTriggerRef.current) {
+                  const rect = servicesTriggerRef.current.getBoundingClientRect();
+                  setDropdownPosition({
+                    top: rect.bottom + window.scrollY,
+                    left: rect.left + window.scrollX,
+                    width: rect.width
+                  });
+                }
               }}
               onMouseLeave={() => {
                 const timeout = setTimeout(() => setIsServicesOpen(false), 150);
@@ -114,7 +132,8 @@ const Header = () => {
               {/* Mega Menu Dropdown */}
               {isServicesOpen && (
                 <div 
-                  className="absolute top-full left-0 mt-2 w-[800px] bg-card border border-border rounded-2xl shadow-2xl z-50 overflow-hidden"
+                  className="absolute top-full left-0 mt-2 w-[800px] bg-card border border-border rounded-2xl shadow-2xl overflow-hidden"
+                  style={{ zIndex: 99999 }}
                   onMouseEnter={() => {
                     if (servicesTimeout) {
                       clearTimeout(servicesTimeout);
@@ -254,31 +273,35 @@ const Header = () => {
             className="md:hidden p-2"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? (
+              <X className="w-6 h-6 text-foreground" />
+            ) : (
+              <Menu className="w-6 h-6 text-foreground" />
+            )}
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Professional Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden mt-4 py-4 border-t border-border">
+          <div className="md:hidden mt-4 py-4 border-t border-border bg-background">
             <nav className="flex flex-col space-y-4">
               {/* Services Section */}
               <div className="space-y-3">
-                <div className="flex items-center space-x-2 text-muted-foreground font-medium py-2">
-                  <Calculator className="w-4 h-4" />
-                  <span>Services</span>
+                <div className="flex items-center space-x-2 text-foreground font-semibold py-2">
+                  <Calculator className="w-4 h-4 text-primary" />
+                  <span className="text-sm">Services</span>
                 </div>
-                <div className="pl-6 space-y-2">
+                <div className="space-y-1">
                   {servicesMenu.map((service, index) => {
                     const IconComponent = service.icon;
                     return (
                       <Link
                         key={index}
                         to={service.href}
-                        className="flex items-center space-x-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 py-2"
+                        className="flex items-center space-x-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 py-2 px-3 rounded-md hover:bg-accent/50"
                         onClick={() => setIsOpen(false)}
                       >
-                        <IconComponent className="w-4 h-4" />
+                        <IconComponent className="w-4 h-4 text-primary" />
                         <span>{service.title}</span>
                       </Link>
                     );
@@ -287,24 +310,26 @@ const Header = () => {
               </div>
 
               {/* Separator */}
-              <div className="border-t border-border my-2"></div>
+              <div className="border-t border-border my-3"></div>
 
               {/* Other Navigation Items */}
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium py-2"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
+              <div className="space-y-1">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className="text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium py-2 block"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
 
               {/* Quick Links */}
-              <div className="border-t border-border pt-4">
-                <div className="text-sm font-medium text-muted-foreground mb-3">Quick Links</div>
-                <div className="space-y-2">
+              <div className="border-t border-border pt-3">
+                <div className="text-sm font-medium text-foreground mb-2">Quick Links</div>
+                <div className="space-y-1">
                   {quickLinks.map((link, index) => {
                     const IconComponent = link.icon;
                     return (
@@ -314,7 +339,7 @@ const Header = () => {
                         className="flex items-center space-x-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 py-2"
                         onClick={() => setIsOpen(false)}
                       >
-                        <IconComponent className="w-4 h-4" />
+                        <IconComponent className="w-4 h-4 text-primary" />
                         <span>{link.name}</span>
                       </Link>
                     );
@@ -324,7 +349,7 @@ const Header = () => {
 
               <div className="flex flex-col space-y-3 pt-4">
                 <Link to="/contact">
-                  <Button className="btn-primary">
+                  <Button className="w-full btn-primary">
                     Book Free Consultation
                   </Button>
                 </Link>

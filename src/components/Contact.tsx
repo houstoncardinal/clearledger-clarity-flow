@@ -91,9 +91,9 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
           {/* Left Column - Contact Form */}
-          <div className="bg-card rounded-2xl p-8 shadow-premium">
+          <div className="bg-card rounded-2xl p-6 lg:p-8 shadow-premium">
             <div className="mb-8">
               <div className="flex items-center space-x-3 mb-4">
                 <Calendar className="w-6 h-6 text-primary" />
@@ -101,7 +101,7 @@ const Contact = () => {
                   Book Your Free Consultation
                 </h3>
               </div>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground text-sm lg:text-base break-words">
                 Tell us about your business and we'll schedule a personalized consultation 
                 to discuss your financial management needs.
               </p>
@@ -124,7 +124,7 @@ const Contact = () => {
 
             {/* Contact Form */}
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                     Full Name *
@@ -157,7 +157,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="company" className="block text-sm font-medium text-foreground mb-2">
                     Company Name
@@ -231,9 +231,9 @@ const Contact = () => {
           </div>
 
           {/* Right Column - Contact Info & Map */}
-          <div className="space-y-8">
+          <div className="space-y-6 lg:space-y-8">
             {/* Contact Information */}
-            <div className="bg-card rounded-2xl p-8 shadow-premium">
+            <div className="bg-card rounded-2xl p-6 lg:p-8 shadow-premium">
               <h3 className="font-heading text-xl font-bold text-foreground mb-6">
                 Get In Touch
               </h3>
@@ -241,14 +241,14 @@ const Contact = () => {
                 {contactInfo.map((info, index) => {
                   const IconComponent = info.icon;
                   return (
-                    <div key={index} className="flex items-start space-x-4">
+                    <div key={index} className="flex items-start space-x-3 lg:space-x-4">
                       <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center flex-shrink-0">
                         <IconComponent className="w-5 h-5 text-primary-foreground" />
                       </div>
-                      <div>
-                        <h4 className="font-medium text-foreground">{info.title}</h4>
-                        <p className="text-foreground font-medium">{info.details}</p>
-                        <p className="text-sm text-muted-foreground">{info.subtext}</p>
+                      <div className="min-w-0 flex-1">
+                        <h4 className="font-medium text-foreground text-sm lg:text-base">{info.title}</h4>
+                        <p className="text-foreground font-medium text-sm lg:text-base break-words">{info.details}</p>
+                        <p className="text-xs lg:text-sm text-muted-foreground break-words">{info.subtext}</p>
                       </div>
                     </div>
                   );
@@ -257,7 +257,7 @@ const Contact = () => {
             </div>
 
             {/* Quick Actions */}
-            <div className="bg-card rounded-2xl p-8 shadow-premium">
+            <div className="bg-card rounded-2xl p-6 lg:p-8 shadow-premium">
               <h3 className="font-heading text-xl font-bold text-foreground mb-6">
                 Prefer to Talk?
               </h3>
