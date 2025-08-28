@@ -97,8 +97,10 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {/* Home Navigation */}
-            <Link to="/" className="text-foreground hover:text-foreground transition-colors duration-200 font-medium">
-              Home
+            <Link to="/" className="relative text-foreground font-medium px-3 py-2 rounded-lg transition-all duration-300 hover:bg-accent hover:text-primary group">
+              <span className="relative z-10">Home</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-primary-dark/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-primary/5 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 origin-center"></div>
             </Link>
 
             {/* Services Mega Menu */}
@@ -127,8 +129,10 @@ const Header = () => {
               }}
             >
               <div className="flex items-baseline space-x-1">
-                <Link to="/services" className="text-foreground hover:text-foreground transition-colors duration-200 font-medium">
-                  Services
+                <Link to="/services" className="relative text-foreground font-medium px-3 py-2 rounded-lg transition-all duration-300 hover:bg-accent hover:text-primary group">
+                  <span className="relative z-10">Services</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-primary-dark/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-primary/5 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 origin-center"></div>
                 </Link>
                 <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-200 flex-shrink-0" />
               </div>
@@ -268,9 +272,11 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className="text-foreground hover:text-foreground transition-colors duration-200 font-medium"
+                className="relative text-foreground font-medium px-3 py-2 rounded-lg transition-all duration-300 hover:bg-accent hover:text-primary group"
               >
-                {item.name}
+                <span className="relative z-10">{item.name}</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-primary-dark/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-primary/5 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 origin-center"></div>
               </Link>
             ))}
           </nav>
@@ -291,7 +297,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
+            className="md:hidden p-2 rounded-lg transition-all duration-300 hover:bg-accent hover:text-primary"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? (
@@ -319,11 +325,12 @@ const Header = () => {
                       <Link
                         key={index}
                         to={service.href}
-                        className="flex items-center space-x-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 py-2 px-3 rounded-md hover:bg-accent/50"
+                        className="relative flex items-center space-x-3 text-sm text-muted-foreground hover:text-primary transition-all duration-300 py-2 px-3 rounded-lg hover:bg-accent group"
                         onClick={() => setIsOpen(false)}
                       >
-                        <IconComponent className="w-4 h-4 text-primary" />
-                        <span>{service.title}</span>
+                        <IconComponent className="w-4 h-4 text-primary group-hover:text-primary transition-colors duration-300" />
+                        <span className="relative z-10">{service.title}</span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-primary-dark/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </Link>
                     );
                   })}
@@ -339,10 +346,11 @@ const Header = () => {
                   <Link
                     key={item.name}
                     to={item.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium py-2 block"
+                    className="relative text-muted-foreground hover:text-primary transition-all duration-300 font-medium py-2 px-3 rounded-lg hover:bg-accent block group"
                     onClick={() => setIsOpen(false)}
                   >
-                    {item.name}
+                    <span className="relative z-10">{item.name}</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-primary-dark/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </Link>
                 ))}
               </div>
@@ -357,11 +365,12 @@ const Header = () => {
                       <Link
                         key={index}
                         to={link.href}
-                        className="flex items-center space-x-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 py-2"
+                        className="relative flex items-center space-x-3 text-sm text-muted-foreground hover:text-primary transition-all duration-300 py-2 px-3 rounded-lg hover:bg-accent group"
                         onClick={() => setIsOpen(false)}
                       >
-                        <IconComponent className="w-4 h-4 text-primary" />
-                        <span>{link.name}</span>
+                        <IconComponent className="w-4 h-4 text-primary group-hover:text-primary transition-colors duration-300" />
+                        <span className="relative z-10">{link.name}</span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-primary-dark/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </Link>
                     );
                   })}

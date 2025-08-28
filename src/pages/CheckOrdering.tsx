@@ -132,23 +132,23 @@ const CheckOrderingContent = () => {
   ];
 
   const standardColors = [
-    { name: 'Gray Herringbone', value: 'gray-herringbone', color: '#f5f5f5', premium: false },
-    { name: 'Blue Herringbone', value: 'blue-herringbone', color: '#e6f3ff', premium: false },
-    { name: 'Green Herringbone', value: 'green-herringbone', color: '#e6ffe6', premium: false },
-    { name: 'Maroon Herringbone', value: 'maroon-herringbone', color: '#ffe6e6', premium: false },
-    { name: 'Tan Herringbone', value: 'tan-herringbone', color: '#f5f5dc', premium: false },
-    { name: 'Purple Herringbone', value: 'purple-herringbone', color: '#f0e6ff', premium: false },
-    { name: 'Yellow Herringbone', value: 'yellow-herringbone', color: '#ffffe6', premium: false }
+    { name: 'Gray Herringbone', value: 'gray-herringbone', image: '/gray.png', premium: false },
+    { name: 'Blue Herringbone', value: 'blue-herringbone', image: '/blue.png', premium: false },
+    { name: 'Green Herringbone', value: 'green-herringbone', image: '/green.png', premium: false },
+    { name: 'Maroon Herringbone', value: 'maroon-herringbone', image: '/maroon.png', premium: false },
+    { name: 'Tan Herringbone', value: 'tan-herringbone', image: '/tan.png', premium: false },
+    { name: 'Purple Herringbone', value: 'purple-herringbone', image: '/purple.png', premium: false },
+    { name: 'Yellow Herringbone', value: 'yellow-herringbone', image: '/yellow.png', premium: false }
   ];
 
   const premiumColors = [
-    { name: 'American Spirit', value: 'american-spirit', color: 'linear-gradient(45deg, #e6f3ff, #ffe6f3, #ffffff)', premium: true },
-    { name: 'Antique', value: 'antique', color: '#f5f5dc', premium: true },
-    { name: 'Blue Marble', value: 'blue-marble', color: '#e6f3ff', premium: true },
-    { name: 'TamperGuard Plus - Blue', value: 'tamperguard-blue', color: '#e6f3ff', premium: true },
-    { name: 'Gentry', value: 'gentry', color: '#f5f5f5', premium: true },
-    { name: 'Green Marble', value: 'green-marble', color: '#e6ffe6', premium: true },
-    { name: 'Monterey', value: 'monterey', color: '#e6f3f5', premium: true }
+    { name: 'American Spirit', value: 'american-spirit', image: '/american.png', premium: true },
+    { name: 'Antique', value: 'antique', image: '/antique.png', premium: true },
+    { name: 'Blue Marble', value: 'blue-marble', image: '/bluemarble.png', premium: true },
+    { name: 'TamperGuard Plus - Blue', value: 'tamperguard-blue', image: '/tamper.png', premium: true },
+    { name: 'Gentry', value: 'gentry', image: '/gentry.png', premium: true },
+    { name: 'Green Marble', value: 'green-marble', image: '/greenmarble.png', premium: true },
+    { name: 'Monterey', value: 'monterey', image: '/monterery.png', premium: true }
   ];
 
   const handleInputChange = (field: string, value: any) => {
@@ -156,6 +156,14 @@ const CheckOrderingContent = () => {
       ...prev,
       [field]: value
     }));
+    
+    // Clear error when user starts typing
+    if (formErrors[field]) {
+      setFormErrors(prev => ({
+        ...prev,
+        [field]: ''
+      }));
+    }
   };
 
   const calculatePrice = () => {
@@ -187,8 +195,38 @@ const CheckOrderingContent = () => {
     return total;
   };
 
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
+
+  const validateForm = () => {
+    const errors: Record<string, string> = {};
+    
+    if (!formData.companyName.trim()) errors.companyName = 'Company name is required';
+    if (!formData.companyAddress.trim()) errors.companyAddress = 'Company address is required';
+    if (!formData.city.trim()) errors.city = 'City is required';
+    if (!formData.state.trim()) errors.state = 'State is required';
+    if (!formData.zip.trim()) errors.zip = 'ZIP code is required';
+    if (!formData.bankName.trim()) errors.bankName = 'Bank name is required';
+    if (!formData.routingNumber.trim()) errors.routingNumber = 'Routing number is required';
+    if (!formData.accountNumber.trim()) errors.accountNumber = 'Account number is required';
+    if (!formData.startingCheckNumber.trim()) errors.startingCheckNumber = 'Starting check number is required';
+    if (!formData.checkType) errors.checkType = 'Please select a check type';
+    if (!formData.quantity) errors.quantity = 'Please select a quantity';
+    
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!validateForm()) {
+      // Scroll to first error
+      const firstErrorField = Object.keys(formErrors)[0];
+      if (firstErrorField) {
+        document.getElementById(firstErrorField)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return;
+    }
     
     // Format the order data for easy processing
     const orderData = {
@@ -324,14 +362,56 @@ NOTES: ${orderData.notes || 'None'}
     
     // Here you would typically send this to your backend/email service
     // For now, we'll show a success message
-    alert(`Thank you for your order!\n\nOrder Number: ${orderData.orderNumber}\nTotal: $${orderData.pricing.totalPrice}\n\nWe will contact you shortly to confirm your custom check order.`);
+    const message = `Thank you for your order!
+
+Order Number: ${orderData.orderNumber}
+Total: $${orderData.pricing.totalPrice}
+
+We will contact you shortly to confirm your custom check order.`;
+    
+    // Use a more mobile-friendly alert or consider implementing a toast notification
+    if (window.innerWidth < 768) {
+      // Mobile-friendly alert
+      const mobileAlert = document.createElement('div');
+      mobileAlert.className = 'fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50';
+      mobileAlert.innerHTML = `
+        <div class="bg-white rounded-lg p-6 max-w-sm w-full mx-4">
+          <div class="text-center mb-4">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-lg text-gray-900">Order Submitted!</h3>
+          </div>
+          <div class="space-y-3 text-sm text-gray-600">
+            <div class="bg-gray-50 rounded-lg p-3">
+              <p><strong>Order #:</strong> ${orderData.orderNumber}</p>
+              <p><strong>Total:</strong> $${orderData.pricing.totalPrice}</p>
+            </div>
+            <p class="text-center">We'll contact you shortly to confirm your custom check order.</p>
+          </div>
+          <div class="mt-6 space-y-2">
+            <button onclick="this.parentElement.parentElement.remove()" class="w-full bg-primary text-white py-3 px-4 rounded-lg font-medium hover:bg-primary-dark transition-colors">
+              Continue Shopping
+            </button>
+            <button onclick="this.parentElement.parentElement.remove()" class="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded-lg font-medium hover:bg-gray-200 transition-colors">
+              Close
+            </button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(mobileAlert);
+    } else {
+      alert(message);
+    }
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       {/* Hero Section */}
       <section className="py-16 lg:py-20 bg-gradient-subtle">
-        <div className="container mx-auto">
+        <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-16">
             <div className="inline-flex items-center space-x-2 bg-accent px-4 py-2 rounded-full mb-6">
               <CreditCard className="w-4 h-4 text-accent-foreground" />
@@ -339,24 +419,24 @@ NOTES: ${orderData.notes || 'None'}
                 Custom Check Ordering
               </span>
             </div>
-            <h1 className="font-heading text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               Professional Business Checks
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
               Order custom business checks with built-in security features. 
               QuickBooks and Sage 100 Contractor compatible with free personalization.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Badge variant="secondary" className="text-primary bg-primary/10">
-                <Shield className="w-4 h-4 mr-2" />
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+              <Badge variant="secondary" className="text-primary bg-primary/10 text-xs sm:text-sm">
+                <Shield className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                 Security Features
               </Badge>
-              <Badge variant="secondary" className="text-primary bg-primary/10">
-                <CheckCircle className="w-4 h-4 mr-2" />
+              <Badge variant="secondary" className="text-primary bg-primary/10 text-xs sm:text-sm">
+                <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                 QuickBooks Compatible
               </Badge>
-              <Badge variant="secondary" className="text-primary bg-primary/10">
-                <Package className="w-4 h-4 mr-2" />
+              <Badge variant="secondary" className="text-primary bg-primary/10 text-xs sm:text-sm">
+                <Package className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                 Free Personalization
               </Badge>
             </div>
@@ -366,11 +446,98 @@ NOTES: ${orderData.notes || 'None'}
 
       {/* Main Form Section */}
       <section className="py-8 lg:py-16 bg-background">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-7xl">
           <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
+                                {/* Mobile Order Summary Banner */}
+                    <div className="lg:hidden mb-6">
+                      <Card className="bg-gradient-to-r from-primary/10 to-primary/5 border-primary/20">
+                        <CardContent className="p-4">
+                          <div className="flex items-center justify-between">
+                            <div className="flex-1 min-w-0">
+                              <h3 className="font-semibold text-foreground">Order Summary</h3>
+                              <p className="text-sm text-muted-foreground truncate">
+                                {formData.checkType ? `${checkTypes.find(t => t.id === formData.checkType)?.name} - ${formData.quantity || 'Select quantity'}` : 'Select check type and quantity'}
+                              </p>
+                            </div>
+                            <div className="text-right flex-shrink-0 ml-4">
+                              <div className="text-2xl font-bold text-primary">
+                                ${calculateTotal()}
+                              </div>
+                              <p className="text-xs text-muted-foreground">Total</p>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                      
+                      {/* Mobile Order Status */}
+                      <div className="mb-6 p-3 bg-green-50 border border-green-200 rounded-lg">
+                        <div className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-green-600" />
+                          <span className="text-sm text-green-800">
+                            {formData.checkType && formData.quantity ? 'Ready to submit!' : 'Complete all required fields to submit your order'}
+                          </span>
+                        </div>
+                      </div>
+                      
+                                                                {/* Mobile Quick Actions */}
+                      <div className="grid grid-cols-2 gap-3 mb-6 max-w-sm mx-auto">
+                      <Button 
+                        variant="outline" 
+                        className="w-full"
+                        onClick={() => document.getElementById('companyName')?.focus()}
+                      >
+                        <Building2 className="w-4 h-4 mr-2" />
+                        Company Info
+                      </Button>
+                      <Button 
+                        variant="outline" 
+                        className="w-full"
+                        onClick={() => document.getElementById('bankName')?.focus()}
+                      >
+                        <Banknote className="w-4 h-4 mr-2" />
+                        Bank Info
+                      </Button>
+                    </div>
+                    
+                    {/* Mobile Form Navigation */}
+                    <div className="sm:hidden mb-6">
+                      <div className="flex space-x-2 overflow-x-auto pb-2 justify-center">
+                        <button 
+                          className="flex-shrink-0 px-3 py-2 text-xs bg-primary/10 text-primary rounded-full border border-primary/20"
+                          onClick={() => document.getElementById('companyName')?.scrollIntoView({ behavior: 'smooth' })}
+                        >
+                          Company
+                        </button>
+                        <button 
+                          className="flex-shrink-0 px-3 py-2 text-xs bg-primary/10 text-primary rounded-full border border-primary/20"
+                          onClick={() => document.getElementById('bankName')?.scrollIntoView({ behavior: 'smooth' })}
+                        >
+                          Bank
+                        </button>
+                        <button 
+                          className="flex-shrink-0 px-3 py-2 text-xs bg-primary/10 text-primary rounded-full border border-primary/20"
+                          onClick={() => document.querySelector('[data-step="product"]')?.scrollIntoView({ behavior: 'smooth' })}
+                        >
+                          Product
+                        </button>
+                        <button 
+                          className="flex-shrink-0 px-3 py-2 text-xs bg-primary/10 text-primary rounded-full border border-primary/20"
+                          onClick={() => document.querySelector('[data-step="design"]')?.scrollIntoView({ behavior: 'smooth' })}
+                        >
+                          Design
+                        </button>
+                        <button 
+                          className="flex-shrink-0 px-3 py-2 text-xs bg-primary/10 text-primary rounded-full border border-primary/20"
+                          onClick={() => document.querySelector('[data-step="additional"]')?.scrollIntoView({ behavior: 'smooth' })}
+                        >
+                          Add-ons
+                        </button>
+                      </div>
+                    </div>
+                    </div>
             {/* Form */}
-            <div className="lg:col-span-2 order-2 lg:order-1">
-              <Card className="shadow-premium">
+            <div className="lg:col-span-2 order-1 lg:order-1">
+              <Card className="shadow-premium max-w-4xl mx-auto lg:mx-0">
                 <CardHeader>
                   <CardTitle className="font-heading text-3xl font-bold text-foreground">
                     Check Order Form
@@ -380,7 +547,18 @@ NOTES: ${orderData.notes || 'None'}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-8">
+                  <form onSubmit={handleSubmit} className="space-y-8" noValidate>
+                    {/* Mobile Progress Indicator */}
+                    <div className="sm:hidden mb-6">
+                      <div className="flex items-center justify-between text-sm text-muted-foreground mb-2">
+                        <span>Step 1 of 6</span>
+                        <span>Company Information</span>
+                      </div>
+                      <div className="w-full bg-gray-200 rounded-full h-2" role="progressbar" aria-valuenow={1} aria-valuemin={1} aria-valuemax={6}>
+                        <div className="bg-primary h-2 rounded-full transition-all duration-300" style={{ width: '16.67%' }}></div>
+                      </div>
+                    </div>
+                    
                     {/* Step 1: Company Information */}
                     <div className="space-y-6">
                       <div className="flex items-center gap-3">
@@ -390,67 +568,91 @@ NOTES: ${orderData.notes || 'None'}
                         <h3 className="font-heading text-xl font-semibold text-foreground">Company Information</h3>
                       </div>
                       
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div className="sm:col-span-2">
+                      <div className="grid grid-cols-1 gap-4">
+                        <div>
                           <Label htmlFor="companyName">Company Name on Checks *</Label>
                           <Input
                             id="companyName"
                             value={formData.companyName}
                             onChange={(e) => handleInputChange('companyName', e.target.value)}
                             required
+                            className={`w-full h-12 text-base ${formErrors.companyName ? 'border-red-500' : ''}`}
+                            placeholder="Enter your company name"
                           />
+                          {formErrors.companyName && (
+                            <p className="text-sm text-red-600 mt-1">{formErrors.companyName}</p>
+                          )}
                         </div>
-                        <div className="sm:col-span-2">
+                        <div>
                           <Label htmlFor="companyAddress">Company Address *</Label>
                           <Input
                             id="companyAddress"
                             value={formData.companyAddress}
                             onChange={(e) => handleInputChange('companyAddress', e.target.value)}
                             required
+                            className={`w-full h-12 text-base ${formErrors.companyAddress ? 'border-red-500' : ''}`}
+                            placeholder="Enter your company address"
                           />
+                          {formErrors.companyAddress && (
+                            <p className="text-sm text-red-600 mt-1">{formErrors.companyAddress}</p>
+                          )}
                         </div>
-                        <div>
-                          <Label htmlFor="city">City *</Label>
-                          <Input
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                          <div>
+                            <Label htmlFor="city">City *</Label>
+                                                      <Input
                             id="city"
                             value={formData.city}
                             onChange={(e) => handleInputChange('city', e.target.value)}
                             required
+                            className="h-12 text-base"
+                            placeholder="Enter city"
                           />
-                        </div>
-                        <div>
-                          <Label htmlFor="state">State *</Label>
-                          <Input
+                          </div>
+                          <div>
+                            <Label htmlFor="state">State *</Label>
+                                                      <Input
                             id="state"
                             value={formData.state}
                             onChange={(e) => handleInputChange('state', e.target.value)}
                             required
+                            className="h-12 text-base"
+                            placeholder="Enter state"
                           />
-                        </div>
-                        <div>
-                          <Label htmlFor="zip">ZIP Code *</Label>
-                          <Input
+                          </div>
+                          <div>
+                            <Label htmlFor="zip">ZIP Code *</Label>
+                                                      <Input
                             id="zip"
                             value={formData.zip}
                             onChange={(e) => handleInputChange('zip', e.target.value)}
                             required
+                            className="h-12 text-base"
+                            placeholder="Enter ZIP code"
                           />
+                          </div>
                         </div>
-                        <div>
-                          <Label htmlFor="phoneNumber">Phone Number to Print</Label>
-                          <Input
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                          <div>
+                            <Label htmlFor="phoneNumber">Phone Number to Print</Label>
+                                                      <Input
                             id="phoneNumber"
                             value={formData.phoneNumber}
                             onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
+                            className="h-12 text-base"
+                            placeholder="Enter phone number"
                           />
-                        </div>
-                        <div>
-                          <Label htmlFor="faxNumber">Fax Number to Print</Label>
-                          <Input
+                          </div>
+                          <div>
+                            <Label htmlFor="faxNumber">Fax Number to Print</Label>
+                                                      <Input
                             id="faxNumber"
                             value={formData.faxNumber}
                             onChange={(e) => handleInputChange('faxNumber', e.target.value)}
+                            className="h-12 text-base"
+                            placeholder="Enter fax number"
                           />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -466,50 +668,75 @@ NOTES: ${orderData.notes || 'None'}
                         <h3 className="font-heading text-xl font-semibold text-foreground">Bank Information</h3>
                       </div>
                       
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div className="sm:col-span-2">
+                      {/* Mobile Step Indicator Update */}
+                      <div className="sm:hidden mb-4">
+                        <div className="flex items-center justify-between text-sm text-muted-foreground mb-2">
+                          <span>Step 2 of 6</span>
+                          <span>Bank Information</span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2">
+                          <div className="bg-primary h-2 rounded-full" style={{ width: '33.33%' }}></div>
+                        </div>
+                      </div>
+                      
+                      <div className="grid grid-cols-1 gap-4">
+                        <div>
                           <Label htmlFor="bankName">Bank Name *</Label>
                           <Input
                             id="bankName"
                             value={formData.bankName}
                             onChange={(e) => handleInputChange('bankName', e.target.value)}
                             required
+                            className="w-full h-12 text-base"
+                            placeholder="Enter bank name"
                           />
                         </div>
-                        <div>
-                          <Label htmlFor="bankCity">Bank City</Label>
-                          <Input
-                            id="bankCity"
-                            value={formData.bankCity}
-                            onChange={(e) => handleInputChange('bankCity', e.target.value)}
-                          />
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                          <div>
+                            <Label htmlFor="bankCity">Bank City</Label>
+                            <Input
+                              id="bankCity"
+                              value={formData.bankCity}
+                              onChange={(e) => handleInputChange('bankCity', e.target.value)}
+                              className="h-12 text-base"
+                              placeholder="Enter bank city"
+                            />
+                          </div>
+                          <div>
+                            <Label htmlFor="startingCheckNumber">Starting Check # *</Label>
+                            <Input
+                              id="startingCheckNumber"
+                              value={formData.startingCheckNumber}
+                              onChange={(e) => handleInputChange('startingCheckNumber', e.target.value)}
+                              required
+                              className="h-12 text-base"
+                              placeholder="Enter starting check number"
+                            />
+                          </div>
                         </div>
-                        <div>
-                          <Label htmlFor="routingNumber">Routing Number *</Label>
-                          <Input
-                            id="routingNumber"
-                            value={formData.routingNumber}
-                            onChange={(e) => handleInputChange('routingNumber', e.target.value)}
-                            required
-                          />
-                        </div>
-                        <div>
-                          <Label htmlFor="accountNumber">Account Number *</Label>
-                          <Input
-                            id="accountNumber"
-                            value={formData.accountNumber}
-                            onChange={(e) => handleInputChange('accountNumber', e.target.value)}
-                            required
-                          />
-                        </div>
-                        <div>
-                          <Label htmlFor="startingCheckNumber">Starting Check Number *</Label>
-                          <Input
-                            id="startingCheckNumber"
-                            value={formData.startingCheckNumber}
-                            onChange={(e) => handleInputChange('startingCheckNumber', e.target.value)}
-                            required
-                          />
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                          <div>
+                            <Label htmlFor="routingNumber">Routing Number *</Label>
+                            <Input
+                              id="routingNumber"
+                              value={formData.routingNumber}
+                              onChange={(e) => handleInputChange('routingNumber', e.target.value)}
+                              required
+                              className="h-12 text-base"
+                              placeholder="Enter routing number"
+                            />
+                          </div>
+                          <div>
+                            <Label htmlFor="accountNumber">Account Number *</Label>
+                            <Input
+                              id="accountNumber"
+                              value={formData.accountNumber}
+                              onChange={(e) => handleInputChange('accountNumber', e.target.value)}
+                              required
+                              className="h-12 text-base"
+                              placeholder="Enter account number"
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -517,18 +744,32 @@ NOTES: ${orderData.notes || 'None'}
                     <Separator />
 
                     {/* Step 3: Product Selection */}
-                    <div className="space-y-6">
+                    <div className="space-y-6" data-step="product">
                       <div className="flex items-center gap-3">
                         <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center font-bold text-primary-foreground">
                           3
                         </div>
                         <h3 className="font-heading text-xl font-semibold text-foreground">Product Selection</h3>
                       </div>
+                      
+                      {/* Mobile Step Indicator Update */}
+                      <div className="sm:hidden mb-4">
+                        <div className="flex items-center justify-between text-sm text-muted-foreground mb-2">
+                          <span>Step 3 of 6</span>
+                          <span>Product Selection</span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2">
+                          <div className="bg-primary h-2 rounded-full" style={{ width: '50%' }}></div>
+                        </div>
+                      </div>
 
                       {/* Check Type Selection */}
                       <div className="space-y-4">
                         <Label>Check Type *</Label>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {formErrors.checkType && (
+                          <p className="text-sm text-red-600">{formErrors.checkType}</p>
+                        )}
+                        <div className="grid grid-cols-1 gap-4 max-w-2xl mx-auto">
                           {checkTypes.map((type) => (
                             <Card 
                               key={type.id}
@@ -538,8 +779,8 @@ NOTES: ${orderData.notes || 'None'}
                               onClick={() => handleInputChange('checkType', type.id)}
                             >
                               <CardContent className="p-4">
-                                <div className="text-center">
-                                  <h4 className="font-semibold text-primary">{type.name}</h4>
+                                <div className="text-center sm:text-left">
+                                  <h4 className="font-semibold text-primary text-lg">{type.name}</h4>
                                   <p className="text-sm text-muted-foreground mt-2">{type.description}</p>
                                   <div className="mt-3 space-y-1">
                                     {type.features.slice(0, 3).map((feature, index) => (
@@ -709,7 +950,7 @@ NOTES: ${orderData.notes || 'None'}
                         </div>
                         
                         <div className="overflow-x-auto -mx-4 sm:mx-0">
-                          <table className="w-full text-sm min-w-[600px]">
+                          <table className="w-full text-sm min-w-[600px] sm:min-w-0">
                             <thead>
                               <tr className="border-b border-border">
                                 <th className="text-left py-2 font-medium">Qty</th>
@@ -730,12 +971,40 @@ NOTES: ${orderData.notes || 'None'}
                             </tbody>
                           </table>
                         </div>
+                        
+                        {/* Mobile-friendly pricing cards */}
+                        <div className="sm:hidden space-y-3 mt-4 max-w-lg mx-auto">
+                          {quantities.map((qty) => (
+                            <Card key={qty.value} className="p-4">
+                              <div className="text-center">
+                                <h4 className="font-semibold text-lg mb-2">{qty.label}</h4>
+                                <div className="grid grid-cols-3 gap-2 text-sm">
+                                  <div className="bg-primary/10 rounded p-2">
+                                    <div className="font-medium text-primary">1 Part</div>
+                                    <div className="text-lg font-bold">${qty.price['1']}</div>
+                                  </div>
+                                  <div className="bg-primary/10 rounded p-2">
+                                    <div className="font-medium text-primary">2 Part</div>
+                                    <div className="text-lg font-bold">${qty.price['2']}</div>
+                                  </div>
+                                  <div className="bg-primary/10 rounded p-2">
+                                    <div className="font-medium text-primary">3 Part</div>
+                                    <div className="text-lg font-bold">${qty.price['3']}</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </Card>
+                          ))}
+                        </div>
                       </div>
 
                       {/* Quantity and Options */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="space-y-4">
                         <div>
                           <Label htmlFor="quantity">Quantity *</Label>
+                          {formErrors.quantity && (
+                            <p className="text-sm text-red-600 mb-2">{formErrors.quantity}</p>
+                          )}
                           <Select value={formData.quantity} onValueChange={(value) => handleInputChange('quantity', value)}>
                             <SelectTrigger>
                               <SelectValue placeholder="Select quantity" />
@@ -752,37 +1021,50 @@ NOTES: ${orderData.notes || 'None'}
                         <div>
                           <Label>Packing Order</Label>
                           <RadioGroup value={formData.packingOrder} onValueChange={(value) => handleInputChange('packingOrder', value)}>
-                            <div className="flex items-center space-x-2">
-                              <RadioGroupItem value="standard" id="standard" />
-                              <Label htmlFor="standard">Standard Packing Order</Label>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                              <RadioGroupItem value="reverse" id="reverse" />
-                              <Label htmlFor="reverse">Reverse Packing Order</Label>
+                            <div className="space-y-2">
+                              <div className="flex items-center space-x-2">
+                                <RadioGroupItem value="standard" id="standard" />
+                                <Label htmlFor="standard">Standard Packing Order</Label>
+                              </div>
+                              <div className="flex items-center space-x-2">
+                                <RadioGroupItem value="reverse" id="reverse" />
+                                <Label htmlFor="reverse">Reverse Packing Order</Label>
+                              </div>
                             </div>
                           </RadioGroup>
                         </div>
                       </div>
 
-                      <div className="flex items-center space-x-2">
-                        <Checkbox 
-                          id="duplicates" 
-                          checked={formData.duplicates}
-                          onCheckedChange={(checked) => handleInputChange('duplicates', checked)}
-                        />
-                        <Label htmlFor="duplicates">Include Duplicates (2-Part or 3-Part)</Label>
-                      </div>
+                                              <div className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-accent/50 transition-colors">
+                          <Checkbox 
+                            id="duplicates" 
+                            checked={formData.duplicates}
+                            onCheckedChange={(checked) => handleInputChange('duplicates', checked)}
+                          />
+                          <Label htmlFor="duplicates" className="cursor-pointer">Include Duplicates (2-Part or 3-Part)</Label>
+                        </div>
                     </div>
 
                     <Separator />
 
                     {/* Step 4: Design Options */}
-                    <div className="space-y-6">
+                    <div className="space-y-6" data-step="design">
                       <div className="flex items-center gap-3">
                         <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center font-bold text-primary-foreground">
                           4
                         </div>
                         <h3 className="font-heading text-xl font-semibold text-foreground">Design Options</h3>
+                      </div>
+                      
+                      {/* Mobile Step Indicator Update */}
+                      <div className="sm:hidden mb-4">
+                        <div className="flex items-center justify-between text-sm text-muted-foreground mb-2">
+                          <span>Step 4 of 6</span>
+                          <span>Design Options</span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2">
+                          <div className="bg-primary h-2 rounded-full" style={{ width: '66.67%' }}></div>
+                        </div>
                       </div>
 
                       <Tabs defaultValue="standard" className="w-full">
@@ -791,7 +1073,10 @@ NOTES: ${orderData.notes || 'None'}
                           <TabsTrigger value="premium">Premium Colors (+$15)</TabsTrigger>
                         </TabsList>
                         <TabsContent value="standard" className="space-y-4">
-                          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
+                          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 max-w-2xl mx-auto">
+                            <p className="text-sm text-muted-foreground col-span-full text-center mb-2">
+                              Tap a color to select it
+                            </p>
                             {standardColors.map((color) => (
                               <div
                                 key={color.value}
@@ -800,17 +1085,23 @@ NOTES: ${orderData.notes || 'None'}
                                 }`}
                                 onClick={() => handleInputChange('designColor', color.value)}
                               >
-                                <div 
-                                  className="w-full h-12 rounded mb-2"
-                                  style={{ backgroundColor: color.color }}
-                                ></div>
+                                <div className="w-full h-12 rounded mb-2 overflow-hidden">
+                                  <img 
+                                    src={color.image} 
+                                    alt={color.name}
+                                    className="w-full h-full object-cover"
+                                  />
+                                </div>
                                 <p className="text-sm font-medium text-center">{color.name}</p>
                               </div>
                             ))}
                           </div>
                         </TabsContent>
                         <TabsContent value="premium" className="space-y-4">
-                          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
+                          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 max-w-2xl mx-auto">
+                            <p className="text-sm text-muted-foreground col-span-full text-center mb-2">
+                              Premium colors include a $15 upcharge
+                            </p>
                             {premiumColors.map((color) => (
                               <div
                                 key={color.value}
@@ -819,12 +1110,13 @@ NOTES: ${orderData.notes || 'None'}
                                 }`}
                                 onClick={() => handleInputChange('designColor', color.value)}
                               >
-                                <div 
-                                  className="w-full h-12 rounded mb-2"
-                                  style={{ 
-                                    background: color.color.includes('gradient') ? color.color : color.color 
-                                  }}
-                                ></div>
+                                <div className="w-full h-12 rounded mb-2 overflow-hidden">
+                                  <img 
+                                    src={color.image} 
+                                    alt={color.name}
+                                    className="w-full h-full object-cover"
+                                  />
+                                </div>
                                 <p className="text-sm font-medium text-center">{color.name}</p>
                                 <p className="text-xs text-primary text-center">+$15</p>
                               </div>
@@ -837,23 +1129,34 @@ NOTES: ${orderData.notes || 'None'}
                     <Separator />
 
                     {/* Step 5: Additional Items */}
-                    <div className="space-y-6">
+                    <div className="space-y-6" data-step="additional">
                       <div className="flex items-center gap-3">
                         <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center font-bold text-primary-foreground">
                           5
                         </div>
                         <h3 className="font-heading text-xl font-semibold text-foreground">Additional Items</h3>
                       </div>
+                      
+                      {/* Mobile Step Indicator Update */}
+                      <div className="sm:hidden mb-4">
+                        <div className="flex items-center justify-between text-sm text-muted-foreground mb-2">
+                          <span>Step 5 of 6</span>
+                          <span>Additional Items</span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2">
+                          <div className="bg-primary h-2 rounded-full" style={{ width: '83.33%' }}></div>
+                        </div>
+                      </div>
 
                       {/* Envelopes */}
                       <div className="space-y-4">
-                        <div className="flex items-center space-x-2">
+                        <div className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-accent/50 transition-colors">
                           <Checkbox 
                             id="envelopes" 
                             checked={formData.envelopes}
                             onCheckedChange={(checked) => handleInputChange('envelopes', checked)}
                           />
-                          <Label htmlFor="envelopes" className="text-lg font-medium">Envelopes</Label>
+                          <Label htmlFor="envelopes" className="text-lg font-medium cursor-pointer">Envelopes</Label>
                         </div>
                         {formData.envelopes && (
                           <div className="ml-6 space-y-4">
@@ -889,17 +1192,17 @@ NOTES: ${orderData.notes || 'None'}
 
                       {/* Deposit Forms */}
                       <div className="space-y-4">
-                        <div className="flex items-center space-x-2">
+                        <div className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-accent/50 transition-colors">
                           <Checkbox 
                             id="depositForms" 
                             checked={formData.depositForms}
                             onCheckedChange={(checked) => handleInputChange('depositForms', checked)}
                           />
-                          <Label htmlFor="depositForms" className="text-lg font-medium">Deposit Forms</Label>
+                          <Label htmlFor="depositForms" className="text-lg font-medium cursor-pointer">Deposit Forms</Label>
                         </div>
                         {formData.depositForms && (
                           <div className="ml-6 space-y-4">
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div className="space-y-4">
                               <div>
                                 <Label htmlFor="depositFormQuantity">Quantity</Label>
                                 <Select value={formData.depositFormQuantity} onValueChange={(value) => handleInputChange('depositFormQuantity', value)}>
@@ -941,17 +1244,17 @@ NOTES: ${orderData.notes || 'None'}
 
                       {/* Tax Forms */}
                       <div className="space-y-4">
-                        <div className="flex items-center space-x-2">
+                        <div className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-accent/50 transition-colors">
                           <Checkbox 
                             id="taxForms" 
                             checked={formData.taxForms}
                             onCheckedChange={(checked) => handleInputChange('taxForms', checked)}
                           />
-                          <Label htmlFor="taxForms" className="text-lg font-medium">Tax Forms</Label>
+                          <Label htmlFor="taxForms" className="text-lg font-medium cursor-pointer">Tax Forms</Label>
                         </div>
                         {formData.taxForms && (
                           <div className="ml-6 space-y-4">
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div className="space-y-4">
                               <div>
                                 <Label htmlFor="taxFormName">Form Name</Label>
                                 <Input
@@ -988,6 +1291,17 @@ NOTES: ${orderData.notes || 'None'}
                         <h3 className="font-heading text-xl font-semibold text-foreground">Additional Notes</h3>
                       </div>
                       
+                      {/* Mobile Step Indicator Update */}
+                      <div className="sm:hidden mb-4">
+                        <div className="flex items-center justify-between text-sm text-muted-foreground mb-2">
+                          <span>Step 6 of 6</span>
+                          <span>Additional Notes</span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2">
+                          <div className="bg-primary h-2 rounded-full" style={{ width: '100%' }}></div>
+                        </div>
+                      </div>
+                      
                       <div>
                         <Label htmlFor="otherNotes">Special Instructions or Additional Items</Label>
                         <Textarea
@@ -996,6 +1310,7 @@ NOTES: ${orderData.notes || 'None'}
                           onChange={(e) => handleInputChange('otherNotes', e.target.value)}
                           placeholder="Any special instructions, additional items, or notes for your order..."
                           rows={4}
+                          className="min-h-[120px] text-base"
                         />
                       </div>
                     </div>
@@ -1008,15 +1323,73 @@ NOTES: ${orderData.notes || 'None'}
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Button>
                     </div>
+                    
+                    {/* Mobile Floating Submit Button */}
+                    <div className="fixed bottom-4 left-4 right-4 sm:hidden z-40 max-w-md mx-auto">
+                      <Button type="submit" size="lg" className="w-full btn-primary shadow-lg">
+                        <CreditCard className="w-5 h-5 mr-2" />
+                        Submit Order
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </div>
+                    
+                    {/* Mobile Help Section */}
+                    <div className="sm:hidden mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg max-w-lg mx-auto">
+                      <div className="flex items-start gap-3">
+                        <Info className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                          <h4 className="font-semibold text-blue-800 mb-2">Need Help?</h4>
+                          <p className="text-sm text-blue-700 mb-3">
+                            If you have any questions about your order or need assistance, our team is here to help.
+                          </p>
+                          <div className="space-y-2">
+                            <Button 
+                              variant="outline" 
+                              size="sm" 
+                              className="w-full text-blue-700 border-blue-300"
+                              onClick={() => window.location.href = 'tel:+1-713-555-0123'}
+                            >
+                              <Phone className="w-4 h-4 mr-2" />
+                              Call for Help
+                            </Button>
+                            <Button 
+                              variant="outline" 
+                              size="sm" 
+                              className="w-full text-blue-700 border-blue-300"
+                              onClick={() => window.location.href = 'mailto:support@clearledger.com'}
+                            >
+                              <Mail className="w-4 h-4 mr-2" />
+                              Email Support
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Mobile Form Tips */}
+                    <div className="sm:hidden mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg max-w-lg mx-auto">
+                      <div className="flex items-start gap-3">
+                        <Info className="w-5 h-5 text-yellow-600 mt-0.5" />
+                        <div>
+                          <h4 className="font-semibold text-yellow-800 mb-2">Quick Tips</h4>
+                          <ul className="text-sm text-yellow-700 space-y-1">
+                            <li>• All fields marked with * are required</li>
+                            <li>• Use the navigation buttons above to jump between sections</li>
+                            <li>• Your order summary updates in real-time</li>
+                            <li>• Need help? Use the support buttons above</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
                   </form>
                 </CardContent>
               </Card>
             </div>
 
             {/* Order Summary */}
-            <div className="lg:col-span-1 order-1 lg:order-2">
-              <div className="sticky top-8 mb-6 lg:mb-0">
-                <Card className="shadow-premium">
+            <div className="lg:col-span-1 order-2 lg:order-2">
+              <div className="lg:sticky lg:top-8 mb-6 lg:mb-0">
+                <Card className="shadow-premium max-w-md mx-auto lg:mx-0">
                   <CardHeader>
                     <CardTitle className="font-heading text-2xl font-bold text-foreground">
                       Order Summary
@@ -1042,12 +1415,13 @@ NOTES: ${orderData.notes || 'None'}
                         {/* Design Color */}
                         {formData.designColor && (
                           <div className="flex items-center gap-3">
-                            <div 
-                              className="w-6 h-6 rounded border"
-                              style={{ 
-                                backgroundColor: [...standardColors, ...premiumColors].find(c => c.value === formData.designColor)?.color || '#f5f5f5'
-                              }}
-                            ></div>
+                            <div className="w-6 h-6 rounded border overflow-hidden">
+                              <img 
+                                src={[...standardColors, ...premiumColors].find(c => c.value === formData.designColor)?.image || '/gray.png'} 
+                                alt="Selected color"
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
                             <span className="text-sm">
                               {[...standardColors, ...premiumColors].find(c => c.value === formData.designColor)?.name}
                               {premiumColors.find(c => c.value === formData.designColor) && ' (+$15)'}
@@ -1122,6 +1496,18 @@ NOTES: ${orderData.notes || 'None'}
                         </div>
                       </CardContent>
                     </Card>
+                    
+                    {/* Mobile Quick Actions */}
+                    <div className="lg:hidden space-y-3">
+                      <Button variant="outline" className="w-full" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                        <ArrowRight className="w-4 h-4 mr-2 rotate-90" />
+                        Back to Top
+                      </Button>
+                      <Button variant="outline" className="w-full">
+                        <Phone className="w-4 h-4 mr-2" />
+                        Call for Quote
+                      </Button>
+                    </div>
 
                     {/* Contact Info */}
                     <Card className="bg-blue-50 border-blue-200">
@@ -1147,7 +1533,7 @@ NOTES: ${orderData.notes || 'None'}
 
       {/* Features Section */}
       <section className="py-16 lg:py-20 bg-gradient-subtle">
-        <div className="container mx-auto">
+        <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-16">
             <div className="inline-flex items-center space-x-2 bg-accent px-4 py-2 rounded-full mb-6">
               <Shield className="w-4 h-4 text-accent-foreground" />
@@ -1155,15 +1541,15 @@ NOTES: ${orderData.notes || 'None'}
                 Security & Quality
               </span>
             </div>
-            <h2 className="font-heading text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               Why Choose Our Custom Checks?
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Professional business checks with advanced security features and complete customization options
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto">
             <Card className="text-center p-6 card-service group">
               <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Shield className="w-8 h-8 text-primary-foreground" />
@@ -1244,7 +1630,7 @@ const CheckOrdering = () => {
   ];
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background overflow-x-hidden">
       <SEO 
         title="Custom Check Ordering - ClearLedger Solutions"
         description="Order custom business checks with professional security features. QuickBooks and Sage 100 Contractor compatible. Free personalization and logo options available."
