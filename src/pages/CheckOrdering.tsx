@@ -960,16 +960,16 @@ We will contact you shortly to confirm your custom check order.`;
 
                       {/* Selected Check Type Details */}
                       {formData.checkType && (
-                        <div className="mt-8 p-6 bg-gradient-subtle rounded-xl border">
+                        <div className="mt-8 p-4 sm:p-6 bg-gradient-subtle rounded-xl border max-w-sm sm:max-w-none mx-auto">
                           <div className="grid lg:grid-cols-2 gap-8 items-start">
                             {/* Check Image */}
                             <div className="text-center">
-                              <div className="bg-white rounded-lg shadow-lg p-4 mb-4">
+                              <div className="bg-white rounded-lg shadow-lg p-4 mb-4 max-w-xs mx-auto">
                                 <img 
                                   src={formData.checkType === 'DLT103' ? '/topcheck.png' : 
                                        formData.checkType === 'DLM260' ? '/middlecheck.png' : '/bottomcheck.png'} 
                                   alt={`${checkTypes.find(t => t.id === formData.checkType)?.name} Sample`} 
-                                  className="w-full max-w-md mx-auto"
+                                  className="w-full max-w-xs sm:max-w-md mx-auto"
                                 />
                               </div>
                               <p className="text-sm text-muted-foreground">
