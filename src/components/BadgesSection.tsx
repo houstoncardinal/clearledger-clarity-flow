@@ -48,15 +48,7 @@ const BadgesSection = () => {
           </div>
 
           {/* Certification Details */}
-          <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="text-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
-              <img 
-                src="/top25badge.jpg" 
-                alt="Top 25 Up-N-Coming ProAdvisor Badge" 
-                className="w-12 h-12 mx-auto mb-4 object-contain"
-              />
-              <h4 className="font-medium text-foreground text-sm leading-tight">2024 & 2025 Top 25 Up-N-Coming ProAdvisor</h4>
-            </div>
+          <div className="mt-12 grid md:grid-cols-3 gap-6">
             <div className="text-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
               <Award className="w-12 h-12 text-primary mx-auto mb-4" />
               <h4 className="font-medium text-foreground text-sm leading-tight">QuickBooks Online Advanced Certified ProAdvisor</h4>
