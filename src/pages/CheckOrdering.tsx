@@ -1240,14 +1240,14 @@ We will contact you shortly to confirm your custom check order.`;
                           <TabsTrigger value="premium" className="text-sm sm:text-base font-medium">Premium Colors (+$15)</TabsTrigger>
                         </TabsList>
                         <TabsContent value="standard" className="space-y-4">
-                          <div className="grid mobile-toolbar-grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 sm:gap-3 lg:gap-4 max-w-4xl mx-auto">
+                          <div className="grid mobile-toolbar-grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 sm:gap-3 lg:gap-4 max-w-4xl mx-auto min-w-0">
                             <p className="text-sm text-muted-foreground col-span-full text-center mb-3">
                               Tap a color to select it
                             </p>
                             {standardColors.map((color) => (
                               <div
                                 key={color.value}
-                                className={`border-2 rounded-lg p-2 cursor-pointer transition-all hover:shadow-md ${
+                                className={`border-2 rounded-lg p-2 cursor-pointer transition-all hover:shadow-md min-w-0 ${
                                   formData.designColor === color.value ? 'border-primary bg-primary/5 ring-2 ring-primary/20' : 'border-border hover:border-primary/50'
                                 }`}
                                 onClick={() => handleInputChange('designColor', color.value)}
@@ -1265,14 +1265,14 @@ We will contact you shortly to confirm your custom check order.`;
                           </div>
                         </TabsContent>
                         <TabsContent value="premium" className="space-y-4">
-                          <div className="grid mobile-toolbar-grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 sm:gap-3 lg:gap-4 max-w-4xl mx-auto">
+                          <div className="grid mobile-toolbar-grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 sm:gap-3 lg:gap-4 max-w-4xl mx-auto min-w-0">
                             <p className="text-sm text-muted-foreground col-span-full text-center mb-3">
                               Premium colors include a $15 upcharge
                             </p>
                             {premiumColors.map((color) => (
                               <div
                                 key={color.value}
-                                className={`border-2 rounded-lg p-2 cursor-pointer transition-all hover:shadow-md ${
+                                className={`border-2 rounded-lg p-2 cursor-pointer transition-all hover:shadow-md min-w-0 ${
                                   formData.designColor === color.value ? 'border-primary bg-primary/5 ring-2 ring-primary/20' : 'border-border hover:border-primary/50'
                                 }`}
                                 onClick={() => handleInputChange('designColor', color.value)}
