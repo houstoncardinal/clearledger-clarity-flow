@@ -710,7 +710,7 @@ We will contact you shortly to confirm your custom check order.`;
                     Complete this form to order your custom business checks
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="max-w-sm sm:max-w-none mx-auto w-full px-4 sm:px-6">
                   <form onSubmit={handleSubmit} className="space-y-8" noValidate>
                     {/* Mobile Progress Indicator */}
                     <div className="sm:hidden mb-6">
