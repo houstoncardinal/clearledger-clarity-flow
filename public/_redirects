@@ -1,0 +1,5 @@
+# Netlify Forms - Ensure forms are detected
+/forms.html 200
+
+# Handle client-side routing
+/*    /index.html   200 

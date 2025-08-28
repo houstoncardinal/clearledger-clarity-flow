@@ -178,6 +178,117 @@
 
   <body>
     <div id="root"></div>
+    
+    <!-- Netlify Forms Detection -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="company" />
+      <input type="tel" name="phone" />
+      <select name="service">
+        <option value="bookkeeping">QuickBooks Bookkeeping</option>
+        <option value="reconciliation">Monthly Reconciliation</option>
+        <option value="billing">Billing & A/P</option>
+        <option value="cleanup">Cleanup & Advisory</option>
+        <option value="custom">Custom Solution</option>
+      </select>
+      <textarea name="message"></textarea>
+    </form>
+
+    <form name="consultation" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="company" />
+      <input type="tel" name="phone" />
+      <select name="businessType">
+        <option value="service">Service Business</option>
+        <option value="retail">Retail</option>
+        <option value="manufacturing">Manufacturing</option>
+        <option value="consulting">Consulting</option>
+        <option value="construction">Construction</option>
+        <option value="healthcare">Healthcare</option>
+        <option value="other">Other</option>
+      </select>
+      <select name="currentSystem">
+        <option value="none">No system</option>
+        <option value="quickbooks-online">QuickBooks Online</option>
+        <option value="quickbooks-desktop">QuickBooks Desktop</option>
+        <option value="xero">Xero</option>
+        <option value="freshbooks">FreshBooks</option>
+        <option value="manual">Manual/Excel</option>
+        <option value="other">Other</option>
+      </select>
+      <input type="text" name="monthlyTransactions" />
+      <input type="text" name="employees" />
+      <textarea name="challenges"></textarea>
+      <textarea name="goals"></textarea>
+      <select name="timeline">
+        <option value="immediate">Immediate</option>
+        <option value="1-month">Within 1 month</option>
+        <option value="3-months">Within 3 months</option>
+        <option value="6-months">Within 6 months</option>
+        <option value="flexible">Flexible</option>
+      </select>
+      <select name="budget">
+        <option value="under-500">Under $500/month</option>
+        <option value="500-1000">$500-$1,000/month</option>
+        <option value="1000-2000">$1,000-$2,000/month</option>
+        <option value="2000-plus">$2,000+/month</option>
+        <option value="discuss">Let's discuss</option>
+      </select>
+    </form>
+
+    <form name="check-ordering" netlify netlify-honeypot="bot-field" hidden>
+      <!-- Company Information -->
+      <input type="text" name="companyName" />
+      <input type="text" name="companyAddress" />
+      <input type="text" name="city" />
+      <input type="text" name="state" />
+      <input type="text" name="zip" />
+      <input type="tel" name="phoneNumber" />
+      <input type="text" name="faxNumber" />
+      
+      <!-- Bank Information -->
+      <input type="text" name="bankName" />
+      <input type="text" name="bankCity" />
+      <input type="text" name="routingNumber" />
+      <input type="text" name="accountNumber" />
+      <input type="text" name="startingCheckNumber" />
+      
+      <!-- Product Details -->
+      <input type="text" name="checkType" />
+      <input type="text" name="checkTypeName" />
+      <input type="text" name="quantity" />
+      <input type="text" name="duplicates" />
+      <input type="text" name="packingOrder" />
+      <input type="text" name="designColor" />
+      <input type="text" name="designColorName" />
+      <input type="text" name="logoOption" />
+      
+      <!-- Additional Items -->
+      <input type="text" name="envelopes" />
+      <input type="text" name="envelopeQuantity" />
+      <input type="text" name="envelopePrice" />
+      <input type="text" name="depositForms" />
+      <input type="text" name="depositFormQuantity" />
+      <input type="text" name="depositFormDuplicates" />
+      <input type="text" name="depositFormPrice" />
+      <input type="text" name="taxForms" />
+      <input type="text" name="taxFormName" />
+      <input type="text" name="taxFormQuantity" />
+      
+      <!-- Pricing -->
+      <input type="text" name="basePrice" />
+      <input type="text" name="premiumColorUpcharge" />
+      <input type="text" name="totalPrice" />
+      <input type="text" name="orderNumber" />
+      <input type="text" name="orderDate" />
+      
+      <!-- Additional Notes -->
+      <input type="text" name="otherNotes" />
+      <textarea name="orderSummary"></textarea>
+    </form>
+    
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
