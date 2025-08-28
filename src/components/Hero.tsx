@@ -79,13 +79,13 @@ const Hero = () => {
             className="animate-fade-in"
             style={{animationDelay: '1s'}}
           >
-            <div className="flex flex-col gap-4 justify-center items-center">
+            <div className="flex flex-col gap-2 justify-center items-center">
               {/* Individual Year Badges - Stacked Vertically with No Spacing */}
               <div className="flex flex-col gap-0 items-center">
                 <img 
                   src="/2024.jpg" 
                   alt="2024 Top 25 Up-N-Coming ProAdvisor Award" 
-                  className="w-32 sm:w-40 lg:w-48 h-auto object-contain rounded-lg"
+                  className="w-36 sm:w-44 lg:w-52 h-auto object-contain rounded-lg"
                 />
                 <img 
                   src="/2025.png" 
