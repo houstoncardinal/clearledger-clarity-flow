@@ -80,8 +80,8 @@ const Hero = () => {
             style={{animationDelay: '1s'}}
           >
             <div className="flex flex-col gap-8 justify-center items-center">
-              {/* Individual Year Badges - Larger and Better Proportioned */}
-              <div className="flex flex-col sm:flex-row gap-8 items-center">
+              {/* Individual Year Badges - Stacked Vertically for Better Impact */}
+              <div className="flex flex-col gap-4 items-center">
                 <img 
                   src="/2024.jpg" 
                   alt="2024 Top 25 Up-N-Coming ProAdvisor Award" 
