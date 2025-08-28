@@ -565,6 +565,39 @@ const CheckOrderingContent = () => {
                         </div>
                       )}
 
+                      {/* Pricing Table */}
+                      <div className="mt-6 p-6 bg-gradient-subtle rounded-xl border">
+                        <div className="text-center mb-4">
+                          <h4 className="font-heading text-xl font-semibold text-foreground mb-2">Pricing</h4>
+                          <p className="text-sm text-muted-foreground">Tax & Shipping not included</p>
+                          <p className="text-sm text-primary font-medium mt-1">DLT103, DLM260, DLB135</p>
+                          <p className="text-xs text-muted-foreground">*DLB135 does not come in 3 Part</p>
+                        </div>
+                        
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-sm">
+                            <thead>
+                              <tr className="border-b border-border">
+                                <th className="text-left py-2 font-medium">Qty</th>
+                                <th className="text-center py-2 font-medium">1 Part</th>
+                                <th className="text-center py-2 font-medium">2 Part</th>
+                                <th className="text-center py-2 font-medium">3 Part*</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {quantities.map((qty) => (
+                                <tr key={qty.value} className="border-b border-border/50 hover:bg-background/50">
+                                  <td className="py-2 font-medium">{qty.label}</td>
+                                  <td className="text-center py-2 text-primary">${qty.price['1']}</td>
+                                  <td className="text-center py-2 text-primary">${qty.price['2']}</td>
+                                  <td className="text-center py-2 text-primary">${qty.price['3']}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+
                       {/* Quantity and Options */}
                       <div className="grid md:grid-cols-2 gap-4">
                         <div>
@@ -576,7 +609,7 @@ const CheckOrderingContent = () => {
                             <SelectContent>
                               {quantities.map((qty) => (
                                 <SelectItem key={qty.value} value={qty.value}>
-                                  {qty.label}
+                                  {qty.label} - ${qty.price[formData.duplicates ? '2' : '1']}
                                 </SelectItem>
                               ))}
                             </SelectContent>

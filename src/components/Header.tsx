@@ -14,7 +14,8 @@ import {
   CheckCircle,
   Clock,
   Users,
-  Shield
+  Shield,
+  CreditCard
 } from 'lucide-react';
 
 const Header = () => {
@@ -63,6 +64,13 @@ const Header = () => {
       icon: TrendingUp,
       href: '/cleanup-advisory',
       features: ['Historical cleanup', 'Process optimization', 'Strategic consulting']
+    },
+    {
+      title: 'Custom Business Checks',
+      description: 'Professional custom business checks with security features',
+      icon: CreditCard,
+      href: '/check-ordering',
+      features: ['QuickBooks compatible', 'Built-in security', 'Free personalization']
     }
   ];
 

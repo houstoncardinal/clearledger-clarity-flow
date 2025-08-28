@@ -24,7 +24,8 @@ const Footer = () => {
         { name: 'QuickBooks Services', href: '/quickbooks-services' },
         { name: 'Monthly Management', href: '/monthly-management' },
         { name: 'Billing & A/P', href: '/billing-accounts-payable' },
-        { name: 'Cleanup & Advisory', href: '/cleanup-advisory' }
+        { name: 'Cleanup & Advisory', href: '/cleanup-advisory' },
+        { name: 'Custom Business Checks', href: '/check-ordering' }
       ]
     },
     {
