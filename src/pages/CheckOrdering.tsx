@@ -700,8 +700,8 @@ We will contact you shortly to confirm your custom check order.`;
                     </div>
                     </div>
             {/* Form */}
-            <div className="lg:col-span-2 order-1 lg:order-1 w-full">
-              <Card className="shadow-premium max-w-4xl mx-auto lg:mx-0 w-full">
+            <div className="lg:col-span-2 order-1 lg:order-1 w-full flex justify-center lg:block">
+              <Card className="shadow-premium max-w-4xl mx-auto lg:mx-0 w-full overflow-hidden">
                 <CardHeader>
                   <CardTitle className="font-heading text-3xl font-bold text-foreground">
                     Check Order Form
