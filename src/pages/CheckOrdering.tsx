@@ -420,27 +420,31 @@ const CheckOrderingContent = () => {
                       </div>
 
                       {/* Selected Check Type Details */}
-                      {formData.checkType === 'DLT103' && (
+                      {formData.checkType && (
                         <div className="mt-8 p-6 bg-gradient-subtle rounded-xl border">
                           <div className="grid lg:grid-cols-2 gap-8 items-start">
                             {/* Check Image */}
                             <div className="text-center">
                               <div className="bg-white rounded-lg shadow-lg p-4 mb-4">
                                 <img 
-                                  src="/check-top.png" 
-                                  alt="Laser Top Check Sample" 
+                                  src={formData.checkType === 'DLT103' ? '/topcheck.png' : 
+                                       formData.checkType === 'DLM260' ? '/middlecheck.png' : '/bottomcheck.png'} 
+                                  alt={`${checkTypes.find(t => t.id === formData.checkType)?.name} Sample`} 
                                   className="w-full max-w-md mx-auto"
                                 />
                               </div>
-                              <p className="text-sm text-muted-foreground">DLT103 - Laser Top Check Sample</p>
+                              <p className="text-sm text-muted-foreground">
+                                {checkTypes.find(t => t.id === formData.checkType)?.name} Sample
+                              </p>
                             </div>
                             
                             {/* Features List */}
                             <div className="space-y-4">
                               <h4 className="font-heading text-xl font-semibold text-foreground">
-                                Laser Top Check Features
+                                {checkTypes.find(t => t.id === formData.checkType)?.name} Features
                               </h4>
                               <div className="space-y-3">
+                                {/* Common Security Feature */}
                                 <div className="flex items-start gap-3">
                                   <Shield className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                                   <div>
@@ -448,23 +452,51 @@ const CheckOrderingContent = () => {
                                     <p className="text-sm text-muted-foreground">Includes chemically sensitive paper, microprint border, invisible fluorescent fiber, erasure protection, security screen & warning box.</p>
                                   </div>
                                 </div>
-                                
-                                <div className="flex items-start gap-3">
-                                  <FileText className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                                  <div>
-                                    <p className="font-medium text-foreground">Preprinted lines</p>
-                                    <p className="text-sm text-muted-foreground">Enhance legibility and convenience if you occasionally write checks by hand.</p>
+
+                                {/* Laser Top Check Specific Features */}
+                                {formData.checkType === 'DLT103' && (
+                                  <>
+                                    <div className="flex items-start gap-3">
+                                      <FileText className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                                      <div>
+                                        <p className="font-medium text-foreground">Preprinted lines</p>
+                                        <p className="text-sm text-muted-foreground">Enhance legibility and convenience if you occasionally write checks by hand.</p>
+                                      </div>
+                                    </div>
+                                    
+                                    <div className="flex items-start gap-3">
+                                      <Package className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                                      <div>
+                                        <p className="font-medium text-foreground">2 tear-off vouchers</p>
+                                        <p className="text-sm text-muted-foreground">Provide both you and payee a detailed payment record.</p>
+                                      </div>
+                                    </div>
+                                  </>
+                                )}
+
+                                {/* Laser Middle Check Specific Features */}
+                                {formData.checkType === 'DLM260' && (
+                                  <div className="flex items-start gap-3">
+                                    <Package className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                                    <div>
+                                      <p className="font-medium text-foreground">Top and bottom tear-off vouchers</p>
+                                      <p className="text-sm text-muted-foreground">Provide both you and payee a detailed payment record.</p>
+                                    </div>
                                   </div>
-                                </div>
-                                
-                                <div className="flex items-start gap-3">
-                                  <Package className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                                  <div>
-                                    <p className="font-medium text-foreground">2 tear-off vouchers</p>
-                                    <p className="text-sm text-muted-foreground">Provide both you and payee a detailed payment record.</p>
+                                )}
+
+                                {/* Laser Bottom Check Specific Features */}
+                                {formData.checkType === 'DLB135' && (
+                                  <div className="flex items-start gap-3">
+                                    <Package className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                                    <div>
+                                      <p className="font-medium text-foreground">2 tear-off vouchers</p>
+                                      <p className="text-sm text-muted-foreground">Provide both you and payee a detailed payment record.</p>
+                                    </div>
                                   </div>
-                                </div>
-                                
+                                )}
+
+                                {/* Common Features */}
                                 <div className="flex items-start gap-3">
                                   <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                                   <div>
@@ -484,8 +516,23 @@ const CheckOrderingContent = () => {
                                 <div className="flex items-start gap-3">
                                   <CreditCard className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                                   <div>
-                                    <p className="font-medium text-foreground">Multi-part options</p>
-                                    <p className="text-sm text-muted-foreground">Provide up to 2 color-coded duplicates on separate sheets for an additional charge.</p>
+                                    <p className="font-medium text-foreground">
+                                      {formData.checkType === 'DLB135' ? 'Multi-part option' : 'Multi-part options'}
+                                    </p>
+                                    <p className="text-sm text-muted-foreground">
+                                      {formData.checkType === 'DLB135' 
+                                        ? '1 color-coded duplicate on separate sheet for an additional charge.'
+                                        : 'Provide up to 2 color-coded duplicates on separate sheets for an additional charge.'
+                                      }
+                                    </p>
+                                  </div>
+                                </div>
+                                
+                                <div className="flex items-start gap-3">
+                                  <Package className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                                  <div>
+                                    <p className="font-medium text-foreground">Free personalization</p>
+                                    <p className="text-sm text-muted-foreground">Includes your business imprint plus choice of standard check color, typeface and standard business logo.</p>
                                   </div>
                                 </div>
                                 
