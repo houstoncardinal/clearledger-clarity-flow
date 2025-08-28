@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -25,12 +27,13 @@ import {
   Shield,
   CheckCircle,
   Info,
-  AlertCircle
+  AlertCircle,
+  ArrowRight
 } from 'lucide-react';
 import SEO from '@/components/SEO';
 import { getServiceSchema, getBreadcrumbSchema } from '@/utils/schemaMarkup';
 
-const CheckOrdering: React.FC = () => {
+const CheckOrderingContent = () => {
   const [formData, setFormData] = useState({
     // Company Information
     companyName: '',
@@ -72,9 +75,6 @@ const CheckOrdering: React.FC = () => {
     otherNotes: ''
   });
 
-  const [currentStep, setCurrentStep] = useState(1);
-  const [selectedProduct, setSelectedProduct] = useState<any>(null);
-
   const checkTypes = [
     {
       id: 'DLT103',
@@ -88,8 +88,7 @@ const CheckOrdering: React.FC = () => {
         'Numbering options (consecutive or reverse)',
         'Multi-part options available',
         'Free standard logo included'
-      ],
-      image: '/check-top.png'
+      ]
     },
     {
       id: 'DLM260',
@@ -103,8 +102,7 @@ const CheckOrdering: React.FC = () => {
         'Multi-part options available',
         'Free personalization included',
         'Custom logo available'
-      ],
-      image: '/check-middle.png'
+      ]
     },
     {
       id: 'DLB135',
@@ -118,8 +116,7 @@ const CheckOrdering: React.FC = () => {
         'Multi-part option available',
         'Free personalization included',
         'Custom logo available'
-      ],
-      image: '/check-bottom.png'
+      ]
     }
   ];
 
@@ -192,743 +189,765 @@ const CheckOrdering: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
     console.log('Form submitted:', formData);
     alert('Thank you for your order! We will contact you shortly to confirm your custom check order.');
   };
 
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Hero Section */}
+      <section className="py-16 lg:py-20 bg-gradient-subtle">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-accent px-4 py-2 rounded-full mb-6">
+              <CreditCard className="w-4 h-4 text-accent-foreground" />
+              <span className="text-sm font-medium text-accent-foreground">
+                Custom Check Ordering
+              </span>
+            </div>
+            <h1 className="font-heading text-4xl lg:text-5xl font-bold text-foreground mb-6">
+              Professional Business Checks
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
+              Order custom business checks with built-in security features. 
+              QuickBooks and Sage 100 Contractor compatible with free personalization.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Badge variant="secondary" className="text-primary bg-primary/10">
+                <Shield className="w-4 h-4 mr-2" />
+                Security Features
+              </Badge>
+              <Badge variant="secondary" className="text-primary bg-primary/10">
+                <CheckCircle className="w-4 h-4 mr-2" />
+                QuickBooks Compatible
+              </Badge>
+              <Badge variant="secondary" className="text-primary bg-primary/10">
+                <Package className="w-4 h-4 mr-2" />
+                Free Personalization
+              </Badge>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Form Section */}
+      <section className="py-16 lg:py-20 bg-background">
+        <div className="container mx-auto">
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Form */}
+            <div className="lg:col-span-2">
+              <Card className="shadow-premium">
+                <CardHeader>
+                  <CardTitle className="font-heading text-3xl font-bold text-foreground">
+                    Check Order Form
+                  </CardTitle>
+                  <CardDescription className="text-muted-foreground">
+                    Complete this form to order your custom business checks
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <form onSubmit={handleSubmit} className="space-y-8">
+                    {/* Step 1: Company Information */}
+                    <div className="space-y-6">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center font-bold text-primary-foreground">
+                          1
+                        </div>
+                        <h3 className="font-heading text-xl font-semibold text-foreground">Company Information</h3>
+                      </div>
+                      
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <Label htmlFor="companyName">Company Name on Checks *</Label>
+                          <Input
+                            id="companyName"
+                            value={formData.companyName}
+                            onChange={(e) => handleInputChange('companyName', e.target.value)}
+                            required
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="companyAddress">Company Address *</Label>
+                          <Input
+                            id="companyAddress"
+                            value={formData.companyAddress}
+                            onChange={(e) => handleInputChange('companyAddress', e.target.value)}
+                            required
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="city">City *</Label>
+                          <Input
+                            id="city"
+                            value={formData.city}
+                            onChange={(e) => handleInputChange('city', e.target.value)}
+                            required
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="state">State *</Label>
+                          <Input
+                            id="state"
+                            value={formData.state}
+                            onChange={(e) => handleInputChange('state', e.target.value)}
+                            required
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="zip">ZIP Code *</Label>
+                          <Input
+                            id="zip"
+                            value={formData.zip}
+                            onChange={(e) => handleInputChange('zip', e.target.value)}
+                            required
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="phoneNumber">Phone Number to Print</Label>
+                          <Input
+                            id="phoneNumber"
+                            value={formData.phoneNumber}
+                            onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="faxNumber">Fax Number to Print</Label>
+                          <Input
+                            id="faxNumber"
+                            value={formData.faxNumber}
+                            onChange={(e) => handleInputChange('faxNumber', e.target.value)}
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <Separator />
+
+                    {/* Step 2: Bank Information */}
+                    <div className="space-y-6">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center font-bold text-primary-foreground">
+                          2
+                        </div>
+                        <h3 className="font-heading text-xl font-semibold text-foreground">Bank Information</h3>
+                      </div>
+                      
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <Label htmlFor="bankName">Bank Name *</Label>
+                          <Input
+                            id="bankName"
+                            value={formData.bankName}
+                            onChange={(e) => handleInputChange('bankName', e.target.value)}
+                            required
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="bankCity">Bank City</Label>
+                          <Input
+                            id="bankCity"
+                            value={formData.bankCity}
+                            onChange={(e) => handleInputChange('bankCity', e.target.value)}
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="routingNumber">Routing Number *</Label>
+                          <Input
+                            id="routingNumber"
+                            value={formData.routingNumber}
+                            onChange={(e) => handleInputChange('routingNumber', e.target.value)}
+                            required
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="accountNumber">Account Number *</Label>
+                          <Input
+                            id="accountNumber"
+                            value={formData.accountNumber}
+                            onChange={(e) => handleInputChange('accountNumber', e.target.value)}
+                            required
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="startingCheckNumber">Starting Check Number *</Label>
+                          <Input
+                            id="startingCheckNumber"
+                            value={formData.startingCheckNumber}
+                            onChange={(e) => handleInputChange('startingCheckNumber', e.target.value)}
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <Separator />
+
+                    {/* Step 3: Product Selection */}
+                    <div className="space-y-6">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center font-bold text-primary-foreground">
+                          3
+                        </div>
+                        <h3 className="font-heading text-xl font-semibold text-foreground">Product Selection</h3>
+                      </div>
+
+                      {/* Check Type Selection */}
+                      <div className="space-y-4">
+                        <Label>Check Type *</Label>
+                        <div className="grid md:grid-cols-3 gap-4">
+                          {checkTypes.map((type) => (
+                            <Card 
+                              key={type.id}
+                              className={`cursor-pointer transition-all hover:shadow-lg ${
+                                formData.checkType === type.id ? 'ring-2 ring-primary bg-primary/5' : ''
+                              }`}
+                              onClick={() => handleInputChange('checkType', type.id)}
+                            >
+                              <CardContent className="p-4">
+                                <div className="text-center">
+                                  <h4 className="font-semibold text-primary">{type.name}</h4>
+                                  <p className="text-sm text-muted-foreground mt-2">{type.description}</p>
+                                  <div className="mt-3 space-y-1">
+                                    {type.features.slice(0, 3).map((feature, index) => (
+                                      <p key={index} className="text-xs text-muted-foreground">• {feature}</p>
+                                    ))}
+                                  </div>
+                                </div>
+                              </CardContent>
+                            </Card>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Quantity and Options */}
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <Label htmlFor="quantity">Quantity *</Label>
+                          <Select value={formData.quantity} onValueChange={(value) => handleInputChange('quantity', value)}>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select quantity" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {quantities.map((qty) => (
+                                <SelectItem key={qty.value} value={qty.value}>
+                                  {qty.label}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
+                        <div>
+                          <Label>Packing Order</Label>
+                          <RadioGroup value={formData.packingOrder} onValueChange={(value) => handleInputChange('packingOrder', value)}>
+                            <div className="flex items-center space-x-2">
+                              <RadioGroupItem value="standard" id="standard" />
+                              <Label htmlFor="standard">Standard Packing Order</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <RadioGroupItem value="reverse" id="reverse" />
+                              <Label htmlFor="reverse">Reverse Packing Order</Label>
+                            </div>
+                          </RadioGroup>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center space-x-2">
+                        <Checkbox 
+                          id="duplicates" 
+                          checked={formData.duplicates}
+                          onCheckedChange={(checked) => handleInputChange('duplicates', checked)}
+                        />
+                        <Label htmlFor="duplicates">Include Duplicates (2-Part or 3-Part)</Label>
+                      </div>
+                    </div>
+
+                    <Separator />
+
+                    {/* Step 4: Design Options */}
+                    <div className="space-y-6">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center font-bold text-primary-foreground">
+                          4
+                        </div>
+                        <h3 className="font-heading text-xl font-semibold text-foreground">Design Options</h3>
+                      </div>
+
+                      <Tabs defaultValue="standard" className="w-full">
+                        <TabsList className="grid w-full grid-cols-2">
+                          <TabsTrigger value="standard">Standard Colors</TabsTrigger>
+                          <TabsTrigger value="premium">Premium Colors (+$15)</TabsTrigger>
+                        </TabsList>
+                        <TabsContent value="standard" className="space-y-4">
+                          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            {standardColors.map((color) => (
+                              <div
+                                key={color.value}
+                                className={`border-2 rounded-lg p-3 cursor-pointer transition-all ${
+                                  formData.designColor === color.value ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'
+                                }`}
+                                onClick={() => handleInputChange('designColor', color.value)}
+                              >
+                                <div 
+                                  className="w-full h-12 rounded mb-2"
+                                  style={{ backgroundColor: color.color }}
+                                ></div>
+                                <p className="text-sm font-medium text-center">{color.name}</p>
+                              </div>
+                            ))}
+                          </div>
+                        </TabsContent>
+                        <TabsContent value="premium" className="space-y-4">
+                          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            {premiumColors.map((color) => (
+                              <div
+                                key={color.value}
+                                className={`border-2 rounded-lg p-3 cursor-pointer transition-all ${
+                                  formData.designColor === color.value ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'
+                                }`}
+                                onClick={() => handleInputChange('designColor', color.value)}
+                              >
+                                <div 
+                                  className="w-full h-12 rounded mb-2"
+                                  style={{ 
+                                    background: color.color.includes('gradient') ? color.color : color.color 
+                                  }}
+                                ></div>
+                                <p className="text-sm font-medium text-center">{color.name}</p>
+                                <p className="text-xs text-primary text-center">+$15</p>
+                              </div>
+                            ))}
+                          </div>
+                        </TabsContent>
+                      </Tabs>
+                    </div>
+
+                    <Separator />
+
+                    {/* Step 5: Additional Items */}
+                    <div className="space-y-6">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center font-bold text-primary-foreground">
+                          5
+                        </div>
+                        <h3 className="font-heading text-xl font-semibold text-foreground">Additional Items</h3>
+                      </div>
+
+                      {/* Envelopes */}
+                      <div className="space-y-4">
+                        <div className="flex items-center space-x-2">
+                          <Checkbox 
+                            id="envelopes" 
+                            checked={formData.envelopes}
+                            onCheckedChange={(checked) => handleInputChange('envelopes', checked)}
+                          />
+                          <Label htmlFor="envelopes" className="text-lg font-medium">Envelopes</Label>
+                        </div>
+                        {formData.envelopes && (
+                          <div className="ml-6 space-y-4">
+                            <div>
+                              <Label htmlFor="envelopeQuantity">Quantity</Label>
+                              <Select value={formData.envelopeQuantity} onValueChange={(value) => handleInputChange('envelopeQuantity', value)}>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Select quantity" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  <SelectItem value="250">250 Envelopes - $85</SelectItem>
+                                  <SelectItem value="500">500 Envelopes - $106</SelectItem>
+                                  <SelectItem value="1000">1,000 Envelopes - $165</SelectItem>
+                                  <SelectItem value="1500">1,500 Envelopes - $229</SelectItem>
+                                  <SelectItem value="2000">2,000 Envelopes - $292</SelectItem>
+                                </SelectContent>
+                              </Select>
+                            </div>
+                            <Card className="bg-blue-50 border-blue-200">
+                              <CardContent className="p-4">
+                                <div className="flex items-start gap-3">
+                                  <Mail className="w-5 h-5 text-blue-600 mt-0.5" />
+                                  <div>
+                                    <h4 className="font-semibold text-blue-800">Double Window Confidential Envelopes</h4>
+                                    <p className="text-sm text-blue-700">Self-seal, 8 5/8 x 3 5/8". Tinted inside pattern keeps confidential information secure.</p>
+                                  </div>
+                                </div>
+                              </CardContent>
+                            </Card>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Deposit Forms */}
+                      <div className="space-y-4">
+                        <div className="flex items-center space-x-2">
+                          <Checkbox 
+                            id="depositForms" 
+                            checked={formData.depositForms}
+                            onCheckedChange={(checked) => handleInputChange('depositForms', checked)}
+                          />
+                          <Label htmlFor="depositForms" className="text-lg font-medium">Deposit Forms</Label>
+                        </div>
+                        {formData.depositForms && (
+                          <div className="ml-6 space-y-4">
+                            <div className="grid md:grid-cols-2 gap-4">
+                              <div>
+                                <Label htmlFor="depositFormQuantity">Quantity</Label>
+                                <Select value={formData.depositFormQuantity} onValueChange={(value) => handleInputChange('depositFormQuantity', value)}>
+                                  <SelectTrigger>
+                                    <SelectValue placeholder="Select quantity" />
+                                  </SelectTrigger>
+                                  <SelectContent>
+                                    <SelectItem value="150">150 Books - $52 (2-Part)</SelectItem>
+                                    <SelectItem value="300">300 Books - $81 (2-Part)</SelectItem>
+                                    <SelectItem value="600">600 Books - $130 (2-Part)</SelectItem>
+                                    <SelectItem value="1200">1,200 Books - $200 (2-Part)</SelectItem>
+                                    <SelectItem value="2400">2,400 Books - $308 (2-Part)</SelectItem>
+                                  </SelectContent>
+                                </Select>
+                              </div>
+                              <div className="flex items-center space-x-2">
+                                <Checkbox 
+                                  id="depositFormDuplicates" 
+                                  checked={formData.depositFormDuplicates}
+                                  onCheckedChange={(checked) => handleInputChange('depositFormDuplicates', checked)}
+                                />
+                                <Label htmlFor="depositFormDuplicates">Include Duplicates</Label>
+                              </div>
+                            </div>
+                            <Card className="bg-green-50 border-green-200">
+                              <CardContent className="p-4">
+                                <div className="flex items-start gap-3">
+                                  <FileText className="w-5 h-5 text-green-600 mt-0.5" />
+                                  <div>
+                                    <h4 className="font-semibold text-green-800">Booked Deposit Tickets</h4>
+                                    <p className="text-sm text-green-700">8 7/8 x 3 3/8", 2-Part Duplicate. Includes 17 check entry lines plus cash and coin count.</p>
+                                  </div>
+                                </div>
+                              </CardContent>
+                            </Card>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Tax Forms */}
+                      <div className="space-y-4">
+                        <div className="flex items-center space-x-2">
+                          <Checkbox 
+                            id="taxForms" 
+                            checked={formData.taxForms}
+                            onCheckedChange={(checked) => handleInputChange('taxForms', checked)}
+                          />
+                          <Label htmlFor="taxForms" className="text-lg font-medium">Tax Forms</Label>
+                        </div>
+                        {formData.taxForms && (
+                          <div className="ml-6 space-y-4">
+                            <div className="grid md:grid-cols-2 gap-4">
+                              <div>
+                                <Label htmlFor="taxFormName">Form Name</Label>
+                                <Input
+                                  id="taxFormName"
+                                  value={formData.taxFormName}
+                                  onChange={(e) => handleInputChange('taxFormName', e.target.value)}
+                                  placeholder="e.g., W-2, 1099"
+                                />
+                              </div>
+                              <div>
+                                <Label htmlFor="taxFormQuantity">Quantity</Label>
+                                <Input
+                                  id="taxFormQuantity"
+                                  type="number"
+                                  value={formData.taxFormQuantity}
+                                  onChange={(e) => handleInputChange('taxFormQuantity', e.target.value)}
+                                  placeholder="Number of forms"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    <Separator />
+
+                    {/* Step 6: Other Notes */}
+                    <div className="space-y-6">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center font-bold text-primary-foreground">
+                          6
+                        </div>
+                        <h3 className="font-heading text-xl font-semibold text-foreground">Additional Notes</h3>
+                      </div>
+                      
+                      <div>
+                        <Label htmlFor="otherNotes">Special Instructions or Additional Items</Label>
+                        <Textarea
+                          id="otherNotes"
+                          value={formData.otherNotes}
+                          onChange={(e) => handleInputChange('otherNotes', e.target.value)}
+                          placeholder="Any special instructions, additional items, or notes for your order..."
+                          rows={4}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Submit Button */}
+                    <div className="pt-6">
+                      <Button type="submit" size="lg" className="w-full btn-primary">
+                        <CreditCard className="w-5 h-5 mr-2" />
+                        Submit Check Order
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </div>
+                  </form>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Order Summary */}
+            <div className="lg:col-span-1">
+              <div className="sticky top-8">
+                <Card className="shadow-premium">
+                  <CardHeader>
+                    <CardTitle className="font-heading text-2xl font-bold text-foreground">
+                      Order Summary
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-6">
+                    {/* Selected Product */}
+                    {formData.checkType && (
+                      <div className="space-y-4">
+                        <div className="flex items-center gap-3">
+                          <CreditCard className="w-6 h-6 text-primary" />
+                          <div>
+                            <h4 className="font-semibold">
+                              {checkTypes.find(t => t.id === formData.checkType)?.name}
+                            </h4>
+                            <p className="text-sm text-muted-foreground">
+                              {formData.quantity} checks
+                              {formData.duplicates && ' (with duplicates)'}
+                            </p>
+                          </div>
+                        </div>
+                        
+                        {/* Design Color */}
+                        {formData.designColor && (
+                          <div className="flex items-center gap-3">
+                            <div 
+                              className="w-6 h-6 rounded border"
+                              style={{ 
+                                backgroundColor: [...standardColors, ...premiumColors].find(c => c.value === formData.designColor)?.color || '#f5f5f5'
+                              }}
+                            ></div>
+                            <span className="text-sm">
+                              {[...standardColors, ...premiumColors].find(c => c.value === formData.designColor)?.name}
+                              {premiumColors.find(c => c.value === formData.designColor) && ' (+$15)'}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                    {/* Additional Items */}
+                    {(formData.envelopes || formData.depositForms || formData.taxForms) && (
+                      <div className="space-y-3">
+                        <h4 className="font-semibold text-foreground">Additional Items:</h4>
+                        {formData.envelopes && (
+                          <div className="flex justify-between text-sm">
+                            <span>Envelopes ({formData.envelopeQuantity})</span>
+                            <span className="font-medium">
+                              ${formData.envelopeQuantity === '250' ? '85' : 
+                                formData.envelopeQuantity === '500' ? '106' :
+                                formData.envelopeQuantity === '1000' ? '165' :
+                                formData.envelopeQuantity === '1500' ? '229' :
+                                formData.envelopeQuantity === '2000' ? '292' : '0'}
+                            </span>
+                          </div>
+                        )}
+                        {formData.depositForms && (
+                          <div className="flex justify-between text-sm">
+                            <span>Deposit Forms ({formData.depositFormQuantity})</span>
+                            <span className="font-medium">
+                              ${formData.depositFormQuantity === '150' ? '52' :
+                                formData.depositFormQuantity === '300' ? '81' :
+                                formData.depositFormQuantity === '600' ? '130' :
+                                formData.depositFormQuantity === '1200' ? '200' :
+                                formData.depositFormQuantity === '2400' ? '308' : '0'}
+                            </span>
+                          </div>
+                        )}
+                        {formData.taxForms && (
+                          <div className="flex justify-between text-sm">
+                            <span>Tax Forms</span>
+                            <span className="font-medium">Contact for pricing</span>
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                    <Separator />
+
+                    {/* Pricing */}
+                    <div className="space-y-3">
+                      <div className="flex justify-between text-lg">
+                        <span className="font-semibold">Subtotal:</span>
+                        <span className="font-bold text-primary">${calculateTotal()}</span>
+                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        * Tax and shipping not included
+                      </p>
+                    </div>
+
+                    {/* Security Notice */}
+                    <Card className="bg-yellow-50 border-yellow-200">
+                      <CardContent className="p-4">
+                        <div className="flex items-start gap-3">
+                          <Shield className="w-5 h-5 text-yellow-600 mt-0.5" />
+                          <div>
+                            <h4 className="font-semibold text-yellow-800">Security Features</h4>
+                            <p className="text-sm text-yellow-700">
+                              All orders include built-in security: chemically sensitive paper, microprint border, 
+                              invisible fluorescent fiber, erasure protection, and security screening.
+                            </p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* Contact Info */}
+                    <Card className="bg-blue-50 border-blue-200">
+                      <CardContent className="p-4">
+                        <div className="flex items-start gap-3">
+                          <Info className="w-5 h-5 text-blue-600 mt-0.5" />
+                          <div>
+                            <h4 className="font-semibold text-blue-800">Need Help?</h4>
+                            <p className="text-sm text-blue-700">
+                              Contact us for custom orders, bulk pricing, or any questions about your check order.
+                            </p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-16 lg:py-20 bg-gradient-subtle">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-accent px-4 py-2 rounded-full mb-6">
+              <Shield className="w-4 h-4 text-accent-foreground" />
+              <span className="text-sm font-medium text-accent-foreground">
+                Security & Quality
+              </span>
+            </div>
+            <h2 className="font-heading text-4xl lg:text-5xl font-bold text-foreground mb-6">
+              Why Choose Our Custom Checks?
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Professional business checks with advanced security features and complete customization options
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="text-center p-6 card-service group">
+              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Shield className="w-8 h-8 text-primary-foreground" />
+              </div>
+              <h3 className="font-heading text-xl font-semibold mb-3 text-foreground">Built-in Security</h3>
+              <p className="text-muted-foreground">
+                Chemically sensitive paper, microprint borders, invisible fluorescent fibers, 
+                and erasure protection to prevent fraud.
+              </p>
+            </Card>
+
+            <Card className="text-center p-6 card-service group">
+              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <CheckCircle className="w-8 h-8 text-primary-foreground" />
+              </div>
+              <h3 className="font-heading text-xl font-semibold mb-3 text-foreground">Software Compatible</h3>
+              <p className="text-muted-foreground">
+                Fully compatible with QuickBooks and Sage 100 Contractor. 
+                Seamless integration with your accounting software.
+              </p>
+            </Card>
+
+            <Card className="text-center p-6 card-service group">
+              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Package className="w-8 h-8 text-primary-foreground" />
+              </div>
+              <h3 className="font-heading text-xl font-semibold mb-3 text-foreground">Free Personalization</h3>
+              <p className="text-muted-foreground">
+                Includes your business imprint, choice of colors and typefaces, 
+                and standard business logo at no extra cost.
+              </p>
+            </Card>
+
+            <Card className="text-center p-6 card-service group">
+              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <FileText className="w-8 h-8 text-primary-foreground" />
+              </div>
+              <h3 className="font-heading text-xl font-semibold mb-3 text-foreground">Tear-off Vouchers</h3>
+              <p className="text-muted-foreground">
+                Built-in vouchers provide detailed payment records for both you 
+                and your payee, improving record keeping.
+              </p>
+            </Card>
+
+            <Card className="text-center p-6 card-service group">
+              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Mail className="w-8 h-8 text-primary-foreground" />
+              </div>
+              <h3 className="font-heading text-xl font-semibold mb-3 text-foreground">Matching Envelopes</h3>
+              <p className="text-muted-foreground">
+                Double window confidential envelopes with security tinting 
+                to protect sensitive information during mailing.
+              </p>
+            </Card>
+
+            <Card className="text-center p-6 card-service group">
+              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Calculator className="w-8 h-8 text-primary-foreground" />
+              </div>
+              <h3 className="font-heading text-xl font-semibold mb-3 text-foreground">Deposit Tickets</h3>
+              <p className="text-muted-foreground">
+                Professional deposit tickets with MICR processing compatibility 
+                and multiple entry lines for efficient banking.
+              </p>
+            </Card>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+const CheckOrdering = () => {
   const breadcrumbData = [
     { name: 'Home', url: '/' },
     { name: 'Services', url: '/services' },
-    { name: 'Check Ordering', url: '/check-ordering' }
+    { name: 'Check Ordering', url: './check-ordering' }
   ];
 
   return (
-    <>
+    <main className="min-h-screen bg-background">
       <SEO 
         title="Custom Check Ordering - ClearLedger Solutions"
         description="Order custom business checks with professional security features. QuickBooks and Sage 100 Contractor compatible. Free personalization and logo options available."
         keywords="custom business checks, QuickBooks checks, Sage 100 checks, check ordering, business checks, laser checks, check printing"
-        canonical="/check-ordering"
+        canonical="./check-ordering"
         schema={[
           getServiceSchema("Custom Check Ordering", "Professional custom business checks with security features"),
           getBreadcrumbSchema(breadcrumbData)
         ]}
       />
-      
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
-        {/* Hero Section */}
-        <section className="py-16 lg:py-20 bg-gradient-to-r from-purple-600 to-blue-600 text-white">
-          <div className="container mx-auto px-4">
-            <div className="text-center max-w-4xl mx-auto">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-                Custom Business Check Ordering
-              </h1>
-              <p className="text-xl lg:text-2xl mb-8 text-blue-100">
-                Professional checks with built-in security features. QuickBooks and Sage 100 Contractor compatible.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Badge variant="secondary" className="text-purple-600 bg-white">
-                  <Shield className="w-4 h-4 mr-2" />
-                  Security Features
-                </Badge>
-                <Badge variant="secondary" className="text-purple-600 bg-white">
-                  <CheckCircle className="w-4 h-4 mr-2" />
-                  QuickBooks Compatible
-                </Badge>
-                <Badge variant="secondary" className="text-purple-600 bg-white">
-                  <Package className="w-4 h-4 mr-2" />
-                  Free Personalization
-                </Badge>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Main Form Section */}
-        <section className="py-16 lg:py-20">
-          <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-3 gap-8">
-              {/* Form */}
-              <div className="lg:col-span-2">
-                <Card className="shadow-xl">
-                  <CardHeader>
-                    <CardTitle className="text-3xl font-bold text-purple-600">
-                      Check Order Form
-                    </CardTitle>
-                    <CardDescription>
-                      Complete this form to order your custom business checks
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <form onSubmit={handleSubmit} className="space-y-8">
-                      {/* Step 1: Company Information */}
-                      <div className="space-y-6">
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold">
-                            1
-                          </div>
-                          <h3 className="text-xl font-semibold">Company Information</h3>
-                        </div>
-                        
-                        <div className="grid md:grid-cols-2 gap-4">
-                          <div>
-                            <Label htmlFor="companyName">Company Name on Checks *</Label>
-                            <Input
-                              id="companyName"
-                              value={formData.companyName}
-                              onChange={(e) => handleInputChange('companyName', e.target.value)}
-                              required
-                            />
-                          </div>
-                          <div>
-                            <Label htmlFor="companyAddress">Company Address *</Label>
-                            <Input
-                              id="companyAddress"
-                              value={formData.companyAddress}
-                              onChange={(e) => handleInputChange('companyAddress', e.target.value)}
-                              required
-                            />
-                          </div>
-                          <div>
-                            <Label htmlFor="city">City *</Label>
-                            <Input
-                              id="city"
-                              value={formData.city}
-                              onChange={(e) => handleInputChange('city', e.target.value)}
-                              required
-                            />
-                          </div>
-                          <div>
-                            <Label htmlFor="state">State *</Label>
-                            <Input
-                              id="state"
-                              value={formData.state}
-                              onChange={(e) => handleInputChange('state', e.target.value)}
-                              required
-                            />
-                          </div>
-                          <div>
-                            <Label htmlFor="zip">ZIP Code *</Label>
-                            <Input
-                              id="zip"
-                              value={formData.zip}
-                              onChange={(e) => handleInputChange('zip', e.target.value)}
-                              required
-                            />
-                          </div>
-                          <div>
-                            <Label htmlFor="phoneNumber">Phone Number to Print</Label>
-                            <Input
-                              id="phoneNumber"
-                              value={formData.phoneNumber}
-                              onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
-                            />
-                          </div>
-                          <div>
-                            <Label htmlFor="faxNumber">Fax Number to Print</Label>
-                            <Input
-                              id="faxNumber"
-                              value={formData.faxNumber}
-                              onChange={(e) => handleInputChange('faxNumber', e.target.value)}
-                            />
-                          </div>
-                        </div>
-                      </div>
-
-                      <Separator />
-
-                      {/* Step 2: Bank Information */}
-                      <div className="space-y-6">
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold">
-                            2
-                          </div>
-                          <h3 className="text-xl font-semibold">Bank Information</h3>
-                        </div>
-                        
-                        <div className="grid md:grid-cols-2 gap-4">
-                          <div>
-                            <Label htmlFor="bankName">Bank Name *</Label>
-                            <Input
-                              id="bankName"
-                              value={formData.bankName}
-                              onChange={(e) => handleInputChange('bankName', e.target.value)}
-                              required
-                            />
-                          </div>
-                          <div>
-                            <Label htmlFor="bankCity">Bank City</Label>
-                            <Input
-                              id="bankCity"
-                              value={formData.bankCity}
-                              onChange={(e) => handleInputChange('bankCity', e.target.value)}
-                            />
-                          </div>
-                          <div>
-                            <Label htmlFor="routingNumber">Routing Number *</Label>
-                            <Input
-                              id="routingNumber"
-                              value={formData.routingNumber}
-                              onChange={(e) => handleInputChange('routingNumber', e.target.value)}
-                              required
-                            />
-                          </div>
-                          <div>
-                            <Label htmlFor="accountNumber">Account Number *</Label>
-                            <Input
-                              id="accountNumber"
-                              value={formData.accountNumber}
-                              onChange={(e) => handleInputChange('accountNumber', e.target.value)}
-                              required
-                            />
-                          </div>
-                          <div>
-                            <Label htmlFor="startingCheckNumber">Starting Check Number *</Label>
-                            <Input
-                              id="startingCheckNumber"
-                              value={formData.startingCheckNumber}
-                              onChange={(e) => handleInputChange('startingCheckNumber', e.target.value)}
-                              required
-                            />
-                          </div>
-                        </div>
-                      </div>
-
-                      <Separator />
-
-                      {/* Step 3: Product Selection */}
-                      <div className="space-y-6">
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold">
-                            3
-                          </div>
-                          <h3 className="text-xl font-semibold">Product Selection</h3>
-                        </div>
-
-                        {/* Check Type Selection */}
-                        <div className="space-y-4">
-                          <Label>Check Type *</Label>
-                          <div className="grid md:grid-cols-3 gap-4">
-                            {checkTypes.map((type) => (
-                              <Card 
-                                key={type.id}
-                                className={`cursor-pointer transition-all hover:shadow-lg ${
-                                  formData.checkType === type.id ? 'ring-2 ring-purple-600 bg-purple-50' : ''
-                                }`}
-                                onClick={() => handleInputChange('checkType', type.id)}
-                              >
-                                <CardContent className="p-4">
-                                  <div className="text-center">
-                                    <h4 className="font-semibold text-purple-600">{type.name}</h4>
-                                    <p className="text-sm text-gray-600 mt-2">{type.description}</p>
-                                    <div className="mt-3 space-y-1">
-                                      {type.features.slice(0, 3).map((feature, index) => (
-                                        <p key={index} className="text-xs text-gray-500">• {feature}</p>
-                                      ))}
-                                    </div>
-                                  </div>
-                                </CardContent>
-                              </Card>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Quantity and Options */}
-                        <div className="grid md:grid-cols-2 gap-4">
-                          <div>
-                            <Label htmlFor="quantity">Quantity *</Label>
-                            <Select value={formData.quantity} onValueChange={(value) => handleInputChange('quantity', value)}>
-                              <SelectTrigger>
-                                <SelectValue placeholder="Select quantity" />
-                              </SelectTrigger>
-                              <SelectContent>
-                                {quantities.map((qty) => (
-                                  <SelectItem key={qty.value} value={qty.value}>
-                                    {qty.label}
-                                  </SelectItem>
-                                ))}
-                              </SelectContent>
-                            </Select>
-                          </div>
-                          <div>
-                            <Label>Packing Order</Label>
-                            <RadioGroup value={formData.packingOrder} onValueChange={(value) => handleInputChange('packingOrder', value)}>
-                              <div className="flex items-center space-x-2">
-                                <RadioGroupItem value="standard" id="standard" />
-                                <Label htmlFor="standard">Standard Packing Order</Label>
-                              </div>
-                              <div className="flex items-center space-x-2">
-                                <RadioGroupItem value="reverse" id="reverse" />
-                                <Label htmlFor="reverse">Reverse Packing Order</Label>
-                              </div>
-                            </RadioGroup>
-                          </div>
-                        </div>
-
-                        <div className="flex items-center space-x-2">
-                          <Checkbox 
-                            id="duplicates" 
-                            checked={formData.duplicates}
-                            onCheckedChange={(checked) => handleInputChange('duplicates', checked)}
-                          />
-                          <Label htmlFor="duplicates">Include Duplicates (2-Part or 3-Part)</Label>
-                        </div>
-                      </div>
-
-                      <Separator />
-
-                      {/* Step 4: Design Options */}
-                      <div className="space-y-6">
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold">
-                            4
-                          </div>
-                          <h3 className="text-xl font-semibold">Design Options</h3>
-                        </div>
-
-                        <Tabs defaultValue="standard" className="w-full">
-                          <TabsList className="grid w-full grid-cols-2">
-                            <TabsTrigger value="standard">Standard Colors</TabsTrigger>
-                            <TabsTrigger value="premium">Premium Colors (+$15)</TabsTrigger>
-                          </TabsList>
-                          <TabsContent value="standard" className="space-y-4">
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                              {standardColors.map((color) => (
-                                <div
-                                  key={color.value}
-                                  className={`border-2 rounded-lg p-3 cursor-pointer transition-all ${
-                                    formData.designColor === color.value ? 'border-purple-600 bg-purple-50' : 'border-gray-200 hover:border-purple-300'
-                                  }`}
-                                  onClick={() => handleInputChange('designColor', color.value)}
-                                >
-                                  <div 
-                                    className="w-full h-12 rounded mb-2"
-                                    style={{ backgroundColor: color.color }}
-                                  ></div>
-                                  <p className="text-sm font-medium text-center">{color.name}</p>
-                                </div>
-                              ))}
-                            </div>
-                          </TabsContent>
-                          <TabsContent value="premium" className="space-y-4">
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                              {premiumColors.map((color) => (
-                                <div
-                                  key={color.value}
-                                  className={`border-2 rounded-lg p-3 cursor-pointer transition-all ${
-                                    formData.designColor === color.value ? 'border-purple-600 bg-purple-50' : 'border-gray-200 hover:border-purple-300'
-                                  }`}
-                                  onClick={() => handleInputChange('designColor', color.value)}
-                                >
-                                  <div 
-                                    className="w-full h-12 rounded mb-2"
-                                    style={{ 
-                                      background: color.color.includes('gradient') ? color.color : color.color 
-                                    }}
-                                  ></div>
-                                  <p className="text-sm font-medium text-center">{color.name}</p>
-                                  <p className="text-xs text-purple-600 text-center">+$15</p>
-                                </div>
-                              ))}
-                            </div>
-                          </TabsContent>
-                        </Tabs>
-                      </div>
-
-                      <Separator />
-
-                      {/* Step 5: Additional Items */}
-                      <div className="space-y-6">
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold">
-                            5
-                          </div>
-                          <h3 className="text-xl font-semibold">Additional Items</h3>
-                        </div>
-
-                        {/* Envelopes */}
-                        <div className="space-y-4">
-                          <div className="flex items-center space-x-2">
-                            <Checkbox 
-                              id="envelopes" 
-                              checked={formData.envelopes}
-                              onCheckedChange={(checked) => handleInputChange('envelopes', checked)}
-                            />
-                            <Label htmlFor="envelopes" className="text-lg font-medium">Envelopes</Label>
-                          </div>
-                          {formData.envelopes && (
-                            <div className="ml-6 space-y-4">
-                              <div>
-                                <Label htmlFor="envelopeQuantity">Quantity</Label>
-                                <Select value={formData.envelopeQuantity} onValueChange={(value) => handleInputChange('envelopeQuantity', value)}>
-                                  <SelectTrigger>
-                                    <SelectValue placeholder="Select quantity" />
-                                  </SelectTrigger>
-                                  <SelectContent>
-                                    <SelectItem value="250">250 Envelopes - $85</SelectItem>
-                                    <SelectItem value="500">500 Envelopes - $106</SelectItem>
-                                    <SelectItem value="1000">1,000 Envelopes - $165</SelectItem>
-                                    <SelectItem value="1500">1,500 Envelopes - $229</SelectItem>
-                                    <SelectItem value="2000">2,000 Envelopes - $292</SelectItem>
-                                  </SelectContent>
-                                </Select>
-                              </div>
-                              <Card className="bg-blue-50 border-blue-200">
-                                <CardContent className="p-4">
-                                  <div className="flex items-start gap-3">
-                                    <Mail className="w-5 h-5 text-blue-600 mt-0.5" />
-                                    <div>
-                                      <h4 className="font-semibold text-blue-800">Double Window Confidential Envelopes</h4>
-                                      <p className="text-sm text-blue-700">Self-seal, 8 5/8 x 3 5/8". Tinted inside pattern keeps confidential information secure.</p>
-                                    </div>
-                                  </div>
-                                </CardContent>
-                              </Card>
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Deposit Forms */}
-                        <div className="space-y-4">
-                          <div className="flex items-center space-x-2">
-                            <Checkbox 
-                              id="depositForms" 
-                              checked={formData.depositForms}
-                              onCheckedChange={(checked) => handleInputChange('depositForms', checked)}
-                            />
-                            <Label htmlFor="depositForms" className="text-lg font-medium">Deposit Forms</Label>
-                          </div>
-                          {formData.depositForms && (
-                            <div className="ml-6 space-y-4">
-                              <div className="grid md:grid-cols-2 gap-4">
-                                <div>
-                                  <Label htmlFor="depositFormQuantity">Quantity</Label>
-                                  <Select value={formData.depositFormQuantity} onValueChange={(value) => handleInputChange('depositFormQuantity', value)}>
-                                    <SelectTrigger>
-                                      <SelectValue placeholder="Select quantity" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                      <SelectItem value="150">150 Books - $52 (2-Part)</SelectItem>
-                                      <SelectItem value="300">300 Books - $81 (2-Part)</SelectItem>
-                                      <SelectItem value="600">600 Books - $130 (2-Part)</SelectItem>
-                                      <SelectItem value="1200">1,200 Books - $200 (2-Part)</SelectItem>
-                                      <SelectItem value="2400">2,400 Books - $308 (2-Part)</SelectItem>
-                                    </SelectContent>
-                                  </Select>
-                                </div>
-                                <div className="flex items-center space-x-2">
-                                  <Checkbox 
-                                    id="depositFormDuplicates" 
-                                    checked={formData.depositFormDuplicates}
-                                    onCheckedChange={(checked) => handleInputChange('depositFormDuplicates', checked)}
-                                  />
-                                  <Label htmlFor="depositFormDuplicates">Include Duplicates</Label>
-                                </div>
-                              </div>
-                              <Card className="bg-green-50 border-green-200">
-                                <CardContent className="p-4">
-                                  <div className="flex items-start gap-3">
-                                    <FileText className="w-5 h-5 text-green-600 mt-0.5" />
-                                    <div>
-                                      <h4 className="font-semibold text-green-800">Booked Deposit Tickets</h4>
-                                      <p className="text-sm text-green-700">8 7/8 x 3 3/8", 2-Part Duplicate. Includes 17 check entry lines plus cash and coin count.</p>
-                                    </div>
-                                  </div>
-                                </CardContent>
-                              </Card>
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Tax Forms */}
-                        <div className="space-y-4">
-                          <div className="flex items-center space-x-2">
-                            <Checkbox 
-                              id="taxForms" 
-                              checked={formData.taxForms}
-                              onCheckedChange={(checked) => handleInputChange('taxForms', checked)}
-                            />
-                            <Label htmlFor="taxForms" className="text-lg font-medium">Tax Forms</Label>
-                          </div>
-                          {formData.taxForms && (
-                            <div className="ml-6 space-y-4">
-                              <div className="grid md:grid-cols-2 gap-4">
-                                <div>
-                                  <Label htmlFor="taxFormName">Form Name</Label>
-                                  <Input
-                                    id="taxFormName"
-                                    value={formData.taxFormName}
-                                    onChange={(e) => handleInputChange('taxFormName', e.target.value)}
-                                    placeholder="e.g., W-2, 1099"
-                                  />
-                                </div>
-                                <div>
-                                  <Label htmlFor="taxFormQuantity">Quantity</Label>
-                                  <Input
-                                    id="taxFormQuantity"
-                                    type="number"
-                                    value={formData.taxFormQuantity}
-                                    onChange={(e) => handleInputChange('taxFormQuantity', e.target.value)}
-                                    placeholder="Number of forms"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-
-                      <Separator />
-
-                      {/* Step 6: Other Notes */}
-                      <div className="space-y-6">
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold">
-                            6
-                          </div>
-                          <h3 className="text-xl font-semibold">Additional Notes</h3>
-                        </div>
-                        
-                        <div>
-                          <Label htmlFor="otherNotes">Special Instructions or Additional Items</Label>
-                          <Textarea
-                            id="otherNotes"
-                            value={formData.otherNotes}
-                            onChange={(e) => handleInputChange('otherNotes', e.target.value)}
-                            placeholder="Any special instructions, additional items, or notes for your order..."
-                            rows={4}
-                          />
-                        </div>
-                      </div>
-
-                      {/* Submit Button */}
-                      <div className="pt-6">
-                        <Button type="submit" size="lg" className="w-full bg-purple-600 hover:bg-purple-700 text-white">
-                          <CreditCard className="w-5 h-5 mr-2" />
-                          Submit Check Order
-                        </Button>
-                      </div>
-                    </form>
-                  </CardContent>
-                </Card>
-              </div>
-
-              {/* Order Summary */}
-              <div className="lg:col-span-1">
-                <div className="sticky top-8">
-                  <Card className="shadow-xl">
-                    <CardHeader>
-                      <CardTitle className="text-2xl font-bold text-purple-600">
-                        Order Summary
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-6">
-                      {/* Selected Product */}
-                      {formData.checkType && (
-                        <div className="space-y-4">
-                          <div className="flex items-center gap-3">
-                            <CreditCard className="w-6 h-6 text-purple-600" />
-                            <div>
-                              <h4 className="font-semibold">
-                                {checkTypes.find(t => t.id === formData.checkType)?.name}
-                              </h4>
-                              <p className="text-sm text-gray-600">
-                                {formData.quantity} checks
-                                {formData.duplicates && ' (with duplicates)'}
-                              </p>
-                            </div>
-                          </div>
-                          
-                          {/* Design Color */}
-                          {formData.designColor && (
-                            <div className="flex items-center gap-3">
-                              <div 
-                                className="w-6 h-6 rounded border"
-                                style={{ 
-                                  backgroundColor: [...standardColors, ...premiumColors].find(c => c.value === formData.designColor)?.color || '#f5f5f5'
-                                }}
-                              ></div>
-                              <span className="text-sm">
-                                {[...standardColors, ...premiumColors].find(c => c.value === formData.designColor)?.name}
-                                {premiumColors.find(c => c.value === formData.designColor) && ' (+$15)'}
-                              </span>
-                            </div>
-                          )}
-                        </div>
-                      )}
-
-                      {/* Additional Items */}
-                      {(formData.envelopes || formData.depositForms || formData.taxForms) && (
-                        <div className="space-y-3">
-                          <h4 className="font-semibold text-gray-800">Additional Items:</h4>
-                          {formData.envelopes && (
-                            <div className="flex justify-between text-sm">
-                              <span>Envelopes ({formData.envelopeQuantity})</span>
-                              <span className="font-medium">
-                                ${formData.envelopeQuantity === '250' ? '85' : 
-                                  formData.envelopeQuantity === '500' ? '106' :
-                                  formData.envelopeQuantity === '1000' ? '165' :
-                                  formData.envelopeQuantity === '1500' ? '229' :
-                                  formData.envelopeQuantity === '2000' ? '292' : '0'}
-                              </span>
-                            </div>
-                          )}
-                          {formData.depositForms && (
-                            <div className="flex justify-between text-sm">
-                              <span>Deposit Forms ({formData.depositFormQuantity})</span>
-                              <span className="font-medium">
-                                ${formData.depositFormQuantity === '150' ? '52' :
-                                  formData.depositFormQuantity === '300' ? '81' :
-                                  formData.depositFormQuantity === '600' ? '130' :
-                                  formData.depositFormQuantity === '1200' ? '200' :
-                                  formData.depositFormQuantity === '2400' ? '308' : '0'}
-                              </span>
-                            </div>
-                          )}
-                          {formData.taxForms && (
-                            <div className="flex justify-between text-sm">
-                              <span>Tax Forms</span>
-                              <span className="font-medium">Contact for pricing</span>
-                            </div>
-                          )}
-                        </div>
-                      )}
-
-                      <Separator />
-
-                      {/* Pricing */}
-                      <div className="space-y-3">
-                        <div className="flex justify-between text-lg">
-                          <span className="font-semibold">Subtotal:</span>
-                          <span className="font-bold text-purple-600">${calculateTotal()}</span>
-                        </div>
-                        <p className="text-sm text-gray-600">
-                          * Tax and shipping not included
-                        </p>
-                      </div>
-
-                      {/* Security Notice */}
-                      <Card className="bg-yellow-50 border-yellow-200">
-                        <CardContent className="p-4">
-                          <div className="flex items-start gap-3">
-                            <Shield className="w-5 h-5 text-yellow-600 mt-0.5" />
-                            <div>
-                              <h4 className="font-semibold text-yellow-800">Security Features</h4>
-                              <p className="text-sm text-yellow-700">
-                                All orders include built-in security: chemically sensitive paper, microprint border, 
-                                invisible fluorescent fiber, erasure protection, and security screening.
-                              </p>
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-
-                      {/* Contact Info */}
-                      <Card className="bg-blue-50 border-blue-200">
-                        <CardContent className="p-4">
-                          <div className="flex items-start gap-3">
-                            <Info className="w-5 h-5 text-blue-600 mt-0.5" />
-                            <div>
-                              <h4 className="font-semibold text-blue-800">Need Help?</h4>
-                              <p className="text-sm text-blue-700">
-                                Contact us for custom orders, bulk pricing, or any questions about your check order.
-                              </p>
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </CardContent>
-                  </Card>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Features Section */}
-        <section className="py-16 lg:py-20 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Why Choose Our Custom Checks?
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Professional business checks with advanced security features and complete customization options
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <Card className="text-center p-6">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Shield className="w-8 h-8 text-purple-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Built-in Security</h3>
-                <p className="text-gray-600">
-                  Chemically sensitive paper, microprint borders, invisible fluorescent fibers, 
-                  and erasure protection to prevent fraud.
-                </p>
-              </Card>
-
-              <Card className="text-center p-6">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Software Compatible</h3>
-                <p className="text-gray-600">
-                  Fully compatible with QuickBooks and Sage 100 Contractor. 
-                  Seamless integration with your accounting software.
-                </p>
-              </Card>
-
-              <Card className="text-center p-6">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Package className="w-8 h-8 text-green-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Free Personalization</h3>
-                <p className="text-gray-600">
-                  Includes your business imprint, choice of colors and typefaces, 
-                  and standard business logo at no extra cost.
-                </p>
-              </Card>
-
-              <Card className="text-center p-6">
-                <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <FileText className="w-8 h-8 text-yellow-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Tear-off Vouchers</h3>
-                <p className="text-gray-600">
-                  Built-in vouchers provide detailed payment records for both you 
-                  and your payee, improving record keeping.
-                </p>
-              </Card>
-
-              <Card className="text-center p-6">
-                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Mail className="w-8 h-8 text-red-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Matching Envelopes</h3>
-                <p className="text-gray-600">
-                  Double window confidential envelopes with security tinting 
-                  to protect sensitive information during mailing.
-                </p>
-              </Card>
-
-              <Card className="text-center p-6">
-                <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Calculator className="w-8 h-8 text-indigo-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Deposit Tickets</h3>
-                <p className="text-gray-600">
-                  Professional deposit tickets with MICR processing compatibility 
-                  and multiple entry lines for efficient banking.
-                </p>
-              </Card>
-            </div>
-          </div>
-        </section>
+      <Header />
+      <div className="pt-20">
+        <CheckOrderingContent />
       </div>
-    </>
+      <Footer />
+    </main>
   );
 };
 
