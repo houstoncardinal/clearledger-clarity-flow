@@ -144,7 +144,7 @@ const Hero = () => {
             style={{animationDelay: '2s'}}
           >
             <div className="flex items-center space-x-2 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300">
-              <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
+              <img src="/top25badge.jpg" alt="Top 25 Up-N-Coming ProAdvisor Badge" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
               <span className="text-left sm:text-center">2024 & 2025 Top 25 Up-N-Coming ProAdvisor</span>
             </div>
             <div className="flex items-center space-x-2 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300">

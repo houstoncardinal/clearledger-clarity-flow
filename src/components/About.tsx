@@ -141,7 +141,15 @@ const About = () => {
               const IconComponent = cert.icon;
               return (
                 <div key={index} className="text-center p-6 bg-card rounded-xl shadow-card hover:shadow-premium transition-shadow">
-                  <IconComponent className="w-10 h-10 text-primary mx-auto mb-4" />
+                  {cert.name.includes('Top 25') ? (
+                    <img 
+                      src="/top25badge.jpg" 
+                      alt="Top 25 Up-N-Coming ProAdvisor Badge" 
+                      className="w-10 h-10 mx-auto mb-4 object-contain"
+                    />
+                  ) : (
+                    <IconComponent className="w-10 h-10 text-primary mx-auto mb-4" />
+                  )}
                   <h4 className="font-medium text-foreground text-sm leading-tight">{cert.name}</h4>
                 </div>
               );

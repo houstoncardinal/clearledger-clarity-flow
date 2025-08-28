@@ -306,7 +306,15 @@ const QuickBooksServices = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               {certifications.map((cert, index) => (
                 <div key={index} className="text-center p-4 bg-card rounded-lg shadow-card hover:shadow-lg transition-shadow duration-300">
-                  <Award className="w-8 h-8 text-primary mx-auto mb-3" />
+                  {cert.includes('Top 25') ? (
+                    <img 
+                      src="/top25badge.jpg" 
+                      alt="Top 25 Up-N-Coming ProAdvisor Badge" 
+                      className="w-8 h-8 mx-auto mb-3 object-contain"
+                    />
+                  ) : (
+                    <Award className="w-8 h-8 text-primary mx-auto mb-3" />
+                  )}
                   <h4 className="font-medium text-foreground text-xs leading-tight">{cert}</h4>
                 </div>
               ))}
