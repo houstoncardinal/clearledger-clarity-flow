@@ -90,7 +90,7 @@ const Hero = () => {
                 <img 
                   src="/2025.png" 
                   alt="2025 Top 25 Up-N-Coming ProAdvisor Award" 
-                  className="w-32 sm:w-40 lg:w-48 h-auto object-contain rounded-lg -mt-6"
+                  className="w-36 sm:w-40 lg:w-48 h-auto object-contain rounded-lg -mt-6"
                 />
               </div>
               
