@@ -609,9 +609,9 @@ We will contact you shortly to confirm your custom check order.`;
       </section>
 
       {/* Main Form Section */}
-      <section className="py-6 lg:py-12 bg-background mobile-safe">
+      <section className="py-6 lg:py-12 bg-background mobile-safe px-4">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-screen-md lg:max-w-7xl mx-auto w-full px-4">
+                      <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-screen-md lg:max-w-7xl mx-auto w-full px-2 sm:px-4">
                                 {/* Mobile Order Summary Banner */}
                     <div className="lg:hidden mb-6 w-full">
                       <Card className="bg-gradient-to-r from-primary/10 to-primary/5 border-primary/20 w-full">
@@ -703,7 +703,7 @@ We will contact you shortly to confirm your custom check order.`;
             <div className="lg:col-span-2 order-1 lg:order-1 w-full flex justify-center lg:block">
               <Card className="shadow-premium max-w-md sm:max-w-2xl lg:max-w-4xl mx-auto lg:mx-0 w-full overflow-hidden sm:rounded-xl rounded-lg">
                 <CardHeader>
-                  <CardTitle className="font-heading text-3xl font-bold text-foreground">
+                  <CardTitle className="font-heading text-2xl sm:text-3xl font-bold text-foreground break-words">
                     Check Order Form
                   </CardTitle>
                   <CardDescription className="text-muted-foreground">
@@ -913,7 +913,7 @@ We will contact you shortly to confirm your custom check order.`;
                         <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center font-bold text-primary-foreground">
                           3
                         </div>
-                        <h3 className="font-heading text-xl font-semibold text-foreground">Product Selection</h3>
+                        <h3 className="font-heading text-lg sm:text-xl font-semibold text-foreground break-words">Product Selection</h3>
                       </div>
                       
                       {/* Mobile Step Indicator Update */}
@@ -1220,7 +1220,7 @@ We will contact you shortly to confirm your custom check order.`;
                         <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center font-bold text-primary-foreground">
                           4
                         </div>
-                        <h3 className="font-heading text-xl font-semibold text-foreground">Design Options</h3>
+                        <h3 className="font-heading text-lg sm:text-xl font-semibold text-foreground break-words">Design Options</h3>
                       </div>
                       
                       {/* Mobile Step Indicator Update */}
@@ -1425,7 +1425,7 @@ We will contact you shortly to confirm your custom check order.`;
                         <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center font-bold text-primary-foreground">
                           5
                         </div>
-                        <h3 className="font-heading text-xl font-semibold text-foreground">Additional Items</h3>
+                        <h3 className="font-heading text-lg sm:text-xl font-semibold text-foreground break-words">Additional Items</h3>
                       </div>
                       
                       {/* Mobile Step Indicator Update */}
