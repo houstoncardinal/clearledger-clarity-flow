@@ -79,22 +79,8 @@ const Hero = () => {
             className="animate-fade-in"
             style={{animationDelay: '1s'}}
           >
-            <div className="flex flex-col gap-6 justify-center items-center max-w-4xl mx-auto">
-              {/* Individual Year Badges - Centered and Stacked */}
-              <div className="flex flex-col sm:flex-row gap-6 items-center">
-                <img 
-                  src="/2024.jpg" 
-                  alt="2024 Top 25 Up-N-Coming ProAdvisor Award" 
-                  className="w-24 sm:w-28 h-auto object-contain rounded-lg"
-                />
-                <img 
-                  src="/2025.png" 
-                  alt="2025 Top 25 Up-N-Coming ProAdvisor Award" 
-                  className="w-24 sm:w-28 h-auto object-contain rounded-lg shadow-lg"
-                />
-              </div>
-              
-              {/* QuickBooks Banners - Made Smaller */}
+            <div className="flex justify-center items-center">
+              {/* QuickBooks Banners */}
               <img 
                 src="/banners.png" 
                 alt="ClearLedger QuickBooks Certifications" 
