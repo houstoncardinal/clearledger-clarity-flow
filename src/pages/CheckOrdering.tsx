@@ -611,7 +611,7 @@ We will contact you shortly to confirm your custom check order.`;
       {/* Main Form Section */}
       <section className="py-6 lg:py-12 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto w-full px-4">
+          <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-screen-md lg:max-w-7xl mx-auto w-full px-4">
                                 {/* Mobile Order Summary Banner */}
                     <div className="lg:hidden mb-6 w-full">
                       <Card className="bg-gradient-to-r from-primary/10 to-primary/5 border-primary/20 w-full">
@@ -701,7 +701,7 @@ We will contact you shortly to confirm your custom check order.`;
                     </div>
             {/* Form */}
             <div className="lg:col-span-2 order-1 lg:order-1 w-full flex justify-center lg:block">
-              <Card className="shadow-premium max-w-4xl mx-auto lg:mx-0 w-full overflow-hidden sm:rounded-xl rounded-lg">
+              <Card className="shadow-premium max-w-md sm:max-w-2xl lg:max-w-4xl mx-auto lg:mx-0 w-full overflow-hidden sm:rounded-xl rounded-lg">
                 <CardHeader>
                   <CardTitle className="font-heading text-3xl font-bold text-foreground">
                     Check Order Form
@@ -1675,7 +1675,7 @@ We will contact you shortly to confirm your custom check order.`;
                     </div>
                     
                     {/* Mobile Help Section */}
-                    <div className="sm:hidden mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg max-w-lg mx-auto">
+                    <div className="sm:hidden mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg max-w-md mx-auto">
                       <div className="flex items-start gap-3">
                         <Info className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
                         <div>
