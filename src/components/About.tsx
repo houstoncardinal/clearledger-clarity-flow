@@ -125,32 +125,6 @@ const About = () => {
             Certifications & Partnerships
           </h3>
           
-          {/* Individual Year Badges and QuickBooks Certification Banners */}
-          <div className="flex flex-col items-center gap-8 mb-8">
-            {/* Individual Year Badges - Better Spacing */}
-            <div className="flex flex-col sm:flex-row gap-8 items-center">
-              <img 
-                src="/2024.jpg" 
-                alt="2024 Top 25 Up-N-Coming ProAdvisor Award" 
-                className="w-28 sm:w-32 h-auto object-contain rounded-lg"
-              />
-              <img 
-                src="/2025.png" 
-                alt="2025 Top 25 Up-N-Coming ProAdvisor Award" 
-                className="w-28 sm:w-32 h-auto object-contain rounded-lg shadow-lg"
-              />
-            </div>
-            
-            {/* QuickBooks Certification Banners - Made Smaller */}
-            <div className="bg-gradient-to-br from-white to-gray-50 p-6 rounded-2xl shadow-2xl border border-gray-200/50">
-              <img 
-                src="/banners.png" 
-                alt="QuickBooks Certifications and Partnerships" 
-                className="max-w-[300px] h-auto rounded-xl shadow-lg"
-              />
-            </div>
-          </div>
-
           <div className="grid md:grid-cols-4 gap-6">
             {certifications.map((cert, index) => {
               const IconComponent = cert.icon;
