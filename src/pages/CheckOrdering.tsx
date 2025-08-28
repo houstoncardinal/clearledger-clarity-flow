@@ -419,6 +419,105 @@ const CheckOrderingContent = () => {
                         </div>
                       </div>
 
+                      {/* Selected Check Type Details */}
+                      {formData.checkType === 'DLT103' && (
+                        <div className="mt-8 p-6 bg-gradient-subtle rounded-xl border">
+                          <div className="grid lg:grid-cols-2 gap-8 items-start">
+                            {/* Check Image */}
+                            <div className="text-center">
+                              <div className="bg-white rounded-lg shadow-lg p-4 mb-4">
+                                <img 
+                                  src="/check-top.png" 
+                                  alt="Laser Top Check Sample" 
+                                  className="w-full max-w-md mx-auto"
+                                />
+                              </div>
+                              <p className="text-sm text-muted-foreground">DLT103 - Laser Top Check Sample</p>
+                            </div>
+                            
+                            {/* Features List */}
+                            <div className="space-y-4">
+                              <h4 className="font-heading text-xl font-semibold text-foreground">
+                                Laser Top Check Features
+                              </h4>
+                              <div className="space-y-3">
+                                <div className="flex items-start gap-3">
+                                  <Shield className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                                  <div>
+                                    <p className="font-medium text-foreground">Business checks with built-in security</p>
+                                    <p className="text-sm text-muted-foreground">Includes chemically sensitive paper, microprint border, invisible fluorescent fiber, erasure protection, security screen & warning box.</p>
+                                  </div>
+                                </div>
+                                
+                                <div className="flex items-start gap-3">
+                                  <FileText className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                                  <div>
+                                    <p className="font-medium text-foreground">Preprinted lines</p>
+                                    <p className="text-sm text-muted-foreground">Enhance legibility and convenience if you occasionally write checks by hand.</p>
+                                  </div>
+                                </div>
+                                
+                                <div className="flex items-start gap-3">
+                                  <Package className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                                  <div>
+                                    <p className="font-medium text-foreground">2 tear-off vouchers</p>
+                                    <p className="text-sm text-muted-foreground">Provide both you and payee a detailed payment record.</p>
+                                  </div>
+                                </div>
+                                
+                                <div className="flex items-start gap-3">
+                                  <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                                  <div>
+                                    <p className="font-medium text-foreground">Sheet format</p>
+                                    <p className="text-sm text-muted-foreground">Fits all standard laser and inkjet printers.</p>
+                                  </div>
+                                </div>
+                                
+                                <div className="flex items-start gap-3">
+                                  <Hash className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                                  <div>
+                                    <p className="font-medium text-foreground">Numbering options</p>
+                                    <p className="text-sm text-muted-foreground">Choose consecutive (face up) or reverse (face down) numbering, depending on your printer setup.</p>
+                                  </div>
+                                </div>
+                                
+                                <div className="flex items-start gap-3">
+                                  <CreditCard className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                                  <div>
+                                    <p className="font-medium text-foreground">Multi-part options</p>
+                                    <p className="text-sm text-muted-foreground">Provide up to 2 color-coded duplicates on separate sheets for an additional charge.</p>
+                                  </div>
+                                </div>
+                                
+                                <div className="flex items-start gap-3">
+                                  <Package className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                                  <div>
+                                    <p className="font-medium text-foreground">Additional customization</p>
+                                    <p className="text-sm text-muted-foreground">Options include second imprint color & premium check color for an additional charge. Custom logo also available.</p>
+                                  </div>
+                                </div>
+                                
+                                <div className="flex items-start gap-3">
+                                  <Shield className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                                  <div>
+                                    <p className="font-medium text-foreground">Optional TamperGuard Plus premium check paper</p>
+                                    <p className="text-sm text-muted-foreground">Offers enhanced security for an additional charge.</p>
+                                  </div>
+                                </div>
+                                
+                                <div className="flex items-start gap-3">
+                                  <AlertCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                                  <div>
+                                    <p className="font-medium text-foreground">Extra security measure</p>
+                                    <p className="text-sm text-muted-foreground">All orders go through proprietary screening to prevent unauthorized orders.</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
                       {/* Quantity and Options */}
                       <div className="grid md:grid-cols-2 gap-4">
                         <div>
