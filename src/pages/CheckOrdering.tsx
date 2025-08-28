@@ -189,8 +189,142 @@ const CheckOrderingContent = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for your order! We will contact you shortly to confirm your custom check order.');
+    
+    // Format the order data for easy processing
+    const orderData = {
+      orderDate: new Date().toISOString(),
+      orderNumber: `CHK-${Date.now()}`,
+      
+      // Company Information
+      company: {
+        name: formData.companyName,
+        address: formData.companyAddress,
+        city: formData.city,
+        state: formData.state,
+        zip: formData.zip,
+        phone: formData.phoneNumber,
+        fax: formData.faxNumber
+      },
+      
+      // Bank Information
+      bank: {
+        name: formData.bankName,
+        city: formData.bankCity,
+        routingNumber: formData.routingNumber,
+        accountNumber: formData.accountNumber,
+        startingCheckNumber: formData.startingCheckNumber
+      },
+      
+      // Product Details
+      product: {
+        checkType: formData.checkType,
+        checkTypeName: checkTypes.find(t => t.id === formData.checkType)?.name || '',
+        quantity: formData.quantity,
+        duplicates: formData.duplicates,
+        packingOrder: formData.packingOrder,
+        designColor: formData.designColor,
+        logoOption: formData.logoOption
+      },
+      
+      // Additional Items
+      additionalItems: {
+        envelopes: formData.envelopes ? {
+          quantity: formData.envelopeQuantity,
+          price: formData.envelopeQuantity === '250' ? 85 :
+                 formData.envelopeQuantity === '500' ? 106 :
+                 formData.envelopeQuantity === '1000' ? 165 :
+                 formData.envelopeQuantity === '1500' ? 229 :
+                 formData.envelopeQuantity === '2000' ? 292 : 0
+        } : null,
+        depositForms: formData.depositForms ? {
+          quantity: formData.depositFormQuantity,
+          duplicates: formData.depositFormDuplicates,
+          price: formData.depositFormQuantity === '150' ? 52 :
+                 formData.depositFormQuantity === '300' ? 81 :
+                 formData.depositFormQuantity === '600' ? 130 :
+                 formData.depositFormQuantity === '1200' ? 200 :
+                 formData.depositFormQuantity === '2400' ? 308 : 0
+        } : null,
+        taxForms: formData.taxForms ? {
+          formName: formData.taxFormName,
+          quantity: formData.taxFormQuantity
+        } : null
+      },
+      
+      // Pricing
+      pricing: {
+        basePrice: calculatePrice(),
+        premiumColorUpcharge: [...standardColors, ...premiumColors].find(c => c.value === formData.designColor)?.premium ? 15 : 0,
+        envelopePrice: formData.envelopes && formData.envelopeQuantity ? 
+          (formData.envelopeQuantity === '250' ? 85 :
+           formData.envelopeQuantity === '500' ? 106 :
+           formData.envelopeQuantity === '1000' ? 165 :
+           formData.envelopeQuantity === '1500' ? 229 :
+           formData.envelopeQuantity === '2000' ? 292 : 0) : 0,
+        depositFormPrice: formData.depositForms && formData.depositFormQuantity ?
+          (formData.depositFormQuantity === '150' ? 52 :
+           formData.depositFormQuantity === '300' ? 81 :
+           formData.depositFormQuantity === '600' ? 130 :
+           formData.depositFormQuantity === '1200' ? 200 :
+           formData.depositFormQuantity === '2400' ? 308 : 0) : 0,
+        totalPrice: calculateTotal()
+      },
+      
+      // Additional Notes
+      notes: formData.otherNotes
+    };
+
+    // Create formatted order summary for email/notification
+    const orderSummary = `
+=== CUSTOM CHECK ORDER ===
+Order Number: ${orderData.orderNumber}
+Order Date: ${new Date(orderData.orderDate).toLocaleDateString()}
+
+COMPANY INFORMATION:
+${orderData.company.name}
+${orderData.company.address}
+${orderData.company.city}, ${orderData.company.state} ${orderData.company.zip}
+Phone: ${orderData.company.phone || 'N/A'}
+Fax: ${orderData.company.fax || 'N/A'}
+
+BANK INFORMATION:
+${orderData.bank.name}
+${orderData.bank.city || 'N/A'}
+Routing: ${orderData.bank.routingNumber}
+Account: ${orderData.bank.accountNumber}
+Starting Check #: ${orderData.bank.startingCheckNumber}
+
+PRODUCT DETAILS:
+Check Type: ${orderData.product.checkTypeName} (${orderData.product.checkType})
+Quantity: ${orderData.product.quantity}
+Duplicates: ${orderData.product.duplicates ? 'Yes' : 'No'}
+Packing Order: ${orderData.product.packingOrder}
+Design Color: ${[...standardColors, ...premiumColors].find(c => c.value === orderData.product.designColor)?.name || 'N/A'}
+Logo Option: ${orderData.product.logoOption}
+
+ADDITIONAL ITEMS:
+${orderData.additionalItems.envelopes ? `Envelopes: ${orderData.additionalItems.envelopes.quantity} qty - $${orderData.additionalItems.envelopes.price}` : 'Envelopes: None'}
+${orderData.additionalItems.depositForms ? `Deposit Forms: ${orderData.additionalItems.depositForms.quantity} qty - $${orderData.additionalItems.depositForms.price}` : 'Deposit Forms: None'}
+${orderData.additionalItems.taxForms ? `Tax Forms: ${orderData.additionalItems.taxForms.formName} - ${orderData.additionalItems.taxForms.quantity} qty` : 'Tax Forms: None'}
+
+PRICING BREAKDOWN:
+Base Price: $${orderData.pricing.basePrice}
+${orderData.pricing.premiumColorUpcharge > 0 ? `Premium Color: +$${orderData.pricing.premiumColorUpcharge}` : ''}
+${orderData.pricing.envelopePrice > 0 ? `Envelopes: +$${orderData.pricing.envelopePrice}` : ''}
+${orderData.pricing.depositFormPrice > 0 ? `Deposit Forms: +$${orderData.pricing.depositFormPrice}` : ''}
+TOTAL: $${orderData.pricing.totalPrice}
+
+NOTES: ${orderData.notes || 'None'}
+
+=== END ORDER ===
+    `.trim();
+
+    console.log('Formatted Order Data:', orderData);
+    console.log('Order Summary:', orderSummary);
+    
+    // Here you would typically send this to your backend/email service
+    // For now, we'll show a success message
+    alert(`Thank you for your order!\n\nOrder Number: ${orderData.orderNumber}\nTotal: $${orderData.pricing.totalPrice}\n\nWe will contact you shortly to confirm your custom check order.`);
   };
 
   return (
@@ -231,11 +365,11 @@ const CheckOrderingContent = () => {
       </section>
 
       {/* Main Form Section */}
-      <section className="py-16 lg:py-20 bg-background">
-        <div className="container mx-auto">
-          <div className="grid lg:grid-cols-3 gap-8">
+      <section className="py-8 lg:py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
             {/* Form */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-2 order-2 lg:order-1">
               <Card className="shadow-premium">
                 <CardHeader>
                   <CardTitle className="font-heading text-3xl font-bold text-foreground">
@@ -256,8 +390,8 @@ const CheckOrderingContent = () => {
                         <h3 className="font-heading text-xl font-semibold text-foreground">Company Information</h3>
                       </div>
                       
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="sm:col-span-2">
                           <Label htmlFor="companyName">Company Name on Checks *</Label>
                           <Input
                             id="companyName"
@@ -266,7 +400,7 @@ const CheckOrderingContent = () => {
                             required
                           />
                         </div>
-                        <div>
+                        <div className="sm:col-span-2">
                           <Label htmlFor="companyAddress">Company Address *</Label>
                           <Input
                             id="companyAddress"
@@ -332,8 +466,8 @@ const CheckOrderingContent = () => {
                         <h3 className="font-heading text-xl font-semibold text-foreground">Bank Information</h3>
                       </div>
                       
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="sm:col-span-2">
                           <Label htmlFor="bankName">Bank Name *</Label>
                           <Input
                             id="bankName"
@@ -394,7 +528,7 @@ const CheckOrderingContent = () => {
                       {/* Check Type Selection */}
                       <div className="space-y-4">
                         <Label>Check Type *</Label>
-                        <div className="grid md:grid-cols-3 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                           {checkTypes.map((type) => (
                             <Card 
                               key={type.id}
@@ -574,8 +708,8 @@ const CheckOrderingContent = () => {
                           <p className="text-xs text-muted-foreground">*DLB135 does not come in 3 Part</p>
                         </div>
                         
-                        <div className="overflow-x-auto">
-                          <table className="w-full text-sm">
+                        <div className="overflow-x-auto -mx-4 sm:mx-0">
+                          <table className="w-full text-sm min-w-[600px]">
                             <thead>
                               <tr className="border-b border-border">
                                 <th className="text-left py-2 font-medium">Qty</th>
@@ -599,7 +733,7 @@ const CheckOrderingContent = () => {
                       </div>
 
                       {/* Quantity and Options */}
-                      <div className="grid md:grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                           <Label htmlFor="quantity">Quantity *</Label>
                           <Select value={formData.quantity} onValueChange={(value) => handleInputChange('quantity', value)}>
@@ -657,7 +791,7 @@ const CheckOrderingContent = () => {
                           <TabsTrigger value="premium">Premium Colors (+$15)</TabsTrigger>
                         </TabsList>
                         <TabsContent value="standard" className="space-y-4">
-                          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
                             {standardColors.map((color) => (
                               <div
                                 key={color.value}
@@ -676,7 +810,7 @@ const CheckOrderingContent = () => {
                           </div>
                         </TabsContent>
                         <TabsContent value="premium" className="space-y-4">
-                          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
                             {premiumColors.map((color) => (
                               <div
                                 key={color.value}
@@ -765,7 +899,7 @@ const CheckOrderingContent = () => {
                         </div>
                         {formData.depositForms && (
                           <div className="ml-6 space-y-4">
-                            <div className="grid md:grid-cols-2 gap-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                               <div>
                                 <Label htmlFor="depositFormQuantity">Quantity</Label>
                                 <Select value={formData.depositFormQuantity} onValueChange={(value) => handleInputChange('depositFormQuantity', value)}>
@@ -817,7 +951,7 @@ const CheckOrderingContent = () => {
                         </div>
                         {formData.taxForms && (
                           <div className="ml-6 space-y-4">
-                            <div className="grid md:grid-cols-2 gap-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                               <div>
                                 <Label htmlFor="taxFormName">Form Name</Label>
                                 <Input
@@ -880,8 +1014,8 @@ const CheckOrderingContent = () => {
             </div>
 
             {/* Order Summary */}
-            <div className="lg:col-span-1">
-              <div className="sticky top-8">
+            <div className="lg:col-span-1 order-1 lg:order-2">
+              <div className="sticky top-8 mb-6 lg:mb-0">
                 <Card className="shadow-premium">
                   <CardHeader>
                     <CardTitle className="font-heading text-2xl font-bold text-foreground">
@@ -1029,7 +1163,7 @@ const CheckOrderingContent = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             <Card className="text-center p-6 card-service group">
               <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Shield className="w-8 h-8 text-primary-foreground" />
