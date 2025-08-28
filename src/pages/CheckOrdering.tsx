@@ -495,7 +495,7 @@ We will contact you shortly to confirm your custom check order.`;
     <div className="min-h-screen bg-background overflow-x-hidden w-full">
             {/* Hero Section */}
       <section className="py-16 lg:py-20 bg-gradient-subtle">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-[calc(100vw-32px)] sm:max-w-none">
           <div className="max-w-7xl mx-auto text-center mb-16">
             <div className="inline-flex items-center space-x-2 bg-accent px-4 py-2 rounded-full mb-6">
               <CreditCard className="w-4 h-4 text-accent-foreground" />
@@ -530,7 +530,7 @@ We will contact you shortly to confirm your custom check order.`;
 
       {/* Progress & Save Section */}
       <section className="py-4 bg-background border-b">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-[calc(100vw-32px)] sm:max-w-none">
           <div className="max-w-7xl mx-auto">
             {/* Progress Indicator */}
             <div className="mb-4">
@@ -610,7 +610,7 @@ We will contact you shortly to confirm your custom check order.`;
 
       {/* Main Form Section */}
       <section className="py-6 lg:py-12 bg-background mobile-safe px-4">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-[calc(100vw-32px)] sm:max-w-none">
                       <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-[calc(100vw-32px)] sm:max-w-screen-md lg:max-w-7xl mx-auto w-full px-4 justify-center">
                                 {/* Mobile Order Summary Banner */}
                     <div className="lg:hidden mb-6 w-full">
