@@ -611,7 +611,7 @@ We will contact you shortly to confirm your custom check order.`;
       {/* Main Form Section */}
       <section className="py-6 lg:py-12 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto w-full overflow-x-hidden px-2">
+          <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto w-full px-4">
                                 {/* Mobile Order Summary Banner */}
                     <div className="lg:hidden mb-6 w-full">
                       <Card className="bg-gradient-to-r from-primary/10 to-primary/5 border-primary/20 w-full">
@@ -665,7 +665,7 @@ We will contact you shortly to confirm your custom check order.`;
                     
                     {/* Mobile Form Navigation */}
                     <div className="sm:hidden mb-6 w-full px-2">
-                      <div className="flex space-x-2 overflow-x-auto pb-2 justify-center w-full">
+                      <div className="flex space-x-2 overflow-x-auto pb-2 justify-center w-full px-2">
                         <button 
                           className="flex-shrink-0 px-4 py-2 text-xs font-medium bg-primary/10 text-primary rounded-full border border-primary/20 hover:bg-primary/20 transition-colors"
                           onClick={() => document.getElementById('companyName')?.scrollIntoView({ behavior: 'smooth' })}
@@ -1113,7 +1113,7 @@ We will contact you shortly to confirm your custom check order.`;
                           <p className="text-xs text-muted-foreground">*DLB135 does not come in 3 Part</p>
                         </div>
                         
-                        <div className="overflow-x-auto mx-0">
+                        <div className="overflow-x-auto mx-0 px-2">
                           <table className="w-full text-sm min-w-full sm:min-w-[600px]">
                             <thead>
                               <tr className="border-b border-border">
