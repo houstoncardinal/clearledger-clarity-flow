@@ -398,7 +398,7 @@
   /* Container overflow protection */
   .container {
     max-width: 100%;
-    overflow-x: visible;
+    overflow-x: hidden;
     padding-left: 1rem;
     padding-right: 1rem;
   }
@@ -470,7 +470,7 @@
       padding-left: 1rem !important;
       padding-right: 1rem !important;
       max-width: 100vw !important;
-      overflow-x: visible !important;
+      overflow-x: hidden !important;
     }
 
     /* Fix grid layouts on mobile (but not mobile toolbar) */
