@@ -611,7 +611,7 @@ We will contact you shortly to confirm your custom check order.`;
       {/* Main Form Section */}
       <section className="py-6 lg:py-12 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto w-full overflow-x-hidden">
+          <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto w-full overflow-x-hidden px-2">
                                 {/* Mobile Order Summary Banner */}
                     <div className="lg:hidden mb-6 w-full">
                       <Card className="bg-gradient-to-r from-primary/10 to-primary/5 border-primary/20 w-full">
@@ -664,8 +664,8 @@ We will contact you shortly to confirm your custom check order.`;
                     </div>
                     
                     {/* Mobile Form Navigation */}
-                    <div className="sm:hidden mb-6 w-full">
-                      <div className="flex space-x-2 overflow-x-auto pb-2 justify-center w-full px-2">
+                    <div className="sm:hidden mb-6 w-full px-2">
+                      <div className="flex space-x-2 overflow-x-auto pb-2 justify-center w-full">
                         <button 
                           className="flex-shrink-0 px-4 py-2 text-xs font-medium bg-primary/10 text-primary rounded-full border border-primary/20 hover:bg-primary/20 transition-colors"
                           onClick={() => document.getElementById('companyName')?.scrollIntoView({ behavior: 'smooth' })}
@@ -701,7 +701,7 @@ We will contact you shortly to confirm your custom check order.`;
                     </div>
             {/* Form */}
             <div className="lg:col-span-2 order-1 lg:order-1 w-full flex justify-center lg:block">
-              <Card className="shadow-premium max-w-4xl mx-auto lg:mx-0 w-full overflow-hidden">
+              <Card className="shadow-premium max-w-4xl mx-auto lg:mx-0 w-full overflow-hidden sm:rounded-xl rounded-lg">
                 <CardHeader>
                   <CardTitle className="font-heading text-3xl font-bold text-foreground">
                     Check Order Form
@@ -1666,7 +1666,7 @@ We will contact you shortly to confirm your custom check order.`;
                     </div>
                     
                     {/* Mobile Floating Submit Button */}
-                    <div className="fixed bottom-4 left-4 right-4 sm:hidden z-40 max-w-md mx-auto w-full">
+                    <div className="fixed bottom-4 left-0 right-0 sm:hidden z-40 max-w-md mx-auto w-full px-4">
                       <Button type="submit" size="lg" className="w-full btn-primary shadow-lg">
                         <CreditCard className="w-5 h-5 mr-2" />
                         Submit Order
