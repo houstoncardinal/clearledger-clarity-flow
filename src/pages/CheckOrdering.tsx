@@ -1240,7 +1240,7 @@ We will contact you shortly to confirm your custom check order.`;
                           <TabsTrigger value="premium" className="text-sm sm:text-base font-medium">Premium Colors (+$15)</TabsTrigger>
                         </TabsList>
                         <TabsContent value="standard" className="space-y-4">
-                          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 sm:gap-4 max-w-4xl mx-auto">
+                          <div className="grid mobile-toolbar-grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 sm:gap-4 max-w-4xl mx-auto">
                             <p className="text-sm text-muted-foreground col-span-full text-center mb-3">
                               Tap a color to select it
                             </p>
@@ -1265,7 +1265,7 @@ We will contact you shortly to confirm your custom check order.`;
                           </div>
                         </TabsContent>
                         <TabsContent value="premium" className="space-y-4">
-                          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 sm:gap-4 max-w-4xl mx-auto">
+                          <div className="grid mobile-toolbar-grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 sm:gap-4 max-w-4xl mx-auto">
                             <p className="text-sm text-muted-foreground col-span-full text-center mb-3">
                               Premium colors include a $15 upcharge
                             </p>
