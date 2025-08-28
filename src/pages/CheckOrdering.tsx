@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -34,6 +35,8 @@ import SEO from '@/components/SEO';
 import { getServiceSchema, getBreadcrumbSchema } from '@/utils/schemaMarkup';
 
 const CheckOrderingContent = () => {
+  const [searchParams] = useSearchParams();
+  
   const [formData, setFormData] = useState({
     // Company Information
     companyName: '',
@@ -72,7 +75,11 @@ const CheckOrderingContent = () => {
     logoOption: 'standard',
     
     // Other
-    otherNotes: ''
+    otherNotes: '',
+    
+    // Logo Upload
+    logoFile: null as File | null,
+    logoPreview: ''
   });
 
   const checkTypes = [
@@ -196,6 +203,83 @@ const CheckOrderingContent = () => {
   };
 
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
+  const [savedProgress, setSavedProgress] = useState<any>(null);
+  const [showSaveModal, setShowSaveModal] = useState(false);
+  const [saveEmail, setSaveEmail] = useState('');
+
+  // Calculate form completion percentage
+  const calculateProgress = () => {
+    const totalFields = 12; // Core required fields only
+    let completedFields = 0;
+    
+    if (formData.companyName) completedFields++;
+    if (formData.companyAddress) completedFields++;
+    if (formData.city) completedFields++;
+    if (formData.state) completedFields++;
+    if (formData.zip) completedFields++;
+    if (formData.phoneNumber) completedFields++;
+    if (formData.bankName) completedFields++;
+    if (formData.routingNumber) completedFields++;
+    if (formData.accountNumber) completedFields++;
+    if (formData.startingCheckNumber) completedFields++;
+    if (formData.checkType) completedFields++;
+    if (formData.quantity) completedFields++;
+    
+    return Math.min(Math.round((completedFields / totalFields) * 100), 100);
+  };
+
+  // Save progress to localStorage
+  const saveProgress = () => {
+    const progressData = {
+      formData,
+      timestamp: new Date().toISOString(),
+      email: saveEmail
+    };
+    localStorage.setItem('checkOrderProgress', JSON.stringify(progressData));
+    setShowSaveModal(false);
+    setSaveEmail('');
+  };
+
+  // Load progress from localStorage
+  const loadProgress = () => {
+    const saved = localStorage.getItem('checkOrderProgress');
+    if (saved) {
+      try {
+        const progressData = JSON.parse(saved);
+        setFormData(progressData.formData);
+        setSavedProgress(progressData);
+        return true;
+      } catch (error) {
+        console.error('Error loading saved progress:', error);
+      }
+    }
+    return false;
+  };
+
+  // Clear saved progress
+  const clearSavedProgress = () => {
+    localStorage.removeItem('checkOrderProgress');
+    setSavedProgress(null);
+  };
+
+  // Handle URL parameter for pre-selecting check type
+  useEffect(() => {
+    const checkTypeParam = searchParams.get('type');
+    if (checkTypeParam && ['DLT103', 'DLM260', 'DLB135'].includes(checkTypeParam)) {
+      setFormData(prev => ({
+        ...prev,
+        checkType: checkTypeParam
+      }));
+      
+      // Scroll to the product selection section
+      setTimeout(() => {
+        const productSection = document.querySelector('[data-step="product"]');
+        if (productSection) {
+          productSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 500);
+    }
+  }, [searchParams]);
 
   const validateForm = () => {
     const errors: Record<string, string> = {};
@@ -444,8 +528,88 @@ We will contact you shortly to confirm your custom check order.`;
         </div>
       </section>
 
+      {/* Progress & Save Section */}
+      <section className="py-4 bg-background border-b">
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto">
+            {/* Progress Indicator */}
+            <div className="mb-4">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm font-medium text-muted-foreground">Order Progress</span>
+                <span className="text-sm font-bold text-primary">{calculateProgress()}% Complete</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-2">
+                <div 
+                  className="bg-gradient-to-r from-primary to-primary-dark h-2 rounded-full transition-all duration-500 ease-out"
+                  style={{ width: `${calculateProgress()}%` }}
+                ></div>
+              </div>
+            </div>
+
+            {/* Save & Resume */}
+            <div className="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+              <div className="flex items-center gap-3">
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  onClick={() => setShowSaveModal(true)}
+                  className="text-sm h-8"
+                >
+                  <FileText className="w-3 h-3 mr-1" />
+                  Save Progress
+                </Button>
+                {savedProgress && (
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    onClick={loadProgress}
+                    className="text-sm h-8"
+                  >
+                    <ArrowRight className="w-3 h-3 mr-1" />
+                    Resume Order
+                  </Button>
+                )}
+              </div>
+              
+              {/* Quick Templates */}
+              <div className="flex items-center gap-2">
+                <span className="text-sm text-muted-foreground">Quick Start:</span>
+                <Button 
+                  variant="ghost" 
+                  size="sm"
+                  onClick={() => {
+                    setFormData(prev => ({
+                      ...prev,
+                      checkType: 'DLT103',
+                      quantity: '1000'
+                    }));
+                  }}
+                  className="text-xs h-7"
+                >
+                  Small Business
+                </Button>
+                <Button 
+                  variant="ghost" 
+                  size="sm"
+                  onClick={() => {
+                    setFormData(prev => ({
+                      ...prev,
+                      checkType: 'DLM260',
+                      quantity: '2000'
+                    }));
+                  }}
+                  className="text-xs h-7"
+                >
+                  Medium Business
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Main Form Section */}
-      <section className="py-8 lg:py-16 bg-background">
+      <section className="py-6 lg:py-12 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto w-full">
                                 {/* Mobile Order Summary Banner */}
@@ -501,33 +665,33 @@ We will contact you shortly to confirm your custom check order.`;
                     
                     {/* Mobile Form Navigation */}
                     <div className="sm:hidden mb-6 w-full">
-                      <div className="flex space-x-2 overflow-x-auto pb-2 justify-center w-full">
+                      <div className="flex space-x-2 overflow-x-auto pb-2 justify-center w-full px-2">
                         <button 
-                          className="flex-shrink-0 px-3 py-2 text-xs bg-primary/10 text-primary rounded-full border border-primary/20"
+                          className="flex-shrink-0 px-4 py-2 text-xs font-medium bg-primary/10 text-primary rounded-full border border-primary/20 hover:bg-primary/20 transition-colors"
                           onClick={() => document.getElementById('companyName')?.scrollIntoView({ behavior: 'smooth' })}
                         >
                           Company
                         </button>
                         <button 
-                          className="flex-shrink-0 px-3 py-2 text-xs bg-primary/10 text-primary rounded-full border border-primary/20"
+                          className="flex-shrink-0 px-4 py-2 text-xs font-medium bg-primary/10 text-primary rounded-full border border-primary/20 hover:bg-primary/20 transition-colors"
                           onClick={() => document.getElementById('bankName')?.scrollIntoView({ behavior: 'smooth' })}
                         >
                           Bank
                         </button>
                         <button 
-                          className="flex-shrink-0 px-3 py-2 text-xs bg-primary/10 text-primary rounded-full border border-primary/20"
+                          className="flex-shrink-0 px-4 py-2 text-xs font-medium bg-primary/10 text-primary rounded-full border border-primary/20 hover:bg-primary/20 transition-colors"
                           onClick={() => document.querySelector('[data-step="product"]')?.scrollIntoView({ behavior: 'smooth' })}
                         >
                           Product
                         </button>
                         <button 
-                          className="flex-shrink-0 px-3 py-2 text-xs bg-primary/10 text-primary rounded-full border border-primary/20"
+                          className="flex-shrink-0 px-4 py-2 text-xs font-medium bg-primary/10 text-primary rounded-full border border-primary/20 hover:bg-primary/20 transition-colors"
                           onClick={() => document.querySelector('[data-step="design"]')?.scrollIntoView({ behavior: 'smooth' })}
                         >
                           Design
                         </button>
                         <button 
-                          className="flex-shrink-0 px-3 py-2 text-xs bg-primary/10 text-primary rounded-full border border-primary/20"
+                          className="flex-shrink-0 px-4 py-2 text-xs font-medium bg-primary/10 text-primary rounded-full border border-primary/20 hover:bg-primary/20 transition-colors"
                           onClick={() => document.querySelector('[data-step="additional"]')?.scrollIntoView({ behavior: 'smooth' })}
                         >
                           Add-ons
@@ -560,15 +724,15 @@ We will contact you shortly to confirm your custom check order.`;
                     </div>
                     
                     {/* Step 1: Company Information */}
-                    <div className="space-y-6">
+                    <div className="space-y-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center font-bold text-primary-foreground">
+                        <div className="w-7 h-7 bg-gradient-primary rounded-full flex items-center justify-center font-bold text-primary-foreground text-sm">
                           1
                         </div>
-                        <h3 className="font-heading text-xl font-semibold text-foreground">Company Information</h3>
+                        <h3 className="font-heading text-lg font-semibold text-foreground">Company Information</h3>
                       </div>
                       
-                      <div className="grid grid-cols-1 gap-4">
+                      <div className="grid grid-cols-1 gap-3">
                         <div>
                           <Label htmlFor="companyName">Company Name on Checks *</Label>
                           <Input
@@ -576,7 +740,7 @@ We will contact you shortly to confirm your custom check order.`;
                             value={formData.companyName}
                             onChange={(e) => handleInputChange('companyName', e.target.value)}
                             required
-                            className={`w-full h-12 text-base ${formErrors.companyName ? 'border-red-500' : ''}`}
+                            className={`w-full h-10 text-base ${formErrors.companyName ? 'border-red-500' : ''}`}
                             placeholder="Enter your company name"
                           />
                           {formErrors.companyName && (
@@ -590,14 +754,14 @@ We will contact you shortly to confirm your custom check order.`;
                             value={formData.companyAddress}
                             onChange={(e) => handleInputChange('companyAddress', e.target.value)}
                             required
-                            className={`w-full h-12 text-base ${formErrors.companyAddress ? 'border-red-500' : ''}`}
+                            className={`w-full h-10 text-base ${formErrors.companyAddress ? 'border-red-500' : ''}`}
                             placeholder="Enter your company address"
                           />
                           {formErrors.companyAddress && (
                             <p className="text-sm text-red-600 mt-1">{formErrors.companyAddress}</p>
                           )}
                         </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                           <div>
                             <Label htmlFor="city">City *</Label>
                                                       <Input
@@ -632,7 +796,7 @@ We will contact you shortly to confirm your custom check order.`;
                           />
                           </div>
                         </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                           <div>
                             <Label htmlFor="phoneNumber">Phone Number to Print</Label>
                                                       <Input
@@ -657,15 +821,15 @@ We will contact you shortly to confirm your custom check order.`;
                       </div>
                     </div>
 
-                    <Separator />
+                    <Separator className="my-4" />
 
                     {/* Step 2: Bank Information */}
                     <div className="space-y-6">
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center font-bold text-primary-foreground">
+                        <div className="w-7 h-7 bg-gradient-primary rounded-full flex items-center justify-center font-bold text-primary-foreground text-sm">
                           2
                         </div>
-                        <h3 className="font-heading text-xl font-semibold text-foreground">Bank Information</h3>
+                        <h3 className="font-heading text-lg font-semibold text-foreground">Bank Information</h3>
                       </div>
                       
                       {/* Mobile Step Indicator Update */}
@@ -949,7 +1113,7 @@ We will contact you shortly to confirm your custom check order.`;
                           <p className="text-xs text-muted-foreground">*DLB135 does not come in 3 Part</p>
                         </div>
                         
-                        <div className="overflow-x-auto -mx-4 sm:mx-0">
+                        <div className="overflow-x-auto mx-0">
                           <table className="w-full text-sm min-w-[600px] sm:min-w-0">
                             <thead>
                               <tr className="border-b border-border">
@@ -1006,13 +1170,16 @@ We will contact you shortly to confirm your custom check order.`;
                             <p className="text-sm text-red-600 mb-2">{formErrors.quantity}</p>
                           )}
                           <Select value={formData.quantity} onValueChange={(value) => handleInputChange('quantity', value)}>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select quantity" />
+                            <SelectTrigger className="h-12 bg-background border-2 border-border hover:border-primary/50 focus:border-primary transition-colors shadow-sm">
+                              <SelectValue placeholder="Select quantity" className="text-base" />
                             </SelectTrigger>
-                            <SelectContent>
+                            <SelectContent className="bg-background border-2 border-border shadow-lg">
                               {quantities.map((qty) => (
-                                <SelectItem key={qty.value} value={qty.value}>
-                                  {qty.label} - ${qty.price[formData.duplicates ? '2' : '1']}
+                                <SelectItem key={qty.value} value={qty.value} className="text-base py-3 hover:bg-accent focus:bg-accent cursor-pointer">
+                                  <div className="flex justify-between items-center w-full">
+                                    <span className="font-medium">{qty.label}</span>
+                                    <span className="text-primary font-semibold">${qty.price[formData.duplicates ? '2' : '1']}</span>
+                                  </div>
                                 </SelectItem>
                               ))}
                             </SelectContent>
@@ -1068,62 +1235,186 @@ We will contact you shortly to confirm your custom check order.`;
                       </div>
 
                       <Tabs defaultValue="standard" className="w-full">
-                        <TabsList className="grid w-full grid-cols-2">
-                          <TabsTrigger value="standard">Standard Colors</TabsTrigger>
-                          <TabsTrigger value="premium">Premium Colors (+$15)</TabsTrigger>
+                        <TabsList className="grid w-full grid-cols-2 h-12">
+                          <TabsTrigger value="standard" className="text-sm sm:text-base font-medium">Standard Colors</TabsTrigger>
+                          <TabsTrigger value="premium" className="text-sm sm:text-base font-medium">Premium Colors (+$15)</TabsTrigger>
                         </TabsList>
                         <TabsContent value="standard" className="space-y-4">
-                          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 max-w-2xl mx-auto">
-                            <p className="text-sm text-muted-foreground col-span-full text-center mb-2">
+                          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 sm:gap-4 max-w-4xl mx-auto">
+                            <p className="text-sm text-muted-foreground col-span-full text-center mb-3">
                               Tap a color to select it
                             </p>
                             {standardColors.map((color) => (
                               <div
                                 key={color.value}
-                                className={`border-2 rounded-lg p-3 cursor-pointer transition-all ${
-                                  formData.designColor === color.value ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'
+                                className={`border-2 rounded-lg p-2 cursor-pointer transition-all hover:shadow-md ${
+                                  formData.designColor === color.value ? 'border-primary bg-primary/5 ring-2 ring-primary/20' : 'border-border hover:border-primary/50'
                                 }`}
                                 onClick={() => handleInputChange('designColor', color.value)}
                               >
-                                <div className="w-full h-12 rounded mb-2 overflow-hidden">
+                                <div className="aspect-square w-full rounded mb-1.5 overflow-hidden bg-gray-50">
                                   <img 
                                     src={color.image} 
                                     alt={color.name}
                                     className="w-full h-full object-cover"
                                   />
                                 </div>
-                                <p className="text-sm font-medium text-center">{color.name}</p>
+                                <p className="text-xs font-medium text-center leading-tight">{color.name}</p>
                               </div>
                             ))}
                           </div>
                         </TabsContent>
                         <TabsContent value="premium" className="space-y-4">
-                          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 max-w-2xl mx-auto">
-                            <p className="text-sm text-muted-foreground col-span-full text-center mb-2">
+                          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 sm:gap-4 max-w-4xl mx-auto">
+                            <p className="text-sm text-muted-foreground col-span-full text-center mb-3">
                               Premium colors include a $15 upcharge
                             </p>
                             {premiumColors.map((color) => (
                               <div
                                 key={color.value}
-                                className={`border-2 rounded-lg p-3 cursor-pointer transition-all ${
-                                  formData.designColor === color.value ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'
+                                className={`border-2 rounded-lg p-2 cursor-pointer transition-all hover:shadow-md ${
+                                  formData.designColor === color.value ? 'border-primary bg-primary/5 ring-2 ring-primary/20' : 'border-border hover:border-primary/50'
                                 }`}
                                 onClick={() => handleInputChange('designColor', color.value)}
                               >
-                                <div className="w-full h-12 rounded mb-2 overflow-hidden">
+                                <div className="aspect-square w-full rounded mb-1.5 overflow-hidden bg-gray-50">
                                   <img 
                                     src={color.image} 
                                     alt={color.name}
                                     className="w-full h-full object-cover"
                                   />
                                 </div>
-                                <p className="text-sm font-medium text-center">{color.name}</p>
-                                <p className="text-xs text-primary text-center">+$15</p>
+                                <p className="text-xs font-medium text-center leading-tight">{color.name}</p>
+                                <p className="text-xs text-primary font-semibold text-center mt-0.5">+$15</p>
                               </div>
                             ))}
                           </div>
                         </TabsContent>
                       </Tabs>
+
+                      {/* Logo Upload Section */}
+                      <div className="space-y-4 mt-8">
+                        <div className="flex items-center gap-3">
+                          <h4 className="font-semibold text-foreground">Logo Options</h4>
+                          <Badge variant="secondary" className="text-xs">Free</Badge>
+                        </div>
+                        
+                        <div className="grid md:grid-cols-2 gap-6">
+                          {/* Logo Upload */}
+                          <div className="space-y-4">
+                            <div className="border-2 border-dashed border-border rounded-lg p-6 text-center hover:border-primary/50 transition-colors">
+                              <input
+                                type="file"
+                                id="logoUpload"
+                                accept="image/*"
+                                className="hidden"
+                                onChange={(e) => {
+                                  const file = e.target.files?.[0];
+                                  if (file) {
+                                    // Handle logo upload
+                                    const reader = new FileReader();
+                                    reader.onload = (e) => {
+                                      setFormData(prev => ({
+                                        ...prev,
+                                        logoFile: file,
+                                        logoPreview: e.target?.result as string
+                                      }));
+                                    };
+                                    reader.readAsDataURL(file);
+                                  }
+                                }}
+                              />
+                              <label htmlFor="logoUpload" className="cursor-pointer">
+                                <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                                  <FileText className="w-8 h-8 text-accent-foreground" />
+                                </div>
+                                <p className="font-medium text-foreground mb-2">Upload Your Logo</p>
+                                <p className="text-sm text-muted-foreground">
+                                  PNG, JPG, or PDF up to 5MB
+                                </p>
+                              </label>
+                            </div>
+                            
+                            {formData.logoPreview && (
+                              <div className="bg-accent/20 rounded-lg p-4">
+                                <div className="flex items-center gap-3">
+                                  <img 
+                                    src={formData.logoPreview} 
+                                    alt="Logo Preview" 
+                                    className="w-12 h-12 object-contain bg-white rounded"
+                                  />
+                                  <div className="flex-1">
+                                    <p className="font-medium text-sm">{formData.logoFile?.name}</p>
+                                    <p className="text-xs text-muted-foreground">
+                                      {(formData.logoFile?.size || 0) / 1024 / 1024} MB
+                                    </p>
+                                  </div>
+                                  <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    onClick={() => {
+                                      setFormData(prev => ({
+                                        ...prev,
+                                        logoFile: null,
+                                        logoPreview: ''
+                                      }));
+                                    }}
+                                  >
+                                    Remove
+                                  </Button>
+                                </div>
+                              </div>
+                            )}
+                          </div>
+
+                          {/* Logo Options */}
+                          <div className="space-y-4">
+                            <div className="bg-accent/20 rounded-lg p-4">
+                              <h5 className="font-medium text-foreground mb-3">Logo Placement Options</h5>
+                              <RadioGroup value={formData.logoOption} onValueChange={(value) => handleInputChange('logoOption', value)}>
+                                <div className="space-y-3">
+                                  <div className="flex items-center space-x-2">
+                                    <RadioGroupItem value="standard" id="standard-logo" />
+                                    <Label htmlFor="standard-logo" className="text-sm">
+                                      <span className="font-medium">Standard Placement</span>
+                                      <span className="text-muted-foreground block">Top left corner (included)</span>
+                                    </Label>
+                                  </div>
+                                  <div className="flex items-center space-x-2">
+                                    <RadioGroupItem value="premium" id="premium-logo" />
+                                    <Label htmlFor="premium-logo" className="text-sm">
+                                      <span className="font-medium">Premium Placement</span>
+                                      <span className="text-muted-foreground block">Custom positioning (+$25)</span>
+                                    </Label>
+                                  </div>
+                                  <div className="flex items-center space-x-2">
+                                    <RadioGroupItem value="none" id="no-logo" />
+                                    <Label htmlFor="no-logo" className="text-sm">
+                                      <span className="font-medium">No Logo</span>
+                                      <span className="text-muted-foreground block">Clean design without logo</span>
+                                    </Label>
+                                  </div>
+                                </div>
+                              </RadioGroup>
+                            </div>
+
+                            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                              <div className="flex items-start gap-3">
+                                <Info className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                                <div>
+                                  <h5 className="font-medium text-blue-800 mb-1">Logo Guidelines</h5>
+                                  <ul className="text-sm text-blue-700 space-y-1">
+                                    <li>• High resolution (300 DPI minimum)</li>
+                                    <li>• Vector format preferred (EPS, SVG)</li>
+                                    <li>• Simple designs work best</li>
+                                    <li>• Maximum size: 1.5" x 1.5"</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
                     <Separator />
@@ -1163,15 +1454,40 @@ We will contact you shortly to confirm your custom check order.`;
                             <div>
                               <Label htmlFor="envelopeQuantity">Quantity</Label>
                               <Select value={formData.envelopeQuantity} onValueChange={(value) => handleInputChange('envelopeQuantity', value)}>
-                                <SelectTrigger>
-                                  <SelectValue placeholder="Select quantity" />
+                                <SelectTrigger className="h-12 bg-background border-2 border-border hover:border-primary/50 focus:border-primary transition-colors shadow-sm">
+                                  <SelectValue placeholder="Select quantity" className="text-base" />
                                 </SelectTrigger>
-                                <SelectContent>
-                                  <SelectItem value="250">250 Envelopes - $85</SelectItem>
-                                  <SelectItem value="500">500 Envelopes - $106</SelectItem>
-                                  <SelectItem value="1000">1,000 Envelopes - $165</SelectItem>
-                                  <SelectItem value="1500">1,500 Envelopes - $229</SelectItem>
-                                  <SelectItem value="2000">2,000 Envelopes - $292</SelectItem>
+                                <SelectContent className="bg-background border-2 border-border shadow-lg">
+                                  <SelectItem value="250" className="text-base py-3 hover:bg-accent focus:bg-accent cursor-pointer">
+                                    <div className="flex justify-between items-center w-full">
+                                      <span className="font-medium">250 Envelopes</span>
+                                      <span className="text-primary font-semibold">$85</span>
+                                    </div>
+                                  </SelectItem>
+                                  <SelectItem value="500" className="text-base py-3 hover:bg-accent focus:bg-accent cursor-pointer">
+                                    <div className="flex justify-between items-center w-full">
+                                      <span className="font-medium">500 Envelopes</span>
+                                      <span className="text-primary font-semibold">$106</span>
+                                    </div>
+                                  </SelectItem>
+                                  <SelectItem value="1000" className="text-base py-3 hover:bg-accent focus:bg-accent cursor-pointer">
+                                    <div className="flex justify-between items-center w-full">
+                                      <span className="font-medium">1,000 Envelopes</span>
+                                      <span className="text-primary font-semibold">$165</span>
+                                    </div>
+                                  </SelectItem>
+                                  <SelectItem value="1500" className="text-base py-3 hover:bg-accent focus:bg-accent cursor-pointer">
+                                    <div className="flex justify-between items-center w-full">
+                                      <span className="font-medium">1,500 Envelopes</span>
+                                      <span className="text-primary font-semibold">$229</span>
+                                    </div>
+                                  </SelectItem>
+                                  <SelectItem value="2000" className="text-base py-3 hover:bg-accent focus:bg-accent cursor-pointer">
+                                    <div className="flex justify-between items-center w-full">
+                                      <span className="font-medium">2,000 Envelopes</span>
+                                      <span className="text-primary font-semibold">$292</span>
+                                    </div>
+                                  </SelectItem>
                                 </SelectContent>
                               </Select>
                             </div>
@@ -1206,15 +1522,40 @@ We will contact you shortly to confirm your custom check order.`;
                               <div>
                                 <Label htmlFor="depositFormQuantity">Quantity</Label>
                                 <Select value={formData.depositFormQuantity} onValueChange={(value) => handleInputChange('depositFormQuantity', value)}>
-                                  <SelectTrigger>
-                                    <SelectValue placeholder="Select quantity" />
+                                  <SelectTrigger className="h-12 bg-background border-2 border-border hover:border-primary/50 focus:border-primary transition-colors shadow-sm">
+                                    <SelectValue placeholder="Select quantity" className="text-base" />
                                   </SelectTrigger>
-                                  <SelectContent>
-                                    <SelectItem value="150">150 Books - $52 (2-Part)</SelectItem>
-                                    <SelectItem value="300">300 Books - $81 (2-Part)</SelectItem>
-                                    <SelectItem value="600">600 Books - $130 (2-Part)</SelectItem>
-                                    <SelectItem value="1200">1,200 Books - $200 (2-Part)</SelectItem>
-                                    <SelectItem value="2400">2,400 Books - $308 (2-Part)</SelectItem>
+                                  <SelectContent className="bg-background border-2 border-border shadow-lg">
+                                    <SelectItem value="150" className="text-base py-3 hover:bg-accent focus:bg-accent cursor-pointer">
+                                      <div className="flex justify-between items-center w-full">
+                                        <span className="font-medium">150 Books (2-Part)</span>
+                                        <span className="text-primary font-semibold">$52</span>
+                                      </div>
+                                    </SelectItem>
+                                    <SelectItem value="300" className="text-base py-3 hover:bg-accent focus:bg-accent cursor-pointer">
+                                      <div className="flex justify-between items-center w-full">
+                                        <span className="font-medium">300 Books (2-Part)</span>
+                                        <span className="text-primary font-semibold">$81</span>
+                                      </div>
+                                    </SelectItem>
+                                    <SelectItem value="600" className="text-base py-3 hover:bg-accent focus:bg-accent cursor-pointer">
+                                      <div className="flex justify-between items-center w-full">
+                                        <span className="font-medium">600 Books (2-Part)</span>
+                                        <span className="text-primary font-semibold">$130</span>
+                                      </div>
+                                    </SelectItem>
+                                    <SelectItem value="1200" className="text-base py-3 hover:bg-accent focus:bg-accent cursor-pointer">
+                                      <div className="flex justify-between items-center w-full">
+                                        <span className="font-medium">1,200 Books (2-Part)</span>
+                                        <span className="text-primary font-semibold">$200</span>
+                                      </div>
+                                    </SelectItem>
+                                    <SelectItem value="2400" className="text-base py-3 hover:bg-accent focus:bg-accent cursor-pointer">
+                                      <div className="flex justify-between items-center w-full">
+                                        <span className="font-medium">2,400 Books (2-Part)</span>
+                                        <span className="text-primary font-semibold">$308</span>
+                                      </div>
+                                    </SelectItem>
                                   </SelectContent>
                                 </Select>
                               </div>
@@ -1531,6 +1872,105 @@ We will contact you shortly to confirm your custom check order.`;
         </div>
       </section>
 
+      {/* FAQ & Information Section */}
+      <section className="py-16 lg:py-20 bg-gradient-subtle">
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground mb-6">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                Everything you need to know about ordering custom business checks
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-12">
+              {/* FAQ Column */}
+              <div className="space-y-6">
+                <div className="bg-background rounded-lg p-6 border">
+                  <h3 className="font-semibold text-foreground mb-3">How long does it take to receive my checks?</h3>
+                  <p className="text-muted-foreground">Standard orders ship within 5-7 business days. Rush orders are available for an additional fee with 2-3 business day turnaround.</p>
+                </div>
+                
+                <div className="bg-background rounded-lg p-6 border">
+                  <h3 className="font-semibold text-foreground mb-3">Are these checks compatible with my accounting software?</h3>
+                  <p className="text-muted-foreground">Yes! Our checks are fully compatible with QuickBooks Online, QuickBooks Desktop, and Sage 100 Contractor. They work with all standard laser printers.</p>
+                </div>
+                
+                <div className="bg-background rounded-lg p-6 border">
+                  <h3 className="font-semibold text-foreground mb-3">What security features are included?</h3>
+                  <p className="text-muted-foreground">All checks include chemically sensitive paper, microprint borders, invisible fluorescent fibers, erasure protection, security screen, and warning box.</p>
+                </div>
+                
+                <div className="bg-background rounded-lg p-6 border">
+                  <h3 className="font-semibold text-foreground mb-3">Can I include my company logo?</h3>
+                  <p className="text-muted-foreground">Yes! We include one standard logo at no additional cost. Premium logo placement and custom designs are available for an additional fee.</p>
+                </div>
+              </div>
+
+              {/* Security & Compatibility Info */}
+              <div className="space-y-6">
+                <div className="bg-background rounded-lg p-6 border">
+                  <h3 className="font-semibold text-foreground mb-4 flex items-center">
+                    <Shield className="w-5 h-5 text-primary mr-2" />
+                    Security Features
+                  </h3>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li>• Chemically sensitive paper prevents alteration</li>
+                    <li>• Microprint borders for counterfeit detection</li>
+                    <li>• Invisible fluorescent fibers under UV light</li>
+                    <li>• Erasure protection technology</li>
+                    <li>• Security screen and warning box</li>
+                    <li>• Watermark protection</li>
+                  </ul>
+                </div>
+
+                <div className="bg-background rounded-lg p-6 border">
+                  <h3 className="font-semibold text-foreground mb-4 flex items-center">
+                    <CheckCircle className="w-5 h-5 text-primary mr-2" />
+                    Software Compatibility
+                  </h3>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li>• QuickBooks Online (all versions)</li>
+                    <li>• QuickBooks Desktop (Pro, Premier, Enterprise)</li>
+                    <li>• Sage 100 Contractor</li>
+                    <li>• Sage 50 (Peachtree)</li>
+                    <li>• Microsoft Dynamics GP</li>
+                    <li>• Any accounting software with check printing</li>
+                  </ul>
+                </div>
+
+                <div className="bg-background rounded-lg p-6 border">
+                  <h3 className="font-semibold text-foreground mb-4 flex items-center">
+                    <Package className="w-5 h-5 text-primary mr-2" />
+                    Order Timeline
+                  </h3>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex justify-between items-center">
+                      <span className="text-muted-foreground">Order Processing:</span>
+                      <span className="font-medium">1-2 business days</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-muted-foreground">Production:</span>
+                      <span className="font-medium">3-5 business days</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-muted-foreground">Shipping:</span>
+                      <span className="font-medium">1-3 business days</span>
+                    </div>
+                    <div className="flex justify-between items-center border-t pt-2">
+                      <span className="font-medium">Total:</span>
+                      <span className="font-bold text-primary">5-10 business days</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="py-16 lg:py-20 bg-gradient-subtle">
         <div className="container mx-auto px-4">
@@ -1620,6 +2060,35 @@ We will contact you shortly to confirm your custom check order.`;
           </div>
         </div>
       </section>
+
+      {/* Save Progress Modal */}
+      {showSaveModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-background rounded-lg p-6 max-w-md w-full">
+            <h3 className="font-heading text-xl font-bold text-foreground mb-4">
+              Save Your Progress
+            </h3>
+            <p className="text-muted-foreground mb-4">
+              Enter your email to save your progress. You can return later to complete your order.
+            </p>
+            <Input
+              type="email"
+              placeholder="Enter your email address"
+              value={saveEmail}
+              onChange={(e) => setSaveEmail(e.target.value)}
+              className="mb-4"
+            />
+            <div className="flex gap-3">
+              <Button onClick={saveProgress} className="flex-1">
+                Save Progress
+              </Button>
+              <Button variant="outline" onClick={() => setShowSaveModal(false)}>
+                Cancel
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -62,18 +62,7 @@ const Services = () => {
       ],
       idealFor: 'Businesses transitioning or upgrading their financial systems'
     },
-    {
-      icon: CreditCard,
-      title: 'Custom Business Checks',
-      description: 'Professional custom business checks with built-in security features and complete personalization options.',
-      features: [
-        'QuickBooks & Sage 100 compatible',
-        'Built-in security features',
-        'Free personalization & logo',
-        'Matching envelopes available'
-      ],
-      idealFor: 'Businesses needing professional, secure check printing solutions'
-    }
+
   ];
 
   return (
@@ -103,7 +92,7 @@ const Services = () => {
             const anchorId = index === 0 ? 'quickbooks' : 
                            index === 1 ? 'monthly-management' : 
                            index === 2 ? 'billing-ap' : 
-                           index === 3 ? 'cleanup-advisory' : 'check-ordering';
+                           index === 3 ? 'cleanup-advisory' : '';
             return (
               <div key={index} id={anchorId} className="card-service group">
                 {/* Icon */}
@@ -139,7 +128,7 @@ const Services = () => {
                 <Link to={index === 0 ? '/quickbooks-services' : 
                          index === 1 ? '/monthly-management' : 
                          index === 2 ? '/billing-accounts-payable' : 
-                         index === 3 ? '/cleanup-advisory' : '/check-ordering'}>
+                         index === 3 ? '/cleanup-advisory' : '#'}>
                   <Button variant="outline" className="w-full btn-secondary group">
                     Learn More
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
