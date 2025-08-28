@@ -47,6 +47,7 @@ const SEO = ({
       <meta property="og:image" content={ogImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
+      <meta property="og:image:type" content="image/png" />
       <meta property="og:site_name" content="ClearLedger Solutions" />
       <meta property="og:locale" content="en_US" />
       
