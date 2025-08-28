@@ -12,7 +12,7 @@ import {
 
 const About = () => {
   const certifications = [
-    { name: '2024-2025 Top 25 Up-N-Coming ProAdvisor', icon: Award },
+            { name: '2024 & 2025 Top 25 Up-N-Coming ProAdvisor', icon: Award },
     { name: 'QuickBooks Online Advanced Certified ProAdvisor', icon: FileText },
     { name: 'QuickBooks Desktop Certified ProAdvisor', icon: Shield },
     { name: 'QuickBooks Desktop Enterprise Certified', icon: CheckCircle }

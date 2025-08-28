@@ -117,7 +117,7 @@ const TermsOfService = () => {
                   <p className="text-foreground">
                     <strong>Email:</strong> jj@yourclearledger.com<br />
                     <strong>Phone:</strong> (903) 815-9488<br />
-                    <strong>Address:</strong> Whitewright, TX
+                    <strong>Address:</strong> Whitewright, TX (Serving clients worldwide)
                   </p>
                 </div>
               </section>

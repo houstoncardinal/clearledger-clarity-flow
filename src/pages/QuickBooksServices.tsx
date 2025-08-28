@@ -79,7 +79,7 @@ const QuickBooksServices = () => {
     'QuickBooks Online Advanced Certified ProAdvisor',
     'QuickBooks Desktop Certified ProAdvisor',
     'QuickBooks Desktop Enterprise Certified',
-    '2024-2025 Top 25 Up-N-Coming ProAdvisor'
+            '2024 & 2025 Top 25 Up-N-Coming ProAdvisor'
   ];
 
   return (

@@ -52,23 +52,18 @@ const Hero = () => {
             </span>
           </div>
 
-          {/* Main Headline */}
+          {/* Main Logo */}
           <div className="space-y-4 sm:space-y-5 lg:space-y-6">
-            <h1 
-              className="font-heading text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight animate-slide-up"
+            <div 
+              className="animate-slide-up flex justify-center"
               style={{animationDelay: '0.4s'}}
             >
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dark">
-                ClearLedger Solutions
-              </span>
-            </h1>
-            
-            <h2 
-              className="font-heading text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground animate-slide-up"
-              style={{animationDelay: '0.6s'}}
-            >
-              Where Clarity Meets Compliance
-            </h2>
+              <img 
+                src="/logo.png" 
+                alt="ClearLedger Solutions Logo" 
+                className="w-64 sm:w-80 lg:w-96 xl:w-[28rem] h-auto object-contain"
+              />
+            </div>
             
             <p 
               className="text-lg sm:text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto sm:mx-auto animate-fade-in"
@@ -79,16 +74,30 @@ const Hero = () => {
             </p>
           </div>
 
+          {/* Banners Section */}
+          <div 
+            className="animate-fade-in"
+            style={{animationDelay: '1s'}}
+          >
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto">
+              <img 
+                src="/banners.png" 
+                alt="ClearLedger Awards and Certifications" 
+                className="w-full max-w-xs sm:max-w-sm h-auto object-contain rounded-lg shadow-lg"
+              />
+            </div>
+          </div>
+
           {/* Key Benefits */}
           <div 
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto sm:mx-auto animate-fade-in"
-            style={{animationDelay: '1s'}}
+            style={{animationDelay: '1.2s'}}
           >
             {keyBenefits.map((benefit, index) => (
               <div 
                 key={index} 
                 className="flex items-center space-x-3 group hover:scale-105 transition-transform duration-300"
-                style={{animationDelay: `${1.2 + index * 0.1}s`}}
+                style={{animationDelay: `${1.4 + index * 0.1}s`}}
               >
                 <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
                 <span className="text-xs sm:text-sm font-medium text-foreground">{benefit}</span>
@@ -99,7 +108,7 @@ const Hero = () => {
           {/* Primary CTA */}
           <div 
             className="space-y-4 animate-fade-in sm:text-center"
-            style={{animationDelay: '1.6s'}}
+            style={{animationDelay: '1.8s'}}
           >
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Link to="/contact">
@@ -132,11 +141,11 @@ const Hero = () => {
           {/* Trust Indicators */}
           <div 
             className="flex flex-wrap justify-start sm:justify-center gap-3 sm:gap-6 pt-6 border-t border-border/50 animate-fade-in"
-            style={{animationDelay: '1.8s'}}
+            style={{animationDelay: '2s'}}
           >
             <div className="flex items-center space-x-2 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300">
               <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
-              <span className="text-left sm:text-center">2024-2025 Top 25 Up-N-Coming ProAdvisor</span>
+              <span className="text-left sm:text-center">2024 & 2025 Top 25 Up-N-Coming ProAdvisor</span>
             </div>
             <div className="flex items-center space-x-2 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300">
               <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-primary flex-shrink-0" />

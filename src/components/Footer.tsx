@@ -71,8 +71,8 @@ const Footer = () => {
     {
       icon: MapPin,
       label: 'Headquarters',
-      value: 'Whitewright, TX',
-      subtext: 'Serving clients across 15+ industries'
+              value: 'Whitewright, TX',
+        subtext: 'Serving clients worldwide'
     },
     {
       icon: Clock,

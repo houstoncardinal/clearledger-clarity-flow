@@ -502,8 +502,8 @@ const Consultation = () => {
                           <MapPin className="w-5 h-5 text-primary-foreground" />
                         </div>
                         <div>
-                          <p className="font-medium text-foreground">Whitewright, TX</p>
-                          <p className="text-sm text-muted-foreground">Serving clients nationwide</p>
+                                          <p className="font-medium text-foreground">Whitewright, TX</p>
+                <p className="text-sm text-muted-foreground">Serving clients worldwide</p>
                         </div>
                       </div>
                     </div>

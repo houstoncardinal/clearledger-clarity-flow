@@ -53,8 +53,8 @@ const Contact = () => {
     {
       icon: MapPin,
       title: 'Headquarters',
-      details: 'Whitewright, TX',
-      subtext: 'Serving clients across 15+ industries'
+              details: 'Whitewright, TX',
+        subtext: 'Serving clients worldwide'
     },
     {
       icon: Clock,
