@@ -611,7 +611,7 @@ We will contact you shortly to confirm your custom check order.`;
       {/* Main Form Section */}
       <section className="py-6 lg:py-12 bg-background mobile-safe px-4">
         <div className="container mx-auto px-4">
-                      <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-[420px] sm:max-w-screen-md lg:max-w-7xl mx-auto w-full px-2 sm:px-4 justify-center">
+                      <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-[calc(100vw-32px)] sm:max-w-screen-md lg:max-w-7xl mx-auto w-full px-4 justify-center">
                                 {/* Mobile Order Summary Banner */}
                     <div className="lg:hidden mb-6 w-full">
                       <Card className="bg-gradient-to-r from-primary/10 to-primary/5 border-primary/20 w-full">
