@@ -80,8 +80,8 @@ const Hero = () => {
             style={{animationDelay: '1s'}}
           >
             <div className="flex flex-col gap-4 justify-center items-center">
-              {/* Individual Year Badges - Stacked Vertically with Minimal Spacing */}
-              <div className="flex flex-col gap-2 items-center">
+              {/* Individual Year Badges - Stacked Vertically with No Spacing */}
+              <div className="flex flex-col gap-0 items-center">
                 <img 
                   src="/2024.jpg" 
                   alt="2024 Top 25 Up-N-Coming ProAdvisor Award" 
