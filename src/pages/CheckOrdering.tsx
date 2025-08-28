@@ -611,7 +611,7 @@ We will contact you shortly to confirm your custom check order.`;
       {/* Main Form Section */}
       <section className="py-6 lg:py-12 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto w-full">
+          <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto w-full overflow-x-hidden">
                                 {/* Mobile Order Summary Banner */}
                     <div className="lg:hidden mb-6 w-full">
                       <Card className="bg-gradient-to-r from-primary/10 to-primary/5 border-primary/20 w-full">
@@ -1114,7 +1114,7 @@ We will contact you shortly to confirm your custom check order.`;
                         </div>
                         
                         <div className="overflow-x-auto mx-0">
-                          <table className="w-full text-sm min-w-[600px] sm:min-w-0">
+                          <table className="w-full text-sm min-w-full sm:min-w-[600px]">
                             <thead>
                               <tr className="border-b border-border">
                                 <th className="text-left py-2 font-medium">Qty</th>
