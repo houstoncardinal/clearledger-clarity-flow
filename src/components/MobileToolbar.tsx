@@ -199,7 +199,7 @@ const MobileToolbar = () => {
         <div className="fixed inset-0 z-50" onClick={() => setIsOpen(false)}>
           <div 
             ref={popupRef}
-            className={`absolute bottom-20 right-6 w-80 bg-background/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 overflow-hidden transition-all duration-300 ${
+            className={`absolute bottom-20 right-6 left-6 sm:left-auto w-auto max-w-[calc(100vw-1.5rem)] bg-background/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 overflow-hidden transition-all duration-300 ${
               revealStep >= 1 ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-4'
             }`}
             onClick={(e) => e.stopPropagation()}

@@ -57,7 +57,9 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <AppContent />
+          <div className="w-full overflow-x-hidden">
+            <AppContent />
+          </div>
           <MobileToolbar />
         </BrowserRouter>
       </TooltipProvider>
