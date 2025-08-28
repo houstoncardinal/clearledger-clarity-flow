@@ -199,18 +199,12 @@ const CheckOrderingSection = () => {
                Get started with a free consultation and see how our custom checks can elevate your business.
              </p>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <div className="flex justify-center">
               <Link to="/check-ordering">
                 <Button size="lg" className="btn-primary text-lg px-8 py-6 h-auto shadow-xl hover:shadow-2xl transition-all duration-300">
                   <Zap className="w-5 h-5 mr-3" />
                   Order Checks Now
                   <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-              <Link to="/contact">
-                <Button size="lg" variant="outline" className="btn-secondary text-lg px-8 py-6 h-auto border-2">
-                  <Package className="w-5 h-5 mr-3" />
-                  Request Sample
                 </Button>
               </Link>
             </div>
