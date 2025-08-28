@@ -33,7 +33,8 @@ const Header = () => {
   const navItems = [
     { name: 'About', href: '/about' },
     { name: 'Contact', href: '/contact' },
-    { name: 'Consultation', href: '/consultation' }
+    { name: 'Consultation', href: '/consultation' },
+    { name: 'Check Ordering', href: '/check-ordering' }
   ];
 
   const servicesMenu = [
