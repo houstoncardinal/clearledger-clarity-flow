@@ -463,6 +463,14 @@
     overflow: visible !important;
   }
 
+  /* Mobile-safe wrapper to hard-stop horizontal overflow on specific pages */
+  @media (max-width: 768px) {
+    .mobile-safe,
+    .mobile-safe * {
+      max-width: 100% !important;
+    }
+  }
+
   /* Mobile-specific fixes */
   @media (max-width: 768px) {
     /* Ensure content doesn't overflow on mobile */

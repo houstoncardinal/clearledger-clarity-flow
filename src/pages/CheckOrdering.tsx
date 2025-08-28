@@ -609,7 +609,7 @@ We will contact you shortly to confirm your custom check order.`;
       </section>
 
       {/* Main Form Section */}
-      <section className="py-6 lg:py-12 bg-background">
+      <section className="py-6 lg:py-12 bg-background mobile-safe">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-screen-md lg:max-w-7xl mx-auto w-full px-4">
                                 {/* Mobile Order Summary Banner */}
