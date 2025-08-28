@@ -1,5 +1,5 @@
 import Header from '@/components/Header';
-import Services from '@/components/Services';
+import ServicesComponent from '@/components/Services';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
 import { getServiceSchema, getBreadcrumbSchema } from '@/utils/schemaMarkup';
@@ -24,7 +24,7 @@ const ServicesPage = () => {
       />
       <Header />
       <div className="pt-20">
-        <Services />
+        <ServicesComponent />
       </div>
       <Footer />
     </main>
