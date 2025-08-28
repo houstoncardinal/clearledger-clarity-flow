@@ -8,7 +8,8 @@ import {
   TrendingUp, 
   Shield,
   ArrowRight,
-  CheckCircle 
+  CheckCircle,
+  CreditCard
 } from 'lucide-react';
 
 const Services = () => {
@@ -60,6 +61,18 @@ const Services = () => {
         'System implementation'
       ],
       idealFor: 'Businesses transitioning or upgrading their financial systems'
+    },
+    {
+      icon: CreditCard,
+      title: 'Custom Business Checks',
+      description: 'Professional custom business checks with built-in security features and complete personalization options.',
+      features: [
+        'QuickBooks & Sage 100 compatible',
+        'Built-in security features',
+        'Free personalization & logo',
+        'Matching envelopes available'
+      ],
+      idealFor: 'Businesses needing professional, secure check printing solutions'
     }
   ];
 
@@ -89,7 +102,8 @@ const Services = () => {
             const IconComponent = service.icon;
             const anchorId = index === 0 ? 'quickbooks' : 
                            index === 1 ? 'monthly-management' : 
-                           index === 2 ? 'billing-ap' : 'cleanup-advisory';
+                           index === 2 ? 'billing-ap' : 
+                           index === 3 ? 'cleanup-advisory' : 'check-ordering';
             return (
               <div key={index} id={anchorId} className="card-service group">
                 {/* Icon */}
@@ -124,7 +138,8 @@ const Services = () => {
                 {/* CTA */}
                 <Link to={index === 0 ? '/quickbooks-services' : 
                          index === 1 ? '/monthly-management' : 
-                         index === 2 ? '/billing-accounts-payable' : '/cleanup-advisory'}>
+                         index === 2 ? '/billing-accounts-payable' : 
+                         index === 3 ? '/cleanup-advisory' : '/check-ordering'}>
                   <Button variant="outline" className="w-full btn-secondary group">
                     Learn More
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
