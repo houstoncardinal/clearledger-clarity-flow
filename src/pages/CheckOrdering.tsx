@@ -408,11 +408,11 @@ We will contact you shortly to confirm your custom check order.`;
   };
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
-      {/* Hero Section */}
+    <div className="min-h-screen bg-background overflow-x-hidden w-full">
+            {/* Hero Section */}
       <section className="py-16 lg:py-20 bg-gradient-subtle">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="text-center mb-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto text-center mb-16">
             <div className="inline-flex items-center space-x-2 bg-accent px-4 py-2 rounded-full mb-6">
               <CreditCard className="w-4 h-4 text-accent-foreground" />
               <span className="text-sm font-medium text-accent-foreground">
@@ -446,11 +446,11 @@ We will contact you shortly to confirm your custom check order.`;
 
       {/* Main Form Section */}
       <section className="py-8 lg:py-16 bg-background">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto w-full">
                                 {/* Mobile Order Summary Banner */}
-                    <div className="lg:hidden mb-6">
-                      <Card className="bg-gradient-to-r from-primary/10 to-primary/5 border-primary/20">
+                    <div className="lg:hidden mb-6 w-full">
+                      <Card className="bg-gradient-to-r from-primary/10 to-primary/5 border-primary/20 w-full">
                         <CardContent className="p-4">
                           <div className="flex items-center justify-between">
                             <div className="flex-1 min-w-0">
@@ -470,7 +470,7 @@ We will contact you shortly to confirm your custom check order.`;
                       </Card>
                       
                       {/* Mobile Order Status */}
-                      <div className="mb-6 p-3 bg-green-50 border border-green-200 rounded-lg">
+                      <div className="mb-6 p-3 bg-green-50 border border-green-200 rounded-lg w-full">
                         <div className="flex items-center gap-2">
                           <CheckCircle className="w-4 h-4 text-green-600" />
                           <span className="text-sm text-green-800">
@@ -480,7 +480,7 @@ We will contact you shortly to confirm your custom check order.`;
                       </div>
                       
                                                                 {/* Mobile Quick Actions */}
-                      <div className="grid grid-cols-2 gap-3 mb-6 max-w-sm mx-auto">
+                      <div className="grid grid-cols-2 gap-3 mb-6 w-full max-w-sm mx-auto">
                       <Button 
                         variant="outline" 
                         className="w-full"
@@ -500,8 +500,8 @@ We will contact you shortly to confirm your custom check order.`;
                     </div>
                     
                     {/* Mobile Form Navigation */}
-                    <div className="sm:hidden mb-6">
-                      <div className="flex space-x-2 overflow-x-auto pb-2 justify-center">
+                    <div className="sm:hidden mb-6 w-full">
+                      <div className="flex space-x-2 overflow-x-auto pb-2 justify-center w-full">
                         <button 
                           className="flex-shrink-0 px-3 py-2 text-xs bg-primary/10 text-primary rounded-full border border-primary/20"
                           onClick={() => document.getElementById('companyName')?.scrollIntoView({ behavior: 'smooth' })}
@@ -536,8 +536,8 @@ We will contact you shortly to confirm your custom check order.`;
                     </div>
                     </div>
             {/* Form */}
-            <div className="lg:col-span-2 order-1 lg:order-1">
-              <Card className="shadow-premium max-w-4xl mx-auto lg:mx-0">
+            <div className="lg:col-span-2 order-1 lg:order-1 w-full">
+              <Card className="shadow-premium max-w-4xl mx-auto lg:mx-0 w-full">
                 <CardHeader>
                   <CardTitle className="font-heading text-3xl font-bold text-foreground">
                     Check Order Form
@@ -1325,7 +1325,7 @@ We will contact you shortly to confirm your custom check order.`;
                     </div>
                     
                     {/* Mobile Floating Submit Button */}
-                    <div className="fixed bottom-4 left-4 right-4 sm:hidden z-40 max-w-md mx-auto">
+                    <div className="fixed bottom-4 left-4 right-4 sm:hidden z-40 max-w-md mx-auto w-full">
                       <Button type="submit" size="lg" className="w-full btn-primary shadow-lg">
                         <CreditCard className="w-5 h-5 mr-2" />
                         Submit Order
@@ -1387,9 +1387,9 @@ We will contact you shortly to confirm your custom check order.`;
             </div>
 
             {/* Order Summary */}
-            <div className="lg:col-span-1 order-2 lg:order-2">
+            <div className="lg:col-span-1 order-2 lg:order-2 w-full">
               <div className="lg:sticky lg:top-8 mb-6 lg:mb-0">
-                <Card className="shadow-premium max-w-md mx-auto lg:mx-0">
+                <Card className="shadow-premium max-w-md mx-auto lg:mx-0 w-full">
                   <CardHeader>
                     <CardTitle className="font-heading text-2xl font-bold text-foreground">
                       Order Summary
@@ -1533,7 +1533,8 @@ We will contact you shortly to confirm your custom check order.`;
 
       {/* Features Section */}
       <section className="py-16 lg:py-20 bg-gradient-subtle">
-        <div className="container mx-auto px-4 max-w-7xl">
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-flex items-center space-x-2 bg-accent px-4 py-2 rounded-full mb-6">
               <Shield className="w-4 h-4 text-accent-foreground" />
@@ -1615,6 +1616,7 @@ We will contact you shortly to confirm your custom check order.`;
                 and multiple entry lines for efficient banking.
               </p>
             </Card>
+          </div>
           </div>
         </div>
       </section>
