@@ -98,7 +98,7 @@ const Hero = () => {
               <img 
                 src="/banners.png" 
                 alt="ClearLedger QuickBooks Certifications" 
-                className="w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[360px] h-auto object-contain rounded-lg shadow-lg"
+                className="w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[360px] h-auto object-contain rounded-lg"
               />
             </div>
           </div>
