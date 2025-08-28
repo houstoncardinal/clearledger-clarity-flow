@@ -1450,7 +1450,7 @@ We will contact you shortly to confirm your custom check order.`;
                           <Label htmlFor="envelopes" className="text-lg font-medium cursor-pointer">Envelopes</Label>
                         </div>
                         {formData.envelopes && (
-                          <div className="ml-6 space-y-4">
+                          <div className="ml-0 sm:ml-6 space-y-4">
                             <div>
                               <Label htmlFor="envelopeQuantity">Quantity</Label>
                               <Select value={formData.envelopeQuantity} onValueChange={(value) => handleInputChange('envelopeQuantity', value)}>
@@ -1517,7 +1517,7 @@ We will contact you shortly to confirm your custom check order.`;
                           <Label htmlFor="depositForms" className="text-lg font-medium cursor-pointer">Deposit Forms</Label>
                         </div>
                         {formData.depositForms && (
-                          <div className="ml-6 space-y-4">
+                          <div className="ml-0 sm:ml-6 space-y-4">
                             <div className="space-y-4">
                               <div>
                                 <Label htmlFor="depositFormQuantity">Quantity</Label>
@@ -1594,7 +1594,7 @@ We will contact you shortly to confirm your custom check order.`;
                           <Label htmlFor="taxForms" className="text-lg font-medium cursor-pointer">Tax Forms</Label>
                         </div>
                         {formData.taxForms && (
-                          <div className="ml-6 space-y-4">
+                          <div className="ml-0 sm:ml-6 space-y-4">
                             <div className="space-y-4">
                               <div>
                                 <Label htmlFor="taxFormName">Form Name</Label>
