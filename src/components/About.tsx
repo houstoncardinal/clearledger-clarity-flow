@@ -126,18 +126,18 @@ const About = () => {
           </h3>
           
           {/* Individual Year Badges and QuickBooks Certification Banners */}
-          <div className="flex flex-col items-center gap-6 mb-8">
-            {/* Individual Year Badges */}
-            <div className="flex flex-col sm:flex-row gap-4 items-center">
+          <div className="flex flex-col items-center gap-8 mb-8">
+            {/* Individual Year Badges - Better Spacing */}
+            <div className="flex flex-col sm:flex-row gap-8 items-center">
               <img 
                 src="/2024.jpg" 
                 alt="2024 Top 25 Up-N-Coming ProAdvisor Award" 
-                className="w-24 sm:w-28 h-auto object-contain rounded-lg shadow-lg"
+                className="w-28 sm:w-32 h-auto object-contain rounded-lg"
               />
               <img 
                 src="/2025.png" 
                 alt="2025 Top 25 Up-N-Coming ProAdvisor Award" 
-                className="w-24 sm:w-28 h-auto object-contain rounded-lg shadow-lg"
+                className="w-28 sm:w-32 h-auto object-contain rounded-lg shadow-lg"
               />
             </div>
             
