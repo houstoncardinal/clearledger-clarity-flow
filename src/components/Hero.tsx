@@ -79,11 +79,26 @@ const Hero = () => {
             className="animate-fade-in"
             style={{animationDelay: '1s'}}
           >
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-3xl mx-auto">
+              {/* Individual Year Badges */}
+              <div className="flex flex-col sm:flex-row gap-3 items-center">
+                <img 
+                  src="/2024.jpg" 
+                  alt="2024 Top 25 Up-N-Coming ProAdvisor Award" 
+                  className="w-20 sm:w-24 h-auto object-contain rounded-lg shadow-lg"
+                />
+                <img 
+                  src="/2025.png" 
+                  alt="2025 Top 25 Up-N-Coming ProAdvisor Award" 
+                  className="w-20 sm:w-24 h-auto object-contain rounded-lg shadow-lg"
+                />
+              </div>
+              
+              {/* QuickBooks Banners - Made Smaller */}
               <img 
                 src="/banners.png" 
-                alt="ClearLedger Awards and Certifications" 
-                className="w-full max-w-xs sm:max-w-sm h-auto object-contain rounded-lg shadow-lg"
+                alt="ClearLedger QuickBooks Certifications" 
+                className="w-full max-w-[200px] sm:max-w-[250px] h-auto object-contain rounded-lg shadow-lg"
               />
             </div>
           </div>
