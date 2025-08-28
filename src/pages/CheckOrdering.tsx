@@ -495,7 +495,7 @@ We will contact you shortly to confirm your custom check order.`;
     <div className="min-h-screen bg-background overflow-x-hidden w-full">
             {/* Hero Section */}
       <section className="py-16 lg:py-20 bg-gradient-subtle">
-        <div className="container mx-auto px-4 max-w-[calc(100vw-32px)] sm:max-w-none">
+        <div className="container mx-auto">
           <div className="max-w-7xl mx-auto text-center mb-16">
             <div className="inline-flex items-center space-x-2 bg-accent px-4 py-2 rounded-full mb-6">
               <CreditCard className="w-4 h-4 text-accent-foreground" />
@@ -530,7 +530,7 @@ We will contact you shortly to confirm your custom check order.`;
 
       {/* Progress & Save Section */}
       <section className="py-4 bg-background border-b">
-        <div className="container mx-auto px-4 max-w-[calc(100vw-32px)] sm:max-w-none">
+        <div className="container mx-auto">
           <div className="max-w-7xl mx-auto">
             {/* Progress Indicator */}
             <div className="mb-4">
@@ -609,9 +609,9 @@ We will contact you shortly to confirm your custom check order.`;
       </section>
 
       {/* Main Form Section */}
-      <section className="py-6 lg:py-12 bg-background mobile-safe px-4">
-        <div className="container mx-auto px-4 max-w-[calc(100vw-32px)] sm:max-w-none">
-                      <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-[calc(100vw-32px)] sm:max-w-screen-md lg:max-w-7xl mx-auto w-full px-4 justify-center">
+      <section className="py-6 lg:py-12 bg-background mobile-safe">
+        <div className="container mx-auto">
+                      <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto w-full justify-center">
                                 {/* Mobile Order Summary Banner */}
                     <div className="lg:hidden mb-6 w-full">
                       <Card className="bg-gradient-to-r from-primary/10 to-primary/5 border-primary/20 w-full">
@@ -702,7 +702,7 @@ We will contact you shortly to confirm your custom check order.`;
             {/* Form */}
             <div className="lg:col-span-2 order-1 lg:order-1 w-full flex justify-center lg:block">
               <Card className="shadow-premium max-w-md sm:max-w-2xl lg:max-w-4xl mx-auto lg:mx-0 w-full overflow-hidden sm:rounded-xl rounded-lg">
-                <CardHeader>
+                <CardHeader className="px-4 sm:px-6">
                   <CardTitle className="font-heading text-2xl sm:text-3xl font-bold text-foreground break-words">
                     Check Order Form
                   </CardTitle>
