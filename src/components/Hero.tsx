@@ -18,23 +18,8 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center bg-gradient-to-br from-background via-background to-accent/10">
-      {/* Enhanced background with subtle patterns and gradients */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Primary gradient orbs */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-primary/10 to-primary/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-accent/10 to-accent/5 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
-        
-        {/* Additional subtle elements */}
-        <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-gradient-to-br from-primary/8 to-transparent rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute bottom-1/3 left-1/4 w-64 h-64 bg-gradient-to-br from-accent/6 to-transparent rounded-full blur-2xl animate-pulse" style={{animationDelay: '3s'}}></div>
-        
-        {/* Subtle geometric pattern overlay */}
-        <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(circle_at_1px_1px,rgba(203,108,230,0.15)_1px,transparent_0)] bg-[length:20px_20px]"></div>
-        
-        {/* Gradient mesh background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-primary/[0.02] to-accent/[0.02]"></div>
-      </div>
+    <section className="relative min-h-screen flex items-center bg-white">
+      {/* Clean white background - no patterns or gradients */}
       
       <div className="container mx-auto py-20 sm:py-24 lg:py-32">
         <div className="max-w-4xl mx-auto text-left sm:text-center space-y-6 sm:space-y-8 lg:space-y-10">
