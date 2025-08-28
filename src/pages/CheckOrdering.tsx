@@ -441,42 +441,100 @@ NOTES: ${orderData.notes || 'None'}
 === END ORDER ===
     `.trim();
 
-    console.log('Formatted Order Data:', orderData);
-    console.log('Order Summary:', orderSummary);
+    // Create FormData object for Netlify Forms with all order details
+    const formDataToSend = new FormData();
+    formDataToSend.append('form-name', 'check-ordering');
     
-    // Here you would typically send this to your backend/email service
-    // For now, we'll show a success message
-    const message = `Thank you for your order!
+    // Company Information
+    formDataToSend.append('companyName', formData.companyName);
+    formDataToSend.append('companyAddress', formData.companyAddress);
+    formDataToSend.append('city', formData.city);
+    formDataToSend.append('state', formData.state);
+    formDataToSend.append('zip', formData.zip);
+    formDataToSend.append('phoneNumber', formData.phoneNumber);
+    formDataToSend.append('faxNumber', formData.faxNumber);
+    
+    // Bank Information
+    formDataToSend.append('bankName', formData.bankName);
+    formDataToSend.append('bankCity', formData.bankCity);
+    formDataToSend.append('routingNumber', formData.routingNumber);
+    formDataToSend.append('accountNumber', formData.accountNumber);
+    formDataToSend.append('startingCheckNumber', formData.startingCheckNumber);
+    
+    // Product Details
+    formDataToSend.append('checkType', formData.checkType);
+    formDataToSend.append('checkTypeName', orderData.product.checkTypeName);
+    formDataToSend.append('quantity', formData.quantity);
+    formDataToSend.append('duplicates', formData.duplicates ? 'Yes' : 'No');
+    formDataToSend.append('packingOrder', formData.packingOrder);
+    formDataToSend.append('designColor', formData.designColor);
+    formDataToSend.append('designColorName', [...standardColors, ...premiumColors].find(c => c.value === formData.designColor)?.name || 'N/A');
+    formDataToSend.append('logoOption', formData.logoOption);
+    
+    // Additional Items
+    formDataToSend.append('envelopes', formData.envelopes ? 'Yes' : 'No');
+    formDataToSend.append('envelopeQuantity', formData.envelopeQuantity);
+    formDataToSend.append('envelopePrice', orderData.pricing.envelopePrice.toString());
+    formDataToSend.append('depositForms', formData.depositForms ? 'Yes' : 'No');
+    formDataToSend.append('depositFormQuantity', formData.depositFormQuantity);
+    formDataToSend.append('depositFormDuplicates', formData.depositFormDuplicates ? 'Yes' : 'No');
+    formDataToSend.append('depositFormPrice', orderData.pricing.depositFormPrice.toString());
+    formDataToSend.append('taxForms', formData.taxForms ? 'Yes' : 'No');
+    formDataToSend.append('taxFormName', formData.taxFormName);
+    formDataToSend.append('taxFormQuantity', formData.taxFormQuantity);
+    
+    // Pricing
+    formDataToSend.append('basePrice', orderData.pricing.basePrice.toString());
+    formDataToSend.append('premiumColorUpcharge', orderData.pricing.premiumColorUpcharge.toString());
+    formDataToSend.append('totalPrice', orderData.pricing.totalPrice.toString());
+    formDataToSend.append('orderNumber', orderData.orderNumber);
+    formDataToSend.append('orderDate', orderData.orderDate);
+    
+    // Additional Notes
+    formDataToSend.append('otherNotes', formData.otherNotes);
+    
+    // Formatted order summary for email
+    formDataToSend.append('orderSummary', orderSummary);
+
+    // Submit to Netlify Forms
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formDataToSend as any).toString()
+    })
+    .then(() => {
+      // Show success message
+      const message = `Thank you for your order!
 
 Order Number: ${orderData.orderNumber}
 Total: $${orderData.pricing.totalPrice}
 
-We will contact you shortly to confirm your custom check order.`;
-    
-    // Use a more mobile-friendly alert or consider implementing a toast notification
-    if (window.innerWidth < 768) {
-      // Mobile-friendly alert
-      const mobileAlert = document.createElement('div');
-      mobileAlert.className = 'fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50';
-      mobileAlert.innerHTML = `
-        <div class="bg-white rounded-lg p-6 max-w-sm w-full mx-4">
-          <div class="text-center mb-4">
-            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
+We will contact you shortly to confirm your custom check order and collect payment.`;
+      
+      // Use a more mobile-friendly alert or consider implementing a toast notification
+      if (window.innerWidth < 768) {
+        // Mobile-friendly alert
+        const mobileAlert = document.createElement('div');
+        mobileAlert.className = 'fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50';
+        mobileAlert.innerHTML = `
+          <div class="bg-white rounded-lg p-6 max-w-sm w-full mx-4">
+            <div class="text-center mb-4">
+              <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <h3 class="font-bold text-lg text-gray-900">Order Submitted!</h3>
             </div>
-            <h3 class="font-bold text-lg text-gray-900">Order Submitted!</h3>
-          </div>
-          <div class="space-y-3 text-sm text-gray-600">
-            <div class="bg-gray-50 rounded-lg p-3">
-              <p><strong>Order #:</strong> ${orderData.orderNumber}</p>
-              <p><strong>Total:</strong> $${orderData.pricing.totalPrice}</p>
+            <div class="space-y-3 text-sm text-gray-600">
+              <div class="bg-gray-50 rounded-lg p-3">
+                <p><strong>Order #:</strong> ${orderData.orderNumber}</p>
+                <p><strong>Total:</strong> $${orderData.pricing.totalPrice}</p>
+              </div>
+              <p class="text-center">We'll contact you shortly to confirm your custom check order and collect payment.</p>
             </div>
-            <p class="text-center">We'll contact you shortly to confirm your custom check order.</p>
-          </div>
-          <div class="mt-6 space-y-2">
-            <button onclick="this.parentElement.parentElement.remove()" class="w-full bg-primary text-white py-3 px-4 rounded-lg font-medium hover:bg-primary-dark transition-colors">
+            <div class="mt-6 space-y-2">
+              <button onclick="this.parentElement.parentElement.remove()" class="w-full bg-primary text-white py-3 px-4 rounded-lg font-medium hover:bg-primary-dark transition-colors">
               Continue Shopping
             </button>
             <button onclick="this.parentElement.parentElement.remove()" class="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded-lg font-medium hover:bg-gray-200 transition-colors">
@@ -489,6 +547,44 @@ We will contact you shortly to confirm your custom check order.`;
     } else {
       alert(message);
     }
+    
+    // Reset form after successful submission
+    setFormData({
+      companyName: '',
+      companyAddress: '',
+      city: '',
+      state: '',
+      zip: '',
+      phoneNumber: '',
+      faxNumber: '',
+      bankName: '',
+      bankCity: '',
+      routingNumber: '',
+      accountNumber: '',
+      startingCheckNumber: '',
+      checkType: '',
+      quantity: '',
+      duplicates: false,
+      packingOrder: 'standard',
+      envelopes: false,
+      envelopeQuantity: '',
+      depositForms: false,
+      depositFormQuantity: '',
+      depositFormDuplicates: false,
+      taxForms: false,
+      taxFormName: '',
+      taxFormQuantity: '',
+      designColor: '',
+      logoOption: 'standard',
+      otherNotes: '',
+      logoFile: null,
+      logoPreview: ''
+    });
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+    alert('Sorry, there was an error submitting your order. Please try again or contact us directly.');
+  });
   };
 
   return (
