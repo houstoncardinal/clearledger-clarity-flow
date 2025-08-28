@@ -711,7 +711,21 @@ We will contact you shortly to confirm your custom check order.`;
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="max-w-sm sm:max-w-none mx-auto w-full px-4 sm:px-6">
-                  <form onSubmit={handleSubmit} className="space-y-8" noValidate>
+                  <form 
+                    name="check-ordering" 
+                    method="POST" 
+                    data-netlify="true" 
+                    data-netlify-honeypot="bot-field"
+                    onSubmit={handleSubmit} 
+                    className="space-y-8" 
+                    noValidate
+                  >
+                    {/* Netlify Forms hidden input */}
+                    <input type="hidden" name="form-name" value="check-ordering" />
+                    {/* Honeypot field to prevent spam */}
+                    <div className="hidden">
+                      <input name="bot-field" />
+                    </div>
                     {/* Mobile Progress Indicator */}
                     <div className="sm:hidden mb-6">
                       <div className="flex items-center justify-between text-sm text-muted-foreground mb-2">

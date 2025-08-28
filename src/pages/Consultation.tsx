@@ -47,8 +47,52 @@ const Consultation = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Consultation form submitted:', formData);
+    
+    // Create FormData object for Netlify Forms
+    const formDataToSend = new FormData();
+    formDataToSend.append('form-name', 'consultation');
+    formDataToSend.append('name', formData.name);
+    formDataToSend.append('email', formData.email);
+    formDataToSend.append('company', formData.company);
+    formDataToSend.append('phone', formData.phone);
+    formDataToSend.append('businessType', formData.businessType);
+    formDataToSend.append('currentSystem', formData.currentSystem);
+    formDataToSend.append('monthlyTransactions', formData.monthlyTransactions);
+    formDataToSend.append('employees', formData.employees);
+    formDataToSend.append('challenges', formData.challenges);
+    formDataToSend.append('goals', formData.goals);
+    formDataToSend.append('timeline', formData.timeline);
+    formDataToSend.append('budget', formData.budget);
+
+    // Submit to Netlify Forms
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formDataToSend as any).toString()
+    })
+    .then(() => {
+      // Show success message
+      alert('Thank you! Your consultation request has been submitted. We\'ll contact you within 2 hours to schedule your free consultation.');
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        phone: '',
+        businessType: '',
+        currentSystem: '',
+        monthlyTransactions: '',
+        employees: '',
+        challenges: '',
+        goals: '',
+        timeline: '',
+        budget: ''
+      });
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      alert('Sorry, there was an error submitting your consultation request. Please try again or contact us directly.');
+    });
   };
 
   const consultationBenefits = [
@@ -233,7 +277,20 @@ const Consultation = () => {
                     </p>
                   </div>
 
-                  <form onSubmit={handleSubmit} className="space-y-8">
+                  <form 
+                    name="consultation" 
+                    method="POST" 
+                    data-netlify="true" 
+                    data-netlify-honeypot="bot-field"
+                    onSubmit={handleSubmit}
+                    className="space-y-8"
+                  >
+                    {/* Netlify Forms hidden input */}
+                    <input type="hidden" name="form-name" value="consultation" />
+                    {/* Honeypot field to prevent spam */}
+                    <div className="hidden">
+                      <input name="bot-field" />
+                    </div>
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <label htmlFor="name" className="block text-sm font-medium text-foreground mb-3">

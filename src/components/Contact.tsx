@@ -33,8 +33,40 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted:', formData);
+    
+    // Create FormData object for Netlify Forms
+    const formDataToSend = new FormData();
+    formDataToSend.append('form-name', 'contact');
+    formDataToSend.append('name', formData.name);
+    formDataToSend.append('email', formData.email);
+    formDataToSend.append('company', formData.company);
+    formDataToSend.append('phone', formData.phone);
+    formDataToSend.append('service', formData.service);
+    formDataToSend.append('message', formData.message);
+
+    // Submit to Netlify Forms
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formDataToSend as any).toString()
+    })
+    .then(() => {
+      // Show success message
+      alert('Thank you! Your message has been sent. We\'ll get back to you within 2 hours.');
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        phone: '',
+        service: '',
+        message: ''
+      });
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      alert('Sorry, there was an error sending your message. Please try again or contact us directly.');
+    });
   };
 
   const contactInfo = [
@@ -123,7 +155,20 @@ const Contact = () => {
             </div>
 
             {/* Contact Form */}
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form 
+              name="contact" 
+              method="POST" 
+              data-netlify="true" 
+              data-netlify-honeypot="bot-field"
+              onSubmit={handleSubmit}
+              className="space-y-6"
+            >
+              {/* Netlify Forms hidden input */}
+              <input type="hidden" name="form-name" value="contact" />
+              {/* Honeypot field to prevent spam */}
+              <div className="hidden">
+                <input name="bot-field" />
+              </div>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
