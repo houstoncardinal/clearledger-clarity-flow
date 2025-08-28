@@ -769,7 +769,7 @@ We will contact you shortly to confirm your custom check order.`;
                             value={formData.city}
                             onChange={(e) => handleInputChange('city', e.target.value)}
                             required
-                            className="h-12 text-base"
+                            className="h-10 sm:h-12 text-sm sm:text-base"
                             placeholder="Enter city"
                           />
                           </div>
@@ -780,7 +780,7 @@ We will contact you shortly to confirm your custom check order.`;
                             value={formData.state}
                             onChange={(e) => handleInputChange('state', e.target.value)}
                             required
-                            className="h-12 text-base"
+                            className="h-10 sm:h-12 text-sm sm:text-base"
                             placeholder="Enter state"
                           />
                           </div>
@@ -791,7 +791,7 @@ We will contact you shortly to confirm your custom check order.`;
                             value={formData.zip}
                             onChange={(e) => handleInputChange('zip', e.target.value)}
                             required
-                            className="h-12 text-base"
+                            className="h-10 sm:h-12 text-sm sm:text-base"
                             placeholder="Enter ZIP code"
                           />
                           </div>
@@ -803,7 +803,7 @@ We will contact you shortly to confirm your custom check order.`;
                             id="phoneNumber"
                             value={formData.phoneNumber}
                             onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
-                            className="h-12 text-base"
+                            className="h-10 sm:h-12 text-sm sm:text-base"
                             placeholder="Enter phone number"
                           />
                           </div>
@@ -813,7 +813,7 @@ We will contact you shortly to confirm your custom check order.`;
                             id="faxNumber"
                             value={formData.faxNumber}
                             onChange={(e) => handleInputChange('faxNumber', e.target.value)}
-                            className="h-12 text-base"
+                            className="h-10 sm:h-12 text-sm sm:text-base"
                             placeholder="Enter fax number"
                           />
                           </div>
@@ -851,55 +851,55 @@ We will contact you shortly to confirm your custom check order.`;
                             value={formData.bankName}
                             onChange={(e) => handleInputChange('bankName', e.target.value)}
                             required
-                            className="w-full h-12 text-base"
+                            className="w-full h-10 sm:h-12 text-sm sm:text-base"
                             placeholder="Enter bank name"
                           />
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
                             <Label htmlFor="bankCity">Bank City</Label>
-                            <Input
-                              id="bankCity"
-                              value={formData.bankCity}
-                              onChange={(e) => handleInputChange('bankCity', e.target.value)}
-                              className="h-12 text-base"
-                              placeholder="Enter bank city"
-                            />
+                                                          <Input
+                                id="bankCity"
+                                value={formData.bankCity}
+                                onChange={(e) => handleInputChange('bankCity', e.target.value)}
+                                className="h-10 sm:h-12 text-sm sm:text-base"
+                                placeholder="Enter bank city"
+                              />
                           </div>
                           <div>
                             <Label htmlFor="startingCheckNumber">Starting Check # *</Label>
-                            <Input
-                              id="startingCheckNumber"
-                              value={formData.startingCheckNumber}
-                              onChange={(e) => handleInputChange('startingCheckNumber', e.target.value)}
-                              required
-                              className="h-12 text-base"
-                              placeholder="Enter starting check number"
-                            />
+                                                          <Input
+                                id="startingCheckNumber"
+                                value={formData.startingCheckNumber}
+                                onChange={(e) => handleInputChange('startingCheckNumber', e.target.value)}
+                                required
+                                className="h-10 sm:h-12 text-sm sm:text-base"
+                                placeholder="Enter starting check number"
+                              />
                           </div>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
                             <Label htmlFor="routingNumber">Routing Number *</Label>
-                            <Input
-                              id="routingNumber"
-                              value={formData.routingNumber}
-                              onChange={(e) => handleInputChange('routingNumber', e.target.value)}
-                              required
-                              className="h-12 text-base"
-                              placeholder="Enter routing number"
-                            />
+                                                          <Input
+                                id="routingNumber"
+                                value={formData.routingNumber}
+                                onChange={(e) => handleInputChange('routingNumber', e.target.value)}
+                                required
+                                className="h-10 sm:h-12 text-sm sm:text-base"
+                                placeholder="Enter routing number"
+                              />
                           </div>
                           <div>
                             <Label htmlFor="accountNumber">Account Number *</Label>
-                            <Input
-                              id="accountNumber"
-                              value={formData.accountNumber}
-                              onChange={(e) => handleInputChange('accountNumber', e.target.value)}
-                              required
-                              className="h-12 text-base"
-                              placeholder="Enter account number"
-                            />
+                                                          <Input
+                                id="accountNumber"
+                                value={formData.accountNumber}
+                                onChange={(e) => handleInputChange('accountNumber', e.target.value)}
+                                required
+                                className="h-10 sm:h-12 text-sm sm:text-base"
+                                placeholder="Enter account number"
+                              />
                           </div>
                         </div>
                       </div>
@@ -1170,8 +1170,8 @@ We will contact you shortly to confirm your custom check order.`;
                             <p className="text-sm text-red-600 mb-2">{formErrors.quantity}</p>
                           )}
                           <Select value={formData.quantity} onValueChange={(value) => handleInputChange('quantity', value)}>
-                            <SelectTrigger className="h-12 bg-background border-2 border-border hover:border-primary/50 focus:border-primary transition-colors shadow-sm">
-                              <SelectValue placeholder="Select quantity" className="text-base" />
+                            <SelectTrigger className="h-10 sm:h-12 bg-background border-2 border-border hover:border-primary/50 focus:border-primary transition-colors shadow-sm text-sm sm:text-base">
+                              <SelectValue placeholder="Select quantity" className="text-sm sm:text-base" />
                             </SelectTrigger>
                             <SelectContent className="bg-background border-2 border-border shadow-lg">
                               {quantities.map((qty) => (
@@ -1454,8 +1454,8 @@ We will contact you shortly to confirm your custom check order.`;
                             <div>
                               <Label htmlFor="envelopeQuantity">Quantity</Label>
                               <Select value={formData.envelopeQuantity} onValueChange={(value) => handleInputChange('envelopeQuantity', value)}>
-                                <SelectTrigger className="h-12 bg-background border-2 border-border hover:border-primary/50 focus:border-primary transition-colors shadow-sm">
-                                  <SelectValue placeholder="Select quantity" className="text-base" />
+                                <SelectTrigger className="h-10 sm:h-12 bg-background border-2 border-border hover:border-primary/50 focus:border-primary transition-colors shadow-sm text-sm sm:text-base">
+                                  <SelectValue placeholder="Select quantity" className="text-sm sm:text-base" />
                                 </SelectTrigger>
                                 <SelectContent className="bg-background border-2 border-border shadow-lg">
                                   <SelectItem value="250" className="text-base py-3 hover:bg-accent focus:bg-accent cursor-pointer">
