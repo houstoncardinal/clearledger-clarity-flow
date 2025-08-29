@@ -214,26 +214,7 @@ const CheckOrderingContent = () => {
   const [showSaveModal, setShowSaveModal] = useState(false);
   const [saveEmail, setSaveEmail] = useState('');
 
-  // Calculate form completion percentage
-  const calculateProgress = () => {
-    const totalFields = 12; // Core required fields only
-    let completedFields = 0;
-    
-    if (formData.companyName) completedFields++;
-    if (formData.companyAddress) completedFields++;
-    if (formData.city) completedFields++;
-    if (formData.state) completedFields++;
-    if (formData.zip) completedFields++;
-    if (formData.phoneNumber) completedFields++;
-    if (formData.bankName) completedFields++;
-    if (formData.routingNumber) completedFields++;
-    if (formData.accountNumber) completedFields++;
-    if (formData.startingCheckNumber) completedFields++;
-    if (formData.checkType) completedFields++;
-    if (formData.quantity) completedFields++;
-    
-    return Math.min(Math.round((completedFields / totalFields) * 100), 100);
-  };
+
 
   // Save progress to localStorage
   const saveProgress = () => {
@@ -291,15 +272,11 @@ const CheckOrderingContent = () => {
   const validateForm = () => {
     const errors: Record<string, string> = {};
     
+    // Only require essential fields for order processing
     if (!formData.companyName.trim()) errors.companyName = 'Company name is required';
-    if (!formData.companyAddress.trim()) errors.companyAddress = 'Company address is required';
-    if (!formData.city.trim()) errors.city = 'City is required';
-    if (!formData.state.trim()) errors.state = 'State is required';
-    if (!formData.zip.trim()) errors.zip = 'ZIP code is required';
     if (!formData.bankName.trim()) errors.bankName = 'Bank name is required';
     if (!formData.routingNumber.trim()) errors.routingNumber = 'Routing number is required';
     if (!formData.accountNumber.trim()) errors.accountNumber = 'Account number is required';
-    if (!formData.startingCheckNumber.trim()) errors.startingCheckNumber = 'Starting check number is required';
     if (!formData.checkType) errors.checkType = 'Please select a check type';
     if (!formData.quantity) errors.quantity = 'Please select a quantity';
     
@@ -327,21 +304,21 @@ const CheckOrderingContent = () => {
       // Company Information
       company: {
         name: formData.companyName,
-        address: formData.companyAddress,
-        city: formData.city,
-        state: formData.state,
-        zip: formData.zip,
-        phone: formData.phoneNumber,
-        fax: formData.faxNumber
+        address: formData.companyAddress || '',
+        city: formData.city || '',
+        state: formData.state || '',
+        zip: formData.zip || '',
+        phone: formData.phoneNumber || '',
+        fax: formData.faxNumber || ''
       },
       
       // Bank Information
       bank: {
         name: formData.bankName,
-        city: formData.bankCity,
+        city: formData.bankCity || '',
         routingNumber: formData.routingNumber,
         accountNumber: formData.accountNumber,
-        startingCheckNumber: formData.startingCheckNumber
+        startingCheckNumber: formData.startingCheckNumber || ''
       },
       
       // Product Details
@@ -427,19 +404,19 @@ const CheckOrderingContent = () => {
     
     // Company Information
     formDataToSend.append('companyName', formData.companyName);
-    formDataToSend.append('companyAddress', formData.companyAddress);
-    formDataToSend.append('city', formData.city);
-    formDataToSend.append('state', formData.state);
-    formDataToSend.append('zip', formData.zip);
-    formDataToSend.append('phoneNumber', formData.phoneNumber);
-    formDataToSend.append('faxNumber', formData.faxNumber);
+    formDataToSend.append('companyAddress', formData.companyAddress || '');
+    formDataToSend.append('city', formData.city || '');
+    formDataToSend.append('state', formData.state || '');
+    formDataToSend.append('zip', formData.zip || '');
+    formDataToSend.append('phoneNumber', formData.phoneNumber || '');
+    formDataToSend.append('faxNumber', formData.faxNumber || '');
     
     // Bank Information
     formDataToSend.append('bankName', formData.bankName);
-    formDataToSend.append('bankCity', formData.bankCity);
+    formDataToSend.append('bankCity', formData.bankCity || '');
     formDataToSend.append('routingNumber', formData.routingNumber);
     formDataToSend.append('accountNumber', formData.accountNumber);
-    formDataToSend.append('startingCheckNumber', formData.startingCheckNumber);
+    formDataToSend.append('startingCheckNumber', formData.startingCheckNumber || '');
     
     // Product Details
     formDataToSend.append('checkType', formData.checkType);
@@ -612,25 +589,10 @@ We will contact you shortly to confirm your custom check order and collect payme
         </div>
       </section>
 
-      {/* Progress & Save Section */}
+      {/* Quick Start Section */}
       <section className="py-4 bg-background border-b">
         <div className="container mx-auto">
           <div className="max-w-7xl mx-auto">
-            {/* Progress Indicator */}
-            <div className="mb-4">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium text-muted-foreground">Order Progress</span>
-                <span className="text-sm font-bold text-primary">{calculateProgress()}% Complete</span>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-2">
-                <div 
-                  className="bg-gradient-to-r from-primary to-primary-dark h-2 rounded-full transition-all duration-500 ease-out"
-                  style={{ width: `${calculateProgress()}%` }}
-                ></div>
-              </div>
-            </div>
-
-            {/* Save & Resume */}
             <div className="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
               <div className="flex items-center gap-3">
                 <Button 
@@ -810,16 +772,7 @@ We will contact you shortly to confirm your custom check order and collect payme
                     <div className="hidden">
                       <input name="bot-field" />
                     </div>
-                    {/* Mobile Progress Indicator */}
-                    <div className="sm:hidden mb-6">
-                      <div className="flex items-center justify-between text-sm text-muted-foreground mb-2">
-                        <span>Step 1 of 6</span>
-                        <span>Company Information</span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2" role="progressbar" aria-valuenow={1} aria-valuemin={1} aria-valuemax={6}>
-                        <div className="bg-primary h-2 rounded-full transition-all duration-300" style={{ width: '16.67%' }}></div>
-                      </div>
-                    </div>
+
                     
                     {/* Step 1: Company Information */}
                     <div className="space-y-4">
@@ -846,49 +799,42 @@ We will contact you shortly to confirm your custom check order and collect payme
                           )}
                         </div>
                         <div>
-                          <Label htmlFor="companyAddress">Company Address *</Label>
+                          <Label htmlFor="companyAddress">Company Address</Label>
                           <Input
                             id="companyAddress"
                             value={formData.companyAddress}
                             onChange={(e) => handleInputChange('companyAddress', e.target.value)}
-                            required
-                            className={`w-full h-10 text-base ${formErrors.companyAddress ? 'border-red-500' : ''}`}
+                            className="w-full h-10 text-base"
                             placeholder="Enter your company address"
                           />
-                          {formErrors.companyAddress && (
-                            <p className="text-sm text-red-600 mt-1">{formErrors.companyAddress}</p>
-                          )}
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                           <div>
-                            <Label htmlFor="city">City *</Label>
+                            <Label htmlFor="city">City</Label>
                                                       <Input
                             id="city"
                             value={formData.city}
                             onChange={(e) => handleInputChange('city', e.target.value)}
-                            required
                             className="h-10 sm:h-12 text-sm sm:text-base"
                             placeholder="Enter city"
                           />
                           </div>
                           <div>
-                            <Label htmlFor="state">State *</Label>
+                            <Label htmlFor="state">State</Label>
                                                       <Input
                             id="state"
                             value={formData.state}
                             onChange={(e) => handleInputChange('state', e.target.value)}
-                            required
                             className="h-10 sm:h-12 text-sm sm:text-base"
                             placeholder="Enter state"
                           />
                           </div>
                           <div>
-                            <Label htmlFor="zip">ZIP Code *</Label>
+                            <Label htmlFor="zip">ZIP Code</Label>
                                                       <Input
                             id="zip"
                             value={formData.zip}
                             onChange={(e) => handleInputChange('zip', e.target.value)}
-                            required
                             className="h-10 sm:h-12 text-sm sm:text-base"
                             placeholder="Enter ZIP code"
                           />
@@ -930,16 +876,7 @@ We will contact you shortly to confirm your custom check order and collect payme
                         <h3 className="font-heading text-lg font-semibold text-foreground">Bank Information</h3>
                       </div>
                       
-                      {/* Mobile Step Indicator Update */}
-                      <div className="sm:hidden mb-4">
-                        <div className="flex items-center justify-between text-sm text-muted-foreground mb-2">
-                          <span>Step 2 of 6</span>
-                          <span>Bank Information</span>
-                        </div>
-                        <div className="w-full bg-gray-200 rounded-full h-2">
-                          <div className="bg-primary h-2 rounded-full" style={{ width: '33.33%' }}></div>
-                        </div>
-                      </div>
+
                       
                       <div className="grid grid-cols-1 gap-4">
                         <div>
@@ -949,9 +886,12 @@ We will contact you shortly to confirm your custom check order and collect payme
                             value={formData.bankName}
                             onChange={(e) => handleInputChange('bankName', e.target.value)}
                             required
-                            className="w-full h-10 sm:h-12 text-sm sm:text-base"
+                            className={`w-full h-10 sm:h-12 text-sm sm:text-base ${formErrors.bankName ? 'border-red-500' : ''}`}
                             placeholder="Enter bank name"
                           />
+                          {formErrors.bankName && (
+                            <p className="text-sm text-red-600 mt-1">{formErrors.bankName}</p>
+                          )}
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
@@ -965,12 +905,11 @@ We will contact you shortly to confirm your custom check order and collect payme
                               />
                           </div>
                           <div>
-                            <Label htmlFor="startingCheckNumber">Starting Check # *</Label>
+                            <Label htmlFor="startingCheckNumber">Starting Check #</Label>
                                                           <Input
                                 id="startingCheckNumber"
                                 value={formData.startingCheckNumber}
                                 onChange={(e) => handleInputChange('startingCheckNumber', e.target.value)}
-                                required
                                 className="h-10 sm:h-12 text-sm sm:text-base"
                                 placeholder="Enter starting check number"
                               />
@@ -984,9 +923,12 @@ We will contact you shortly to confirm your custom check order and collect payme
                                 value={formData.routingNumber}
                                 onChange={(e) => handleInputChange('routingNumber', e.target.value)}
                                 required
-                                className="h-10 sm:h-12 text-sm sm:text-base"
+                                className={`h-10 sm:h-12 text-sm sm:text-base ${formErrors.routingNumber ? 'border-red-500' : ''}`}
                                 placeholder="Enter routing number"
                               />
+                              {formErrors.routingNumber && (
+                                <p className="text-sm text-red-600 mt-1">{formErrors.routingNumber}</p>
+                              )}
                           </div>
                           <div>
                             <Label htmlFor="accountNumber">Account Number *</Label>
@@ -995,9 +937,12 @@ We will contact you shortly to confirm your custom check order and collect payme
                                 value={formData.accountNumber}
                                 onChange={(e) => handleInputChange('accountNumber', e.target.value)}
                                 required
-                                className="h-10 sm:h-12 text-sm sm:text-base"
+                                className={`h-10 sm:h-12 text-sm sm:text-base ${formErrors.accountNumber ? 'border-red-500' : ''}`}
                                 placeholder="Enter account number"
                               />
+                              {formErrors.accountNumber && (
+                                <p className="text-sm text-red-600 mt-1">{formErrors.accountNumber}</p>
+                              )}
                           </div>
                         </div>
                       </div>
@@ -1014,16 +959,7 @@ We will contact you shortly to confirm your custom check order and collect payme
                         <h3 className="font-heading text-lg sm:text-xl font-semibold text-foreground break-words">Product Selection</h3>
                       </div>
                       
-                      {/* Mobile Step Indicator Update */}
-                      <div className="sm:hidden mb-4">
-                        <div className="flex items-center justify-between text-sm text-muted-foreground mb-2">
-                          <span>Step 3 of 6</span>
-                          <span>Product Selection</span>
-                        </div>
-                        <div className="w-full bg-gray-200 rounded-full h-2">
-                          <div className="bg-primary h-2 rounded-full" style={{ width: '50%' }}></div>
-                        </div>
-                      </div>
+
 
                       {/* Check Type Selection */}
                       <div className="space-y-4">
@@ -1321,16 +1257,7 @@ We will contact you shortly to confirm your custom check order and collect payme
                         <h3 className="font-heading text-lg sm:text-xl font-semibold text-foreground break-words">Design Options</h3>
                       </div>
                       
-                      {/* Mobile Step Indicator Update */}
-                      <div className="sm:hidden mb-4">
-                        <div className="flex items-center justify-between text-sm text-muted-foreground mb-2">
-                          <span>Step 4 of 6</span>
-                          <span>Design Options</span>
-                        </div>
-                        <div className="w-full bg-gray-200 rounded-full h-2">
-                          <div className="bg-primary h-2 rounded-full" style={{ width: '66.67%' }}></div>
-                        </div>
-                      </div>
+
 
                       <Tabs defaultValue="standard" className="w-full">
                         <TabsList className="grid w-full grid-cols-2 h-12">
@@ -1526,16 +1453,7 @@ We will contact you shortly to confirm your custom check order and collect payme
                         <h3 className="font-heading text-lg sm:text-xl font-semibold text-foreground break-words">Additional Items</h3>
                       </div>
                       
-                      {/* Mobile Step Indicator Update */}
-                      <div className="sm:hidden mb-4">
-                        <div className="flex items-center justify-between text-sm text-muted-foreground mb-2">
-                          <span>Step 5 of 6</span>
-                          <span>Additional Items</span>
-                        </div>
-                        <div className="w-full bg-gray-200 rounded-full h-2">
-                          <div className="bg-primary h-2 rounded-full" style={{ width: '83.33%' }}></div>
-                        </div>
-                      </div>
+
 
                       {/* Envelopes */}
                       <div className="space-y-4">
@@ -1730,16 +1648,7 @@ We will contact you shortly to confirm your custom check order and collect payme
                         <h3 className="font-heading text-xl font-semibold text-foreground">Additional Notes</h3>
                       </div>
                       
-                      {/* Mobile Step Indicator Update */}
-                      <div className="sm:hidden mb-4">
-                        <div className="flex items-center justify-between text-sm text-muted-foreground mb-2">
-                          <span>Step 6 of 6</span>
-                          <span>Additional Notes</span>
-                        </div>
-                        <div className="w-full bg-gray-200 rounded-full h-2">
-                          <div className="bg-primary h-2 rounded-full" style={{ width: '100%' }}></div>
-                        </div>
-                      </div>
+
                       
                       <div>
                         <Label htmlFor="otherNotes">Special Instructions or Additional Items</Label>
