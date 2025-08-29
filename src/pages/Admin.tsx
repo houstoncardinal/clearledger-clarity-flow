@@ -229,12 +229,12 @@ const Admin = () => {
     {
       id: 5,
       title: 'Client Success Story: Tech Startup',
-      type: 'case-study',
+              type: 'blog-post',
       platform: 'Website',
       scheduledDate: '2024-12-18',
       status: 'draft',
       content: 'How we helped a tech startup streamline their finances...',
-      tags: ['case-study', 'success-story', 'tech'],
+              tags: ['blog-post', 'success-story', 'tech'],
       engagement: 0
     }
   ];
@@ -361,7 +361,7 @@ const Admin = () => {
       case 'video': return Video;
       case 'image': return Image;
       case 'event': return Calendar;
-      case 'case-study': return BookOpen;
+      case 'blog-post': return BookOpen;
       default: return FileText;
     }
   };

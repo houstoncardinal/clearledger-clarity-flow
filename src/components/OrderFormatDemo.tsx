@@ -20,20 +20,19 @@ const OrderFormatDemo = () => {
     orderDate: new Date().toISOString(),
     orderNumber: 'CHK-1756502426958',
     company: {
-      name: 'Hunain Qureshi',
-      address: '14427 andrea way ln',
-      city: 'Houston',
+      name: 'Demo Company Inc.',
+      address: '123 Business Street',
+      city: 'Demo City',
       state: 'TX',
-      zip: '77083',
-      phone: '(903) 815-9488',
-      fax: '713-555-0124'
+      zip: '75000',
+      phone: '(903) 815-9488'
     },
     bank: {
-      name: 'Chase',
-      city: 'Houston',
-      routingNumber: '214214123',
-      accountNumber: '4512525125',
-      startingCheckNumber: '102041024'
+      name: 'Demo Bank',
+      city: 'Demo City',
+      routingNumber: '123456789',
+      accountNumber: '987654321',
+      startingCheckNumber: '1000'
     },
     product: {
       checkType: 'DLT103',
@@ -60,40 +59,39 @@ const OrderFormatDemo = () => {
   };
 
   const oldFormat = `Company Name:
-Hunain Qureshi
+Demo Company Inc.
 
 Company Address:
-14427 andrea way ln
+123 Business Street
 
 City:
-Houston
+Demo City
 
 State:
 TX
 
 Zip:
-77083
+75000
 
 Phone Number:
 (903) 815-9488
 
-Fax Number:
-713-555-0124
+
 
 Bank Name:
-Chase
+Demo Bank
 
 Bank City:
-Houston
+Demo City
 
 Routing Number:
-214214123
+123456789
 
 Account Number:
-4512525125
+987654321
 
 Starting Check Number:
-102041024
+1000
 
 Check Type:
 DLT103
@@ -308,13 +306,13 @@ test`;
                     <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
                       <span className="font-medium">Routing Number</span>
                       <span className="font-mono text-sm">
-                        {showSensitiveData ? '214214123' : '2142****'}
+                        {showSensitiveData ? '123456789' : '123****'}
                       </span>
                     </div>
                     <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
                       <span className="font-medium">Account Number</span>
                       <span className="font-mono text-sm">
-                        {showSensitiveData ? '4512525125' : '****5125'}
+                        {showSensitiveData ? '987654321' : '****4321'}
                       </span>
                     </div>
                     <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">

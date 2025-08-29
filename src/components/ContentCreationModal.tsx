@@ -50,7 +50,7 @@ const ContentCreationModal = ({ isOpen, onClose, onSubmit }: ContentCreationModa
     { type: 'video', label: 'Video', icon: Video },
     { type: 'image', label: 'Image', icon: Image },
     { type: 'event', label: 'Event', icon: Calendar },
-    { type: 'case-study', label: 'Case Study', icon: FileText }
+    { type: 'blog-post', label: 'Blog Post', icon: FileText }
   ];
 
   const addTag = () => {

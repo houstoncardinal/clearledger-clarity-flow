@@ -10,7 +10,6 @@ export interface OrderData {
     state: string;
     zip: string;
     phone: string;
-    fax: string;
   };
   bank: {
     name: string;
@@ -65,7 +64,6 @@ export const createProfessionalOrderTable = (orderData: OrderData): string => {
   const maskedRouting = maskSensitiveData(orderData.bank.routingNumber, 'routing');
   const maskedAccount = maskSensitiveData(orderData.bank.accountNumber, 'account');
   const maskedPhone = maskSensitiveData(orderData.company.phone, 'phone');
-  const maskedFax = maskSensitiveData(orderData.company.fax, 'fax');
 
   return `
 <!DOCTYPE html>
@@ -131,10 +129,7 @@ export const createProfessionalOrderTable = (orderData: OrderData): string => {
             <span class="info-label">Phone:</span>
             <span class="info-value">${maskedPhone}</span>
           </div>
-          <div class="info-item">
-            <span class="info-label">Fax:</span>
-            <span class="info-value">${maskedFax}</span>
-          </div>
+
         </div>
       </div>
     </div>
@@ -307,12 +302,11 @@ export const createProfessionalOrderTable = (orderData: OrderData): string => {
   `;
 };
 
-// Create a simplified text format for systems that don't support HTML
+// Create a professional plain text format for email notifications
 export const createTextOrderSummary = (orderData: OrderData): string => {
   const maskedRouting = maskSensitiveData(orderData.bank.routingNumber, 'routing');
   const maskedAccount = maskSensitiveData(orderData.bank.accountNumber, 'account');
   const maskedPhone = maskSensitiveData(orderData.company.phone, 'phone');
-  const maskedFax = maskSensitiveData(orderData.company.fax, 'fax');
 
   return `
 ╔══════════════════════════════════════════════════════════════╗
@@ -328,7 +322,6 @@ Company Name:    ${orderData.company.name}
 Address:         ${orderData.company.address}
 City, State ZIP: ${orderData.company.city}, ${orderData.company.state} ${orderData.company.zip}
 Phone:           ${maskedPhone}
-Fax:             ${maskedFax}
 
 🏦 BANK INFORMATION
 ────────────────────────────────────────────────────────────────

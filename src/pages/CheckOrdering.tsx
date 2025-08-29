@@ -52,7 +52,6 @@ const CheckOrderingContent = () => {
     state: '',
     zip: '',
     phoneNumber: '',
-    faxNumber: '',
     
     // Bank Information
     bankName: '',
@@ -301,16 +300,15 @@ const CheckOrderingContent = () => {
       orderDate: new Date().toISOString(),
       orderNumber: `CHK-${Date.now()}`,
       
-      // Company Information
-      company: {
-        name: formData.companyName,
-        address: formData.companyAddress || '',
-        city: formData.city || '',
-        state: formData.state || '',
-        zip: formData.zip || '',
-        phone: formData.phoneNumber || '',
-        fax: formData.faxNumber || ''
-      },
+          // Company Information
+    company: {
+      name: formData.companyName,
+      address: formData.companyAddress || '',
+      city: formData.city || '',
+      state: formData.state || '',
+      zip: formData.zip || '',
+      phone: formData.phoneNumber || ''
+    },
       
       // Bank Information
       bank: {
@@ -475,8 +473,7 @@ We will contact you shortly to confirm your custom check order and collect payme
       city: '',
       state: '',
       zip: '',
-      phoneNumber: '',
-      faxNumber: '',
+          phoneNumber: '',
       bankName: '',
       bankCity: '',
       routingNumber: '',
@@ -795,27 +792,15 @@ We will contact you shortly to confirm your custom check order and collect payme
                           />
                           </div>
                         </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                          <div>
-                            <Label htmlFor="phoneNumber">Phone Number to Print</Label>
-                                                      <Input
+                        <div>
+                          <Label htmlFor="phoneNumber">Phone Number to Print</Label>
+                          <Input
                             id="phoneNumber"
                             value={formData.phoneNumber}
                             onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
                             className="h-10 sm:h-12 text-sm sm:text-base"
                             placeholder="Enter phone number"
                           />
-                          </div>
-                          <div>
-                            <Label htmlFor="faxNumber">Fax Number to Print</Label>
-                                                      <Input
-                            id="faxNumber"
-                            value={formData.faxNumber}
-                            onChange={(e) => handleInputChange('faxNumber', e.target.value)}
-                            className="h-10 sm:h-12 text-sm sm:text-base"
-                            placeholder="Enter fax number"
-                          />
-                          </div>
                         </div>
                       </div>
                     </div>

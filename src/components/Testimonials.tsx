@@ -265,11 +265,7 @@ const Testimonials = () => {
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
-            <Link to="/resources">
-              <Button size="lg" variant="outline" className="btn-secondary text-lg px-8 py-4">
-                View Case Studies
-              </Button>
-            </Link>
+
           </div>
         </div>
       </div>
