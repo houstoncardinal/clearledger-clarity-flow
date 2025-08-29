@@ -25,7 +25,7 @@ const OrderFormatDemo = () => {
       city: 'Houston',
       state: 'TX',
       zip: '77083',
-      phone: '713-555-0123',
+      phone: '(903) 815-9488',
       fax: '713-555-0124'
     },
     bank: {
@@ -75,7 +75,7 @@ Zip:
 77083
 
 Phone Number:
-713-555-0123
+(903) 815-9488
 
 Fax Number:
 713-555-0124
@@ -319,9 +319,9 @@ test`;
                     </div>
                     <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
                       <span className="font-medium">Phone Number</span>
-                      <span className="font-mono text-sm">
-                        {showSensitiveData ? '713-555-0123' : '713-***-0123'}
-                      </span>
+                                              <span className="font-mono text-sm">
+                          {showSensitiveData ? '(903) 815-9488' : '(903) ***-9488'}
+                        </span>
                     </div>
                   </div>
                 </CardContent>

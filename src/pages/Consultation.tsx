@@ -550,8 +550,8 @@ const Consultation = () => {
                           <Mail className="w-5 h-5 text-primary-foreground" />
                         </div>
                         <div>
-                          <p className="font-medium text-foreground">jj@yourclearledger.com</p>
-                          <p className="text-sm text-muted-foreground">Email us anytime</p>
+                                            <p className="font-medium text-foreground">admin@yourclearledger.com</p>
+                  <p className="text-sm text-muted-foreground">Email us anytime</p>
                         </div>
                       </div>
                       <div className="flex items-center space-x-3">

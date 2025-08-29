@@ -116,7 +116,7 @@ const MobileToolbar = () => {
       title: 'Call',
       description: 'Speak with experts',
       icon: Phone,
-      action: () => window.location.href = 'tel:+1-713-555-0123',
+      action: () => window.location.href = 'tel:(903) 815-9488',
       color: 'bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-600',
       gradient: 'from-emerald-400/30 via-emerald-500/20 to-emerald-600/30',
       href: null,

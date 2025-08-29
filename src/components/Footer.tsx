@@ -51,7 +51,7 @@ const Footer = () => {
 
   const socialLinks = [
     { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com/company/clearledger-solutions' },
-    { name: 'Email', icon: Mail, href: 'mailto:jj@yourclearledger.com' },
+    { name: 'Email', icon: Mail, href: 'mailto:admin@yourclearledger.com' },
     { name: 'Phone', icon: Phone, href: 'tel:(903) 815-9488' }
   ];
 
@@ -65,7 +65,7 @@ const Footer = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'jj@yourclearledger.com',
+      value: 'admin@yourclearledger.com',
       subtext: '24-hour response commitment'
     },
     {
