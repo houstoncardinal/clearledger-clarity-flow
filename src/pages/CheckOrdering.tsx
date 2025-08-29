@@ -398,66 +398,21 @@ const CheckOrderingContent = () => {
     // Create a simplified summary for backward compatibility
     const orderSummary = professionalText;
 
-    // Create FormData object for Netlify Forms with all order details
+    // Create FormData object for Netlify Forms with only essential data and formatted summary
     const formDataToSend = new FormData();
     formDataToSend.append('form-name', 'check-ordering');
     
-    // Company Information
-    formDataToSend.append('companyName', formData.companyName);
-    formDataToSend.append('companyAddress', formData.companyAddress || '');
-    formDataToSend.append('city', formData.city || '');
-    formDataToSend.append('state', formData.state || '');
-    formDataToSend.append('zip', formData.zip || '');
-    formDataToSend.append('phoneNumber', formData.phoneNumber || '');
-    formDataToSend.append('faxNumber', formData.faxNumber || '');
-    
-    // Bank Information
-    formDataToSend.append('bankName', formData.bankName);
-    formDataToSend.append('bankCity', formData.bankCity || '');
-    formDataToSend.append('routingNumber', formData.routingNumber);
-    formDataToSend.append('accountNumber', formData.accountNumber);
-    formDataToSend.append('startingCheckNumber', formData.startingCheckNumber || '');
-    
-    // Product Details
-    formDataToSend.append('checkType', formData.checkType);
-    formDataToSend.append('checkTypeName', orderData.product.checkTypeName);
-    formDataToSend.append('quantity', formData.quantity);
-    formDataToSend.append('duplicates', formData.duplicates ? 'Yes' : 'No');
-    formDataToSend.append('packingOrder', formData.packingOrder);
-    formDataToSend.append('designColor', formData.designColor);
-    formDataToSend.append('designColorName', [...standardColors, ...premiumColors].find(c => c.value === formData.designColor)?.name || 'N/A');
-    formDataToSend.append('logoOption', formData.logoOption);
-    
-    // Additional Items
-    formDataToSend.append('envelopes', formData.envelopes ? 'Yes' : 'No');
-    formDataToSend.append('envelopeQuantity', formData.envelopeQuantity);
-    formDataToSend.append('envelopePrice', orderData.pricing.envelopePrice.toString());
-    formDataToSend.append('depositForms', formData.depositForms ? 'Yes' : 'No');
-    formDataToSend.append('depositFormQuantity', formData.depositFormQuantity);
-    formDataToSend.append('depositFormDuplicates', formData.depositFormDuplicates ? 'Yes' : 'No');
-    formDataToSend.append('depositFormPrice', orderData.pricing.depositFormPrice.toString());
-    formDataToSend.append('taxForms', formData.taxForms ? 'Yes' : 'No');
-    formDataToSend.append('taxFormName', formData.taxFormName);
-    formDataToSend.append('taxFormQuantity', formData.taxFormQuantity);
-    
-    // Pricing
-    formDataToSend.append('basePrice', orderData.pricing.basePrice.toString());
-    formDataToSend.append('premiumColorUpcharge', orderData.pricing.premiumColorUpcharge.toString());
-    formDataToSend.append('totalPrice', orderData.pricing.totalPrice.toString());
+    // Only send essential order information
     formDataToSend.append('orderNumber', orderData.orderNumber);
     formDataToSend.append('orderDate', orderData.orderDate);
-    
-    // Additional Notes
-    formDataToSend.append('otherNotes', formData.otherNotes);
+    formDataToSend.append('totalPrice', orderData.pricing.totalPrice.toString());
     
     // Enhanced security measures
-    // Enhanced security: Add audit information
-
+    formDataToSend.append('orderHash', orderHash);
     formDataToSend.append('securityLevel', 'enhanced');
-    formDataToSend.append('validationStatus', 'passed');
     formDataToSend.append('submissionTimestamp', new Date().toISOString());
     
-    // Formatted order summary for email
+    // Send only the professional formatted summaries
     formDataToSend.append('orderSummary', orderSummary);
     formDataToSend.append('orderSummaryHTML', professionalHTML);
 

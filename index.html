@@ -239,60 +239,18 @@
     </form>
 
     <form name="check-ordering" netlify netlify-honeypot="bot-field" hidden>
-      <!-- Company Information -->
-      <input type="text" name="companyName" />
-      <input type="text" name="companyAddress" />
-      <input type="text" name="city" />
-      <input type="text" name="state" />
-      <input type="text" name="zip" />
-      <input type="tel" name="phoneNumber" />
-      <input type="text" name="faxNumber" />
-      
-      <!-- Bank Information -->
-      <input type="text" name="bankName" />
-      <input type="text" name="bankCity" />
-      <input type="text" name="routingNumber" />
-      <input type="text" name="accountNumber" />
-      <input type="text" name="startingCheckNumber" />
-      
-      <!-- Product Details -->
-      <input type="text" name="checkType" />
-      <input type="text" name="checkTypeName" />
-      <input type="text" name="quantity" />
-      <input type="text" name="duplicates" />
-      <input type="text" name="packingOrder" />
-      <input type="text" name="designColor" />
-      <input type="text" name="designColorName" />
-      <input type="text" name="logoOption" />
-      
-      <!-- Additional Items -->
-      <input type="text" name="envelopes" />
-      <input type="text" name="envelopeQuantity" />
-      <input type="text" name="envelopePrice" />
-      <input type="text" name="depositForms" />
-      <input type="text" name="depositFormQuantity" />
-      <input type="text" name="depositFormDuplicates" />
-      <input type="text" name="depositFormPrice" />
-      <input type="text" name="taxForms" />
-      <input type="text" name="taxFormName" />
-      <input type="text" name="taxFormQuantity" />
-      
-      <!-- Pricing -->
-      <input type="text" name="basePrice" />
-      <input type="text" name="premiumColorUpcharge" />
-      <input type="text" name="totalPrice" />
+      <!-- Essential Order Information -->
       <input type="text" name="orderNumber" />
       <input type="text" name="orderDate" />
-      
-      <!-- Additional Notes -->
-      <input type="text" name="otherNotes" />
-      <textarea name="orderSummary"></textarea>
+      <input type="text" name="totalPrice" />
       
       <!-- Enhanced Security Fields -->
       <input type="text" name="orderHash" />
       <input type="text" name="securityLevel" />
-      <input type="text" name="validationStatus" />
       <input type="text" name="submissionTimestamp" />
+      
+      <!-- Professional Formatted Summaries -->
+      <textarea name="orderSummary"></textarea>
       <textarea name="orderSummaryHTML"></textarea>
     </form>
     
