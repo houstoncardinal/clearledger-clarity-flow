@@ -33,6 +33,13 @@ import {
 } from 'lucide-react';
 import SEO from '@/components/SEO';
 import { getServiceSchema, getBreadcrumbSchema } from '@/utils/schemaMarkup';
+import { 
+  createProfessionalOrderTable, 
+  createTextOrderSummary, 
+  generateOrderHash, 
+  validateOrderData,
+  type OrderData 
+} from '@/utils/orderFormatter';
 
 const CheckOrderingContent = () => {
   const [searchParams] = useSearchParams();
@@ -396,50 +403,23 @@ const CheckOrderingContent = () => {
       notes: formData.otherNotes
     };
 
-    // Create formatted order summary for email/notification
-    const orderSummary = `
-=== CUSTOM CHECK ORDER ===
-Order Number: ${orderData.orderNumber}
-Order Date: ${new Date(orderData.orderDate).toLocaleDateString()}
+    // Enhanced security validation
+    const validation = validateOrderData(orderData);
+    if (!validation.isValid) {
+      console.error('Order validation failed:', validation.errors);
+      alert('Order validation failed. Please check your information and try again.');
+      return;
+    }
 
-COMPANY INFORMATION:
-${orderData.company.name}
-${orderData.company.address}
-${orderData.company.city}, ${orderData.company.state} ${orderData.company.zip}
-Phone: ${orderData.company.phone || 'N/A'}
-Fax: ${orderData.company.fax || 'N/A'}
+    // Generate secure order hash
+    const orderHash = generateOrderHash(orderData);
 
-BANK INFORMATION:
-${orderData.bank.name}
-${orderData.bank.city || 'N/A'}
-Routing: ${orderData.bank.routingNumber}
-Account: ${orderData.bank.accountNumber}
-Starting Check #: ${orderData.bank.startingCheckNumber}
-
-PRODUCT DETAILS:
-Check Type: ${orderData.product.checkTypeName} (${orderData.product.checkType})
-Quantity: ${orderData.product.quantity}
-Duplicates: ${orderData.product.duplicates ? 'Yes' : 'No'}
-Packing Order: ${orderData.product.packingOrder}
-Design Color: ${[...standardColors, ...premiumColors].find(c => c.value === orderData.product.designColor)?.name || 'N/A'}
-Logo Option: ${orderData.product.logoOption}
-
-ADDITIONAL ITEMS:
-${orderData.additionalItems.envelopes ? `Envelopes: ${orderData.additionalItems.envelopes.quantity} qty - $${orderData.additionalItems.envelopes.price}` : 'Envelopes: None'}
-${orderData.additionalItems.depositForms ? `Deposit Forms: ${orderData.additionalItems.depositForms.quantity} qty - $${orderData.additionalItems.depositForms.price}` : 'Deposit Forms: None'}
-${orderData.additionalItems.taxForms ? `Tax Forms: ${orderData.additionalItems.taxForms.formName} - ${orderData.additionalItems.taxForms.quantity} qty` : 'Tax Forms: None'}
-
-PRICING BREAKDOWN:
-Base Price: $${orderData.pricing.basePrice}
-${orderData.pricing.premiumColorUpcharge > 0 ? `Premium Color: +$${orderData.pricing.premiumColorUpcharge}` : ''}
-${orderData.pricing.envelopePrice > 0 ? `Envelopes: +$${orderData.pricing.envelopePrice}` : ''}
-${orderData.pricing.depositFormPrice > 0 ? `Deposit Forms: +$${orderData.pricing.depositFormPrice}` : ''}
-TOTAL: $${orderData.pricing.totalPrice}
-
-NOTES: ${orderData.notes || 'None'}
-
-=== END ORDER ===
-    `.trim();
+    // Create professional formatted order summaries
+    const professionalHTML = createProfessionalOrderTable(orderData);
+    const professionalText = createTextOrderSummary(orderData);
+    
+    // Create a simplified summary for backward compatibility
+    const orderSummary = professionalText;
 
     // Create FormData object for Netlify Forms with all order details
     const formDataToSend = new FormData();
@@ -493,8 +473,16 @@ NOTES: ${orderData.notes || 'None'}
     // Additional Notes
     formDataToSend.append('otherNotes', formData.otherNotes);
     
+    // Enhanced security measures
+    // Enhanced security: Add audit information
+
+    formDataToSend.append('securityLevel', 'enhanced');
+    formDataToSend.append('validationStatus', 'passed');
+    formDataToSend.append('submissionTimestamp', new Date().toISOString());
+    
     // Formatted order summary for email
     formDataToSend.append('orderSummary', orderSummary);
+    formDataToSend.append('orderSummaryHTML', professionalHTML);
 
     // Submit to Netlify Forms
     fetch('/', {
