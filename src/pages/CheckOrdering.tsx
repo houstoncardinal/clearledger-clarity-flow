@@ -34,7 +34,6 @@ import {
 import SEO from '@/components/SEO';
 import { getServiceSchema, getBreadcrumbSchema } from '@/utils/schemaMarkup';
 import { 
-  createProfessionalOrderTable, 
   createTextOrderSummary, 
   generateOrderHash, 
   validateOrderData,
@@ -389,12 +388,8 @@ const CheckOrderingContent = () => {
     // Generate secure order hash
     const orderHash = generateOrderHash(orderData);
 
-    // Create professional formatted order summaries
-    const professionalHTML = createProfessionalOrderTable(orderData);
-    const professionalText = createTextOrderSummary(orderData);
-    
-    // Create a simplified summary for backward compatibility
-    const orderSummary = professionalText;
+    // Create professional formatted order summary (text only)
+    const orderSummary = createTextOrderSummary(orderData);
 
     // Create FormData object for Netlify Forms with only essential data and formatted summary
     const formDataToSend = new FormData();
@@ -410,9 +405,8 @@ const CheckOrderingContent = () => {
     formDataToSend.append('securityLevel', 'enhanced');
     formDataToSend.append('submissionTimestamp', new Date().toISOString());
     
-    // Send only the professional formatted summaries
+    // Send only the professional formatted summary
     formDataToSend.append('orderSummary', orderSummary);
-    formDataToSend.append('orderSummaryHTML', professionalHTML);
 
     // Submit to Netlify Forms
     fetch('/', {

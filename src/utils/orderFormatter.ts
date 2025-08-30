@@ -304,10 +304,6 @@ export const createProfessionalOrderTable = (orderData: OrderData): string => {
 
 // Create a professional plain text format for email notifications
 export const createTextOrderSummary = (orderData: OrderData): string => {
-  const maskedRouting = maskSensitiveData(orderData.bank.routingNumber, 'routing');
-  const maskedAccount = maskSensitiveData(orderData.bank.accountNumber, 'account');
-  const maskedPhone = maskSensitiveData(orderData.company.phone, 'phone');
-
   return `
 ╔══════════════════════════════════════════════════════════════╗
 ║                    CUSTOM CHECK ORDER                        ║
@@ -321,14 +317,14 @@ export const createTextOrderSummary = (orderData: OrderData): string => {
 Company Name:    ${orderData.company.name}
 Address:         ${orderData.company.address}
 City, State ZIP: ${orderData.company.city}, ${orderData.company.state} ${orderData.company.zip}
-Phone:           ${maskedPhone}
+Phone:           ${orderData.company.phone}
 
 🏦 BANK INFORMATION
 ────────────────────────────────────────────────────────────────
 Bank Name:           ${orderData.bank.name}
 Bank City:           ${orderData.bank.city || 'N/A'}
-Routing Number:      ${maskedRouting}
-Account Number:      ${maskedAccount}
+Routing Number:      ${orderData.bank.routingNumber}
+Account Number:      ${orderData.bank.accountNumber}
 Starting Check #:    ${orderData.bank.startingCheckNumber}
 
 📄 PRODUCT DETAILS
@@ -367,12 +363,6 @@ ${orderData.notes ? `
 ${orderData.notes}
 ` : ''}
 
-🔒 SECURITY NOTICE
-────────────────────────────────────────────────────────────────
-This order contains sensitive financial information. Bank account details 
-have been masked for security. Full details are only accessible to 
-authorized personnel.
-
 ══════════════════════════════════════════════════════════════════
 ClearLedger Solutions - Professional Custom Check Ordering
 Order processed on ${new Date().toLocaleDateString('en-US', { 
@@ -382,6 +372,12 @@ Order processed on ${new Date().toLocaleDateString('en-US', {
   hour: '2-digit',
   minute: '2-digit'
 })}
+══════════════════════════════════════════════════════════════════
+
+⚠️  CONFIDENTIALITY NOTICE
+══════════════════════════════════════════════════════════════════
+This email contains confidential information intended only for ClearLedger Solutions.
+Please do not forward, copy, or distribute this information to unauthorized parties.
 ══════════════════════════════════════════════════════════════════
   `.trim();
 };
