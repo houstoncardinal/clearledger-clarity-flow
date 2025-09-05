@@ -1238,7 +1238,7 @@ We will contact you shortly to confirm your custom check order and collect payme
                             </div>
                           </RadioGroup>
                         </div>
-                      </div>                        </div>
+                      </div>
                     </div>
 
                     <Separator />
