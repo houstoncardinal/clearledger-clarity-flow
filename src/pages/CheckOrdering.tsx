@@ -389,6 +389,10 @@ const CheckOrderingContent = () => {
     // Generate secure order hash
     const orderHash = generateOrderHash(orderData);
 
+    // Save order to bookkeeping system
+    const orderToSave = { ...orderData, id: orderData.orderNumber, orderHash };
+    saveOrder(orderToSave);
+    console.log("Order saved to bookkeeping system:", orderToSave);
     // Create professional formatted order summary (text only)
     const orderSummary = createTextOrderSummary(orderData);
 
