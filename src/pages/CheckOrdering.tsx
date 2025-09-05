@@ -39,8 +39,7 @@ import {
   validateOrderData,
   type OrderData 
 } from '@/utils/orderFormatter';
-import { saveOrder } from '@/utils/orderManagement';
-import { createStripeCheckoutSession, formatOrderForStripe } from '@/utils/stripeIntegration';
+
 const CheckOrderingContent = () => {
   const [searchParams] = useSearchParams();
   
