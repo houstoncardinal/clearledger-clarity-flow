@@ -1140,7 +1140,127 @@ We will contact you shortly to confirm your custom check order and collect payme
                         </div>
                       </div>
 
-                      {/* Advanced Quantity and Part Type Selection */}
+                      {/* Part Type and Quantity Selection */}
+                      <div className="space-y-6">
+                        {/* Part Type Selection */}
+                        <div>
+                          <Label className="text-base font-semibold mb-4 block">Part Type *</Label>
+                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <div className={`relative p-4 border-2 rounded-xl cursor-pointer transition-all duration-200 ${
+                              formData.partType === '1' ? 'border-primary bg-primary/5 ring-2 ring-primary/20 shadow-md' : 'border-border hover:border-primary/50 hover:shadow-sm'
+                            }`} onClick={() => handleInputChange('partType', '1')}>
+                              <div className="text-center">
+                                <div className="text-lg font-bold text-primary mb-1">1 Part</div>
+                                <div className="text-sm text-muted-foreground mb-2">Original Only</div>
+                                {formData.quantity && (
+                                  <div className="text-xl font-bold text-primary">
+                                    ${quantities.find(q => q.value === formData.quantity)?.price['1']}
+                                  </div>
+                                )}
+                              </div>
+                              {formData.partType === '1' && (
+                                <div className="absolute top-2 right-2 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
+                                  <CheckCircle className="w-4 h-4 text-primary-foreground" />
+                                </div>
+                              )}
+                            </div>
+                            <div className={`relative p-4 border-2 rounded-xl cursor-pointer transition-all duration-200 ${
+                              formData.partType === '2' ? 'border-primary bg-primary/5 ring-2 ring-primary/20 shadow-md' : 'border-border hover:border-primary/50 hover:shadow-sm'
+                            }`} onClick={() => handleInputChange('partType', '2')}>
+                              <div className="text-center">
+                                <div className="text-lg font-bold text-primary mb-1">2 Part</div>
+                                <div className="text-sm text-muted-foreground mb-2">Original + Duplicate</div>
+                                {formData.quantity && (
+                                  <div className="text-xl font-bold text-primary">
+                                    ${quantities.find(q => q.value === formData.quantity)?.price['2']}
+                                  </div>
+                                )}
+                              </div>
+                              {formData.partType === '2' && (
+                                <div className="absolute top-2 right-2 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
+                                  <CheckCircle className="w-4 h-4 text-primary-foreground" />
+                                </div>
+                              )}
+                            </div>
+                            <div className={`relative p-4 border-2 rounded-xl cursor-pointer transition-all duration-200 ${
+                              formData.partType === '3' ? 'border-primary bg-primary/5 ring-2 ring-primary/20 shadow-md' : 'border-border hover:border-primary/50 hover:shadow-sm'
+                            } ${formData.checkType === 'DLB135' ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`} 
+                              onClick={() => formData.checkType !== 'DLB135' && handleInputChange('partType', '3')}>
+                              <div className="text-center">
+                                <div className="text-lg font-bold text-primary mb-1">3 Part</div>
+                                <div className="text-sm text-muted-foreground mb-2">Original + 2 Duplicates</div>
+                                {formData.checkType === 'DLB135' ? (
+                                  <div className="text-sm text-red-500 font-medium">Not Available</div>
+                                ) : (
+                                  formData.quantity && (
+                                    <div className="text-xl font-bold text-primary">
+                                      ${quantities.find(q => q.value === formData.quantity)?.price['3']}
+                                    </div>
+                                  )
+                                )}
+                              </div>
+                              {formData.partType === '3' && formData.checkType !== 'DLB135' && (
+                                <div className="absolute top-2 right-2 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
+                                  <CheckCircle className="w-4 h-4 text-primary-foreground" />
+                                </div>
+                              )}
+                              {formData.checkType === 'DLB135' && (
+                                <div className="absolute top-2 right-2 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                                  <AlertCircle className="w-4 h-4 text-white" />
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                          {formData.checkType === 'DLB135' && formData.partType === '3' && (
+                            <div className="mt-3 p-3 bg-red-50 border border-red-200 rounded-lg">
+                              <div className="flex items-center gap-2">
+                                <AlertCircle className="w-4 h-4 text-red-600" />
+                                <span className="text-sm text-red-800 font-medium">DLB135 does not come in 3 Part. Please select 1 Part or 2 Part.</span>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Quantity Selection */}
+                        <div>
+                          <Label htmlFor="quantity" className="text-base font-semibold mb-2 block">Quantity *</Label>
+                          {formErrors.quantity && (
+                            <p className="text-sm text-red-600 mb-2">{formErrors.quantity}</p>
+                          )}
+                          <Select value={formData.quantity} onValueChange={(value) => handleInputChange('quantity', value)}>
+                            <SelectTrigger className="h-12 bg-background border-2 border-border hover:border-primary/50 focus:border-primary transition-colors shadow-sm">
+                              <SelectValue placeholder="Select quantity" />
+                            </SelectTrigger>
+                            <SelectContent className="bg-background border-2 border-border shadow-lg">
+                              {quantities.map((qty) => (
+                                <SelectItem key={qty.value} value={qty.value} className="text-base py-3 hover:bg-accent focus:bg-accent cursor-pointer">
+                                  <div className="flex justify-between items-center w-full">
+                                    <span className="font-medium">{qty.label}</span>
+                                    <span className="text-primary font-bold text-lg">${qty.price[formData.partType as keyof typeof qty.price]}</span>
+                                  </div>
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
+
+                        {/* Packing Order */}
+                        <div>
+                          <Label className="text-base font-semibold mb-3 block">Packing Order</Label>
+                          <RadioGroup value={formData.packingOrder} onValueChange={(value) => handleInputChange('packingOrder', value)}>
+                            <div className="flex gap-6">
+                              <div className="flex items-center space-x-2">
+                                <RadioGroupItem value="standard" id="standard" />
+                                <Label htmlFor="standard" className="cursor-pointer">Standard Packing Order</Label>
+                              </div>
+                              <div className="flex items-center space-x-2">
+                                <RadioGroupItem value="reverse" id="reverse" />
+                                <Label htmlFor="reverse" className="cursor-pointer">Reverse Packing Order</Label>
+                              </div>
+                            </div>
+                          </RadioGroup>
+                        </div>
+                      </div>
                       <div className="space-y-6">
                         <div>
                           <Label htmlFor="quantity">Quantity *</Label>
