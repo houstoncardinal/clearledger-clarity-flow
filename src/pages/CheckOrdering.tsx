@@ -63,7 +63,6 @@ const CheckOrderingContent = () => {
     checkType: '',
     quantity: '',
     duplicates: false,
-    partType: '1', // 1, 2, or 3 part
     packingOrder: 'standard',
     
     // Additional Items
@@ -183,13 +182,9 @@ const CheckOrderingContent = () => {
     if (!formData.checkType || !formData.quantity) return 0;
     
     const quantity = quantities.find(q => q.value === formData.quantity);
+    const parts = formData.duplicates ? '2' : '1';
     
-    // Handle DLB135 limitation (no 3-part)
-    if (formData.checkType === 'DLB135' && formData.partType === '3') {
-      return 0; // Not available
-    }
-    
-    return quantity?.price[formData.partType as keyof typeof quantity.price] || 0;
+    return quantity?.price[parts as keyof typeof quantity.price] || 0;
   };
 
   const calculateTotal = () => {
@@ -328,8 +323,7 @@ const CheckOrderingContent = () => {
         checkType: formData.checkType,
         checkTypeName: checkTypes.find(t => t.id === formData.checkType)?.name || '',
         quantity: formData.quantity,
-        partType: formData.partType,
-        duplicates: formData.partType !== '1',
+        duplicates: formData.duplicates,
         packingOrder: formData.packingOrder,
         designColor: formData.designColor,
         logoOption: formData.logoOption
@@ -394,10 +388,6 @@ const CheckOrderingContent = () => {
     // Generate secure order hash
     const orderHash = generateOrderHash(orderData);
 
-    // Save order to bookkeeping system
-    const orderToSave = { ...orderData, id: orderData.orderNumber, orderHash };
-    saveOrder(orderToSave);
-    console.log("Order saved to bookkeeping system:", orderToSave);
     // Create professional formatted order summary (text only)
     const orderSummary = createTextOrderSummary(orderData);
 
@@ -486,7 +476,7 @@ We will contact you shortly to confirm your custom check order and collect payme
       checkType: '',
       quantity: '',
       duplicates: false,
-    partType: '1', // 1, 2, or 3 part      packingOrder: 'standard',
+      packingOrder: 'standard',
       envelopes: false,
       envelopeQuantity: '',
       depositForms: false,
@@ -1140,128 +1130,8 @@ We will contact you shortly to confirm your custom check order and collect payme
                         </div>
                       </div>
 
-                      {/* Part Type and Quantity Selection */}
-                      <div className="space-y-6">
-                        {/* Part Type Selection */}
-                        <div>
-                          <Label className="text-base font-semibold mb-4 block">Part Type *</Label>
-                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                            <div className={`relative p-4 border-2 rounded-xl cursor-pointer transition-all duration-200 ${
-                              formData.partType === '1' ? 'border-primary bg-primary/5 ring-2 ring-primary/20 shadow-md' : 'border-border hover:border-primary/50 hover:shadow-sm'
-                            }`} onClick={() => handleInputChange('partType', '1')}>
-                              <div className="text-center">
-                                <div className="text-lg font-bold text-primary mb-1">1 Part</div>
-                                <div className="text-sm text-muted-foreground mb-2">Original Only</div>
-                                {formData.quantity && (
-                                  <div className="text-xl font-bold text-primary">
-                                    ${quantities.find(q => q.value === formData.quantity)?.price['1']}
-                                  </div>
-                                )}
-                              </div>
-                              {formData.partType === '1' && (
-                                <div className="absolute top-2 right-2 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
-                                  <CheckCircle className="w-4 h-4 text-primary-foreground" />
-                                </div>
-                              )}
-                            </div>
-                            <div className={`relative p-4 border-2 rounded-xl cursor-pointer transition-all duration-200 ${
-                              formData.partType === '2' ? 'border-primary bg-primary/5 ring-2 ring-primary/20 shadow-md' : 'border-border hover:border-primary/50 hover:shadow-sm'
-                            }`} onClick={() => handleInputChange('partType', '2')}>
-                              <div className="text-center">
-                                <div className="text-lg font-bold text-primary mb-1">2 Part</div>
-                                <div className="text-sm text-muted-foreground mb-2">Original + Duplicate</div>
-                                {formData.quantity && (
-                                  <div className="text-xl font-bold text-primary">
-                                    ${quantities.find(q => q.value === formData.quantity)?.price['2']}
-                                  </div>
-                                )}
-                              </div>
-                              {formData.partType === '2' && (
-                                <div className="absolute top-2 right-2 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
-                                  <CheckCircle className="w-4 h-4 text-primary-foreground" />
-                                </div>
-                              )}
-                            </div>
-                            <div className={`relative p-4 border-2 rounded-xl cursor-pointer transition-all duration-200 ${
-                              formData.partType === '3' ? 'border-primary bg-primary/5 ring-2 ring-primary/20 shadow-md' : 'border-border hover:border-primary/50 hover:shadow-sm'
-                            } ${formData.checkType === 'DLB135' ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`} 
-                              onClick={() => formData.checkType !== 'DLB135' && handleInputChange('partType', '3')}>
-                              <div className="text-center">
-                                <div className="text-lg font-bold text-primary mb-1">3 Part</div>
-                                <div className="text-sm text-muted-foreground mb-2">Original + 2 Duplicates</div>
-                                {formData.checkType === 'DLB135' ? (
-                                  <div className="text-sm text-red-500 font-medium">Not Available</div>
-                                ) : (
-                                  formData.quantity && (
-                                    <div className="text-xl font-bold text-primary">
-                                      ${quantities.find(q => q.value === formData.quantity)?.price['3']}
-                                    </div>
-                                  )
-                                )}
-                              </div>
-                              {formData.partType === '3' && formData.checkType !== 'DLB135' && (
-                                <div className="absolute top-2 right-2 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
-                                  <CheckCircle className="w-4 h-4 text-primary-foreground" />
-                                </div>
-                              )}
-                              {formData.checkType === 'DLB135' && (
-                                <div className="absolute top-2 right-2 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
-                                  <AlertCircle className="w-4 h-4 text-white" />
-                                </div>
-                              )}
-                            </div>
-                          </div>
-                          {formData.checkType === 'DLB135' && formData.partType === '3' && (
-                            <div className="mt-3 p-3 bg-red-50 border border-red-200 rounded-lg">
-                              <div className="flex items-center gap-2">
-                                <AlertCircle className="w-4 h-4 text-red-600" />
-                                <span className="text-sm text-red-800 font-medium">DLB135 does not come in 3 Part. Please select 1 Part or 2 Part.</span>
-                              </div>
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Quantity Selection */}
-                        <div>
-                          <Label htmlFor="quantity" className="text-base font-semibold mb-2 block">Quantity *</Label>
-                          {formErrors.quantity && (
-                            <p className="text-sm text-red-600 mb-2">{formErrors.quantity}</p>
-                          )}
-                          <Select value={formData.quantity} onValueChange={(value) => handleInputChange('quantity', value)}>
-                            <SelectTrigger className="h-12 bg-background border-2 border-border hover:border-primary/50 focus:border-primary transition-colors shadow-sm">
-                              <SelectValue placeholder="Select quantity" />
-                            </SelectTrigger>
-                            <SelectContent className="bg-background border-2 border-border shadow-lg">
-                              {quantities.map((qty) => (
-                                <SelectItem key={qty.value} value={qty.value} className="text-base py-3 hover:bg-accent focus:bg-accent cursor-pointer">
-                                  <div className="flex justify-between items-center w-full">
-                                    <span className="font-medium">{qty.label}</span>
-                                    <span className="text-primary font-bold text-lg">${qty.price[formData.partType as keyof typeof qty.price]}</span>
-                                  </div>
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
-                        </div>
-
-                        {/* Packing Order */}
-                        <div>
-                          <Label className="text-base font-semibold mb-3 block">Packing Order</Label>
-                          <RadioGroup value={formData.packingOrder} onValueChange={(value) => handleInputChange('packingOrder', value)}>
-                            <div className="flex gap-6">
-                              <div className="flex items-center space-x-2">
-                                <RadioGroupItem value="standard" id="standard" />
-                                <Label htmlFor="standard" className="cursor-pointer">Standard Packing Order</Label>
-                              </div>
-                              <div className="flex items-center space-x-2">
-                                <RadioGroupItem value="reverse" id="reverse" />
-                                <Label htmlFor="reverse" className="cursor-pointer">Reverse Packing Order</Label>
-                              </div>
-                            </div>
-                          </RadioGroup>
-                        </div>
-                      </div>
-                      <div className="space-y-6">
+                      {/* Quantity and Options */}
+                      <div className="space-y-4">
                         <div>
                           <Label htmlFor="quantity">Quantity *</Label>
                           {formErrors.quantity && (
@@ -1276,74 +1146,13 @@ We will contact you shortly to confirm your custom check order and collect payme
                                 <SelectItem key={qty.value} value={qty.value} className="text-base py-3 hover:bg-accent focus:bg-accent cursor-pointer">
                                   <div className="flex justify-between items-center w-full">
                                     <span className="font-medium">{qty.label}</span>
-                                    <span className="text-primary font-semibold">${qty.price[formData.partType as keyof typeof qty.price]}</span>
+                                    <span className="text-primary font-semibold">${qty.price[formData.duplicates ? '2' : '1']}</span>
                                   </div>
                                 </SelectItem>
                               ))}
                             </SelectContent>
                           </Select>
                         </div>
-
-                        <div>
-                          <Label>Part Type *</Label>
-                          <RadioGroup value={formData.partType} onValueChange={(value) => handleInputChange('partType', value)}>
-                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                              <div className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
-                                formData.partType === '1' ? 'border-primary bg-primary/5 ring-2 ring-primary/20' : 'border-border hover:border-primary/50'
-                              }`} onClick={() => handleInputChange('partType', '1')}>
-                                <div className="text-center">
-                                  <div className="text-lg font-semibold text-primary mb-1">1 Part</div>
-                                  <div className="text-sm text-muted-foreground">Original Only</div>
-                                  {formData.quantity && (
-                                    <div className="text-lg font-bold text-primary mt-2">
-                                      ${quantities.find(q => q.value === formData.quantity)?.price['1']}
-                                    </div>
-                                  )}
-                                </div>
-                              </div>
-                              <div className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
-                                formData.partType === '2' ? 'border-primary bg-primary/5 ring-2 ring-primary/20' : 'border-border hover:border-primary/50'
-                              }`} onClick={() => handleInputChange('partType', '2')}>
-                                <div className="text-center">
-                                  <div className="text-lg font-semibold text-primary mb-1">2 Part</div>
-                                  <div className="text-sm text-muted-foreground">Original + Duplicate</div>
-                                  {formData.quantity && (
-                                    <div className="text-lg font-bold text-primary mt-2">
-                                      ${quantities.find(q => q.value === formData.quantity)?.price['2']}
-                                    </div>
-                                  )}
-                                </div>
-                              </div>
-                              <div className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
-                                formData.partType === '3' ? 'border-primary bg-primary/5 ring-2 ring-primary/20' : 'border-border hover:border-primary/50'
-                              } ${formData.checkType === 'DLB135' ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`} 
-                                onClick={() => formData.checkType !== 'DLB135' && handleInputChange('partType', '3')}>
-                                <div className="text-center">
-                                  <div className="text-lg font-semibold text-primary mb-1">3 Part</div>
-                                  <div className="text-sm text-muted-foreground">Original + 2 Duplicates</div>
-                                  {formData.checkType === 'DLB135' ? (
-                                    <div className="text-sm text-red-500 mt-2 font-medium">Not Available</div>
-                                  ) : (
-                                    formData.quantity && (
-                                      <div className="text-lg font-bold text-primary mt-2">
-                                        ${quantities.find(q => q.value === formData.quantity)?.price['3']}
-                                      </div>
-                                    )
-                                  )}
-                                </div>
-                              </div>
-                            </div>
-                          </RadioGroup>
-                          {formData.checkType === 'DLB135' && formData.partType === '3' && (
-                            <div className="mt-2 p-3 bg-red-50 border border-red-200 rounded-lg">
-                              <div className="flex items-center gap-2">
-                                <AlertCircle className="w-4 h-4 text-red-600" />
-                                <span className="text-sm text-red-800 font-medium">DLB135 does not come in 3 Part. Please select 1 Part or 2 Part.</span>
-                              </div>
-                            </div>
-                          )}
-                        </div>
-
                         <div>
                           <Label>Packing Order</Label>
                           <RadioGroup value={formData.packingOrder} onValueChange={(value) => handleInputChange('packingOrder', value)}>
@@ -1360,6 +1169,15 @@ We will contact you shortly to confirm your custom check order and collect payme
                           </RadioGroup>
                         </div>
                       </div>
+
+                                              <div className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-accent/50 transition-colors">
+                          <Checkbox 
+                            id="duplicates" 
+                            checked={formData.duplicates}
+                            onCheckedChange={(checked) => handleInputChange('duplicates', checked)}
+                          />
+                          <Label htmlFor="duplicates" className="cursor-pointer">Include Duplicates (2-Part or 3-Part)</Label>
+                        </div>
                     </div>
 
                     <Separator />
@@ -1871,7 +1689,7 @@ We will contact you shortly to confirm your custom check order and collect payme
                             </h4>
                             <p className="text-sm text-muted-foreground">
                               {formData.quantity} checks
-                              ({formData.partType} Part)
+                              {formData.duplicates && ' (with duplicates)'}
                             </p>
                           </div>
                         </div>
