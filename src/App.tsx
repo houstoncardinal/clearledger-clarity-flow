@@ -45,7 +45,7 @@ const AppContent = () => {
       <Route path="/monthly-management" element={<MonthlyManagement />} />
       <Route path="/billing-accounts-payable" element={<BillingAccountsPayable />} />
       <Route path="/cleanup-advisory" element={<CleanupAdvisory />} />
-      <Route path="/check-ordering" element={<EnhancedCheckOrdering />} />
+      <Route path="/check-ordering" element={<CheckOrdering />} />
       <Route path="/admin" element={<Admin />} />
       <Route path="/bookkeeping" element={<Bookkeeping />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
