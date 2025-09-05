@@ -2112,32 +2112,4 @@ We will contact you shortly to confirm your custom check order and collect payme
   );
 };
 
-const CheckOrdering = () => {
-  const breadcrumbData = [
-    { name: 'Home', url: '/' },
-    { name: 'Services', url: '/services' },
-    { name: 'Check Ordering', url: './check-ordering' }
-  ];
-
-  return (
-    <main className="min-h-screen bg-background overflow-x-hidden">
-      <SEO 
-        title="Custom Check Ordering - ClearLedger Solutions"
-        description="Order custom business checks with professional security features. QuickBooks and Sage 100 Contractor compatible. Free personalization and logo options available."
-        keywords="custom business checks, QuickBooks checks, Sage 100 checks, check ordering, business checks, laser checks, check printing"
-        canonical="./check-ordering"
-        schema={[
-          getServiceSchema("Custom Check Ordering", "Professional custom business checks with security features"),
-          getBreadcrumbSchema(breadcrumbData)
-        ]}
-      />
-      <Header />
-      <div className="pt-20">
-        <CheckOrderingContent />
-      </div>
-      <Footer />
-    </main>
-  );
-};
-
-export default CheckOrdering; 
+export default CheckOrdering;
