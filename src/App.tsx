@@ -1,4 +1,5 @@
 import { Toaster } from "@/components/ui/toaster";
+import { CartProvider } from "@/contexts/CartContext";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -19,7 +20,9 @@ import MonthlyManagement from "./pages/MonthlyManagement";
 import BillingAccountsPayable from "./pages/BillingAccountsPayable";
 import CleanupAdvisory from "./pages/CleanupAdvisory";
 import CheckOrdering from "./pages/CheckOrdering";
+import EnhancedCheckOrdering from "./pages/EnhancedCheckOrdering";
 import Admin from "./pages/Admin";
+import Bookkeeping from "./pages/Bookkeeping";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
@@ -42,8 +45,9 @@ const AppContent = () => {
       <Route path="/monthly-management" element={<MonthlyManagement />} />
       <Route path="/billing-accounts-payable" element={<BillingAccountsPayable />} />
       <Route path="/cleanup-advisory" element={<CleanupAdvisory />} />
-      <Route path="/check-ordering" element={<CheckOrdering />} />
+      <Route path="/check-ordering" element={<EnhancedCheckOrdering />} />
       <Route path="/admin" element={<Admin />} />
+      <Route path="/bookkeeping" element={<Bookkeeping />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms-of-service" element={<TermsOfService />} />
       <Route path="/cookie-policy" element={<CookiePolicy />} />
@@ -58,6 +62,7 @@ const App = () => (
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
         <TooltipProvider>
+            <CartProvider>
           <Toaster />
           <Sonner />
           <BrowserRouter>
@@ -66,6 +71,7 @@ const App = () => (
             </div>
             <MobileToolbar />
           </BrowserRouter>
+                    </CartProvider>
         </TooltipProvider>
       </HelmetProvider>
     </QueryClientProvider>

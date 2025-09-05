@@ -6,7 +6,6 @@ import {
   DollarSign, 
   FileText, 
   Settings, 
-  LogOut, 
   Bell, 
   Search,
   Calendar,
@@ -100,8 +99,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Progress } from '@/components/ui/progress';
 import ContentCreationModal from '@/components/ContentCreationModal';
 import ClientManagement from '@/components/ClientManagement';
-import { getBookkeepingOrders, getOrderStatistics } from '@/utils/bookkeepingData';
-import AdvancedBookkeepingDashboard from '@/components/AdvancedBookkeepingDashboard';
 import { 
   LineChart as RechartsLineChart, 
   Line, 
@@ -410,10 +407,7 @@ const Admin = () => {
               </Button>
               <Button variant="outline" size="sm">
                 <Settings className="w-4 h-4" />
-              <Button variant="outline" size="sm" onClick={() => window.location.href = '/'}>
-                <LogOut className="w-4 h-4 mr-2" />
-                Exit
-              </Button>              </Button>
+              </Button>
             </div>
           </div>
         </div>
@@ -428,7 +422,6 @@ const Admin = () => {
               'clients', 
               'content-calendar', 
               'analytics', 
-              'bookkeeping', 
               'invoices', 
               'social-media', 
               'reports', 
@@ -952,20 +945,6 @@ const Admin = () => {
         {/* Client Management */}
         {activeTab === 'clients' && <ClientManagement />}
 
-        {/* Bookkeeping Management */}
-        {activeTab === 'bookkeeping' && (
-          <div className="space-y-6">
-            <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold text-foreground">Bookkeeping Dashboard</h2>
-              <Button>
-                <Plus className="w-4 h-4 mr-2" />
-                New Order
-              </Button>
-            </div>
-            
-            <AdvancedBookkeepingDashboard />
-          </div>
-        )}
         {activeTab === 'reports' && (
           <div className="space-y-6">
             <div className="flex items-center justify-between">
