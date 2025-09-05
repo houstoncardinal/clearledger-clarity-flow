@@ -63,7 +63,8 @@ const CheckOrderingContent = () => {
     checkType: '',
     quantity: '',
     duplicates: false,
-    partType: '1', // 1, 2, or 3 part    packingOrder: 'standard',
+    partType: '1', // 1, 2, or 3 part
+    packingOrder: 'standard',
     
     // Additional Items
     envelopes: false,
@@ -189,7 +190,7 @@ const CheckOrderingContent = () => {
     }
     
     return quantity?.price[formData.partType as keyof typeof quantity.price] || 0;
-  };  };
+  };
 
   const calculateTotal = () => {
     let total = calculatePrice();
