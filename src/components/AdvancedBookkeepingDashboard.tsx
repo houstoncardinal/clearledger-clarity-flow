@@ -760,4 +760,233 @@ const AdvancedBookkeepingDashboard = () => {
   );
 };
 
-export default AdvancedBookkeepingDashboard;
+  {/* Order Detail Modal */}
+  {selectedOrder && (
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+      <div className="bg-background rounded-lg p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-bold text-foreground">Order Details - {selectedOrder.id}</h2>
+          <Button variant="outline" onClick={() => setSelectedOrder(null)}>
+            <XCircle className="w-4 h-4 mr-2" />
+            Close
+          </Button>
+        </div>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Order Information */}
+          <div className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Building2 className="w-5 h-5" />
+                  Company Information
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div>
+                  <Label className="text-sm font-medium text-muted-foreground">Company Name</Label>
+                  <p className="text-foreground font-medium">{selectedOrder.company.name}</p>
+                </div>
+                <div>
+                  <Label className="text-sm font-medium text-muted-foreground">Address</Label>
+                  <p className="text-foreground">{selectedOrder.company.address}</p>
+                  <p className="text-foreground">{selectedOrder.company.city}, {selectedOrder.company.state} {selectedOrder.company.zip}</p>
+                </div>
+                <div>
+                  <Label className="text-sm font-medium text-muted-foreground">Phone</Label>
+                  <p className="text-foreground">{selectedOrder.company.phone}</p>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <CreditCard className="w-5 h-5" />
+                  Bank Information
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div>
+                  <Label className="text-sm font-medium text-muted-foreground">Bank Name</Label>
+                  <p className="text-foreground font-medium">{selectedOrder.bank.name}</p>
+                </div>
+                <div>
+                  <Label className="text-sm font-medium text-muted-foreground">Bank City</Label>
+                  <p className="text-foreground">{selectedOrder.bank.city}</p>
+                </div>
+                <div>
+                  <Label className="text-sm font-medium text-muted-foreground">Routing Number</Label>
+                  <p className="text-foreground font-mono">{selectedOrder.bank.routingNumber}</p>
+                </div>
+                <div>
+                  <Label className="text-sm font-medium text-muted-foreground">Account Number</Label>
+                  <p className="text-foreground font-mono">{selectedOrder.bank.accountNumber}</p>
+                </div>
+                <div>
+                  <Label className="text-sm font-medium text-muted-foreground">Starting Check Number</Label>
+                  <p className="text-foreground font-mono">{selectedOrder.bank.startingCheckNumber}</p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          
+          {/* Product & Pricing Information */}
+          <div className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Package className="w-5 h-5" />
+                  Product Details
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div>
+                  <Label className="text-sm font-medium text-muted-foreground">Check Type</Label>
+                  <p className="text-foreground font-medium">{selectedOrder.product.checkTypeName}</p>
+                </div>
+                <div>
+                  <Label className="text-sm font-medium text-muted-foreground">Quantity</Label>
+                  <p className="text-foreground">{selectedOrder.product.quantity} checks</p>
+                </div>
+                <div>
+                  <Label className="text-sm font-medium text-muted-foreground">Duplicates</Label>
+                  <p className="text-foreground">{selectedOrder.product.duplicates ? 'Yes' : 'No'}</p>
+                </div>
+                <div>
+                  <Label className="text-sm font-medium text-muted-foreground">Packing Order</Label>
+                  <p className="text-foreground capitalize">{selectedOrder.product.packingOrder}</p>
+                </div>
+                <div>
+                  <Label className="text-sm font-medium text-muted-foreground">Design Color</Label>
+                  <p className="text-foreground capitalize">{selectedOrder.product.designColor}</p>
+                </div>
+                <div>
+                  <Label className="text-sm font-medium text-muted-foreground">Logo Option</Label>
+                  <p className="text-foreground capitalize">{selectedOrder.product.logoOption}</p>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <DollarSign className="w-5 h-5" />
+                  Pricing Breakdown
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Base Price:</span>
+                  <span className="text-foreground">${selectedOrder.pricing.basePrice}</span>
+                </div>
+                {selectedOrder.pricing.premiumColorUpcharge > 0 && (
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Premium Color:</span>
+                    <span className="text-foreground">+${selectedOrder.pricing.premiumColorUpcharge}</span>
+                  </div>
+                )}
+                {selectedOrder.additionalItems.envelopes && (
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Envelopes ({selectedOrder.additionalItems.envelopes.quantity}):</span>
+                    <span className="text-foreground">${selectedOrder.additionalItems.envelopes.price}</span>
+                  </div>
+                )}
+                {selectedOrder.additionalItems.depositForms && (
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Deposit Forms ({selectedOrder.additionalItems.depositForms.quantity}):</span>
+                    <span className="text-foreground">${selectedOrder.additionalItems.depositForms.price}</span>
+                  </div>
+                )}
+                {selectedOrder.additionalItems.taxForms && (
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Tax Forms ({selectedOrder.additionalItems.taxForms.formName}):</span>
+                    <span className="text-foreground">Contact for pricing</span>
+                  </div>
+                )}
+                <div className="border-t pt-3 mt-3">
+                  <div className="flex justify-between text-lg font-bold">
+                    <span className="text-foreground">Total Price:</span>
+                    <span className="text-primary">${selectedOrder.pricing.totalPrice}</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Clock className="w-5 h-5" />
+                  Order Status & Timeline
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground">Status:</span>
+                  <Badge className={getStatusColor(selectedOrder.status)}>
+                    <StatusIcon className="w-3 h-3 mr-1" />
+                    {selectedOrder.status}
+                  </Badge>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground">Priority:</span>
+                  <Badge variant="outline" className={selectedOrder.priority === 'high' ? 'border-red-500 text-red-500' : selectedOrder.priority === 'medium' ? 'border-yellow-500 text-yellow-500' : 'border-green-500 text-green-500'}>
+                    {selectedOrder.priority}
+                  </Badge>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground">Order Date:</span>
+                  <span className="text-foreground">{new Date(selectedOrder.orderDate).toLocaleDateString()}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground">Last Updated:</span>
+                  <span className="text-foreground">{new Date(selectedOrder.updatedAt).toLocaleDateString()}</span>
+                </div>
+                {selectedOrder.assignedTo && (
+                  <div className="flex items-center justify-between">
+                    <span className="text-muted-foreground">Assigned To:</span>
+                    <span className="text-foreground">{selectedOrder.assignedTo}</span>
+                  </div>
+                )}
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground">Tags:</span>
+                  <div className="flex flex-wrap gap-1">
+                    {selectedOrder.tags.map((tag) => (
+                      <Badge key={tag} variant="secondary" className="text-xs">
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+                {selectedOrder.notes && (
+                  <div>
+                    <Label className="text-sm font-medium text-muted-foreground">Notes:</Label>
+                    <p className="text-foreground mt-1 p-3 bg-accent/20 rounded-lg">{selectedOrder.notes}</p>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+        
+        {/* Action Buttons */}
+        <div className="flex justify-end gap-3 mt-6 pt-6 border-t">
+          <Button variant="outline" onClick={() => setSelectedOrder(null)}>
+            Close
+          </Button>
+          <Button variant="outline">
+            <Download className="w-4 h-4 mr-2" />
+            Export PDF
+          </Button>
+          <Button variant="outline">
+            <Edit className="w-4 h-4 mr-2" />
+            Edit Order
+          </Button>
+          <Button>
+            <CheckCircle className="w-4 h-4 mr-2" />
+            Update Status
+          </Button>
+        </div>
+      </div>
+    </div>
+  )}export default AdvancedBookkeepingDashboard;
