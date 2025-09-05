@@ -34,13 +34,13 @@ import {
 import SEO from '@/components/SEO';
 import { getServiceSchema, getBreadcrumbSchema } from '@/utils/schemaMarkup';
 import { 
+  createProfessionalOrderTable, 
   createTextOrderSummary, 
   generateOrderHash, 
   validateOrderData,
   type OrderData 
 } from '@/utils/orderFormatter';
-import { saveOrder } from '@/utils/orderManagement';
-import { createStripeCheckoutSession, formatOrderForStripe } from '@/utils/stripeIntegration';
+
 const CheckOrderingContent = () => {
   const [searchParams] = useSearchParams();
   
@@ -52,6 +52,7 @@ const CheckOrderingContent = () => {
     state: '',
     zip: '',
     phoneNumber: '',
+    faxNumber: '',
     
     // Bank Information
     bankName: '',
@@ -300,15 +301,16 @@ const CheckOrderingContent = () => {
       orderDate: new Date().toISOString(),
       orderNumber: `CHK-${Date.now()}`,
       
-          // Company Information
-    company: {
-      name: formData.companyName,
-      address: formData.companyAddress || '',
-      city: formData.city || '',
-      state: formData.state || '',
-      zip: formData.zip || '',
-      phone: formData.phoneNumber || ''
-    },
+      // Company Information
+      company: {
+        name: formData.companyName,
+        address: formData.companyAddress || '',
+        city: formData.city || '',
+        state: formData.state || '',
+        zip: formData.zip || '',
+        phone: formData.phoneNumber || '',
+        fax: formData.faxNumber || ''
+      },
       
       // Bank Information
       bank: {
@@ -393,25 +395,75 @@ const CheckOrderingContent = () => {
     const orderToSave = { ...orderData, id: orderData.orderNumber, orderHash };
     saveOrder(orderToSave);
     console.log("Order saved to bookkeeping system:", orderToSave);
-    // Create professional formatted order summary (text only)
-    const orderSummary = createTextOrderSummary(orderData);
+    // Create professional formatted order summaries
+    const professionalHTML = createProfessionalOrderTable(orderData);
+    const professionalText = createTextOrderSummary(orderData);
+    
+    // Create a simplified summary for backward compatibility
+    const orderSummary = professionalText;
 
-    // Create FormData object for Netlify Forms with only essential data and formatted summary
+    // Create FormData object for Netlify Forms with all order details
     const formDataToSend = new FormData();
     formDataToSend.append('form-name', 'check-ordering');
     
-    // Only send essential order information
+    // Company Information
+    formDataToSend.append('companyName', formData.companyName);
+    formDataToSend.append('companyAddress', formData.companyAddress || '');
+    formDataToSend.append('city', formData.city || '');
+    formDataToSend.append('state', formData.state || '');
+    formDataToSend.append('zip', formData.zip || '');
+    formDataToSend.append('phoneNumber', formData.phoneNumber || '');
+    formDataToSend.append('faxNumber', formData.faxNumber || '');
+    
+    // Bank Information
+    formDataToSend.append('bankName', formData.bankName);
+    formDataToSend.append('bankCity', formData.bankCity || '');
+    formDataToSend.append('routingNumber', formData.routingNumber);
+    formDataToSend.append('accountNumber', formData.accountNumber);
+    formDataToSend.append('startingCheckNumber', formData.startingCheckNumber || '');
+    
+    // Product Details
+    formDataToSend.append('checkType', formData.checkType);
+    formDataToSend.append('checkTypeName', orderData.product.checkTypeName);
+    formDataToSend.append('quantity', formData.quantity);
+    formDataToSend.append('duplicates', formData.duplicates ? 'Yes' : 'No');
+    formDataToSend.append('packingOrder', formData.packingOrder);
+    formDataToSend.append('designColor', formData.designColor);
+    formDataToSend.append('designColorName', [...standardColors, ...premiumColors].find(c => c.value === formData.designColor)?.name || 'N/A');
+    formDataToSend.append('logoOption', formData.logoOption);
+    
+    // Additional Items
+    formDataToSend.append('envelopes', formData.envelopes ? 'Yes' : 'No');
+    formDataToSend.append('envelopeQuantity', formData.envelopeQuantity);
+    formDataToSend.append('envelopePrice', orderData.pricing.envelopePrice.toString());
+    formDataToSend.append('depositForms', formData.depositForms ? 'Yes' : 'No');
+    formDataToSend.append('depositFormQuantity', formData.depositFormQuantity);
+    formDataToSend.append('depositFormDuplicates', formData.depositFormDuplicates ? 'Yes' : 'No');
+    formDataToSend.append('depositFormPrice', orderData.pricing.depositFormPrice.toString());
+    formDataToSend.append('taxForms', formData.taxForms ? 'Yes' : 'No');
+    formDataToSend.append('taxFormName', formData.taxFormName);
+    formDataToSend.append('taxFormQuantity', formData.taxFormQuantity);
+    
+    // Pricing
+    formDataToSend.append('basePrice', orderData.pricing.basePrice.toString());
+    formDataToSend.append('premiumColorUpcharge', orderData.pricing.premiumColorUpcharge.toString());
+    formDataToSend.append('totalPrice', orderData.pricing.totalPrice.toString());
     formDataToSend.append('orderNumber', orderData.orderNumber);
     formDataToSend.append('orderDate', orderData.orderDate);
-    formDataToSend.append('totalPrice', orderData.pricing.totalPrice.toString());
+    
+    // Additional Notes
+    formDataToSend.append('otherNotes', formData.otherNotes);
     
     // Enhanced security measures
-    formDataToSend.append('orderHash', orderHash);
+    // Enhanced security: Add audit information
+
     formDataToSend.append('securityLevel', 'enhanced');
+    formDataToSend.append('validationStatus', 'passed');
     formDataToSend.append('submissionTimestamp', new Date().toISOString());
     
-    // Send only the professional formatted summary
+    // Formatted order summary for email
     formDataToSend.append('orderSummary', orderSummary);
+    formDataToSend.append('orderSummaryHTML', professionalHTML);
 
     // Submit to Netlify Forms
     fetch('/', {
@@ -472,7 +524,8 @@ We will contact you shortly to confirm your custom check order and collect payme
       city: '',
       state: '',
       zip: '',
-          phoneNumber: '',
+      phoneNumber: '',
+      faxNumber: '',
       bankName: '',
       bankCity: '',
       routingNumber: '',
@@ -791,15 +844,27 @@ We will contact you shortly to confirm your custom check order and collect payme
                           />
                           </div>
                         </div>
-                        <div>
-                          <Label htmlFor="phoneNumber">Phone Number to Print</Label>
-                          <Input
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          <div>
+                            <Label htmlFor="phoneNumber">Phone Number to Print</Label>
+                                                      <Input
                             id="phoneNumber"
                             value={formData.phoneNumber}
                             onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
                             className="h-10 sm:h-12 text-sm sm:text-base"
                             placeholder="Enter phone number"
                           />
+                          </div>
+                          <div>
+                            <Label htmlFor="faxNumber">Fax Number to Print</Label>
+                                                      <Input
+                            id="faxNumber"
+                            value={formData.faxNumber}
+                            onChange={(e) => handleInputChange('faxNumber', e.target.value)}
+                            className="h-10 sm:h-12 text-sm sm:text-base"
+                            placeholder="Enter fax number"
+                          />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1634,7 +1699,7 @@ We will contact you shortly to confirm your custom check order and collect payme
                               variant="outline" 
                               size="sm" 
                               className="w-full text-blue-700 border-blue-300"
-                              onClick={() => window.location.href = 'tel:(903) 815-9488'}
+                              onClick={() => window.location.href = 'tel:+1-713-555-0123'}
                             >
                               <Phone className="w-4 h-4 mr-2" />
                               Call for Help
@@ -1643,7 +1708,7 @@ We will contact you shortly to confirm your custom check order and collect payme
                               variant="outline" 
                               size="sm" 
                               className="w-full text-blue-700 border-blue-300"
-                              onClick={() => window.location.href = 'mailto:admin@yourclearledger.com'}
+                              onClick={() => window.location.href = 'mailto:support@clearledger.com'}
                             >
                               <Mail className="w-4 h-4 mr-2" />
                               Email Support
