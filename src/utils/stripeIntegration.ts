@@ -42,16 +42,13 @@ export const createStripeCheckoutSession = async (orderData: StripeOrderData) =>
       throw new Error(session.error);
     }
 
-    // Redirect to Stripe Checkout
-    const result = await stripe.redirectToCheckout({
-      sessionId: session.id,
-    });
-
-    if (result.error) {
-      throw new Error(result.error.message);
+    // Redirect to Stripe Checkout using the session URL
+    if (session.url) {
+      window.location.href = session.url;
+      return { success: true };
+    } else {
+      throw new Error('No checkout URL returned from session');
     }
-
-    return result;
   } catch (error) {
     console.error('Stripe checkout error:', error);
     throw error;

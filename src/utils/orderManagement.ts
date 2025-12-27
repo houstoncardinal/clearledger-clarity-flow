@@ -2,6 +2,9 @@
 import { OrderData } from './orderFormatter';
 import { BookkeepingOrder } from './bookkeepingData';
 
+// Re-export BookkeepingOrder for components that import from here
+export type { BookkeepingOrder };
+
 export interface OrderStatus {
   id: string;
   status: 'pending' | 'processing' | 'completed' | 'cancelled' | 'paid' | 'shipped';
@@ -159,7 +162,7 @@ export const getOrderStatistics = () => {
   const pendingOrders = orders.filter(order => order.status === 'pending').length;
   const processingOrders = orders.filter(order => order.status === 'processing').length;
   const completedOrders = orders.filter(order => order.status === 'completed').length;
-  const paidOrders = orders.filter(order => order.status === 'paid').length;
+  const paidOrders = orders.filter(order => order.status === 'completed').length;
   
   const totalRevenue = orders.reduce((sum, order) => sum + order.pricing.totalPrice, 0);
   const paidRevenue = payments
