@@ -302,11 +302,11 @@ export const products: Product[] = [
     pricing: {
       basePrice: 165,
       quantityPricing: [
-        { quantity: 250, onePart: 85 },
-        { quantity: 500, onePart: 106 },
-        { quantity: 1000, onePart: 165 },
-        { quantity: 1500, onePart: 229 },
-        { quantity: 2000, onePart: 292 }
+        { quantity: 250, onePart: 85, twoPart: 85 },
+        { quantity: 500, onePart: 106, twoPart: 106 },
+        { quantity: 1000, onePart: 165, twoPart: 165 },
+        { quantity: 1500, onePart: 229, twoPart: 229 },
+        { quantity: 2000, onePart: 292, twoPart: 292 }
       ],
       premiumOptions: [
         { name: 'Custom Printing', price: 30, description: 'Custom company printing' },
@@ -350,11 +350,11 @@ export const products: Product[] = [
     pricing: {
       basePrice: 81,
       quantityPricing: [
-        { quantity: 150, onePart: 52 },
-        { quantity: 300, onePart: 81 },
-        { quantity: 600, onePart: 130 },
-        { quantity: 1200, onePart: 200 },
-        { quantity: 2400, onePart: 308 }
+        { quantity: 150, onePart: 52, twoPart: 52 },
+        { quantity: 300, onePart: 81, twoPart: 81 },
+        { quantity: 600, onePart: 130, twoPart: 130 },
+        { quantity: 1200, onePart: 200, twoPart: 200 },
+        { quantity: 2400, onePart: 308, twoPart: 308 }
       ],
       premiumOptions: [
         { name: 'Custom Fields', price: 20, description: 'Add custom fields' },
