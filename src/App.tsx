@@ -27,6 +27,14 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
 import NotFound from "./pages/NotFound";
+// Location Pages
+import OklahomaBookkeeping from "./pages/locations/OklahomaBookkeeping";
+import TexasBookkeeping from "./pages/locations/TexasBookkeeping";
+import FloridaBookkeeping from "./pages/locations/FloridaBookkeeping";
+import NewMexicoBookkeeping from "./pages/locations/NewMexicoBookkeeping";
+import PanamaBookkeeping from "./pages/locations/PanamaBookkeeping";
+// Industry Pages
+import GolfCourseBookkeeping from "./pages/industries/GolfCourseBookkeeping";
 
 const queryClient = new QueryClient();
 
