@@ -1,5 +1,6 @@
 import { Toaster } from "@/components/ui/toaster";
 import { CartProvider } from "@/contexts/CartContext";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -70,16 +71,18 @@ const App = () => (
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
         <TooltipProvider>
+          <LanguageProvider>
             <CartProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <div className="w-full overflow-x-hidden">
-              <AppContent />
-            </div>
-            <MobileToolbar />
-          </BrowserRouter>
-                    </CartProvider>
+              <Toaster />
+              <Sonner />
+              <BrowserRouter>
+                <div className="w-full overflow-x-hidden">
+                  <AppContent />
+                </div>
+                <MobileToolbar />
+              </BrowserRouter>
+            </CartProvider>
+          </LanguageProvider>
         </TooltipProvider>
       </HelmetProvider>
     </QueryClientProvider>

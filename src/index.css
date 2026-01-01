@@ -1,72 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ClearLedger Premium Design System - Conversion-focused branding */
+/* ClearLedger Enterprise Design System - Premium, conversion-focused branding */
 
 @layer base {
   :root {
-    /* ClearLedger Brand Colors */
+    /* ClearLedger Brand Colors - Refined palette */
     --primary: 285 72% 66%;        /* #CB6CE6 - Primary Purple */
     --primary-dark: 285 36% 46%;   /* #8E4BA1 - Secondary Purple */
     --primary-foreground: 0 0% 100%;
+    --primary-glow: 285 72% 75%;   /* Lighter glow variant */
     
     /* Sophisticated Neutrals */
     --background: 0 0% 100%;
-    --foreground: 0 0% 0%;         /* Pure black */
+    --foreground: 220 14% 10%;     /* Rich dark gray instead of pure black */
     
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%;
+    --card-foreground: 220 14% 10%;
     
     --secondary: 240 5% 96%;       /* Light gray */
-    --secondary-foreground: 0 0% 0%;
+    --secondary-foreground: 220 14% 10%;
     
     --muted: 240 4% 94%;
-    --muted-foreground: 240 4% 46%;
+    --muted-foreground: 220 9% 46%;
     
-    --accent: 285 72% 95%;         /* Very light purple */
-    --accent-foreground: 285 36% 46%;
+    --accent: 285 72% 97%;         /* Very light purple */
+    --accent-foreground: 285 36% 36%;
     
     --border: 240 6% 90%;
     --input: 240 6% 90%;
     --ring: 285 72% 66%;
     
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
     /* Premium Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(285, 72%, 66%), hsl(285, 36%, 46%));
     --gradient-subtle: linear-gradient(180deg, hsl(0, 0%, 100%), hsl(240, 5%, 98%));
     --gradient-hero: linear-gradient(135deg, hsl(285, 72%, 66%) 0%, hsl(285, 36%, 46%) 50%, hsl(240, 20%, 20%) 100%);
+    --gradient-shine: linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.2), transparent);
+    --gradient-enterprise: linear-gradient(135deg, hsl(285, 72%, 66%) 0%, hsl(270, 60%, 50%) 50%, hsl(285, 36%, 46%) 100%);
     
     /* Shadows & Effects */
-    --shadow-premium: 0 4px 24px -4px hsl(285, 72%, 66% / 0.12);
-    --shadow-card: 0 2px 12px -4px hsl(240, 4%, 46% / 0.08);
-    --shadow-button: 0 2px 8px -2px hsl(285, 72%, 66% / 0.2);
+    --shadow-premium: 0 4px 24px -4px hsl(285, 72%, 66% / 0.15);
+    --shadow-card: 0 2px 12px -4px hsl(220, 14%, 46% / 0.08);
+    --shadow-button: 0 4px 14px -3px hsl(285, 72%, 66% / 0.25);
+    --shadow-elevated: 0 8px 30px -8px hsl(220, 14%, 10% / 0.12);
+    --shadow-glow: 0 0 40px hsl(285, 72%, 66% / 0.15);
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-spring: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    --radius: 8px;
+    --radius: 12px;
 
     /* Custom animations for mobile toolbar */
     --bounce-in: cubic-bezier(0.68, -0.55, 0.265, 1.55);
     --elastic-out: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -157,43 +160,97 @@
 }
 
 @layer base {
-  /* Premium Typography */
+  /* Enterprise Premium Typography */
   .font-heading {
     font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight: 600;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
   }
 
   .font-body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight: 400;
+    line-height: 1.6;
   }
 
-  /* Premium Components */
+  .font-display {
+    font-family: 'DM Sans', 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+  }
+
+  /* Enterprise Premium Buttons */
   .btn-primary {
-    @apply bg-gradient-to-r from-primary to-primary-dark text-primary-foreground font-medium px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+    @apply relative overflow-hidden bg-gradient-to-r from-primary to-primary-dark text-primary-foreground font-semibold px-7 py-3.5 rounded-xl transition-all duration-300 hover:shadow-button hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-shine);
+    transition: left 0.5s ease;
+  }
+
+  .btn-primary:hover::before {
+    left: 100%;
   }
 
   .btn-secondary {
-    @apply bg-secondary text-secondary-foreground border border-border font-medium px-6 py-3 rounded-lg transition-all duration-300 hover:bg-muted hover:shadow-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+    @apply bg-background text-foreground border-2 border-border font-semibold px-7 py-3.5 rounded-xl transition-all duration-300 hover:bg-accent hover:border-primary/30 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
   }
 
   .btn-ghost {
-    @apply text-foreground font-medium px-6 py-3 rounded-lg transition-all duration-300 hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+    @apply text-foreground font-medium px-6 py-3 rounded-xl transition-all duration-300 hover:bg-accent focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
   }
 
-  /* Card Components */
+  /* Enterprise Card Components */
   .card-premium {
-    @apply bg-card border border-border rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+    @apply bg-card border border-border/80 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/20;
+    box-shadow: var(--shadow-elevated);
   }
 
   .card-service {
-    @apply bg-card border border-border rounded-xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:shadow-primary/10;
+    @apply bg-card border border-border/80 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:border-primary/30;
+    box-shadow: var(--shadow-card);
+  }
+  
+  .card-service:hover {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .card-enterprise {
+    @apply relative bg-card border border-border/60 rounded-2xl p-8 overflow-hidden transition-all duration-300;
+    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--accent) / 0.3) 100%);
+  }
+
+  .card-enterprise::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .card-enterprise:hover::before {
+    opacity: 1;
   }
 
   /* Hero Section */
   .hero-gradient {
     background: var(--gradient-hero);
+  }
+
+  .hero-enterprise {
+    background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--accent) / 0.15) 100%);
   }
 
   /* Arrow/Graph Motifs */

@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { createPortal } from 'react-dom';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { 
   Menu, 
   X, 
@@ -11,30 +12,37 @@ import {
   FileText, 
   TrendingUp,
   ChevronDown,
-  CheckCircle,
   Clock,
   Users,
   Shield,
-  CreditCard
+  CreditCard,
+  Sparkles
 } from 'lucide-react';
 
 const Header = () => {
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [servicesTimeout, setServicesTimeout] = useState<NodeJS.Timeout | null>(null);
   const servicesTriggerRef = useRef<HTMLDivElement>(null);
   const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0, width: 0 });
   const [mounted, setMounted] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navItems = [
-    { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' },
-    { name: 'Consultation', href: '/consultation' },
-    { name: 'Check Ordering', href: '/check-ordering' }
+    { name: t('nav.about'), href: '/about' },
+    { name: t('nav.contact'), href: '/contact' },
+    { name: t('nav.consultation'), href: '/consultation' },
+    { name: t('nav.checkOrdering'), href: '/check-ordering' }
   ];
 
   const servicesMenu = [
@@ -82,25 +90,28 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-background backdrop-blur-sm border-b border-border z-50">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      scrolled 
+        ? 'bg-background/95 backdrop-blur-xl border-b border-border shadow-sm' 
+        : 'bg-background/80 backdrop-blur-sm border-b border-transparent'
+    }`}>
       <div className="container mx-auto px-4 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center group">
             <img 
               src="/logo.png" 
               alt="ClearLedger Solutions Logo" 
-              className="h-10 sm:h-12 lg:h-14 w-auto"
+              className="h-10 sm:h-12 lg:h-14 w-auto transition-transform duration-300 group-hover:scale-105"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {/* Home Navigation */}
-            <Link to="/" className="relative text-foreground font-medium px-3 py-2 rounded-lg transition-all duration-300 hover:bg-accent hover:text-primary group">
-              <span className="relative z-10">Home</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-primary-dark/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute inset-0 bg-primary/5 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 origin-center"></div>
+            <Link to="/" className="relative text-foreground font-medium px-3 py-2 rounded-xl transition-all duration-300 hover:bg-accent hover:text-primary group">
+              <span className="relative z-10">{t('nav.home')}</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-primary-dark/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </Link>
 
             {/* Services Mega Menu */}
@@ -129,12 +140,11 @@ const Header = () => {
               }}
             >
               <div className="flex items-baseline space-x-1">
-                <Link to="/services" className="relative text-foreground font-medium px-3 py-2 rounded-lg transition-all duration-300 hover:bg-accent hover:text-primary group">
-                  <span className="relative z-10">Services</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-primary-dark/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="absolute inset-0 bg-primary/5 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 origin-center"></div>
+                <Link to="/services" className="relative text-foreground font-medium px-3 py-2 rounded-xl transition-all duration-300 hover:bg-accent hover:text-primary group">
+                  <span className="relative z-10">{t('nav.services')}</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-primary-dark/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </Link>
-                <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-200 flex-shrink-0" />
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 flex-shrink-0 ${isServicesOpen ? 'rotate-180' : ''}`} />
               </div>
               
               {/* Invisible Bridge for Smooth Hover */}
@@ -272,33 +282,33 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className="relative text-foreground font-medium px-3 py-2 rounded-lg transition-all duration-300 hover:bg-accent hover:text-primary group"
+                className="relative text-foreground font-medium px-3 py-2 rounded-xl transition-all duration-300 hover:bg-accent hover:text-primary group"
               >
                 <span className="relative z-10">{item.name}</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-primary-dark/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute inset-0 bg-primary/5 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 origin-center"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-primary-dark/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </Link>
             ))}
           </nav>
 
-          {/* CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
+          {/* Right Side: Language + CTAs */}
+          <div className="hidden md:flex items-center space-x-3 lg:space-x-4">
+            <LanguageSwitcher variant="compact" />
+            
+            <div className="w-px h-6 bg-border"></div>
+            
             <Link to="/contact">
-              <Button className="btn-primary">
-                Book Free Consultation
+              <Button className="btn-primary group">
+                <Sparkles className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
+                {t('nav.bookConsultation')}
               </Button>
             </Link>
-            <a href="https://calendly.com/jj-yourclearledger" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" className="btn-secondary">
-                📅 Book Directly
-              </Button>
-            </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg transition-all duration-300 hover:bg-accent hover:text-primary"
+            className="md:hidden p-2.5 rounded-xl transition-all duration-300 hover:bg-accent hover:text-primary"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
           >
             {isOpen ? (
               <X className="w-6 h-6 text-foreground" />
@@ -310,13 +320,18 @@ const Header = () => {
 
         {/* Professional Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden mt-4 py-4 border-t border-border bg-background">
+          <div className="md:hidden mt-4 py-4 border-t border-border bg-background animate-in slide-in-from-top-2 duration-200">
             <nav className="flex flex-col space-y-4">
+              {/* Language Switcher for Mobile */}
+              <div className="px-3 pb-3 border-b border-border">
+                <LanguageSwitcher />
+              </div>
+              
               {/* Services Section */}
               <div className="space-y-3">
-                <div className="flex items-center space-x-2 text-foreground font-semibold py-2">
+                <div className="flex items-center space-x-2 text-foreground font-semibold py-2 px-3">
                   <Calculator className="w-4 h-4 text-primary" />
-                  <span className="text-sm">Services</span>
+                  <span className="text-sm">{t('nav.services')}</span>
                 </div>
                 <div className="space-y-1">
                   {servicesMenu.map((service, index) => {
