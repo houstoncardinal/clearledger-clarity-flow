@@ -32,8 +32,7 @@ const Footer = () => {
       title: 'Company',
       links: [
         { name: 'About Us', href: '/about' },
-
-        { name: 'Team', href: '/about' },
+        { name: 'Blog', href: '/blog' },
         { name: 'Contact', href: '/contact' },
         { name: 'Consultation', href: '/consultation' },
         { name: 'Check Ordering', href: '/check-ordering' }
@@ -50,7 +49,8 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com/company/clearledger-solutions' },
+    { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/company/yourclearledger' },
+    { name: 'Facebook', icon: Facebook, href: 'https://www.facebook.com/yourclearledger' },
     { name: 'Email', icon: Mail, href: 'mailto:admin@yourclearledger.com' },
     { name: 'Phone', icon: Phone, href: 'tel:(903) 815-9488' }
   ];
