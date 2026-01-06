@@ -33,6 +33,8 @@ import OklahomaBookkeeping from "./pages/locations/OklahomaBookkeeping";
 import TexasBookkeeping from "./pages/locations/TexasBookkeeping";
 import FloridaBookkeeping from "./pages/locations/FloridaBookkeeping";
 import NewMexicoBookkeeping from "./pages/locations/NewMexicoBookkeeping";
+import LouisianaBookkeeping from "./pages/locations/LouisianaBookkeeping";
+import MississippiBookkeeping from "./pages/locations/MississippiBookkeeping";
 import PanamaBookkeeping from "./pages/locations/PanamaBookkeeping";
 // Industry Pages
 import GolfCourseBookkeeping from "./pages/industries/GolfCourseBookkeeping";
@@ -63,6 +65,16 @@ const AppContent = () => {
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms-of-service" element={<TermsOfService />} />
       <Route path="/cookie-policy" element={<CookiePolicy />} />
+      {/* Location Routes */}
+      <Route path="/oklahoma-bookkeeping" element={<OklahomaBookkeeping />} />
+      <Route path="/texas-bookkeeping" element={<TexasBookkeeping />} />
+      <Route path="/florida-bookkeeping" element={<FloridaBookkeeping />} />
+      <Route path="/new-mexico-bookkeeping" element={<NewMexicoBookkeeping />} />
+      <Route path="/louisiana-bookkeeping" element={<LouisianaBookkeeping />} />
+      <Route path="/mississippi-bookkeeping" element={<MississippiBookkeeping />} />
+      <Route path="/panama-bookkeeping" element={<PanamaBookkeeping />} />
+      {/* Industry Routes */}
+      <Route path="/golf-course-bookkeeping" element={<GolfCourseBookkeeping />} />
       {/* Blog Routes */}
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/:slug" element={<BlogPost />} />
