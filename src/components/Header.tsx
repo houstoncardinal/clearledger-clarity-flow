@@ -16,7 +16,8 @@ import {
   Users,
   Shield,
   CreditCard,
-  Sparkles
+  Sparkles,
+  MapPin
 } from 'lucide-react';
 
 const Header = () => {
@@ -87,6 +88,15 @@ const Header = () => {
     { name: 'Free Consultation', href: '/consultation', icon: Clock },
     { name: 'Our Team', href: '/about', icon: Users },
     { name: 'Certifications', href: '/about', icon: Shield }
+  ];
+
+  const serviceAreas = [
+    { name: 'Texas', href: '/texas-bookkeeping' },
+    { name: 'Oklahoma', href: '/oklahoma-bookkeeping' },
+    { name: 'Louisiana', href: '/louisiana-bookkeeping' },
+    { name: 'Mississippi', href: '/mississippi-bookkeeping' },
+    { name: 'New Mexico', href: '/new-mexico-bookkeeping' },
+    { name: 'Florida', href: '/florida-bookkeeping' }
   ];
 
   return (
@@ -248,6 +258,26 @@ const Header = () => {
                               </Link>
                             );
                           })}
+                        </div>
+
+                        {/* Service Areas */}
+                        <div className="mt-4">
+                          <div className="flex items-center space-x-2 mb-2">
+                            <MapPin className="w-4 h-4 text-primary" />
+                            <h4 className="font-medium text-foreground text-sm">Service Areas</h4>
+                          </div>
+                          <div className="grid grid-cols-2 gap-1">
+                            {serviceAreas.map((area, index) => (
+                              <Link
+                                key={index}
+                                to={area.href}
+                                className="text-xs text-muted-foreground hover:text-primary transition-colors duration-200 py-1"
+                                onClick={() => setIsServicesOpen(false)}
+                              >
+                                {area.name}
+                              </Link>
+                            ))}
+                          </div>
                         </div>
 
                         {/* CTA Section */}
