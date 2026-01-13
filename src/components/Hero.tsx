@@ -172,14 +172,14 @@ const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4 pt-4"
+              className="flex flex-col sm:flex-row flex-wrap gap-4 pt-4"
             >
-              <Link to="/contact">
+              <Link to="/contact" className="w-full sm:w-auto">
                 <Button 
                   size="lg" 
-                  className="relative overflow-hidden text-base sm:text-lg px-8 sm:px-10 py-6 sm:py-7 rounded-2xl font-semibold group w-full sm:w-auto bg-gradient-to-r from-primary via-primary to-primary-dark text-primary-foreground shadow-xl shadow-primary/25 hover:shadow-2xl hover:shadow-primary/30 transition-all duration-500 hover:scale-[1.02]"
+                  className="relative overflow-hidden text-base px-6 py-5 sm:px-8 sm:py-6 rounded-2xl font-semibold group w-full bg-gradient-to-r from-primary via-primary to-primary-dark text-primary-foreground shadow-xl shadow-primary/25 hover:shadow-2xl hover:shadow-primary/30 transition-all duration-500 hover:scale-[1.02]"
                 >
-                  <span className="relative z-10 flex items-center">
+                  <span className="relative z-10 flex items-center justify-center">
                     <Sparkles className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
                     {t('hero.cta')}
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
@@ -189,11 +189,11 @@ const Hero = () => {
                 </Button>
               </Link>
               
-              <a href="https://calendly.com/jj-yourclearledger" target="_blank" rel="noopener noreferrer">
+              <a href="https://calendly.com/jj-yourclearledger" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                 <Button 
                   size="lg" 
                   variant="outline"
-                  className="text-base sm:text-lg px-8 sm:px-10 py-6 sm:py-7 rounded-2xl font-semibold group w-full sm:w-auto border-2 border-border hover:border-primary/40 hover:bg-primary/5 transition-all duration-300"
+                  className="text-base px-6 py-5 sm:px-8 sm:py-6 rounded-2xl font-semibold group w-full border-2 border-border hover:border-primary/40 hover:bg-primary/5 transition-all duration-300"
                 >
                   <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                   Book a Strategy Call
