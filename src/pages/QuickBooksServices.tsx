@@ -3,7 +3,13 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
-import { getServiceSchema, getBreadcrumbSchema } from '@/utils/schemaMarkup';
+import { 
+  getProfessionalServiceSchema,
+  getEnhancedBreadcrumbSchema,
+  getEnhancedFAQSchema,
+  SERVICE_CATALOG,
+  COMPANY_INFO 
+} from '@/utils/advancedSchemaMarkup';
 import { 
   Calculator, 
   CheckCircle, 
@@ -21,9 +27,35 @@ import {
 
 const QuickBooksServices = () => {
   const breadcrumbs = [
-    { name: "Home", url: "/" },
     { name: "Services", url: "/services" },
     { name: "QuickBooks Services", url: "/quickbooks-services" }
+  ];
+
+  const faqs = [
+    {
+      question: "What QuickBooks versions do you support?",
+      answer: "We support both QuickBooks Online (all plans including Simple Start, Essentials, Plus, and Advanced) and QuickBooks Desktop (Pro, Premier, and Enterprise). Our team is certified in all versions."
+    },
+    {
+      question: "How much can I save with QuickBooks bookkeeping services?",
+      answer: "Most clients save 15+ hours per month on bookkeeping tasks. This translates to significant cost savings compared to in-house bookkeeping, while also reducing errors and improving financial accuracy."
+    },
+    {
+      question: "Can you migrate my data from another accounting system?",
+      answer: "Yes, we specialize in data migration from various accounting systems including Xero, FreshBooks, Wave, and manual spreadsheet-based systems. We ensure all historical data is accurately transferred."
+    }
+  ];
+
+  const schemas = [
+    getProfessionalServiceSchema({
+      name: SERVICE_CATALOG.quickbooks.name,
+      description: SERVICE_CATALOG.quickbooks.description,
+      url: SERVICE_CATALOG.quickbooks.url,
+      price: SERVICE_CATALOG.quickbooks.price,
+      category: SERVICE_CATALOG.quickbooks.category
+    }),
+    getEnhancedBreadcrumbSchema(breadcrumbs),
+    getEnhancedFAQSchema(faqs)
   ];
 
   const features = [
@@ -79,20 +111,17 @@ const QuickBooksServices = () => {
     'QuickBooks Online Advanced Certified ProAdvisor',
     'QuickBooks Desktop Certified ProAdvisor',
     'QuickBooks Desktop Enterprise Certified',
-            '2024 & 2025 Top 25 Up-N-Coming ProAdvisor'
+    '2024 & 2025 Top 25 Up-N-Coming ProAdvisor'
   ];
 
   return (
     <>
       <SEO 
         title="QuickBooks Bookkeeping Services | ClearLedger Solutions - Expert QB Online & Desktop"
-        description="Professional QuickBooks bookkeeping services for Online and Desktop. Expert transaction categorization, reconciliation, and financial reporting. Save 15+ hours monthly with our certified ProAdvisor team."
-        keywords="QuickBooks bookkeeping, QuickBooks Online, QuickBooks Desktop, ProAdvisor, bookkeeping services, financial reconciliation, transaction categorization, QuickBooks setup, QuickBooks training"
+        description={`Professional QuickBooks bookkeeping services for Online and Desktop. Expert transaction categorization, reconciliation, and financial reporting. Save 15+ hours monthly with our certified ProAdvisor team. Call ${COMPANY_INFO.phoneLocal}.`}
+        keywords="QuickBooks bookkeeping, QuickBooks Online, QuickBooks Desktop, ProAdvisor, bookkeeping services, financial reconciliation, transaction categorization, QuickBooks setup, QuickBooks training, ClearLedger"
         canonical="/quickbooks-services"
-        schema={[
-          getServiceSchema("QuickBooks Bookkeeping Services", "Professional QuickBooks Online and Desktop bookkeeping services including transaction categorization, account reconciliation, and financial statement preparation."),
-          getBreadcrumbSchema(breadcrumbs)
-        ]}
+        schema={schemas}
       />
       <Header />
       
@@ -170,24 +199,24 @@ const QuickBooksServices = () => {
                     <div className="grid grid-cols-2 gap-4">
                       <div className="bg-card rounded-xl p-4 shadow-card">
                         <Calculator className="w-8 h-8 text-primary mb-2" />
-                                              <h3 className="font-semibold text-sm text-foreground break-words">Transaction Coding</h3>
-                      <p className="text-xs text-muted-foreground break-words">Accurate categorization</p>
+                        <h3 className="font-semibold text-sm text-foreground break-words">Transaction Coding</h3>
+                        <p className="text-xs text-muted-foreground break-words">Accurate categorization</p>
                       </div>
-                                              <div className="bg-card rounded-xl p-4 shadow-card">
-                          <BarChart3 className="w-8 h-8 text-primary mb-2" />
-                          <h3 className="font-semibold text-sm text-foreground break-words">Reconciliation</h3>
-                          <p className="text-xs text-muted-foreground break-words">Bank & credit cards</p>
-                        </div>
-                        <div className="bg-card rounded-xl p-4 shadow-card">
-                          <FileText className="w-8 h-8 text-primary mb-2" />
-                          <h3 className="font-semibold text-sm text-foreground break-words">Financial Reports</h3>
-                          <p className="text-xs text-muted-foreground break-words">P&L, Balance Sheet</p>
-                        </div>
-                        <div className="bg-card rounded-xl p-4 shadow-card">
-                          <Shield className="w-8 h-8 text-primary mb-2" />
-                          <h3 className="font-semibold text-sm text-foreground break-words">Compliance</h3>
-                          <p className="text-xs text-muted-foreground break-words">Audit ready</p>
-                        </div>
+                      <div className="bg-card rounded-xl p-4 shadow-card">
+                        <BarChart3 className="w-8 h-8 text-primary mb-2" />
+                        <h3 className="font-semibold text-sm text-foreground break-words">Reconciliation</h3>
+                        <p className="text-xs text-muted-foreground break-words">Bank & credit cards</p>
+                      </div>
+                      <div className="bg-card rounded-xl p-4 shadow-card">
+                        <FileText className="w-8 h-8 text-primary mb-2" />
+                        <h3 className="font-semibold text-sm text-foreground break-words">Financial Reports</h3>
+                        <p className="text-xs text-muted-foreground break-words">P&L, Balance Sheet</p>
+                      </div>
+                      <div className="bg-card rounded-xl p-4 shadow-card">
+                        <Shield className="w-8 h-8 text-primary mb-2" />
+                        <h3 className="font-semibold text-sm text-foreground break-words">Compliance</h3>
+                        <p className="text-xs text-muted-foreground break-words">Audit ready</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -339,9 +368,9 @@ const QuickBooksServices = () => {
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </Link>
-                <a href="tel:(903) 815-9488">
+                <a href={`tel:${COMPANY_INFO.phoneLocal}`}>
                   <Button size="lg" variant="outline" className="btn-secondary text-base px-6 py-3">
-                    Call (903) 815-9488
+                    Call {COMPANY_INFO.phoneLocal}
                   </Button>
                 </a>
               </div>
@@ -355,4 +384,4 @@ const QuickBooksServices = () => {
   );
 };
 
-export default QuickBooksServices; 
+export default QuickBooksServices;

@@ -2,25 +2,28 @@ import Header from '@/components/Header';
 import About from '@/components/About';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
-import { getAboutPageSchema, getBreadcrumbSchema } from '@/utils/schemaMarkup';
+import { 
+  getAboutPageSchema,
+  getEnhancedBreadcrumbSchema,
+  getEnhancedOrganizationSchema,
+  COMPANY_INFO 
+} from '@/utils/advancedSchemaMarkup';
 
 const AboutPage = () => {
-  const breadcrumbs = [
-    { name: "Home", url: "/" },
-    { name: "About", url: "/about" }
+  const schemas = [
+    getAboutPageSchema(),
+    getEnhancedBreadcrumbSchema([{ name: "About", url: "/about" }]),
+    getEnhancedOrganizationSchema()
   ];
 
   return (
     <main className="min-h-screen bg-background">
       <SEO 
         title="About ClearLedger Solutions - Our Team & Mission | Professional Bookkeeping"
-        description="Learn about ClearLedger Solutions, our certified QuickBooks ProAdvisor team, and our commitment to providing professional bookkeeping services for small businesses."
-        keywords="about ClearLedger, bookkeeping team, QuickBooks ProAdvisor, JJ Eldredge, certified bookkeeper, professional bookkeeping services, small business accounting"
+        description={`Learn about ClearLedger Solutions, founded by ${COMPANY_INFO.founder.name}, a certified QuickBooks ProAdvisor with 10+ years experience. ${COMPANY_INFO.slogan}. Based in ${COMPANY_INFO.address.city}, ${COMPANY_INFO.address.stateAbbr}.`}
+        keywords="about ClearLedger, bookkeeping team, QuickBooks ProAdvisor, JJ Eldredge, certified bookkeeper, professional bookkeeping services, small business accounting, Texas bookkeeper"
         canonical="/about"
-        schema={[
-          getAboutPageSchema(),
-          getBreadcrumbSchema(breadcrumbs)
-        ]}
+        schema={schemas}
       />
       <Header />
       <div className="pt-20">
@@ -31,4 +34,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage; 
+export default AboutPage;

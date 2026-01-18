@@ -3,7 +3,12 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
-import { getServiceSchema, getBreadcrumbSchema } from '@/utils/schemaMarkup';
+import { 
+  getProfessionalServiceSchema,
+  getEnhancedBreadcrumbSchema,
+  getLocalBusinessSchema,
+  COMPANY_INFO 
+} from '@/utils/advancedSchemaMarkup';
 import { motion } from 'framer-motion';
 import { 
   MapPin,
@@ -69,17 +74,34 @@ const LocationPageTemplate = ({
     { value: '24hr', label: 'Response Time' },
   ];
 
+  const schemas = [
+    getProfessionalServiceSchema({
+      name: `${state} Bookkeeping Services`,
+      description: description,
+      url: `/${slug}`,
+      category: "Bookkeeping"
+    }),
+    getEnhancedBreadcrumbSchema([
+      { name: "Locations", url: "/services" },
+      { name: `${state} Bookkeeping`, url: `/${slug}` }
+    ]),
+    getLocalBusinessSchema({
+      name: `${COMPANY_INFO.name} - ${state}`,
+      city: cities[0] || COMPANY_INFO.address.city,
+      state: state,
+      stateAbbr: stateAbbr,
+      url: `/${slug}`
+    })
+  ];
+
   return (
     <>
       <SEO 
         title={`${state} Bookkeeping Services | ClearLedger Solutions - Professional Financial Management`}
-        description={metaDescription}
+        description={`${metaDescription} Call ${COMPANY_INFO.phoneLocal} for a free consultation.`}
         keywords={metaKeywords}
         canonical={`/${slug}`}
-        schema={[
-          getServiceSchema(`${state} Bookkeeping Services`, description),
-          getBreadcrumbSchema(breadcrumbs)
-        ]}
+        schema={schemas}
       />
       <Header />
       
