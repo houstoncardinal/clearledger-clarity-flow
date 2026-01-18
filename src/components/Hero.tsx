@@ -4,7 +4,7 @@ import { ArrowRight, Sparkles, Play, Shield, CheckCircle2, Zap } from 'lucide-re
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import logo3DRender from '@/assets/logo-3d-render.png';
+import clearledgerHeroLogo from '@/assets/clearledger-hero-logo-clean.png';
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -215,78 +215,58 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Right Side - 5 columns - 3D Logo Render */}
-          <div className="lg:col-span-5 relative order-1 lg:order-2 flex items-center justify-center">
-            {/* Main 3D Logo Container */}
+          {/* Right Side - 5 columns - Hero Logo */}
+          <div className="lg:col-span-5 relative order-1 lg:order-2 flex items-center justify-center py-4 sm:py-6 lg:py-0">
+            {/* Main Logo Container */}
             <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-              className="relative w-full max-w-[320px] sm:max-w-[400px] md:max-w-[480px] lg:max-w-[520px] xl:max-w-[580px]"
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              className="relative w-full max-w-[280px] sm:max-w-[360px] md:max-w-[420px] lg:max-w-[480px] xl:max-w-[540px]"
             >
-              {/* Multi-layered glow effects */}
-              <div className="absolute inset-0 scale-110">
+              {/* Soft ambient glow behind logo */}
+              <div className="absolute inset-0 -inset-x-8 -inset-y-8">
                 <motion.div 
                   animate={{ 
-                    scale: [1, 1.1, 1],
-                    opacity: [0.4, 0.6, 0.4]
+                    scale: [1, 1.05, 1],
+                    opacity: [0.3, 0.5, 0.3]
                   }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute inset-0 bg-gradient-to-r from-primary/40 via-primary/60 to-primary/40 rounded-full blur-[80px] sm:blur-[100px] md:blur-[120px]"
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute inset-0 bg-gradient-radial from-primary/25 via-primary/10 to-transparent rounded-full blur-[60px] sm:blur-[80px]"
                 />
               </div>
               
-              {/* Secondary glow ring */}
-              <motion.div 
-                animate={{ 
-                  rotate: [0, 360],
-                }}
-                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 scale-105"
-              >
-                <div className="absolute inset-0 bg-gradient-conic from-primary/30 via-transparent to-primary/30 rounded-full blur-[60px] opacity-50" />
-              </motion.div>
-              
-              {/* Floating animation for the 3D logo */}
+              {/* Floating animation for the logo */}
               <motion.div
                 animate={{ 
-                  y: [-12, 12, -12],
-                  rotateY: [-3, 3, -3],
+                  y: [-8, 8, -8],
                 }}
-                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                 className="relative z-10"
               >
                 <img 
-                  src={logo3DRender} 
-                  alt="ClearLedger Solutions 3D logo - professional bookkeeping and financial growth" 
-                  className="relative w-full h-auto object-contain drop-shadow-[0_0_60px_rgba(203,108,230,0.4)]"
+                  src={clearledgerHeroLogo} 
+                  alt="ClearLedger Solutions - Where Clarity Meets Compliance" 
+                  className="relative w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(203,108,230,0.3)]"
                 />
               </motion.div>
 
-              {/* Subtle particle effects */}
+              {/* Subtle accent particles */}
               <motion.div
                 animate={{ 
-                  y: [-20, 20],
-                  opacity: [0.3, 0.7, 0.3],
+                  y: [-15, 15],
+                  opacity: [0.2, 0.5, 0.2],
                 }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-10 right-10 w-2 h-2 rounded-full bg-primary/60 blur-[2px]"
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -top-4 right-1/4 w-2 h-2 rounded-full bg-primary/40 blur-[3px]"
               />
               <motion.div
                 animate={{ 
-                  y: [15, -15],
-                  opacity: [0.4, 0.8, 0.4],
+                  y: [12, -12],
+                  opacity: [0.3, 0.6, 0.3],
                 }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-16 left-12 w-3 h-3 rounded-full bg-primary/50 blur-[3px]"
-              />
-              <motion.div
-                animate={{ 
-                  x: [-10, 10],
-                  opacity: [0.2, 0.6, 0.2],
-                }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                className="absolute top-1/3 left-6 w-1.5 h-1.5 rounded-full bg-primary/70 blur-[1px]"
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+                className="absolute bottom-8 left-1/4 w-2.5 h-2.5 rounded-full bg-primary/30 blur-[4px]"
               />
             </motion.div>
           </div>
