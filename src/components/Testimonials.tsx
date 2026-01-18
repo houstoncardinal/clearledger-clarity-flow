@@ -71,41 +71,41 @@ const Testimonials = () => {
   const current = testimonials[currentTestimonial];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-background via-accent/10 to-background">
-      <div className="container mx-auto px-4">
+    <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-background via-accent/10 to-background">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center space-x-2 bg-accent px-6 py-3 rounded-full mb-8">
-            <Star className="w-5 h-5 text-accent-foreground" />
-            <span className="text-sm font-semibold text-accent-foreground">
+        <div className="text-center mb-10 sm:mb-14 md:mb-20">
+          <div className="inline-flex items-center space-x-2 bg-accent px-4 sm:px-6 py-2 sm:py-3 rounded-full mb-4 sm:mb-6 md:mb-8">
+            <Star className="w-4 h-4 sm:w-5 sm:h-5 text-accent-foreground" />
+            <span className="text-xs sm:text-sm font-semibold text-accent-foreground">
               Client Success Stories
             </span>
           </div>
-          <h2 className="font-heading text-5xl lg:text-6xl font-bold text-foreground mb-8 leading-tight">
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-4 sm:mb-6 md:mb-8 leading-tight">
             Trusted by{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dark">
               Growing Businesses
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             See how ClearLedger has transformed financial management for businesses across 
             15+ industries, helping them achieve clarity, compliance, and growth.
           </p>
         </div>
 
         {/* Trust Stats */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-10 sm:mb-14 md:mb-20">
           {stats.map((stat, index) => {
             const IconComponent = stat.icon;
             return (
               <div key={index} className="text-center group">
-                <div className="w-16 h-16 bg-gradient-to-r from-primary/20 to-primary-dark/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <IconComponent className="w-8 h-8 text-primary" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-r from-primary/20 to-primary-dark/20 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-2 sm:mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-primary" />
                 </div>
-                <div className="font-heading text-4xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                <div className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-1 sm:mb-2 group-hover:text-primary transition-colors duration-300">
                   {stat.value}
                 </div>
-                <div className="text-muted-foreground font-medium">
+                <div className="text-xs sm:text-sm md:text-base text-muted-foreground font-medium">
                   {stat.label}
                 </div>
               </div>
@@ -114,54 +114,54 @@ const Testimonials = () => {
         </div>
 
         {/* Featured Testimonial */}
-        <div className="mb-20">
-          <div className="bg-card rounded-3xl p-12 shadow-2xl border border-border/50 relative overflow-hidden">
+        <div className="mb-10 sm:mb-14 md:mb-20">
+          <div className="bg-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 shadow-xl sm:shadow-2xl border border-border/50 relative overflow-hidden">
             {/* Background Pattern */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-primary/5 to-primary-dark/5 rounded-full -translate-y-32 translate-x-32"></div>
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-accent/10 to-accent/5 rounded-full translate-y-24 -translate-x-24"></div>
+            <div className="absolute top-0 right-0 w-32 sm:w-48 md:w-64 h-32 sm:h-48 md:h-64 bg-gradient-to-br from-primary/5 to-primary-dark/5 rounded-full -translate-y-16 sm:-translate-y-24 md:-translate-y-32 translate-x-16 sm:translate-x-24 md:translate-x-32"></div>
+            <div className="absolute bottom-0 left-0 w-24 sm:w-36 md:w-48 h-24 sm:h-36 md:h-48 bg-gradient-to-tr from-accent/10 to-accent/5 rounded-full translate-y-12 sm:translate-y-18 md:translate-y-24 -translate-x-12 sm:-translate-x-18 md:-translate-x-24"></div>
             
             <div className="relative z-10">
               {/* Quote Icon */}
-              <div className="w-16 h-16 bg-gradient-to-r from-primary/20 to-primary-dark/20 rounded-2xl flex items-center justify-center mb-8">
-                <Quote className="w-8 h-8 text-primary" />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-gradient-to-r from-primary/20 to-primary-dark/20 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 md:mb-8">
+                <Quote className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-primary" />
               </div>
 
               {/* Testimonial Content */}
-              <div className="grid lg:grid-cols-3 gap-12 items-center">
+              <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center">
                 <div className="lg:col-span-2">
-                  <div className="flex items-center space-x-1 mb-6">
+                  <div className="flex items-center space-x-0.5 sm:space-x-1 mb-4 sm:mb-6">
                     {[...Array(current.rating)].map((_, i) => (
-                      <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
+                      <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
                   
-                  <blockquote className="text-2xl lg:text-3xl text-foreground font-light leading-relaxed mb-8 italic">
+                  <blockquote className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-foreground font-light leading-relaxed mb-4 sm:mb-6 md:mb-8 italic">
                     "{current.content}"
                   </blockquote>
 
                   {/* Results */}
-                  <div className="space-y-3 mb-8">
+                  <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 md:mb-8">
                     {current.results.map((result, index) => (
-                      <div key={index} className="flex items-center space-x-3">
-                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                        <span className="text-foreground font-medium">{result}</span>
+                      <div key={index} className="flex items-center space-x-2 sm:space-x-3">
+                        <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
+                        <span className="text-xs sm:text-sm md:text-base text-foreground font-medium">{result}</span>
                       </div>
                     ))}
                   </div>
 
                   {/* Client Info */}
-                  <div className="flex items-center space-x-4">
-                    <div className="w-16 h-16 bg-gradient-to-r from-primary to-primary-dark rounded-2xl flex items-center justify-center text-primary-foreground font-bold text-xl">
+                  <div className="flex items-center space-x-3 sm:space-x-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-gradient-to-r from-primary to-primary-dark rounded-lg sm:rounded-xl md:rounded-2xl flex items-center justify-center text-primary-foreground font-bold text-sm sm:text-base md:text-xl">
                       {current.avatar}
                     </div>
                     <div>
-                      <div className="font-heading text-xl font-bold text-foreground">
+                      <div className="font-heading text-sm sm:text-base md:text-lg lg:text-xl font-bold text-foreground">
                         {current.name}
                       </div>
-                      <div className="text-muted-foreground">
+                      <div className="text-xs sm:text-sm text-muted-foreground">
                         {current.title} at {current.company}
                       </div>
-                      <div className="text-sm text-muted-foreground">
+                      <div className="text-[10px] sm:text-xs md:text-sm text-muted-foreground">
                         {current.companySize} • {current.industry}
                       </div>
                     </div>
@@ -169,15 +169,15 @@ const Testimonials = () => {
                 </div>
 
                 {/* Navigation */}
-                <div className="flex flex-col items-center space-y-6">
+                <div className="flex flex-row lg:flex-col items-center justify-center lg:justify-start space-x-4 lg:space-x-0 lg:space-y-6 mt-4 lg:mt-0">
                   <div className="text-center">
-                    <div className="text-sm text-muted-foreground mb-2">Testimonial</div>
-                    <div className="font-heading text-2xl font-bold text-foreground">
+                    <div className="text-xs sm:text-sm text-muted-foreground mb-1 sm:mb-2">Testimonial</div>
+                    <div className="font-heading text-lg sm:text-xl md:text-2xl font-bold text-foreground">
                       {currentTestimonial + 1} of {testimonials.length}
                     </div>
                   </div>
                   
-                  <div className="flex space-x-3">
+                  <div className="flex space-x-2 sm:space-x-3">
                     <Button
                       variant="outline"
                       size="icon"

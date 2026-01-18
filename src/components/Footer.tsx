@@ -95,35 +95,35 @@ const Footer = () => {
   return (
     <footer className="bg-gradient-to-br from-foreground via-foreground to-foreground/95 text-background">
       {/* Main Footer Content */}
-      <div className="container mx-auto px-4 py-20">
-        <div className="grid lg:grid-cols-12 gap-12">
+      <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-14 md:py-20">
+        <div className="grid lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12">
           {/* Company Info */}
           <div className="lg:col-span-4">
-            <div className="flex items-center space-x-3 mb-8">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center">
-                <Shield className="w-6 h-6 text-primary-foreground" />
+            <div className="flex items-center space-x-2 sm:space-x-3 mb-4 sm:mb-6 md:mb-8">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-primary to-primary-dark rounded-lg sm:rounded-xl flex items-center justify-center">
+                <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
               </div>
               <div>
-                <div className="font-heading text-2xl font-bold">ClearLedger Solutions LLC</div>
-                <div className="text-sm text-background/70">Financial Solutions</div>
+                <div className="font-heading text-lg sm:text-xl md:text-2xl font-bold">ClearLedger Solutions LLC</div>
+                <div className="text-xs sm:text-sm text-background/70">Financial Solutions</div>
               </div>
             </div>
             
-            <p className="text-background/80 leading-relaxed mb-8 max-w-md">
+            <p className="text-sm sm:text-base text-background/80 leading-relaxed mb-6 sm:mb-8 max-w-md">
               ClearLedger Solutions LLC specializes in providing accurate, reliable, and transparent
               bookkeeping services tailored to small businesses and entrepreneurs across 15+ industries.
             </p>
 
             {/* Contact Info */}
-            <div className="space-y-4 mb-8">
+            <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
               {contactInfo.map((info, index) => {
                 const IconComponent = info.icon;
                 return (
-                  <div key={index} className="flex items-start space-x-3">
-                    <IconComponent className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                  <div key={index} className="flex items-start space-x-2 sm:space-x-3">
+                    <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 text-primary mt-0.5 flex-shrink-0" />
                     <div>
-                      <div className="font-medium text-background">{info.value}</div>
-                      <div className="text-sm text-background/70">{info.subtext}</div>
+                      <div className="text-sm sm:text-base font-medium text-background">{info.value}</div>
+                      <div className="text-xs sm:text-sm text-background/70">{info.subtext}</div>
                     </div>
                   </div>
                 );
@@ -131,16 +131,17 @@ const Footer = () => {
             </div>
 
             {/* Social Links */}
-            <div className="flex space-x-4">
+            <div className="flex space-x-3 sm:space-x-4">
               {socialLinks.map((social) => {
                 const IconComponent = social.icon;
                 return (
                   <a
                     key={social.name}
                     href={social.href}
-                    className="w-10 h-10 bg-background/10 rounded-lg flex items-center justify-center text-background hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                    className="w-9 h-9 sm:w-10 sm:h-10 bg-background/10 rounded-lg flex items-center justify-center text-background hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                    aria-label={social.name}
                   >
-                    <IconComponent className="w-5 h-5" />
+                    <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" />
                   </a>
                 );
               })}
@@ -149,13 +150,13 @@ const Footer = () => {
 
           {/* Footer Links */}
           <div className="lg:col-span-8">
-            <div className="grid md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
               {footerSections.map((section) => (
                 <div key={section.title}>
-                  <h3 className="font-heading text-lg font-bold text-background mb-6">
+                  <h3 className="font-heading text-sm sm:text-base md:text-lg font-bold text-background mb-3 sm:mb-4 md:mb-6">
                     {section.title}
                   </h3>
-                  <ul className="space-y-3">
+                  <ul className="space-y-2 sm:space-y-3">
                     {section.links.map((link) => (
                       <li key={link.name}>
                         {link.href.startsWith('#') ? (
@@ -166,14 +167,14 @@ const Footer = () => {
                                 element.scrollIntoView({ behavior: 'smooth' });
                               }
                             }}
-                            className="text-background/70 hover:text-background transition-colors duration-200 text-left"
+                            className="text-xs sm:text-sm text-background/70 hover:text-background transition-colors duration-200 text-left"
                           >
                             {link.name}
                           </button>
                         ) : (
                           <Link
                             to={link.href}
-                            className="text-background/70 hover:text-background transition-colors duration-200"
+                            className="text-xs sm:text-sm text-background/70 hover:text-background transition-colors duration-200"
                           >
                             {link.name}
                           </Link>
@@ -190,32 +191,32 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-background/20">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-            <div className="flex items-center space-x-6 text-sm text-background/70">
-              <span>&copy; {currentYear} ClearLedger Solutions LLC. All rights reserved.</span>
-              <span>•</span>
-              <span>QuickBooks ProAdvisor Certified</span>
-              <span>•</span>
-              <span>10+ Years Experience</span>
+        <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-6">
+          <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0">
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-2 sm:gap-x-4 md:gap-x-6 text-[10px] sm:text-xs md:text-sm text-background/70">
+              <span>&copy; {currentYear} ClearLedger Solutions LLC</span>
+              <span className="hidden sm:inline">•</span>
+              <span className="hidden sm:inline">QuickBooks ProAdvisor Certified</span>
+              <span className="hidden md:inline">•</span>
+              <span className="hidden md:inline">10+ Years Experience</span>
             </div>
             
-            <div className="flex items-center space-x-6 text-sm">
+            <div className="flex items-center gap-4 sm:gap-6 text-[10px] sm:text-xs md:text-sm">
               <Link to="/privacy-policy" className="text-background/70 hover:text-background transition-colors">
-                Privacy Policy
+                Privacy
               </Link>
               <Link to="/terms-of-service" className="text-background/70 hover:text-background transition-colors">
-                Terms of Service
+                Terms
               </Link>
               <Link to="/cookie-policy" className="text-background/70 hover:text-background transition-colors">
-                Cookie Policy
+                Cookies
               </Link>
             </div>
           </div>
           
           {/* Cardinal Consulting Fineprint */}
-          <div className="text-center mt-4">
-            <p className="text-xs text-background/50">
+          <div className="text-center mt-3 sm:mt-4">
+            <p className="text-[10px] sm:text-xs text-background/50">
               Website created by{' '}
               <a 
                 href="https://www.cardinalhtx.com" 
