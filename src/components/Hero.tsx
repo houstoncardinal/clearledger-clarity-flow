@@ -118,9 +118,9 @@ const Hero = () => {
                 <Button 
                   className="group w-full h-12 sm:h-14 px-6 sm:px-8 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
-                  <span className="whitespace-nowrap">{t('hero.cta')}</span>
-                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                  <Sparkles className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300 flex-shrink-0" />
+                  <span className="whitespace-nowrap">Get Started</span>
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0" />
                 </Button>
               </Link>
               
