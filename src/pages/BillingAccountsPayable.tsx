@@ -3,7 +3,13 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
-import { getServiceSchema, getBreadcrumbSchema } from '@/utils/schemaMarkup';
+import { 
+  getProfessionalServiceSchema, 
+  getEnhancedBreadcrumbSchema, 
+  getLocalBusinessSchema,
+  getHowToSchema,
+  combineSchemas 
+} from '@/utils/advancedSchemaMarkup';
 import { 
   FileText, 
   CheckCircle, 
@@ -107,17 +113,35 @@ const BillingAccountsPayable = () => {
     { name: "Billing & A/P", url: "/billing-accounts-payable" }
   ];
 
+  const howToSteps = process.map(step => ({
+    name: step.title,
+    text: step.description
+  }));
+
+  const pageSchema = combineSchemas([
+    getProfessionalServiceSchema({
+      name: "Billing & Accounts Payable Services",
+      description: "Professional billing and accounts payable management services. Streamlined invoicing, payment processing, and vendor management to improve cash flow by 60%.",
+      url: "/billing-accounts-payable",
+      category: "Accounts Payable"
+    }),
+    getEnhancedBreadcrumbSchema(breadcrumbs),
+    getLocalBusinessSchema(),
+    getHowToSchema({
+      name: "How to Streamline Your Accounts Payable Process",
+      description: "Learn ClearLedger's 4-step accounts payable process for faster processing and better vendor relationships.",
+      steps: howToSteps
+    })
+  ]);
+
   return (
     <>
       <SEO 
         title="Billing & Accounts Payable Services | ClearLedger Solutions"
         description="Professional billing and accounts payable management services. Streamlined invoicing, payment processing, and vendor management. Improve cash flow and vendor relationships."
-        keywords="billing services, accounts payable, invoice processing, vendor management, payment tracking, cash flow optimization"
+        keywords="billing services, accounts payable, invoice processing, vendor management, payment tracking, cash flow optimization, Texas bookkeeping"
         canonical="/billing-accounts-payable"
-        schema={[
-          getServiceSchema("Billing & Accounts Payable Services", "Professional billing and accounts payable management services including invoice processing, payment tracking, and vendor management."),
-          getBreadcrumbSchema(breadcrumbs)
-        ]}
+        schema={pageSchema}
       />
       <Header />
       

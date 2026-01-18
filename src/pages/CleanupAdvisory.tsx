@@ -3,7 +3,13 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
-import { getServiceSchema, getBreadcrumbSchema } from '@/utils/schemaMarkup';
+import { 
+  getProfessionalServiceSchema, 
+  getEnhancedBreadcrumbSchema, 
+  getLocalBusinessSchema,
+  getHowToSchema,
+  combineSchemas 
+} from '@/utils/advancedSchemaMarkup';
 import { 
   TrendingUp, 
   CheckCircle, 
@@ -107,17 +113,35 @@ const CleanupAdvisory = () => {
     { name: "Cleanup & Advisory", url: "/cleanup-advisory" }
   ];
 
+  const howToSteps = process.map(step => ({
+    name: step.title,
+    text: step.description
+  }));
+
+  const pageSchema = combineSchemas([
+    getProfessionalServiceSchema({
+      name: "Financial Cleanup & Advisory Services",
+      description: "Professional financial cleanup and advisory services. Historical data cleanup, process optimization, and strategic consulting to transform your financial operations.",
+      url: "/cleanup-advisory",
+      category: "Advisory Services"
+    }),
+    getEnhancedBreadcrumbSchema(breadcrumbs),
+    getLocalBusinessSchema(),
+    getHowToSchema({
+      name: "How to Clean Up Your Financial Records",
+      description: "ClearLedger's systematic approach to cleaning up financial data and optimizing your processes.",
+      steps: howToSteps
+    })
+  ]);
+
   return (
     <>
       <SEO 
         title="Cleanup & Advisory Services | ClearLedger Solutions"
         description="Professional financial cleanup and advisory services. Historical data cleanup, process optimization, and strategic financial consulting. Get your books pristine and compliant."
-        keywords="financial cleanup, advisory services, historical data cleanup, process optimization, financial consulting, compliance"
+        keywords="financial cleanup, advisory services, historical data cleanup, process optimization, financial consulting, compliance, Texas bookkeeping"
         canonical="/cleanup-advisory"
-        schema={[
-          getServiceSchema("Cleanup & Advisory Services", "Professional financial cleanup and advisory services including historical data cleanup, process optimization, and strategic consulting."),
-          getBreadcrumbSchema(breadcrumbs)
-        ]}
+        schema={pageSchema}
       />
       <Header />
       
