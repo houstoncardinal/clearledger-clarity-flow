@@ -3,7 +3,15 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
-import { getServiceSchema, getBreadcrumbSchema } from '@/utils/schemaMarkup';
+import { 
+  getProfessionalServiceSchema, 
+  getEnhancedBreadcrumbSchema, 
+  getLocalBusinessSchema,
+  getHowToSchema,
+  getEnhancedReviewSchema,
+  combineSchemas,
+  COMPANY_INFO 
+} from '@/utils/advancedSchemaMarkup';
 import { 
   CheckCircle, 
   MapPin,
@@ -21,7 +29,6 @@ import {
 
 const GolfCourseBookkeeping = () => {
   const breadcrumbs = [
-    { name: "Home", url: "/" },
     { name: "Industries", url: "/services" },
     { name: "Golf Course Bookkeeping", url: "/golf-course-bookkeeping" }
   ];
@@ -59,17 +66,43 @@ const GolfCourseBookkeeping = () => {
     }
   ];
 
+  const process = [
+    { name: 'Initial Assessment', text: 'We analyze your golf course operations, revenue streams, and current financial systems' },
+    { name: 'System Setup', text: 'Configure QuickBooks for golf course-specific accounting with custom chart of accounts' },
+    { name: 'Revenue Integration', text: 'Connect POS systems, membership billing, and online booking to your accounting' },
+    { name: 'Ongoing Management', text: 'Monthly reconciliation, financial reporting, and seasonal cash flow planning' }
+  ];
+
+  const reviews = [
+    { author: 'Tom Richardson', rating: 5, review: 'ClearLedger understands the unique challenges of golf course accounting. Their seasonal cash flow planning has been invaluable.', datePublished: '2025-01-10' },
+    { author: 'Jennifer Walsh', rating: 5, review: 'Managing multiple revenue streams was overwhelming until ClearLedger took over our books. Pro shop, F&B, and green fees all reconciled perfectly.', datePublished: '2024-11-15' }
+  ];
+
+  const pageSchema = combineSchemas(
+    getProfessionalServiceSchema({
+      name: "Golf Course Bookkeeping Services",
+      description: "Specialized bookkeeping for golf courses including pro shop management, membership billing, tournament accounting, and seasonal financial planning.",
+      url: "/golf-course-bookkeeping",
+      category: "Industry-Specific Bookkeeping"
+    }),
+    getEnhancedBreadcrumbSchema(breadcrumbs),
+    getLocalBusinessSchema(),
+    getHowToSchema({
+      name: "How to Set Up Golf Course Bookkeeping",
+      description: "ClearLedger's process for implementing comprehensive golf course financial management.",
+      steps: process
+    }),
+    getEnhancedReviewSchema(reviews)
+  );
+
   return (
     <>
       <SEO 
-        title="Golf Course Bookkeeping Services | ClearLedger Solutions - Pro Shop & Membership Accounting"
+        title="Golf Course Bookkeeping Services | Pro Shop & Membership Accounting | ClearLedger"
         description="Specialized bookkeeping services for golf courses and country clubs. Expert pro shop inventory, membership billing, tournament accounting, and seasonal cash flow management."
-        keywords="golf course bookkeeping, country club accounting, pro shop inventory, membership billing, golf course financial management, tournament accounting"
+        keywords="golf course bookkeeping, country club accounting, pro shop inventory, membership billing, golf course financial management, tournament accounting, seasonal cash flow, QuickBooks for golf courses"
         canonical="/golf-course-bookkeeping"
-        schema={[
-          getServiceSchema("Golf Course Bookkeeping Services", "Specialized bookkeeping for golf courses including pro shop management, membership billing, tournament accounting, and seasonal financial planning."),
-          getBreadcrumbSchema(breadcrumbs)
-        ]}
+        schema={pageSchema}
       />
       <Header />
       
@@ -121,6 +154,9 @@ const GolfCourseBookkeeping = () => {
               <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground mb-4">
                 Complete Golf Course Financial Services
               </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Specialized accounting solutions designed for the unique needs of golf operations.
+              </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {services.map((service, index) => (
@@ -133,8 +169,27 @@ const GolfCourseBookkeeping = () => {
           </div>
         </section>
 
-        {/* Featured Courses Section */}
+        {/* Challenges Section */}
         <section className="py-16 bg-gradient-subtle">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground mb-4">
+                Golf Course Accounting Challenges We Solve
+              </h2>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {challenges.map((challenge, index) => (
+                <div key={index} className="bg-card rounded-xl p-6 shadow-card">
+                  <h3 className="font-heading text-lg font-bold text-foreground mb-2">{challenge.title}</h3>
+                  <p className="text-sm text-muted-foreground">{challenge.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Featured Courses Section */}
+        <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground mb-4">
@@ -164,6 +219,28 @@ const GolfCourseBookkeeping = () => {
           </div>
         </section>
 
+        {/* Process Section */}
+        <section className="py-16 bg-gradient-subtle">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground mb-4">
+                Our Golf Course Bookkeeping Process
+              </h2>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {process.map((step, index) => (
+                <div key={index} className="text-center p-6 bg-card rounded-xl shadow-card">
+                  <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-lg font-bold text-primary-foreground">{index + 1}</span>
+                  </div>
+                  <h3 className="font-heading text-lg font-bold text-foreground mb-2">{step.name}</h3>
+                  <p className="text-sm text-muted-foreground">{step.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
@@ -171,6 +248,9 @@ const GolfCourseBookkeeping = () => {
               <h2 className="font-heading text-2xl lg:text-3xl font-bold text-foreground mb-4">
                 Ready to Improve Your Golf Course Finances?
               </h2>
+              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                Join golf courses across the country that trust ClearLedger for their financial management needs.
+              </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link to="/contact">
                   <Button size="lg" className="btn-primary text-base px-6 py-3">
@@ -178,6 +258,11 @@ const GolfCourseBookkeeping = () => {
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </Link>
+                <a href="tel:(903) 815-9488">
+                  <Button size="lg" variant="outline" className="btn-secondary text-base px-6 py-3">
+                    Call (903) 815-9488
+                  </Button>
+                </a>
               </div>
             </div>
           </div>

@@ -26,7 +26,7 @@ const BlogPost = () => {
     title: post.title,
     description: post.excerpt,
     url: `/blog/${post.slug}`,
-    image: `https://yourclearledger.com${post.image}`,
+    image: `https://www.yourclearledger.com${post.image}`,
     datePublished: post.datePublished,
     dateModified: post.dateModified,
     author: post.author.name,
@@ -41,7 +41,7 @@ const BlogPost = () => {
   ]);
 
   const handleShare = async () => {
-    const shareUrl = `https://yourclearledger.com/blog/${post.slug}`;
+    const shareUrl = `https://www.yourclearledger.com/blog/${post.slug}`;
     if (navigator.share) {
       try {
         await navigator.share({
@@ -157,7 +157,7 @@ const BlogPost = () => {
         description={post.excerpt}
         keywords={post.tags.join(', ')}
         canonical={`/blog/${post.slug}`}
-        ogImage={`https://yourclearledger.com${post.image}`}
+        ogImage={`https://www.yourclearledger.com${post.image}`}
         ogType="article"
         schema={[schema, breadcrumbSchema]}
       />

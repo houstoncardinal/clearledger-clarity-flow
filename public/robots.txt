@@ -30,12 +30,27 @@ Allow: /quickbooks-services/
 Allow: /monthly-management/
 Allow: /billing-accounts-payable/
 Allow: /cleanup-advisory/
+Allow: /check-ordering/
+Allow: /blog/
+Allow: /case-studies/
+
+# Location pages
+Allow: /texas-bookkeeping/
+Allow: /oklahoma-bookkeeping/
+Allow: /florida-bookkeeping/
+Allow: /louisiana-bookkeeping/
+Allow: /mississippi-bookkeeping/
+Allow: /new-mexico-bookkeeping/
+Allow: /panama-bookkeeping/
+
+# Industry pages
+Allow: /golf-course-bookkeeping/
 
 # Crawl delay (optional)
 Crawl-delay: 1
 
 # Sitemap
-Sitemap: https://clearledger.com/sitemap.xml
+Sitemap: https://www.yourclearledger.com/sitemap.xml
 
 # Host
-Host: https://clearledger.com
+Host: https://www.yourclearledger.com

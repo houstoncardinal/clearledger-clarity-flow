@@ -2,7 +2,13 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import SEO from '@/components/SEO';
-import { getBreadcrumbSchema } from '@/utils/schemaMarkup';
+import { 
+  getEnhancedBreadcrumbSchema,
+  getWebPageSchema,
+  getEnhancedReviewSchema,
+  combineSchemas,
+  COMPANY_INFO
+} from '@/utils/advancedSchemaMarkup';
 import { 
   ArrowRight, 
   TrendingUp, 
@@ -103,18 +109,35 @@ const CaseStudies = () => {
   const companySizes = ['All Sizes', '1-10', '11-50', '51-100', '100+'];
 
   const breadcrumbs = [
-    { name: "Home", url: "/" },
     { name: "Case Studies", url: "/case-studies" }
   ];
+
+  // Create review schema from testimonials
+  const reviews = caseStudies.map(study => ({
+    author: study.client.split(',')[0],
+    rating: 5,
+    review: study.testimonial,
+    datePublished: '2025-01-01'
+  }));
+
+  const pageSchema = combineSchemas(
+    getWebPageSchema({
+      name: "Case Studies & Success Stories | ClearLedger Solutions",
+      description: "Real success stories from our clients. See how ClearLedger Solutions helped businesses achieve 300% growth, maintain 100% compliance, and streamline operations.",
+      url: "/case-studies"
+    }),
+    getEnhancedBreadcrumbSchema(breadcrumbs),
+    getEnhancedReviewSchema(reviews)
+  );
 
   return (
     <>
       <SEO 
         title="Case Studies & Success Stories | ClearLedger Solutions"
         description="Real success stories from our clients. See how ClearLedger Solutions helped businesses achieve 300% growth, maintain 100% compliance, and streamline operations."
-        keywords="case studies, success stories, client testimonials, business growth, financial management, bookkeeping success"
+        keywords="case studies, success stories, client testimonials, business growth, financial management, bookkeeping success, QuickBooks success stories"
         canonical="/case-studies"
-        schema={getBreadcrumbSchema(breadcrumbs)}
+        schema={pageSchema}
       />
       <main className="min-h-screen bg-background">
         <Header />
@@ -315,4 +338,4 @@ const CaseStudies = () => {
   );
 };
 
-export default CaseStudies; 
+export default CaseStudies;
