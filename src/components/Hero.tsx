@@ -1,10 +1,10 @@
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, Play, Award, Users, Clock, Shield, CheckCircle2, Zap, TrendingUp, Calculator } from 'lucide-react';
+import { ArrowRight, Sparkles, Play, Shield, CheckCircle2, Zap } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import heroIllustration from '@/assets/hero-illustration.png';
+import logo3DRender from '@/assets/logo-3d-render.png';
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -17,12 +17,6 @@ const Hero = () => {
   
   const y = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-
-  const floatingStats = [
-    { icon: Users, value: '500+', label: 'Clients Served', delay: 0.8 },
-    { icon: Clock, value: '10+', label: 'Years Experience', delay: 0.9 },
-    { icon: Award, value: '99%', label: 'Retention Rate', delay: 1.0 },
-  ];
 
   const features = [
     'QuickBooks Certified',
@@ -221,131 +215,83 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Right Side - 5 columns - Hero Illustration */}
-          <div className="lg:col-span-5 relative order-1 lg:order-2">
-            {/* Main Illustration Container */}
+          {/* Right Side - 5 columns - 3D Logo Render */}
+          <div className="lg:col-span-5 relative order-1 lg:order-2 flex items-center justify-center">
+            {/* Main 3D Logo Container */}
             <motion.div 
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+              className="relative w-full max-w-[320px] sm:max-w-[400px] md:max-w-[480px] lg:max-w-[520px] xl:max-w-[580px]"
             >
-              {/* Glow effect behind illustration */}
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/15 via-primary/25 to-primary/15 rounded-2xl sm:rounded-3xl blur-2xl sm:blur-3xl scale-90 opacity-60" />
+              {/* Multi-layered glow effects */}
+              <div className="absolute inset-0 scale-110">
+                <motion.div 
+                  animate={{ 
+                    scale: [1, 1.1, 1],
+                    opacity: [0.4, 0.6, 0.4]
+                  }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute inset-0 bg-gradient-to-r from-primary/40 via-primary/60 to-primary/40 rounded-full blur-[80px] sm:blur-[100px] md:blur-[120px]"
+                />
+              </div>
               
-              {/* Floating animation for the illustration */}
+              {/* Secondary glow ring */}
+              <motion.div 
+                animate={{ 
+                  rotate: [0, 360],
+                }}
+                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 scale-105"
+              >
+                <div className="absolute inset-0 bg-gradient-conic from-primary/30 via-transparent to-primary/30 rounded-full blur-[60px] opacity-50" />
+              </motion.div>
+              
+              {/* Floating animation for the 3D logo */}
               <motion.div
                 animate={{ 
-                  y: [-8, 8, -8],
+                  y: [-12, 12, -12],
+                  rotateY: [-3, 3, -3],
                 }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="relative"
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                className="relative z-10"
               >
                 <img 
-                  src={heroIllustration} 
-                  alt="Professional bookkeeping and financial management illustration showing charts, calculator, and financial documents" 
-                  className="relative w-full max-w-[280px] sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto h-auto object-contain drop-shadow-2xl"
+                  src={logo3DRender} 
+                  alt="ClearLedger Solutions 3D logo - professional bookkeeping and financial growth" 
+                  className="relative w-full h-auto object-contain drop-shadow-[0_0_60px_rgba(203,108,230,0.4)]"
                 />
               </motion.div>
 
-              {/* Floating accent elements */}
+              {/* Subtle particle effects */}
               <motion.div
                 animate={{ 
-                  y: [-5, 5, -5],
-                  x: [-3, 3, -3],
-                  rotate: [-5, 5, -5]
+                  y: [-20, 20],
+                  opacity: [0.3, 0.7, 0.3],
                 }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="absolute -top-2 -right-2 sm:top-0 sm:right-4 md:top-4 md:right-8 bg-card/95 backdrop-blur-xl border border-border/60 rounded-lg sm:rounded-xl p-2 sm:p-3 md:p-4 shadow-xl"
-              >
-                <div className="flex items-center gap-2 sm:gap-3">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-green-500/20 to-green-500/10 flex items-center justify-center border border-green-500/20">
-                    <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-green-500" />
-                  </div>
-                  <div className="hidden sm:block">
-                    <div className="text-xs sm:text-sm md:text-base font-bold text-green-500">+127%</div>
-                    <div className="text-[8px] sm:text-[10px] md:text-xs text-muted-foreground">Efficiency</div>
-                  </div>
-                </div>
-              </motion.div>
-
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-10 right-10 w-2 h-2 rounded-full bg-primary/60 blur-[2px]"
+              />
               <motion.div
                 animate={{ 
-                  y: [5, -5, 5],
-                  x: [3, -3, 3],
-                  rotate: [5, -5, 5]
+                  y: [15, -15],
+                  opacity: [0.4, 0.8, 0.4],
                 }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute -bottom-2 -left-2 sm:bottom-4 sm:left-0 md:bottom-8 md:left-4 bg-card/95 backdrop-blur-xl border border-border/60 rounded-lg sm:rounded-xl p-2 sm:p-3 md:p-4 shadow-xl"
-              >
-                <div className="flex items-center gap-2 sm:gap-3">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center border border-primary/20">
-                    <Calculator className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-primary" />
-                  </div>
-                  <div className="hidden sm:block">
-                    <div className="text-xs sm:text-sm md:text-base font-bold text-foreground">15+ hrs</div>
-                    <div className="text-[8px] sm:text-[10px] md:text-xs text-muted-foreground">Saved/Month</div>
-                  </div>
-                </div>
-              </motion.div>
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute bottom-16 left-12 w-3 h-3 rounded-full bg-primary/50 blur-[3px]"
+              />
+              <motion.div
+                animate={{ 
+                  x: [-10, 10],
+                  opacity: [0.2, 0.6, 0.2],
+                }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                className="absolute top-1/3 left-6 w-1.5 h-1.5 rounded-full bg-primary/70 blur-[1px]"
+              />
             </motion.div>
-
-            {/* Mobile Stats - Shown only on mobile */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="flex lg:hidden justify-center gap-2 sm:gap-4 mt-4 sm:mt-6"
-            >
-              {floatingStats.map((stat) => (
-                <div 
-                  key={stat.label}
-                  className="flex flex-col items-center bg-card/80 backdrop-blur-sm border border-border/50 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3"
-                >
-                  <stat.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary mb-0.5 sm:mb-1" />
-                  <div className="font-display text-base sm:text-lg text-gradient">{stat.value}</div>
-                  <div className="text-[8px] sm:text-[10px] text-muted-foreground font-medium text-center">{stat.label}</div>
-                </div>
-              ))}
-            </motion.div>
-
-            {/* Desktop Floating Stats */}
-            <div className="hidden lg:block">
-              {floatingStats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ duration: 0.6, delay: stat.delay }}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  className={`absolute bg-card/95 backdrop-blur-xl border border-border/60 rounded-xl md:rounded-2xl p-3 md:p-4 shadow-xl hover:shadow-2xl transition-shadow duration-300 ${
-                    index === 0 
-                      ? '-left-4 top-1/4 xl:-left-8' 
-                      : index === 1 
-                      ? '-right-4 top-2/3 xl:-right-8' 
-                      : 'left-1/2 -translate-x-1/2 -bottom-4 md:-bottom-8'
-                  }`}
-                >
-                  <div className="absolute inset-0 rounded-xl md:rounded-2xl bg-gradient-to-br from-primary/5 to-transparent pointer-events-none" />
-                  
-                  <div className="relative flex items-center gap-3 md:gap-4">
-                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center border border-primary/20">
-                      <stat.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
-                    </div>
-                    <div>
-                      <div className="font-display text-xl md:text-2xl lg:text-3xl text-gradient">{stat.value}</div>
-                      <div className="text-[10px] md:text-xs lg:text-sm text-muted-foreground font-medium whitespace-nowrap">{stat.label}</div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
           </div>
         </div>
       </div>
-
-      {/* Bottom gradient fade for smooth transition */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-24 md:h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
     </section>
   );
 };
