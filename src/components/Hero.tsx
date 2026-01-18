@@ -116,28 +116,21 @@ const Hero = () => {
             >
               <Link to="/contact" className="w-full sm:w-auto">
                 <Button 
-                  size="lg" 
-                  variant="premium"
-                  className="group w-full text-sm md:text-base"
+                  className="group w-full h-12 sm:h-14 px-6 sm:px-8 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  <span className="relative z-10 flex items-center justify-center">
-                    <Sparkles className="w-4 h-4 md:w-5 md:h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
-                    {t('hero.cta')}
-                    <ArrowRight className="w-4 h-4 md:w-5 md:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                  </span>
-                  {/* Shine effect */}
-                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/25 to-transparent" />
+                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
+                  <span className="whitespace-nowrap">{t('hero.cta')}</span>
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
               </Link>
               
               <a href="https://calendly.com/jj-yourclearledger" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                 <Button 
-                  size="lg" 
                   variant="outline"
-                  className="group w-full text-sm md:text-base"
+                  className="group w-full h-12 sm:h-14 px-6 sm:px-8 rounded-xl border-2 border-border hover:border-primary/40 bg-white hover:bg-accent/50 font-semibold text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  <Play className="w-4 h-4 md:w-5 md:h-5 mr-2 group-hover:scale-110 transition-transform" />
-                  Book a Strategy Call
+                  <Play className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:scale-110 transition-transform" />
+                  <span className="whitespace-nowrap">Book a Strategy Call</span>
                 </Button>
               </a>
             </motion.div>
