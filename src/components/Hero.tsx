@@ -187,7 +187,7 @@ const Hero = () => {
                 <img 
                   src={clearledgerHeroLogo} 
                   alt="ClearLedger Solutions - Where Clarity Meets Compliance" 
-                  className="relative w-full h-auto object-contain drop-shadow-2xl"
+                  className="relative w-full h-auto object-contain"
                 />
               </motion.div>
             </motion.div>
