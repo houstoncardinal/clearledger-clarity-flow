@@ -41,6 +41,8 @@ import GolfCourseBookkeeping from "./pages/industries/GolfCourseBookkeeping";
 // Blog Pages
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+// Case Studies
+import CaseStudies from "./pages/CaseStudies";
 
 const queryClient = new QueryClient();
 
@@ -78,6 +80,8 @@ const AppContent = () => {
       {/* Blog Routes */}
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/:slug" element={<BlogPost />} />
+      {/* Case Studies */}
+      <Route path="/case-studies" element={<CaseStudies />} />
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />
     </Routes>
