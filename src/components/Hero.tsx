@@ -2,21 +2,11 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles, Play, Shield, CheckCircle2, Zap } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
-import clearledgerHeroLogo from '@/assets/clearledger-hero-logo-clean.png';
+import { motion } from 'framer-motion';
+import clearledgerHeroLogo from '@/assets/clearledger-hero-final.png';
 
 const Hero = () => {
   const { t } = useLanguage();
-  const containerRef = useRef<HTMLElement>(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  });
-  
-  const y = useTransform(scrollYProgress, [0, 1], [0, 150]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   const features = [
     'QuickBooks Certified',
@@ -26,62 +16,14 @@ const Hero = () => {
   ];
 
   return (
-    <section 
-      ref={containerRef} 
-      className="relative min-h-[100svh] flex items-center overflow-hidden bg-background pt-24 pb-12 sm:pt-28 sm:pb-16 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24"
-    >
-      {/* Premium Background Layers */}
-      <div className="absolute inset-0">
-        {/* Base gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent/20" />
+    <section className="relative min-h-[100svh] flex items-center bg-white pt-24 pb-12 sm:pt-28 sm:pb-16 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24 overflow-hidden">
+      {/* Clean white background with subtle accent */}
+      <div className="absolute inset-0 bg-white">
+        {/* Subtle gradient accent at top */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
         
-        {/* Animated mesh gradient */}
-        <motion.div 
-          style={{ y, opacity }}
-          className="absolute inset-0"
-        >
-          {/* Primary orb - top right */}
-          <motion.div 
-            animate={{ 
-              scale: [1, 1.2, 1],
-              rotate: [0, 90, 0],
-            }}
-            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-            className="absolute -top-1/4 -right-1/4 w-[400px] sm:w-[600px] md:w-[800px] lg:w-[1000px] h-[400px] sm:h-[600px] md:h-[800px] lg:h-[1000px]"
-          >
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/25 via-primary/10 to-transparent blur-[80px] sm:blur-[100px] md:blur-[120px]" />
-          </motion.div>
-          
-          {/* Secondary orb - bottom left */}
-          <motion.div 
-            animate={{ 
-              scale: [1, 1.15, 1],
-              rotate: [0, -60, 0],
-            }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute -bottom-1/4 -left-1/4 w-[350px] sm:w-[500px] md:w-[650px] lg:w-[800px] h-[350px] sm:h-[500px] md:h-[650px] lg:h-[800px]"
-          >
-            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 via-primary/5 to-transparent blur-[60px] sm:blur-[80px] md:blur-[100px]" />
-          </motion.div>
-
-          {/* Accent orb - center */}
-          <motion.div 
-            animate={{ 
-              y: [-20, 20, -20],
-              x: [-10, 10, -10],
-            }}
-            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[400px] md:w-[500px] lg:w-[600px] h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]"
-          >
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/10 via-transparent to-primary/10 blur-[40px] sm:blur-[60px] md:blur-[80px]" />
-          </motion.div>
-        </motion.div>
-
-        {/* Noise texture overlay */}
-        <div className="absolute inset-0 opacity-[0.015] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIzMDAiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iMSIvPjwvc3ZnPg==')]" />
-
-        {/* Grid pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--primary)/0.02)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--primary)/0.02)_1px,transparent_1px)] bg-[size:30px_30px] sm:bg-[size:40px_40px] md:bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+        {/* Very subtle radial glow */}
+        <div className="absolute top-1/2 right-0 w-[600px] h-[600px] -translate-y-1/2 translate-x-1/4 bg-gradient-radial from-primary/5 via-transparent to-transparent blur-3xl pointer-events-none" />
       </div>
 
       <div className="container relative z-10 px-4 sm:px-6">
@@ -95,7 +37,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20 backdrop-blur-sm shadow-lg shadow-primary/5">
+              <div className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 rounded-full bg-primary/5 border border-primary/15 shadow-sm">
                 <div className="flex items-center gap-1.5 sm:gap-2">
                   <motion.div
                     animate={{ scale: [1, 1.2, 1] }}
@@ -110,16 +52,16 @@ const Hero = () => {
               </div>
             </motion.div>
 
-            {/* Main Headline with Animated Gradient */}
+            {/* Main Headline */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
             >
-              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.05] sm:leading-[0.95] tracking-tight">
-                <span className="block text-foreground mb-1">Where Clarity</span>
+              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] tracking-tight text-foreground">
+                <span className="block mb-1">Where Clarity</span>
                 <span className="relative inline-block">
-                  <span className="text-gradient bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient bg-gradient-to-r from-primary via-primary-light to-primary">
+                  <span className="bg-gradient-to-r from-primary via-[#a855f7] to-primary bg-clip-text text-transparent">
                     Meets Compliance
                   </span>
                   {/* Underline accent */}
@@ -127,7 +69,7 @@ const Hero = () => {
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
                     transition={{ duration: 0.8, delay: 0.8 }}
-                    className="absolute -bottom-0.5 sm:-bottom-1 md:-bottom-2 left-0 right-0 h-0.5 sm:h-[3px] md:h-1 bg-gradient-to-r from-primary via-primary-light to-primary rounded-full origin-left"
+                    className="absolute -bottom-1 sm:-bottom-2 left-0 right-0 h-1 sm:h-1.5 bg-gradient-to-r from-primary via-[#a855f7] to-primary rounded-full origin-left"
                   />
                 </span>
               </h1>
@@ -138,7 +80,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-muted-foreground leading-relaxed max-w-xl lg:max-w-2xl"
+              className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-xl lg:max-w-2xl"
             >
               {t('hero.subtitle')}
               <span className="font-semibold text-foreground"> {t('hero.saveTime')}</span> {t('hero.description')}
@@ -157,7 +99,7 @@ const Hero = () => {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-                  className="flex items-center gap-1 sm:gap-1.5 md:gap-2 px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 bg-card/80 backdrop-blur-sm border border-border/50 rounded-full shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 group"
+                  className="flex items-center gap-1 sm:gap-1.5 md:gap-2 px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 bg-white border border-gray-200 rounded-full shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 group"
                 >
                   <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 text-primary group-hover:scale-110 transition-transform" />
                   <span className="text-[10px] sm:text-xs md:text-sm font-medium text-foreground">{feature}</span>
@@ -175,7 +117,7 @@ const Hero = () => {
               <Link to="/contact" className="w-full sm:w-auto">
                 <Button 
                   size="lg" 
-                  className="relative overflow-hidden text-xs sm:text-sm md:text-base h-11 sm:h-12 md:h-14 px-5 sm:px-6 md:px-8 rounded-xl sm:rounded-2xl font-semibold group w-full bg-gradient-to-r from-primary via-primary to-primary-dark text-primary-foreground shadow-xl shadow-primary/25 hover:shadow-2xl hover:shadow-primary/30 transition-all duration-500 hover:scale-[1.02]"
+                  className="relative overflow-hidden text-xs sm:text-sm md:text-base h-11 sm:h-12 md:h-14 px-5 sm:px-6 md:px-8 rounded-xl sm:rounded-2xl font-semibold group w-full bg-gradient-to-r from-primary to-[#9333ea] text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all duration-500 hover:scale-[1.02]"
                 >
                   <span className="relative z-10 flex items-center justify-center">
                     <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
@@ -183,7 +125,7 @@ const Hero = () => {
                     <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                   </span>
                   {/* Shine effect */}
-                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/25 to-transparent" />
                 </Button>
               </Link>
               
@@ -191,7 +133,7 @@ const Hero = () => {
                 <Button 
                   size="lg" 
                   variant="outline"
-                  className="text-xs sm:text-sm md:text-base h-11 sm:h-12 md:h-14 px-5 sm:px-6 md:px-8 rounded-xl sm:rounded-2xl font-semibold group w-full border-2 border-border hover:border-primary/40 hover:bg-primary/5 transition-all duration-300"
+                  className="text-xs sm:text-sm md:text-base h-11 sm:h-12 md:h-14 px-5 sm:px-6 md:px-8 rounded-xl sm:rounded-2xl font-semibold group w-full border-2 border-gray-200 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
                 >
                   <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-2 group-hover:scale-110 transition-transform" />
                   Book a Strategy Call
@@ -216,58 +158,37 @@ const Hero = () => {
           </div>
 
           {/* Right Side - 5 columns - Hero Logo */}
-          <div className="lg:col-span-5 relative order-1 lg:order-2 flex items-center justify-center py-4 sm:py-6 lg:py-0">
+          <div className="lg:col-span-5 relative order-1 lg:order-2 flex items-center justify-center py-6 sm:py-8 lg:py-0">
             {/* Main Logo Container */}
             <motion.div 
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="relative w-full max-w-[280px] sm:max-w-[360px] md:max-w-[420px] lg:max-w-[480px] xl:max-w-[540px]"
+              className="relative w-full max-w-[300px] sm:max-w-[380px] md:max-w-[440px] lg:max-w-[500px] xl:max-w-[560px]"
             >
-              {/* Soft ambient glow behind logo */}
-              <div className="absolute inset-0 -inset-x-8 -inset-y-8">
-                <motion.div 
-                  animate={{ 
-                    scale: [1, 1.05, 1],
-                    opacity: [0.3, 0.5, 0.3]
-                  }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute inset-0 bg-gradient-radial from-primary/25 via-primary/10 to-transparent rounded-full blur-[60px] sm:blur-[80px]"
-                />
-              </div>
+              {/* Subtle glow effect */}
+              <motion.div 
+                animate={{ 
+                  opacity: [0.4, 0.6, 0.4]
+                }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute inset-0 -inset-x-12 -inset-y-12 bg-gradient-radial from-primary/15 via-primary/5 to-transparent rounded-full blur-3xl pointer-events-none"
+              />
               
               {/* Floating animation for the logo */}
               <motion.div
                 animate={{ 
-                  y: [-8, 8, -8],
+                  y: [-6, 6, -6],
                 }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                 className="relative z-10"
               >
                 <img 
                   src={clearledgerHeroLogo} 
                   alt="ClearLedger Solutions - Where Clarity Meets Compliance" 
-                  className="relative w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(203,108,230,0.3)]"
+                  className="relative w-full h-auto object-contain"
                 />
               </motion.div>
-
-              {/* Subtle accent particles */}
-              <motion.div
-                animate={{ 
-                  y: [-15, 15],
-                  opacity: [0.2, 0.5, 0.2],
-                }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-4 right-1/4 w-2 h-2 rounded-full bg-primary/40 blur-[3px]"
-              />
-              <motion.div
-                animate={{ 
-                  y: [12, -12],
-                  opacity: [0.3, 0.6, 0.3],
-                }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-                className="absolute bottom-8 left-1/4 w-2.5 h-2.5 rounded-full bg-primary/30 blur-[4px]"
-              />
             </motion.div>
           </div>
         </div>
