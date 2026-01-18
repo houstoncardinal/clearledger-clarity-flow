@@ -137,9 +137,9 @@ const BillingAccountsPayable = () => {
   return (
     <>
       <SEO 
-        title="Billing & Accounts Payable Services | ClearLedger Solutions"
-        description="Professional billing and accounts payable management services. Streamlined invoicing, payment processing, and vendor management. Improve cash flow and vendor relationships."
-        keywords="billing services, accounts payable, invoice processing, vendor management, payment tracking, cash flow optimization, Texas bookkeeping"
+        title="Accounts Payable Management | 60% Faster Processing | ClearLedger"
+        description="Streamline your A/P with expert billing management. Reduce processing time by 60%, improve cash flow, prevent fraud. Invoice processing, vendor management."
+        keywords="accounts payable management, invoice processing, vendor management, payment tracking, cash flow optimization, A/P services, billing management, ClearLedger Texas"
         canonical="/billing-accounts-payable"
         schema={pageSchema}
       />

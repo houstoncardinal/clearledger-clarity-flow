@@ -117,9 +117,9 @@ const QuickBooksServices = () => {
   return (
     <>
       <SEO 
-        title="QuickBooks Bookkeeping Services | ClearLedger Solutions - Expert QB Online & Desktop"
-        description={`Professional QuickBooks bookkeeping services for Online and Desktop. Expert transaction categorization, reconciliation, and financial reporting. Save 15+ hours monthly with our certified ProAdvisor team. Call ${COMPANY_INFO.phoneLocal}.`}
-        keywords="QuickBooks bookkeeping, QuickBooks Online, QuickBooks Desktop, ProAdvisor, bookkeeping services, financial reconciliation, transaction categorization, QuickBooks setup, QuickBooks training, ClearLedger"
+        title="QuickBooks ProAdvisor Services | Save 15+ Hours Monthly | ClearLedger"
+        description={`Certified QuickBooks Online & Desktop ProAdvisor. Expert setup, training & ongoing bookkeeping. Save 15+ hours/month. Top 25 ProAdvisor 2024-2025. Call ${COMPANY_INFO.phoneLocal}.`}
+        keywords="QuickBooks ProAdvisor, QuickBooks Online bookkeeping, QuickBooks Desktop services, certified QuickBooks consultant, QB setup training, transaction categorization, financial reconciliation"
         canonical="/quickbooks-services"
         schema={schemas}
       />

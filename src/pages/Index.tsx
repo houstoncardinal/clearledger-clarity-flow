@@ -82,9 +82,9 @@ const Index = () => {
   return (
     <main className="min-h-screen bg-background">
       <SEO 
-        title="ClearLedger Solutions - Professional Bookkeeping Services | QuickBooks ProAdvisor"
-        description={`${COMPANY_INFO.description} Free consultation available. Call ${COMPANY_INFO.phoneLocal} today.`}
-        keywords="bookkeeping services, QuickBooks ProAdvisor, small business bookkeeping, monthly reconciliation, accounts payable, tax preparation, financial reporting, QuickBooks Online, QuickBooks Desktop, outsourced bookkeeping, certified bookkeeper, business accounting, Texas bookkeeping, ClearLedger Solutions"
+        title="ClearLedger Solutions | #1 QuickBooks ProAdvisor & Bookkeeping Texas"
+        description={`Award-winning QuickBooks ProAdvisor serving 500+ businesses. Expert bookkeeping, monthly reconciliation & tax prep. Free consultation. Call ${COMPANY_INFO.phoneLocal} today.`}
+        keywords="QuickBooks ProAdvisor Texas, bookkeeping services near me, small business bookkeeping, monthly reconciliation, accounts payable, tax preparation, ClearLedger Solutions, certified QuickBooks consultant, outsourced bookkeeping"
         canonical="/"
         schema={homePageSchemas}
       />

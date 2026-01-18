@@ -2065,9 +2065,9 @@ const CheckOrdering = () => {
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
       <SEO 
-        title="Custom Check Ordering - ClearLedger Solutions"
-        description="Order custom business checks with professional security features. QuickBooks and Sage 100 Contractor compatible. Free personalization and logo options available."
-        keywords="custom business checks, QuickBooks checks, Sage 100 checks, check ordering, business checks, laser checks, check printing"
+        title="Business Checks | QuickBooks & Sage Compatible | Free Logo"
+        description="Order secure business checks with free logo. QuickBooks & Sage 100 compatible. Tamper-proof security features, fast delivery. Starting at $115 for 250 checks."
+        keywords="business checks online, QuickBooks compatible checks, Sage 100 checks, custom business checks, laser checks, secure business checks, check ordering, free logo checks"
         canonical="/check-ordering"
         schema={pageSchema}
       />

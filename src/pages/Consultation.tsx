@@ -171,9 +171,9 @@ const Consultation = () => {
   return (
     <>
       <SEO 
-        title="Free Consultation | ClearLedger Solutions"
-        description="Schedule your free 30-minute consultation with ClearLedger Solutions. Get expert advice on bookkeeping, QuickBooks, and financial management tailored to your business."
-        keywords="free consultation, bookkeeping consultation, QuickBooks consultation, financial management advice, business consultation, Texas bookkeeping"
+        title="FREE 30-Min Bookkeeping Consultation | Custom Quote in 24 Hrs"
+        description="Book your FREE 30-minute consultation. Get expert QuickBooks advice & custom proposal in 24 hours. No obligation. Call (903) 815-9488 or schedule online."
+        keywords="free bookkeeping consultation, QuickBooks consultation, bookkeeping quote, free financial assessment, small business bookkeeping help, ClearLedger consultation"
         canonical="/consultation"
         schema={pageSchema}
       />

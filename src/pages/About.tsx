@@ -19,9 +19,9 @@ const AboutPage = () => {
   return (
     <main className="min-h-screen bg-background">
       <SEO 
-        title="About ClearLedger Solutions - Our Team & Mission | Professional Bookkeeping"
-        description={`Learn about ClearLedger Solutions, founded by ${COMPANY_INFO.founder.name}, a certified QuickBooks ProAdvisor with 10+ years experience. ${COMPANY_INFO.slogan}. Based in ${COMPANY_INFO.address.city}, ${COMPANY_INFO.address.stateAbbr}.`}
-        keywords="about ClearLedger, bookkeeping team, QuickBooks ProAdvisor, JJ Eldredge, certified bookkeeper, professional bookkeeping services, small business accounting, Texas bookkeeper"
+        title="About ClearLedger | Meet Our Award-Winning QuickBooks ProAdvisor Team"
+        description={`Meet JJ Eldredge & the ClearLedger team. 10+ years experience, 500+ clients, Top 25 ProAdvisor 2024-2025. ${COMPANY_INFO.slogan}. Call ${COMPANY_INFO.phoneLocal}.`}
+        keywords="about ClearLedger Solutions, JJ Eldredge QuickBooks ProAdvisor, certified bookkeeper Texas, award-winning bookkeeping team, Top 25 ProAdvisor, professional bookkeeping services"
         canonical="/about"
         schema={schemas}
       />
