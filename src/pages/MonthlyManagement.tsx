@@ -73,9 +73,9 @@ const MonthlyManagement = () => {
   return (
     <>
       <SEO 
-        title="Monthly Management & Reconciliation Services | ClearLedger Solutions"
-        description={`Professional monthly bookkeeping and reconciliation services. Bank reconciliation, financial reporting, and variance analysis. Get your financial reports within 5 business days. Call ${COMPANY_INFO.phoneLocal}.`}
-        keywords="monthly reconciliation, bank reconciliation, financial reporting, bookkeeping services, variance analysis, cash flow monitoring, ClearLedger"
+        title="Monthly Reconciliation Services | Reports in 5 Days | ClearLedger"
+        description={`Expert monthly bookkeeping & bank reconciliation. Financial reports delivered in 5 business days. Cash flow analysis, variance reports. Call ${COMPANY_INFO.phoneLocal}.`}
+        keywords="monthly bookkeeping services, bank reconciliation, financial reporting, variance analysis, cash flow monitoring, month-end closing, P&L statement, balance sheet, ClearLedger"
         canonical="/monthly-management"
         schema={schemas}
       />

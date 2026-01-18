@@ -137,9 +137,9 @@ const CleanupAdvisory = () => {
   return (
     <>
       <SEO 
-        title="Cleanup & Advisory Services | ClearLedger Solutions"
-        description="Professional financial cleanup and advisory services. Historical data cleanup, process optimization, and strategic financial consulting. Get your books pristine and compliant."
-        keywords="financial cleanup, advisory services, historical data cleanup, process optimization, financial consulting, compliance, Texas bookkeeping"
+        title="Financial Cleanup & Advisory | Get Audit-Ready Books | ClearLedger"
+        description="Transform messy books into audit-ready financials. Historical data cleanup, process optimization, strategic consulting. Expert QuickBooks cleanup services."
+        keywords="financial cleanup services, bookkeeping cleanup, historical data cleanup, QuickBooks cleanup, audit preparation, financial advisory, process optimization, ClearLedger"
         canonical="/cleanup-advisory"
         schema={pageSchema}
       />

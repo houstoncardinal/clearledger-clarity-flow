@@ -19,9 +19,9 @@ const ContactPage = () => {
   return (
     <main className="min-h-screen bg-background">
       <SEO 
-        title="Contact ClearLedger Solutions - Get Free Bookkeeping Consultation"
-        description={`Contact ClearLedger Solutions for professional bookkeeping services. Get a free consultation and custom quote for your business. Call ${COMPANY_INFO.phoneLocal} or email ${COMPANY_INFO.email}. QuickBooks ProAdvisor certified team.`}
-        keywords="contact ClearLedger, bookkeeping consultation, free consultation, QuickBooks ProAdvisor contact, bookkeeping services quote, small business accounting help"
+        title="Contact ClearLedger | Free Bookkeeping Consultation | (903) 815-9488"
+        description={`Get your FREE 30-minute bookkeeping consultation. Expert QuickBooks help, custom pricing. Call ${COMPANY_INFO.phoneLocal} or email ${COMPANY_INFO.email}. Response within 2 hours.`}
+        keywords="contact ClearLedger, free bookkeeping consultation, QuickBooks help, bookkeeping quote, small business accounting consultation, Texas bookkeeping services"
         canonical="/contact"
         schema={schemas}
       />
