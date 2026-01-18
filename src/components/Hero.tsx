@@ -117,12 +117,13 @@ const Hero = () => {
               <Link to="/contact" className="w-full sm:w-auto">
                 <Button 
                   size="lg" 
-                  className="relative overflow-hidden text-xs sm:text-sm md:text-base h-11 sm:h-12 md:h-14 px-5 sm:px-6 md:px-8 rounded-xl sm:rounded-2xl font-semibold group w-full bg-gradient-to-r from-primary to-[#9333ea] text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all duration-500 hover:scale-[1.02]"
+                  variant="premium"
+                  className="group w-full text-sm md:text-base"
                 >
                   <span className="relative z-10 flex items-center justify-center">
-                    <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
+                    <Sparkles className="w-4 h-4 md:w-5 md:h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
                     {t('hero.cta')}
-                    <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                    <ArrowRight className="w-4 h-4 md:w-5 md:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                   </span>
                   {/* Shine effect */}
                   <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/25 to-transparent" />
@@ -133,9 +134,9 @@ const Hero = () => {
                 <Button 
                   size="lg" 
                   variant="outline"
-                  className="text-xs sm:text-sm md:text-base h-11 sm:h-12 md:h-14 px-5 sm:px-6 md:px-8 rounded-xl sm:rounded-2xl font-semibold group w-full border-2 border-gray-200 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
+                  className="group w-full text-sm md:text-base"
                 >
-                  <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-2 group-hover:scale-110 transition-transform" />
+                  <Play className="w-4 h-4 md:w-5 md:h-5 mr-2 group-hover:scale-110 transition-transform" />
                   Book a Strategy Call
                 </Button>
               </a>
@@ -158,35 +159,35 @@ const Hero = () => {
           </div>
 
           {/* Right Side - 5 columns - Hero Logo */}
-          <div className="lg:col-span-5 relative order-1 lg:order-2 flex items-center justify-center py-6 sm:py-8 lg:py-0">
+          <div className="lg:col-span-5 relative order-1 lg:order-2 flex items-center justify-center py-4 sm:py-6 lg:py-0">
             {/* Main Logo Container */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="relative w-full max-w-[300px] sm:max-w-[380px] md:max-w-[440px] lg:max-w-[500px] xl:max-w-[560px]"
+              className="relative w-full max-w-[340px] sm:max-w-[420px] md:max-w-[500px] lg:max-w-[560px] xl:max-w-[640px]"
             >
               {/* Subtle glow effect */}
               <motion.div 
                 animate={{ 
-                  opacity: [0.4, 0.6, 0.4]
+                  opacity: [0.3, 0.5, 0.3]
                 }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute inset-0 -inset-x-12 -inset-y-12 bg-gradient-radial from-primary/15 via-primary/5 to-transparent rounded-full blur-3xl pointer-events-none"
+                className="absolute inset-0 -inset-x-16 -inset-y-16 bg-gradient-radial from-primary/12 via-primary/4 to-transparent rounded-full blur-3xl pointer-events-none"
               />
               
               {/* Floating animation for the logo */}
               <motion.div
                 animate={{ 
-                  y: [-6, 6, -6],
+                  y: [-8, 8, -8],
                 }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                 className="relative z-10"
               >
                 <img 
                   src={clearledgerHeroLogo} 
                   alt="ClearLedger Solutions - Where Clarity Meets Compliance" 
-                  className="relative w-full h-auto object-contain"
+                  className="relative w-full h-auto object-contain drop-shadow-2xl"
                 />
               </motion.div>
             </motion.div>
