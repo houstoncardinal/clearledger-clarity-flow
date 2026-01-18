@@ -20,7 +20,13 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CalendlyWidget from '@/components/CalendlyWidget';
 import SEO from '@/components/SEO';
-import { getBreadcrumbSchema } from '@/utils/schemaMarkup';
+import { 
+  getEnhancedBreadcrumbSchema, 
+  getLocalBusinessSchema,
+  getHowToSchema,
+  getContactPageSchema,
+  combineSchemas 
+} from '@/utils/advancedSchemaMarkup';
 
 const Consultation = () => {
   const [formData, setFormData] = useState({
@@ -146,14 +152,30 @@ const Consultation = () => {
     { name: "Consultation", url: "/consultation" }
   ];
 
+  const howToSteps = consultationProcess.map(step => ({
+    name: step.title,
+    text: step.description
+  }));
+
+  const pageSchema = combineSchemas([
+    getEnhancedBreadcrumbSchema(breadcrumbs),
+    getLocalBusinessSchema(),
+    getContactPageSchema(),
+    getHowToSchema({
+      name: "How to Schedule a Free Bookkeeping Consultation",
+      description: "Simple steps to schedule your free 30-minute consultation with ClearLedger Solutions.",
+      steps: howToSteps
+    })
+  ]);
+
   return (
     <>
       <SEO 
         title="Free Consultation | ClearLedger Solutions"
         description="Schedule your free 30-minute consultation with ClearLedger Solutions. Get expert advice on bookkeeping, QuickBooks, and financial management tailored to your business."
-        keywords="free consultation, bookkeeping consultation, QuickBooks consultation, financial management advice, business consultation"
+        keywords="free consultation, bookkeeping consultation, QuickBooks consultation, financial management advice, business consultation, Texas bookkeeping"
         canonical="/consultation"
-        schema={getBreadcrumbSchema(breadcrumbs)}
+        schema={pageSchema}
       />
       <main className="min-h-screen bg-background">
         <Header />
