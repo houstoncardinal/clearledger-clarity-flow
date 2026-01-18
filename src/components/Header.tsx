@@ -327,9 +327,10 @@ const Header = () => {
             <div className="w-px h-6 bg-border"></div>
             
             <Link to="/contact">
-              <Button className="btn-primary group">
-                <Sparkles className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
-                {t('nav.bookConsultation')}
+              <Button className="h-10 px-4 lg:px-5 rounded-lg bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-sm shadow-md hover:shadow-lg transition-all duration-300 group whitespace-nowrap">
+                <Sparkles className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300 flex-shrink-0" />
+                <span className="hidden lg:inline">Book Consultation</span>
+                <span className="lg:hidden">Contact</span>
               </Button>
             </Link>
           </div>
