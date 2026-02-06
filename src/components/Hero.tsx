@@ -44,7 +44,7 @@ const Hero = () => {
                 />
                 <Shield className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 text-primary" />
               </div>
-              <span className="text-[10px] sm:text-xs md:text-sm font-semibold text-foreground">Trusted by 500+ Businesses</span>
+              <span className="text-[10px] sm:text-xs md:text-sm font-semibold text-foreground">Trusted by Businesses Nationwide</span>
               <div className="hidden sm:block h-3 sm:h-4 w-px bg-border" />
               <span className="hidden sm:block text-[10px] sm:text-xs text-muted-foreground font-medium">Est. 2014</span>
             </div>
