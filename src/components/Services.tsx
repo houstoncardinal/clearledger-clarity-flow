@@ -7,7 +7,8 @@ import {
   TrendingUp,
   ArrowRight,
   CheckCircle,
-  Zap
+  Zap,
+  Sparkles
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -164,33 +165,55 @@ const Services = () => {
           })}
         </motion.div>
 
-        {/* Bottom CTA */}
+        {/* Bottom CTA - Premium White Card */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="cta-section text-center text-primary-foreground p-6 sm:p-8 md:p-10 lg:p-12 rounded-2xl sm:rounded-3xl"
+          className="relative text-center p-8 sm:p-10 md:p-12 lg:p-16 rounded-3xl bg-white border border-primary/10 shadow-[0_8px_60px_-12px_rgba(203,108,230,0.25)] overflow-hidden"
         >
-          <h3 className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 relative z-10">
-            Need a Custom Solution?
-          </h3>
-          <p className="text-sm sm:text-base md:text-lg text-primary-foreground/90 mb-6 sm:mb-8 max-w-2xl mx-auto relative z-10">
-            Every business is unique. Let's discuss how we can tailor our services 
-            to meet your specific financial management needs.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center relative z-10">
-            <Link to="/contact">
-              <Button size="lg" className="w-full sm:w-auto bg-card text-foreground hover:bg-card/90 font-semibold px-5 sm:px-6 md:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl shadow-lg text-xs sm:text-sm md:text-base h-11 sm:h-12 md:h-auto">
-                Schedule Consultation
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
-              </Button>
-            </Link>
-            <Link to="/contact">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto border-2 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-semibold px-5 sm:px-6 md:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-xs sm:text-sm md:text-base h-11 sm:h-12 md:h-auto">
-                Request Custom Quote
-              </Button>
-            </Link>
+          {/* Subtle gradient glow effects */}
+          <div className="absolute -top-20 -right-20 w-64 h-64 bg-gradient-to-br from-primary/20 via-pink-300/15 to-transparent rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-gradient-to-tr from-purple-400/15 via-primary/10 to-transparent rounded-full blur-3xl pointer-events-none" />
+          
+          {/* Premium accent line */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-primary/60 to-transparent rounded-full" />
+          
+          <div className="relative z-10">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/20 text-primary text-xs font-medium mb-6">
+              <Sparkles className="w-3.5 h-3.5" />
+              Tailored For Your Business
+            </span>
+            
+            <h3 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-4 sm:mb-5">
+              Need a Custom Solution?
+            </h3>
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed">
+              Every business is unique. Let's discuss how we can tailor our services 
+              to meet your specific financial management needs.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/contact">
+                <Button 
+                  size="lg" 
+                  className="group w-full sm:w-auto bg-gradient-to-r from-primary via-purple-500 to-primary bg-[length:200%_100%] hover:bg-right text-white font-semibold px-8 py-6 rounded-2xl shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all duration-500 text-sm md:text-base"
+                >
+                  Schedule Consultation
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+              <Link to="/contact">
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="w-full sm:w-auto border-2 border-primary/30 text-primary hover:bg-primary/5 hover:border-primary/50 font-semibold px-8 py-6 rounded-2xl transition-all duration-300 text-sm md:text-base"
+                >
+                  Request Custom Quote
+                </Button>
+              </Link>
+            </div>
           </div>
         </motion.div>
       </div>
