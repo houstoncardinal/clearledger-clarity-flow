@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles, Play, Shield, CheckCircle2, Zap } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
+import { BackgroundPaths } from '@/components/ui/background-paths';
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -16,8 +17,11 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-[100svh] flex items-center bg-white pt-24 pb-12 sm:pt-28 sm:pb-16 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24 overflow-hidden">
+      {/* Animated background paths */}
+      <BackgroundPaths />
+      
       {/* Clean white background with subtle accent */}
-      <div className="absolute inset-0 bg-white">
+      <div className="absolute inset-0 bg-white/80 pointer-events-none">
         {/* Subtle gradient accent at top */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
         
