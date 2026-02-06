@@ -161,24 +161,51 @@ const CheckOrderingSection = () => {
           })}
         </div>
 
-        {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-          {features.map((feature, index) => {
-            const IconComponent = feature.icon;
-            return (
-              <div key={index} className="text-center group">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <IconComponent className="w-8 h-8 text-primary-foreground" />
+        {/* Features Grid - Balanced 2-3 Layout */}
+        <div className="mb-20">
+          {/* Top Row - 2 larger feature cards */}
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
+            {features.slice(0, 2).map((feature, index) => {
+              const IconComponent = feature.icon;
+              return (
+                <div key={index} className="group bg-white rounded-2xl p-8 border border-primary/10 shadow-sm hover:shadow-lg hover:border-primary/20 transition-all duration-300">
+                  <div className="flex items-start gap-5">
+                    <div className="w-14 h-14 bg-gradient-to-br from-primary to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-primary/20">
+                      <IconComponent className="w-7 h-7 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-heading text-xl font-semibold text-foreground mb-2">
+                        {feature.title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="font-heading text-xl font-bold text-foreground mb-4">
-                  {feature.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+          
+          {/* Bottom Row - 3 compact feature cards */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {features.slice(2, 5).map((feature, index) => {
+              const IconComponent = feature.icon;
+              return (
+                <div key={index} className="group text-center bg-white rounded-2xl p-6 border border-primary/10 shadow-sm hover:shadow-lg hover:border-primary/20 transition-all duration-300">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-primary/20">
+                    <IconComponent className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="font-heading text-lg font-semibold text-foreground mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         {/* CTA Section */}
