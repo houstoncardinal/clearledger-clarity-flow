@@ -6,7 +6,7 @@ import { useMemo } from "react";
 function FloatingPaths({ position }: { position: number }) {
     const shouldReduceMotion = useReducedMotion();
     
-    const paths = useMemo(() => Array.from({ length: 42 }, (_, i) => ({
+    const paths = useMemo(() => Array.from({ length: 36 }, (_, i) => ({
         id: i,
         d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${
             380 - i * 5 * position
@@ -15,9 +15,9 @@ function FloatingPaths({ position }: { position: number }) {
         } ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
             684 - i * 5 * position
         } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
-        // Enhanced brand purple gradient with better visibility
-        color: `hsla(270, 70%, 50%, ${0.08 + i * 0.02})`,
-        width: 0.8 + i * 0.05,
+        // Subtle, refined purple paths
+        color: `hsla(270, 50%, 60%, ${0.03 + i * 0.008})`,
+        width: 0.3 + i * 0.02,
     })), [position]);
 
     return (
@@ -35,7 +35,7 @@ function FloatingPaths({ position }: { position: number }) {
                         d={path.d}
                         stroke={path.color}
                         strokeWidth={path.width}
-                        strokeOpacity={0.8}
+                        strokeOpacity={0.5}
                         initial={{ pathLength: 0.3, opacity: 0.3 }}
                         animate={shouldReduceMotion ? {} : {
                             pathLength: 1,
@@ -64,8 +64,8 @@ export function BackgroundPaths() {
             <FloatingPaths position={-1} />
             
             {/* Additional ambient glow effects */}
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl opacity-60" />
-            <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-primary/8 rounded-full blur-3xl opacity-50" />
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl opacity-40" />
+            <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl opacity-30" />
         </div>
     );
 }
