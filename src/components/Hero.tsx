@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, Calendar, Shield, CheckCircle2, Award, TrendingUp, Users } from 'lucide-react';
+import { ArrowRight, Sparkles, Calendar, Shield, CheckCircle2, Award, TrendingUp, Users, Zap, Building2, FileCheck } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
 import { BackgroundPaths } from '@/components/ui/background-paths';
@@ -15,10 +15,10 @@ const Hero = () => {
     { label: 'Financial Reporting', icon: CheckCircle2 }
   ];
 
-  const stats = [
-    { value: '10+', label: 'Years Experience' },
-    { value: '98%', label: 'Client Retention' },
-    { value: '24/7', label: 'Support Available' }
+  const highlights = [
+    { icon: Building2, title: 'Enterprise Solutions', description: 'Scalable financial management' },
+    { icon: FileCheck, title: 'Full Compliance', description: 'Industry-standard practices' },
+    { icon: Zap, title: 'Dedicated Support', description: 'Expert guidance always' }
   ];
 
   return (
@@ -70,19 +70,10 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
               >
-                <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl leading-[1.05] tracking-tight text-foreground">
-                  <span className="block mb-1 sm:mb-2">Where Clarity</span>
-                  <span className="relative inline-block">
-                    <span className="bg-gradient-to-r from-primary via-purple-500 to-primary bg-[length:200%_auto] animate-[gradient_3s_linear_infinite] bg-clip-text text-transparent">
-                      Meets Compliance
-                    </span>
-                    {/* Animated underline */}
-                    <motion.div 
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ duration: 0.8, delay: 0.8 }}
-                      className="absolute -bottom-1 sm:-bottom-2 left-0 right-0 h-1 sm:h-1.5 bg-gradient-to-r from-primary via-purple-500 to-primary rounded-full origin-left"
-                    />
+                <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl leading-[1.1] tracking-tight text-foreground font-medium">
+                  <span className="block mb-1">Where Clarity</span>
+                  <span className="bg-gradient-to-r from-primary via-purple-500 to-primary bg-[length:200%_auto] animate-[gradient_3s_linear_infinite] bg-clip-text text-transparent whitespace-nowrap">
+                    Meets Compliance
                   </span>
                 </h1>
               </motion.div>
@@ -166,7 +157,7 @@ const Hero = () => {
               </motion.div>
             </div>
 
-            {/* Stats card - right side (desktop only) */}
+            {/* Enterprise card - right side (desktop only) */}
             <motion.div 
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -174,48 +165,55 @@ const Hero = () => {
               className="hidden lg:block lg:col-span-5"
             >
               <div className="relative">
-                {/* Glow effect behind card */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-purple-500/20 to-primary/20 rounded-3xl blur-2xl opacity-60" />
+                {/* Subtle glow effect behind card */}
+                <div className="absolute -inset-6 bg-gradient-to-br from-primary/10 via-transparent to-purple-500/10 rounded-[2rem] blur-3xl opacity-50" />
                 
-                <div className="relative bg-background/90 backdrop-blur-xl border border-border/50 rounded-3xl p-8 shadow-2xl">
-                  {/* Card header */}
-                  <div className="flex items-center gap-3 mb-6 pb-6 border-b border-border/50">
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center shadow-lg shadow-primary/30">
-                      <TrendingUp className="w-6 h-6 text-primary-foreground" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground">Enterprise Excellence</h3>
-                      <p className="text-sm text-muted-foreground">Proven results for your business</p>
+                <div className="relative bg-background/95 backdrop-blur-xl border border-border/40 rounded-[1.5rem] overflow-hidden shadow-2xl">
+                  {/* Card header with gradient accent */}
+                  <div className="relative px-8 pt-8 pb-6">
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-purple-500 to-primary opacity-80" />
+                    <div className="flex items-center gap-4">
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center shadow-lg shadow-primary/20">
+                        <TrendingUp className="w-7 h-7 text-primary-foreground" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-foreground">ClearLedger</h3>
+                        <p className="text-sm text-muted-foreground">Financial Excellence</p>
+                      </div>
                     </div>
                   </div>
                   
-                  {/* Stats grid */}
-                  <div className="grid grid-cols-3 gap-4">
-                    {stats.map((stat, index) => (
+                  {/* Highlights list */}
+                  <div className="px-8 pb-6 space-y-4">
+                    {highlights.map((item, index) => (
                       <motion.div
-                        key={stat.label}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-                        className="text-center p-4 rounded-2xl bg-muted/30 hover:bg-muted/50 transition-colors"
+                        key={item.title}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
+                        className="flex items-center gap-4 p-4 rounded-xl bg-muted/20 hover:bg-muted/40 border border-border/30 transition-all duration-300 group"
                       >
-                        <div className="text-2xl xl:text-3xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
-                          {stat.value}
+                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                          <item.icon className="w-5 h-5 text-primary" />
                         </div>
-                        <div className="text-xs text-muted-foreground mt-1 leading-tight">
-                          {stat.label}
+                        <div>
+                          <h4 className="font-medium text-foreground text-sm">{item.title}</h4>
+                          <p className="text-xs text-muted-foreground">{item.description}</p>
                         </div>
                       </motion.div>
                     ))}
                   </div>
                   
                   {/* Card footer */}
-                  <div className="mt-6 pt-6 border-t border-border/50">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground">QuickBooks ProAdvisor</span>
-                      <div className="flex items-center gap-1.5">
+                  <div className="px-8 py-5 bg-muted/20 border-t border-border/30">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                        <span className="text-sm text-muted-foreground">QuickBooks ProAdvisor</span>
+                      </div>
+                      <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20">
                         <Award className="w-4 h-4 text-primary" />
-                        <span className="font-medium text-foreground">Certified</span>
+                        <span className="text-xs font-medium text-primary">Certified</span>
                       </div>
                     </div>
                   </div>
@@ -224,27 +222,27 @@ const Hero = () => {
             </motion.div>
           </div>
           
-          {/* Mobile stats - shown only on smaller screens */}
+          {/* Mobile highlights - shown only on smaller screens */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
             className="lg:hidden mt-10 sm:mt-12"
           >
-            <div className="grid grid-cols-3 gap-3 sm:gap-4">
-              {stats.map((stat, index) => (
+            <div className="grid grid-cols-3 gap-3">
+              {highlights.map((item, index) => (
                 <motion.div
-                  key={stat.label}
+                  key={item.title}
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 0.8 + index * 0.1 }}
-                  className="text-center p-4 sm:p-5 rounded-2xl bg-background/80 backdrop-blur-sm border border-border/50 shadow-lg"
+                  className="text-center p-4 rounded-2xl bg-background/90 backdrop-blur-sm border border-border/40 shadow-lg"
                 >
-                  <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
-                    {stat.value}
+                  <div className="w-10 h-10 mx-auto mb-2 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <item.icon className="w-5 h-5 text-primary" />
                   </div>
-                  <div className="text-[10px] sm:text-xs text-muted-foreground mt-1 leading-tight">
-                    {stat.label}
+                  <div className="text-xs font-medium text-foreground leading-tight">
+                    {item.title}
                   </div>
                 </motion.div>
               ))}
