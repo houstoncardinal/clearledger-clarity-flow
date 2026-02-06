@@ -9,9 +9,11 @@ import {
   TrendingUp,
   Users,
   Award,
-  Shield
+  Shield,
+  Sparkles
 } from 'lucide-react';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const Testimonials = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -71,97 +73,130 @@ const Testimonials = () => {
   const current = testimonials[currentTestimonial];
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-background via-accent/10 to-background">
-      <div className="container mx-auto px-4 sm:px-6">
+    <section className="py-20 lg:py-28 relative overflow-hidden">
+      {/* Premium Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
+      
+      {/* Subtle Pattern Overlay */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+          backgroundSize: '32px 32px'
+        }} />
+      </div>
+      
+      {/* Glow Effects */}
+      <div className="absolute top-20 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-10 sm:mb-14 md:mb-20">
-          <div className="inline-flex items-center space-x-2 bg-accent px-4 sm:px-6 py-2 sm:py-3 rounded-full mb-4 sm:mb-6 md:mb-8">
-            <Star className="w-4 h-4 sm:w-5 sm:h-5 text-accent-foreground" />
-            <span className="text-xs sm:text-sm font-semibold text-accent-foreground">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-5 py-2.5 rounded-full mb-6 border border-white/10">
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="text-sm font-semibold text-white/90">
               Client Success Stories
             </span>
           </div>
-          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-4 sm:mb-6 md:mb-8 leading-tight">
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-5">
             Trusted by{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dark">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">
               Growing Businesses
             </span>
           </h2>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg text-white/70 max-w-3xl mx-auto leading-relaxed">
             See how ClearLedger has transformed financial management for businesses across 
             15+ industries, helping them achieve clarity, compliance, and growth.
           </p>
-        </div>
+        </motion.div>
 
         {/* Trust Stats */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-10 sm:mb-14 md:mb-20">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
+        >
           {stats.map((stat, index) => {
             const IconComponent = stat.icon;
             return (
               <div key={index} className="text-center group">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-r from-primary/20 to-primary-dark/20 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-2 sm:mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-primary" />
+                <div className="w-14 h-14 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 transition-colors duration-300 border border-white/10">
+                  <IconComponent className="w-7 h-7 text-primary" />
                 </div>
-                <div className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-1 sm:mb-2 group-hover:text-primary transition-colors duration-300">
+                <div className="font-heading text-3xl md:text-4xl font-bold text-white mb-1">
                   {stat.value}
                 </div>
-                <div className="text-xs sm:text-sm md:text-base text-muted-foreground font-medium">
+                <div className="text-sm text-white/60 font-medium">
                   {stat.label}
                 </div>
               </div>
             );
           })}
-        </div>
+        </motion.div>
 
-        {/* Featured Testimonial */}
-        <div className="mb-10 sm:mb-14 md:mb-20">
-          <div className="bg-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 shadow-xl sm:shadow-2xl border border-border/50 relative overflow-hidden">
-            {/* Background Pattern */}
-            <div className="absolute top-0 right-0 w-32 sm:w-48 md:w-64 h-32 sm:h-48 md:h-64 bg-gradient-to-br from-primary/5 to-primary-dark/5 rounded-full -translate-y-16 sm:-translate-y-24 md:-translate-y-32 translate-x-16 sm:translate-x-24 md:translate-x-32"></div>
-            <div className="absolute bottom-0 left-0 w-24 sm:w-36 md:w-48 h-24 sm:h-36 md:h-48 bg-gradient-to-tr from-accent/10 to-accent/5 rounded-full translate-y-12 sm:translate-y-18 md:translate-y-24 -translate-x-12 sm:-translate-x-18 md:-translate-x-24"></div>
+        {/* Featured Testimonial Card */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-16"
+        >
+          <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/10 relative overflow-hidden">
+            {/* Accent Glow */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-primary/20 to-transparent rounded-full -translate-y-32 translate-x-32 blur-2xl" />
             
             <div className="relative z-10">
               {/* Quote Icon */}
-              <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-gradient-to-r from-primary/20 to-primary-dark/20 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 md:mb-8">
-                <Quote className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-primary" />
+              <div className="w-14 h-14 bg-gradient-to-br from-primary to-purple-500 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-primary/20">
+                <Quote className="w-7 h-7 text-white" />
               </div>
 
-              {/* Testimonial Content */}
-              <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center">
+              <div className="grid lg:grid-cols-3 gap-10 items-center">
                 <div className="lg:col-span-2">
-                  <div className="flex items-center space-x-0.5 sm:space-x-1 mb-4 sm:mb-6">
+                  {/* Stars */}
+                  <div className="flex items-center gap-1 mb-6">
                     {[...Array(current.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 fill-yellow-400 text-yellow-400" />
+                      <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
                   
-                  <blockquote className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-foreground font-light leading-relaxed mb-4 sm:mb-6 md:mb-8 italic">
+                  {/* Quote */}
+                  <blockquote className="text-xl md:text-2xl lg:text-3xl text-white font-light leading-relaxed mb-8 italic">
                     "{current.content}"
                   </blockquote>
 
                   {/* Results */}
-                  <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 md:mb-8">
+                  <div className="flex flex-wrap gap-3 mb-8">
                     {current.results.map((result, index) => (
-                      <div key={index} className="flex items-center space-x-2 sm:space-x-3">
-                        <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
-                        <span className="text-xs sm:text-sm md:text-base text-foreground font-medium">{result}</span>
+                      <div key={index} className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/10">
+                        <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
+                        <span className="text-sm text-white/90 font-medium">{result}</span>
                       </div>
                     ))}
                   </div>
 
                   {/* Client Info */}
-                  <div className="flex items-center space-x-3 sm:space-x-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-gradient-to-r from-primary to-primary-dark rounded-lg sm:rounded-xl md:rounded-2xl flex items-center justify-center text-primary-foreground font-bold text-sm sm:text-base md:text-xl">
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 bg-gradient-to-br from-primary to-purple-500 rounded-2xl flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary/20">
                       {current.avatar}
                     </div>
                     <div>
-                      <div className="font-heading text-sm sm:text-base md:text-lg lg:text-xl font-bold text-foreground">
+                      <div className="font-heading text-lg font-semibold text-white">
                         {current.name}
                       </div>
-                      <div className="text-xs sm:text-sm text-muted-foreground">
+                      <div className="text-sm text-white/60">
                         {current.title} at {current.company}
                       </div>
-                      <div className="text-[10px] sm:text-xs md:text-sm text-muted-foreground">
+                      <div className="text-xs text-white/40">
                         {current.companySize} • {current.industry}
                       </div>
                     </div>
@@ -169,20 +204,20 @@ const Testimonials = () => {
                 </div>
 
                 {/* Navigation */}
-                <div className="flex flex-row lg:flex-col items-center justify-center lg:justify-start space-x-4 lg:space-x-0 lg:space-y-6 mt-4 lg:mt-0">
+                <div className="flex flex-row lg:flex-col items-center justify-center lg:justify-start gap-6">
                   <div className="text-center">
-                    <div className="text-xs sm:text-sm text-muted-foreground mb-1 sm:mb-2">Testimonial</div>
-                    <div className="font-heading text-lg sm:text-xl md:text-2xl font-bold text-foreground">
-                      {currentTestimonial + 1} of {testimonials.length}
+                    <div className="text-sm text-white/50 mb-1">Testimonial</div>
+                    <div className="font-heading text-2xl font-bold text-white">
+                      {currentTestimonial + 1} <span className="text-white/40">/ {testimonials.length}</span>
                     </div>
                   </div>
                   
-                  <div className="flex space-x-2 sm:space-x-3">
+                  <div className="flex gap-3">
                     <Button
                       variant="outline"
                       size="icon"
                       onClick={prevTestimonial}
-                      className="w-12 h-12 rounded-xl hover:bg-accent/50"
+                      className="w-12 h-12 rounded-xl bg-white/5 border-white/10 text-white hover:bg-white/10 hover:border-white/20"
                     >
                       <ArrowLeft className="w-5 h-5" />
                     </Button>
@@ -190,15 +225,14 @@ const Testimonials = () => {
                       variant="outline"
                       size="icon"
                       onClick={nextTestimonial}
-                      className="w-12 h-12 rounded-xl hover:bg-accent/50"
+                      className="w-12 h-12 rounded-xl bg-white/5 border-white/10 text-white hover:bg-white/10 hover:border-white/20"
                     >
                       <ArrowRight className="w-5 h-5" />
                     </Button>
                   </div>
 
-                  {/* Featured Badge */}
                   {current.featured && (
-                    <div className="bg-gradient-to-r from-primary to-primary-dark text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold">
+                    <div className="bg-gradient-to-r from-primary to-purple-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg shadow-primary/20">
                       Featured Story
                     </div>
                   )}
@@ -206,71 +240,101 @@ const Testimonials = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* All Testimonials Grid */}
-        <div className="mb-20">
-          <div className="flex items-center justify-between mb-12">
-            <h3 className="font-heading text-3xl font-bold text-foreground">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mb-16"
+        >
+          <div className="flex items-center justify-between mb-10">
+            <h3 className="font-heading text-2xl font-semibold text-white">
               More Success Stories
             </h3>
-            <Button variant="outline" className="btn-secondary">
-              View All Testimonials
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="card-service group hover:shadow-2xl transition-all duration-500">
-                <div className="flex items-center space-x-1 mb-4">
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.1 * index }}
+                className="group bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+              >
+                <div className="flex items-center gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
                 
-                <blockquote className="text-foreground mb-6 italic leading-relaxed">
+                <blockquote className="text-white/80 mb-6 italic leading-relaxed line-clamp-4">
                   "{testimonial.content}"
                 </blockquote>
                 
-                <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-gradient-to-r from-primary to-primary-dark rounded-xl flex items-center justify-center text-primary-foreground font-bold text-sm">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-gradient-to-br from-primary to-purple-500 rounded-xl flex items-center justify-center text-white font-bold text-sm">
                     {testimonial.avatar}
                   </div>
                   <div>
-                    <div className="font-medium text-foreground">{testimonial.name}</div>
-                    <div className="text-sm text-muted-foreground">
-                      {testimonial.title} at {testimonial.company}
+                    <div className="font-medium text-white text-sm">{testimonial.name}</div>
+                    <div className="text-xs text-white/50">
+                      {testimonial.title}
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* CTA Section */}
-        <div className="bg-gradient-to-br from-primary/10 to-primary-dark/10 rounded-3xl p-12 text-center">
-          <h3 className="font-heading text-3xl font-bold text-foreground mb-4">
-            Ready to Join Our Success Stories?
-          </h3>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Schedule your free consultation today and discover how ClearLedger can 
-            transform your financial management and help your business grow.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="relative bg-white rounded-3xl p-10 md:p-14 text-center overflow-hidden border border-primary/10 shadow-[0_8px_60px_-12px_rgba(203,108,230,0.2)]"
+        >
+          {/* Glow Effects */}
+          <div className="absolute -top-20 -right-20 w-64 h-64 bg-gradient-to-br from-primary/20 via-pink-300/15 to-transparent rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-gradient-to-tr from-purple-400/15 via-primary/10 to-transparent rounded-full blur-3xl pointer-events-none" />
+          
+          {/* Accent Line */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-primary/60 to-transparent rounded-full" />
+          
+          <div className="relative z-10">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/20 text-primary text-xs font-medium mb-6">
+              <Sparkles className="w-3.5 h-3.5" />
+              Start Your Journey
+            </span>
+            
+            <h3 className="font-heading text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground mb-4">
+              Ready to Join Our Success Stories?
+            </h3>
+            <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
+              Schedule your free consultation today and discover how ClearLedger can 
+              transform your financial management.
+            </p>
+            
             <Link to="/contact">
-              <Button size="lg" className="btn-primary text-lg px-8 py-4">
+              <Button 
+                size="lg" 
+                className="group bg-gradient-to-r from-primary via-purple-500 to-primary bg-[length:200%_100%] hover:bg-right text-white font-semibold px-8 py-6 rounded-2xl shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all duration-500 text-base"
+              >
                 Book Free Consultation
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 };
 
-export default Testimonials; 
+export default Testimonials;
