@@ -5,22 +5,13 @@
   "icons": [
     {
       "src": "/logo.png",
-      "sizes": "16x16",
-      "type": "image/png"
-    },
-    {
-      "src": "/logo.png",
-      "sizes": "32x32",
-      "type": "image/png"
-    },
-    {
-      "src": "/logo.png",
-      "sizes": "180x180",
-      "type": "image/png"
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
   "theme_color": "#CB6CE6",
   "background_color": "#FFFFFF",
   "display": "standalone",
   "start_url": "/"
-} 
+}
