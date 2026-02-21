@@ -121,14 +121,16 @@ const Footer = () => {
             </p>
 
             {/* Contact Info Cards */}
-            <div className="grid grid-cols-2 gap-4 mb-8">
+            <div className="flex flex-col gap-3 mb-8">
               {contactInfo.slice(0, 2).map((info, index) => {
                 const IconComponent = info.icon;
                 return (
-                  <div key={index} className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/5">
-                    <IconComponent className="w-5 h-5 text-primary mb-2" />
-                    <div className="text-sm font-medium text-white break-all">{info.value}</div>
-                    <div className="text-xs text-white/40 mt-1">{info.subtext}</div>
+                  <div key={index} className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/5 flex items-center gap-4">
+                    <IconComponent className="w-5 h-5 text-primary shrink-0" />
+                    <div>
+                      <div className="text-sm font-medium text-white">{info.value}</div>
+                      <div className="text-xs text-white/40 mt-0.5">{info.subtext}</div>
+                    </div>
                   </div>
                 );
               })}
