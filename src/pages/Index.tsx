@@ -93,7 +93,7 @@ const Index = () => {
       <BadgesSection />
       <ServicesComponent />
       <CheckOrderingSection />
-      <Testimonials />
+      
       <Footer />
     </main>
   );
