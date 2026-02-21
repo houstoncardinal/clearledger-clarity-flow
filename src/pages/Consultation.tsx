@@ -77,6 +77,14 @@ const Consultation = () => {
       body: new URLSearchParams(formDataToSend as any).toString()
     })
     .then(() => {
+      // Fire Google Ads conversion event
+      if (typeof (window as any).gtag === 'function') {
+        (window as any).gtag('event', 'conversion', {
+          'send_to': 'AW-17027608656/X7WjCPbVt_obENDgsrc_',
+          'value': 1.0,
+          'currency': 'USD'
+        });
+      }
       // Show success message
       alert('Thank you! Your consultation request has been submitted. We\'ll contact you within 2 hours to schedule your free consultation.');
       // Reset form
