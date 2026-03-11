@@ -24,7 +24,7 @@ const Header = () => {
   const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [servicesTimeout, setServicesTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [servicesTimeout, setServicesTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
   const servicesTriggerRef = useRef<HTMLDivElement>(null);
   const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0, width: 0 });
   const [mounted, setMounted] = useState(false);
