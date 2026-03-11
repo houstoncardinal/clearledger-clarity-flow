@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { getPostBySlug, getRelatedPosts, blogCategories } from '@/data/blogPosts';
-import { getBlogPostSchema, getEnhancedBreadcrumbSchema } from '@/utils/advancedSchemaMarkup';
+import { getBlogPostSchema, getEnhancedBreadcrumbSchema, getBlogHowToSchema, getSpeakableSchema } from '@/utils/advancedSchemaMarkup';
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
