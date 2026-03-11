@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { getPostBySlug, getRelatedPosts, blogCategories } from '@/data/blogPosts';
-import { getBlogPostSchema, getEnhancedBreadcrumbSchema } from '@/utils/advancedSchemaMarkup';
+import { getBlogPostSchema, getEnhancedBreadcrumbSchema, getBlogHowToSchema, getSpeakableSchema } from '@/utils/advancedSchemaMarkup';
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -39,6 +39,52 @@ const BlogPost = () => {
     { name: 'Blog', url: '/blog' },
     { name: post.title, url: `/blog/${post.slug}` }
   ]);
+
+  const speakableSchema = getSpeakableSchema(`/blog/${post.slug}`);
+
+  // HowTo schema for step-by-step blog posts
+  const howToSlugs: Record<string, { steps: Array<{ name: string; text: string }>; totalTime?: string }> = {
+    'fix-messy-quickbooks-30-minutes': {
+      totalTime: 'PT30M',
+      steps: [
+        { name: 'Reconcile Your Bank Accounts', text: 'Start by reconciling your bank accounts to ensure transactions in QuickBooks match your actual bank statements. Look for missing transactions, duplicate entries, and transactions that cleared but were not recorded.' },
+        { name: 'Categorize Unassigned Transactions', text: 'Open your transaction list and search for uncategorized expenses or income. Assign them to proper categories such as office expenses, software subscriptions, marketing costs, and equipment purchases.' },
+        { name: 'Review Duplicate Transactions', text: 'Sort transactions by amount and look for identical amounts on the same date. Confirm before deleting duplicates to avoid removing legitimate transactions.' },
+        { name: 'Check Your Profit & Loss Report', text: 'Run a Profit and Loss report to verify revenue looks correct, expenses are not unusually high or low, and no categories are empty when they should not be.' },
+        { name: 'Schedule a Monthly Cleanup Routine', text: 'Set up a recurring schedule to review your books weekly for transactions and monthly for reconciliations to prevent future buildup of errors.' }
+      ]
+    },
+    'small-business-bookkeeping-checklist-2026': {
+      steps: [
+        { name: 'Complete Weekly Tasks', text: 'Record income and sales, categorize expenses, upload receipts, and review bank transactions on a weekly basis.' },
+        { name: 'Complete Monthly Tasks', text: 'Reconcile bank accounts, review Profit & Loss statements, confirm vendor payments, and review outstanding invoices each month.' },
+        { name: 'Complete Quarterly Tasks', text: 'Review financial performance, estimate tax obligations, analyze business expenses, and check cash flow trends every quarter.' },
+        { name: 'Complete Annual Tasks', text: 'Prepare year-end financial statements, organize tax documents, review major expenses and deductions, and work with a tax professional.' }
+      ]
+    },
+    'monthly-bookkeeping-checklist-entrepreneurs': {
+      steps: [
+        { name: 'Review Bank Transactions', text: 'Confirm all income and expenses are properly categorized in your accounting software.' },
+        { name: 'Reconcile Accounts', text: 'Match your bookkeeping records with your bank statements to identify discrepancies.' },
+        { name: 'Review Financial Reports', text: 'Review key reports including Profit & Loss, Balance Sheet, and Cash Flow statements.' },
+        { name: 'Follow Up on Invoices', text: 'Ensure all outstanding invoices are tracked and follow up on overdue payments.' },
+        { name: 'Review Expenses', text: 'Look for areas where costs may be reduced or optimized to improve profitability.' }
+      ]
+    }
+  };
+
+  const allSchemas: object[] = [schema, breadcrumbSchema, speakableSchema];
+
+  if (howToSlugs[post.slug]) {
+    allSchemas.push(getBlogHowToSchema({
+      title: post.title,
+      description: post.excerpt,
+      url: `/blog/${post.slug}`,
+      datePublished: post.datePublished,
+      totalTime: howToSlugs[post.slug].totalTime,
+      steps: howToSlugs[post.slug].steps
+    }));
+  }
 
   const handleShare = async () => {
     const shareUrl = `https://www.yourclearledger.com/blog/${post.slug}`;
@@ -159,7 +205,14 @@ const BlogPost = () => {
         canonical={`/blog/${post.slug}`}
         ogImage={`https://www.yourclearledger.com${post.image}`}
         ogType="article"
-        schema={[schema, breadcrumbSchema]}
+        schema={allSchemas}
+        article={{
+          publishedTime: post.datePublished,
+          modifiedTime: post.dateModified,
+          author: post.author.name,
+          section: categoryName,
+          tags: post.tags
+        }}
       />
       
       <Header />

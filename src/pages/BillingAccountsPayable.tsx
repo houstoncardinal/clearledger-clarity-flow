@@ -8,6 +8,7 @@ import {
   getEnhancedBreadcrumbSchema, 
   getLocalBusinessSchema,
   getHowToSchema,
+  getEnhancedFAQSchema,
   combineSchemas 
 } from '@/utils/advancedSchemaMarkup';
 import { 
@@ -118,6 +119,21 @@ const BillingAccountsPayable = () => {
     text: step.description
   }));
 
+  const faqs = [
+    {
+      question: "How does outsourcing accounts payable save money?",
+      answer: "Outsourcing A/P reduces processing time by up to 60%, eliminates the cost of hiring a dedicated A/P clerk, reduces late payment penalties, and helps capture early payment discounts from vendors."
+    },
+    {
+      question: "How do you handle invoice approvals?",
+      answer: "We set up a streamlined approval workflow customized to your business. Invoices are reviewed, coded, and submitted for your approval before payment is processed, ensuring proper authorization at every step."
+    },
+    {
+      question: "Can you manage payments to multiple vendors?",
+      answer: "Yes, we manage vendor databases with complete payment histories, process payments on schedule, and maintain clear records for all vendor relationships regardless of the number of vendors."
+    }
+  ];
+
   const pageSchema = combineSchemas([
     getProfessionalServiceSchema({
       name: "Billing & Accounts Payable Services",
@@ -131,7 +147,8 @@ const BillingAccountsPayable = () => {
       name: "How to Streamline Your Accounts Payable Process",
       description: "Learn ClearLedger's 4-step accounts payable process for faster processing and better vendor relationships.",
       steps: howToSteps
-    })
+    }),
+    getEnhancedFAQSchema(faqs)
   ]);
 
   return (

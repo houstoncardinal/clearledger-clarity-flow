@@ -8,6 +8,7 @@ import {
   getEnhancedBreadcrumbSchema, 
   getLocalBusinessSchema,
   getHowToSchema,
+  getEnhancedFAQSchema,
   combineSchemas 
 } from '@/utils/advancedSchemaMarkup';
 import { 
@@ -118,6 +119,21 @@ const CleanupAdvisory = () => {
     text: step.description
   }));
 
+  const faqs = [
+    {
+      question: "How long does a QuickBooks cleanup take?",
+      answer: "The timeline depends on how far behind your books are and the complexity of your transactions. A typical cleanup takes 1-4 weeks. We provide a free assessment to give you an accurate timeline for your specific situation."
+    },
+    {
+      question: "What does a financial cleanup include?",
+      answer: "Our cleanup service includes historical data correction, uncategorized transaction cleanup, duplicate removal, account reconciliation, chart of accounts optimization, and a comprehensive review of your financial statements."
+    },
+    {
+      question: "Do you provide ongoing advisory services after cleanup?",
+      answer: "Yes, after completing the initial cleanup, we offer ongoing advisory services including strategic financial planning, process optimization, performance analysis, and regular check-ins to ensure your books stay clean."
+    }
+  ];
+
   const pageSchema = combineSchemas([
     getProfessionalServiceSchema({
       name: "Financial Cleanup & Advisory Services",
@@ -131,7 +147,8 @@ const CleanupAdvisory = () => {
       name: "How to Clean Up Your Financial Records",
       description: "ClearLedger's systematic approach to cleaning up financial data and optimizing your processes.",
       steps: howToSteps
-    })
+    }),
+    getEnhancedFAQSchema(faqs)
   ]);
 
   return (

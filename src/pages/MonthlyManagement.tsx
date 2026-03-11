@@ -6,6 +6,7 @@ import SEO from '@/components/SEO';
 import { 
   getProfessionalServiceSchema,
   getEnhancedBreadcrumbSchema,
+  getEnhancedFAQSchema,
   SERVICE_CATALOG,
   COMPANY_INFO 
 } from '@/utils/advancedSchemaMarkup';
@@ -22,6 +23,25 @@ import {
 } from 'lucide-react';
 
 const MonthlyManagement = () => {
+  const faqs = [
+    {
+      question: "How quickly will I receive my monthly financial reports?",
+      answer: "ClearLedger delivers your monthly financial reports within 5 business days of month-end. This includes Profit & Loss, Balance Sheet, Cash Flow statements, and variance analysis."
+    },
+    {
+      question: "What is bank reconciliation and why is it important?",
+      answer: "Bank reconciliation is the process of matching your bookkeeping records with your bank statements. It helps detect duplicate transactions, identify missing income, prevent inaccurate reporting, and maintain clean records for tax filing."
+    },
+    {
+      question: "Can you handle multiple bank accounts and credit cards?",
+      answer: "Yes, we reconcile all bank accounts, credit cards, and payment platforms your business uses. We ensure every transaction is properly categorized and accounted for across all accounts."
+    },
+    {
+      question: "What happens if you find errors during reconciliation?",
+      answer: "We investigate and correct any discrepancies found during reconciliation. We document all adjustments and provide a summary of corrections so you always know the status of your financial records."
+    }
+  ];
+
   const schemas = [
     getProfessionalServiceSchema({
       name: SERVICE_CATALOG.monthlyManagement.name,
@@ -33,7 +53,8 @@ const MonthlyManagement = () => {
     getEnhancedBreadcrumbSchema([
       { name: "Services", url: "/services" },
       { name: "Monthly Management", url: "/monthly-management" }
-    ])
+    ]),
+    getEnhancedFAQSchema(faqs)
   ];
 
   const services = [

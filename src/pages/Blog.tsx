@@ -10,7 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { blogPosts, blogCategories, getFeaturedPosts, type BlogPost } from '@/data/blogPosts';
-import { getBlogSchema, getEnhancedBreadcrumbSchema } from '@/utils/advancedSchemaMarkup';
+import { getBlogSchema, getEnhancedBreadcrumbSchema, getBlogListingSchema, getSpeakableSchema } from '@/utils/advancedSchemaMarkup';
 
 const Blog = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -33,7 +33,14 @@ const Blog = () => {
 
   const combinedSchema = [
     getBlogSchema(),
-    getEnhancedBreadcrumbSchema([{ name: 'Blog', url: '/blog' }])
+    getEnhancedBreadcrumbSchema([{ name: 'Blog', url: '/blog' }]),
+    getBlogListingSchema(blogPosts.map(p => ({
+      title: p.title,
+      url: `/blog/${p.slug}`,
+      datePublished: p.datePublished,
+      description: p.excerpt
+    }))),
+    getSpeakableSchema('/blog')
   ];
 
   return (
