@@ -3,14 +3,19 @@
 
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
+Allow: /
+
+User-agent: LinkedInBot
 Allow: /
 
 User-agent: *
@@ -23,31 +28,41 @@ Disallow: /_next/
 Disallow: /private/
 
 # Allow important pages
-Allow: /services/
-Allow: /about/
-Allow: /contact/
-Allow: /quickbooks-services/
-Allow: /monthly-management/
-Allow: /billing-accounts-payable/
-Allow: /cleanup-advisory/
-Allow: /check-ordering/
-Allow: /blog/
-Allow: /case-studies/
+Allow: /services
+Allow: /about
+Allow: /contact
+Allow: /quickbooks-services
+Allow: /monthly-management
+Allow: /billing-accounts-payable
+Allow: /cleanup-advisory
+Allow: /check-ordering
+Allow: /consultation
+Allow: /bookkeeping
+
+# Blog pages
+Allow: /blog
+Allow: /blog/fix-messy-quickbooks-30-minutes
+Allow: /blog/small-business-bookkeeping-checklist-2026
+Allow: /blog/how-often-reconcile-bank-accounts
+Allow: /blog/what-happens-if-business-books-are-incorrect
+Allow: /blog/quickbooks-vs-hiring-bookkeeper
+Allow: /blog/monthly-bookkeeping-checklist-entrepreneurs
+Allow: /blog/10-signs-your-business-needs-a-bookkeeper
 
 # Location pages
-Allow: /texas-bookkeeping/
-Allow: /oklahoma-bookkeeping/
-Allow: /florida-bookkeeping/
-Allow: /louisiana-bookkeeping/
-Allow: /mississippi-bookkeeping/
-Allow: /new-mexico-bookkeeping/
-Allow: /panama-bookkeeping/
+Allow: /texas-bookkeeping
+Allow: /oklahoma-bookkeeping
+Allow: /florida-bookkeeping
+Allow: /louisiana-bookkeeping
+Allow: /mississippi-bookkeeping
+Allow: /new-mexico-bookkeeping
+Allow: /panama-bookkeeping
 
 # Industry pages
-Allow: /golf-course-bookkeeping/
+Allow: /golf-course-bookkeeping
 
-# Crawl delay (optional)
-Crawl-delay: 1
+# Case Studies
+Allow: /case-studies
 
 # Sitemap
 Sitemap: https://www.yourclearledger.com/sitemap.xml
