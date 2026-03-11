@@ -8,6 +8,7 @@ import {
   getEnhancedBreadcrumbSchema, 
   getLocalBusinessSchema,
   getHowToSchema,
+  getEnhancedFAQSchema,
   combineSchemas 
 } from '@/utils/advancedSchemaMarkup';
 import { 
