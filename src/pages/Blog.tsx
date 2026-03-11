@@ -33,7 +33,14 @@ const Blog = () => {
 
   const combinedSchema = [
     getBlogSchema(),
-    getEnhancedBreadcrumbSchema([{ name: 'Blog', url: '/blog' }])
+    getEnhancedBreadcrumbSchema([{ name: 'Blog', url: '/blog' }]),
+    getBlogListingSchema(blogPosts.map(p => ({
+      title: p.title,
+      url: `/blog/${p.slug}`,
+      datePublished: p.datePublished,
+      description: p.excerpt
+    }))),
+    getSpeakableSchema('/blog')
   ];
 
   return (

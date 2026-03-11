@@ -205,7 +205,14 @@ const BlogPost = () => {
         canonical={`/blog/${post.slug}`}
         ogImage={`https://www.yourclearledger.com${post.image}`}
         ogType="article"
-        schema={[schema, breadcrumbSchema]}
+        schema={allSchemas}
+        article={{
+          publishedTime: post.datePublished,
+          modifiedTime: post.dateModified,
+          author: post.author.name,
+          section: categoryName,
+          tags: post.tags
+        }}
       />
       
       <Header />

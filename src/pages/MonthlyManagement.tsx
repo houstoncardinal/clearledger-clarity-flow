@@ -6,6 +6,7 @@ import SEO from '@/components/SEO';
 import { 
   getProfessionalServiceSchema,
   getEnhancedBreadcrumbSchema,
+  getEnhancedFAQSchema,
   SERVICE_CATALOG,
   COMPANY_INFO 
 } from '@/utils/advancedSchemaMarkup';
