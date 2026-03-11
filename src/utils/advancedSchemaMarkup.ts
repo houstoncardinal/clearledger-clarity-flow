@@ -669,12 +669,158 @@ export const combineSchemas = (...schemas: object[]) => {
 };
 
 // =============================================================================
+// SITE NAVIGATION ELEMENT SCHEMA
+// =============================================================================
+export const getSiteNavigationSchema = () => ({
+  "@context": "https://schema.org",
+  "@type": "SiteNavigationElement",
+  "@id": `${COMPANY_INFO.url}/#sitenav`,
+  "name": "Main Navigation",
+  "hasPart": [
+    { "@type": "WebPage", "name": "Home", "url": COMPANY_INFO.url },
+    { "@type": "WebPage", "name": "Services", "url": `${COMPANY_INFO.url}/services` },
+    { "@type": "WebPage", "name": "QuickBooks Services", "url": `${COMPANY_INFO.url}/quickbooks-services` },
+    { "@type": "WebPage", "name": "Monthly Management", "url": `${COMPANY_INFO.url}/monthly-management` },
+    { "@type": "WebPage", "name": "Billing & Accounts Payable", "url": `${COMPANY_INFO.url}/billing-accounts-payable` },
+    { "@type": "WebPage", "name": "Cleanup & Advisory", "url": `${COMPANY_INFO.url}/cleanup-advisory` },
+    { "@type": "WebPage", "name": "About", "url": `${COMPANY_INFO.url}/about` },
+    { "@type": "WebPage", "name": "Blog", "url": `${COMPANY_INFO.url}/blog` },
+    { "@type": "WebPage", "name": "Contact", "url": `${COMPANY_INFO.url}/contact` },
+    { "@type": "WebPage", "name": "Consultation", "url": `${COMPANY_INFO.url}/consultation` }
+  ]
+});
+
+// =============================================================================
+// SPEAKABLE SCHEMA - For Google Assistant / voice search
+// =============================================================================
+export const getSpeakableSchema = (url: string) => ({
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${COMPANY_INFO.url}${url}/#speakable`,
+  "url": `${COMPANY_INFO.url}${url}`,
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["h1", "h2", "article p:first-of-type"]
+  }
+});
+
+// =============================================================================
+// BLOG LISTING SCHEMA - ItemList for blog index page
+// =============================================================================
+export const getBlogListingSchema = (posts: Array<{
+  title: string;
+  url: string;
+  datePublished: string;
+  description: string;
+}>) => ({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": `${COMPANY_INFO.url}/blog/#itemlist`,
+  "name": "ClearLedger Solutions Blog Articles",
+  "description": "Expert bookkeeping tips, QuickBooks guides, and small business financial management articles",
+  "numberOfItems": posts.length,
+  "itemListElement": posts.map((post, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "BlogPosting",
+      "headline": post.title,
+      "url": `${COMPANY_INFO.url}${post.url}`,
+      "datePublished": post.datePublished,
+      "description": post.description,
+      "author": {
+        "@type": "Person",
+        "name": COMPANY_INFO.founder.name
+      },
+      "publisher": {
+        "@id": `${COMPANY_INFO.url}/#organization`
+      }
+    }
+  }))
+});
+
+// =============================================================================
+// HOWTO SCHEMA FOR BLOG POSTS
+// =============================================================================
+export const getBlogHowToSchema = (post: {
+  title: string;
+  description: string;
+  url: string;
+  datePublished: string;
+  totalTime?: string;
+  steps: Array<{ name: string; text: string }>;
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "@id": `${COMPANY_INFO.url}${post.url}/#howto`,
+  "name": post.title,
+  "description": post.description,
+  "datePublished": post.datePublished,
+  "image": COMPANY_INFO.image,
+  ...(post.totalTime && { "totalTime": post.totalTime }),
+  "estimatedCost": {
+    "@type": "MonetaryAmount",
+    "currency": "USD",
+    "value": "0"
+  },
+  "tool": [
+    { "@type": "HowToTool", "name": "QuickBooks Online or Desktop" },
+    { "@type": "HowToTool", "name": "Bank Statements" }
+  ],
+  "step": post.steps.map((step, index) => ({
+    "@type": "HowToStep",
+    "position": index + 1,
+    "name": step.name,
+    "text": step.text,
+    "url": `${COMPANY_INFO.url}${post.url}#step-${index + 1}`
+  }))
+});
+
+// =============================================================================
+// SERVICE AREA SCHEMA - Enhanced for local SEO
+// =============================================================================
+export const getServiceAreaSchema = () => ({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${COMPANY_INFO.url}/#servicearea`,
+  "name": "Professional Bookkeeping Services",
+  "provider": {
+    "@id": `${COMPANY_INFO.url}/#organization`
+  },
+  "serviceType": "Bookkeeping",
+  "areaServed": [
+    { "@type": "State", "name": "Texas", "url": `${COMPANY_INFO.url}/texas-bookkeeping` },
+    { "@type": "State", "name": "Oklahoma", "url": `${COMPANY_INFO.url}/oklahoma-bookkeeping` },
+    { "@type": "State", "name": "Florida", "url": `${COMPANY_INFO.url}/florida-bookkeeping` },
+    { "@type": "State", "name": "Louisiana", "url": `${COMPANY_INFO.url}/louisiana-bookkeeping` },
+    { "@type": "State", "name": "Mississippi", "url": `${COMPANY_INFO.url}/mississippi-bookkeeping` },
+    { "@type": "State", "name": "New Mexico", "url": `${COMPANY_INFO.url}/new-mexico-bookkeeping` },
+    { "@type": "Country", "name": "Panama", "url": `${COMPANY_INFO.url}/panama-bookkeeping` }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Bookkeeping Service Packages",
+    "itemListElement": Object.values(SERVICE_CATALOG).map(service => ({
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": service.name,
+        "description": service.description,
+        "url": `${COMPANY_INFO.url}${service.url}`
+      }
+    }))
+  }
+});
+
+// =============================================================================
 // HOME PAGE SCHEMA - Complete schema for homepage
 // =============================================================================
 export const getHomePageSchema = () => combineSchemas(
   getWebsiteSchema(),
   getEnhancedOrganizationSchema(),
   getLocalBusinessSchema(),
+  getSiteNavigationSchema(),
+  getServiceAreaSchema(),
   getWebPageSchema({
     name: "ClearLedger Solutions - Professional Bookkeeping Services",
     description: COMPANY_INFO.description,
