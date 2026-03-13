@@ -20,7 +20,7 @@ let mockOrders: BookkeepingOrder[] = [
     status: 'completed',
     createdAt: '2024-12-15T10:30:00Z',
     updatedAt: '2024-12-15T14:30:00Z',
-    assignedTo: 'admin@yourclearledger.com',
+    assignedTo: 'jj@yourclearledger.com',
     priority: 'high',
     tags: ['rush', 'month-end'],
     company: {
