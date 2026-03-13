@@ -71,7 +71,7 @@ const Footer = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'admin@yourclearledger.com',
+      value: 'jj@yourclearledger.com',
       subtext: '24-hour response commitment'
     },
     {

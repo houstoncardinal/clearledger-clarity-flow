@@ -68,7 +68,7 @@ let mockOrders: BookkeepingOrder[] = [
     status: 'processing',
     createdAt: '2024-12-14T14:20:00Z',
     updatedAt: '2024-12-14T16:45:00Z',
-    assignedTo: 'admin@yourclearledger.com',
+    assignedTo: 'jj@yourclearledger.com',
     priority: 'medium',
     tags: ['custom-logo', 'premium'],
     company: {

@@ -13,7 +13,7 @@ export const COMPANY_INFO = {
   image: "https://www.yourclearledger.com/thumbnail.png",
   phone: "+1-903-815-9488",
   phoneLocal: "(903) 815-9488",
-  email: "admin@yourclearledger.com",
+  email: "jj@yourclearledger.com",
   address: {
     streetAddress: "Whitewright",
     city: "Whitewright",
