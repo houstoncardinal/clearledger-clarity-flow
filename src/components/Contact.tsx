@@ -79,7 +79,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      details: 'admin@yourclearledger.com',
+      details: 'jj@yourclearledger.com',
       subtext: '24-hour response commitment'
     },
     {
