@@ -1017,7 +1017,7 @@ const Admin = () => {
                     <label className="text-sm font-medium text-foreground">Email</label>
                     <input
                       type="email"
-                      defaultValue="admin@yourclearledger.com"
+                      defaultValue="jj@yourclearledger.com"
                       className="w-full mt-1 p-2 border border-border rounded-lg bg-background text-foreground"
                     />
                   </div>

@@ -1644,7 +1644,7 @@ We will contact you shortly to confirm your custom check order and collect payme
                               variant="outline" 
                               size="sm" 
                               className="w-full text-blue-700 border-blue-300"
-                              onClick={() => window.location.href = 'mailto:admin@yourclearledger.com'}
+                              onClick={() => window.location.href = 'mailto:jj@yourclearledger.com'}
                             >
                               <Mail className="w-4 h-4 mr-2" />
                               Email Support

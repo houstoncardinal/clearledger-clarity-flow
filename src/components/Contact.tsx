@@ -79,7 +79,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      details: 'admin@yourclearledger.com',
+      details: 'jj@yourclearledger.com',
       subtext: '24-hour response commitment'
     },
     {
@@ -313,7 +313,7 @@ const Contact = () => {
                     Call Now: (903) 815-9488
                   </Button>
                 </a>
-                <a href="mailto:admin@yourclearledger.com">
+                <a href="mailto:jj@yourclearledger.com">
                   <Button variant="outline" className="w-full btn-secondary">
                     <Mail className="w-4 h-4 mr-2" />
                     Send Email
