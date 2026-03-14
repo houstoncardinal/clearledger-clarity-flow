@@ -17,7 +17,8 @@ import {
   Shield,
   CreditCard,
   Sparkles,
-  MapPin
+  MapPin,
+  Phone
 } from 'lucide-react';
 
 const Header = () => {
