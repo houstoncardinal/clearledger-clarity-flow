@@ -102,6 +102,7 @@ import ContentCreationModal from '@/components/ContentCreationModal';
 import ClientManagement from '@/components/ClientManagement';
 import { getBookkeepingOrders, getOrderStatistics } from '@/utils/bookkeepingData';
 import AdvancedBookkeepingDashboard from '@/components/AdvancedBookkeepingDashboard';
+import WebsiteTrackingTab from '@/components/admin/WebsiteTrackingTab';
 import { 
   LineChart as RechartsLineChart, 
   Line, 
@@ -425,6 +426,7 @@ const Admin = () => {
           <div className="flex space-x-8 overflow-x-auto">
             {[
               'overview', 
+              'website-tracking',
               'clients', 
               'content-calendar', 
               'analytics', 
@@ -582,6 +584,8 @@ const Admin = () => {
             </Card>
           </div>
         )}
+
+        {activeTab === 'website-tracking' && <WebsiteTrackingTab />}
 
         {activeTab === 'content-calendar' && (
           <div className="space-y-6">
