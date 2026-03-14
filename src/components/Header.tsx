@@ -20,6 +20,7 @@ import {
   MapPin,
   Phone
 } from 'lucide-react';
+import { trackCTAClick } from '@/utils/ctaTracking';
 
 const Header = () => {
   const { t } = useLanguage();
