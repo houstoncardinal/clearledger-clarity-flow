@@ -102,6 +102,7 @@ import ContentCreationModal from '@/components/ContentCreationModal';
 import ClientManagement from '@/components/ClientManagement';
 import { getBookkeepingOrders, getOrderStatistics } from '@/utils/bookkeepingData';
 import AdvancedBookkeepingDashboard from '@/components/AdvancedBookkeepingDashboard';
+import WebsiteTrackingTab from '@/components/admin/WebsiteTrackingTab';
 import { 
   LineChart as RechartsLineChart, 
   Line, 
