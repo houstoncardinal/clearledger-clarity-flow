@@ -17,7 +17,8 @@ import {
   Shield,
   CreditCard,
   Sparkles,
-  MapPin
+  MapPin,
+  Phone
 } from 'lucide-react';
 
 const Header = () => {
@@ -326,6 +327,13 @@ const Header = () => {
             
             <div className="w-px h-6 bg-border"></div>
             
+            <a href="tel:+19038159488">
+              <Button variant="outline" className="h-10 px-4 lg:px-5 rounded-lg border-primary text-primary font-semibold text-sm hover:bg-primary/10 transition-all duration-300 group whitespace-nowrap">
+                <Phone className="w-4 h-4 mr-2 group-hover:animate-pulse flex-shrink-0" />
+                <span>(903) 815-9488</span>
+              </Button>
+            </a>
+
             <Link to="/contact">
               <Button className="h-10 px-4 lg:px-5 rounded-lg bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-sm shadow-md hover:shadow-lg transition-all duration-300 group whitespace-nowrap">
                 <Sparkles className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300 flex-shrink-0" />
