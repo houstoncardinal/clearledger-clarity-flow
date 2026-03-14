@@ -289,13 +289,13 @@ const Header = () => {
                             Schedule your free consultation today
                           </p>
                           <div className="space-y-2">
-                            <Link to="/consultation">
+                            <Link to="/consultation" onClick={() => trackCTAClick('book_consultation', 'Mega Menu - Book Free Consultation')}>
                               <Button size="sm" className="btn-primary w-full text-xs py-1">
                                 Book Free Consultation
                                 <ArrowRight className="w-3 h-3 ml-1" />
                               </Button>
                             </Link>
-                            <a href="https://calendly.com/jj-yourclearledger" target="_blank" rel="noopener noreferrer">
+                            <a href="https://calendly.com/jj-yourclearledger" target="_blank" rel="noopener noreferrer" onClick={() => trackCTAClick('calendly_book', 'Mega Menu - Book Directly')}>
                               <Button size="sm" variant="outline" className="btn-secondary w-full text-xs py-1">
                                 📅 Book Directly
                               </Button>
