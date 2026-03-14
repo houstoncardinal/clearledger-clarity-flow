@@ -426,6 +426,7 @@ const Admin = () => {
           <div className="flex space-x-8 overflow-x-auto">
             {[
               'overview', 
+              'website-tracking',
               'clients', 
               'content-calendar', 
               'analytics', 
