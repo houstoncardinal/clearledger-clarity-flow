@@ -585,6 +585,8 @@ const Admin = () => {
           </div>
         )}
 
+        {activeTab === 'website-tracking' && <WebsiteTrackingTab />}
+
         {activeTab === 'content-calendar' && (
           <div className="space-y-6">
             <div className="flex items-center justify-between">
