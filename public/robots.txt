@@ -51,6 +51,13 @@ Allow: /blog/10-signs-your-business-needs-a-bookkeeper
 
 # Location pages
 Allow: /texas-bookkeeping
+Allow: /dallas-bookkeeping
+Allow: /dfw-bookkeeping
+Allow: /fort-worth-bookkeeping
+Allow: /plano-bookkeeping
+Allow: /frisco-bookkeeping
+Allow: /mckinney-bookkeeping
+Allow: /arlington-bookkeeping
 Allow: /oklahoma-bookkeeping
 Allow: /florida-bookkeeping
 Allow: /louisiana-bookkeeping
