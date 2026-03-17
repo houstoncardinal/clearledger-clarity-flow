@@ -82,6 +82,14 @@ const AppContent = () => {
       <Route path="/louisiana-bookkeeping" element={<LouisianaBookkeeping />} />
       <Route path="/mississippi-bookkeeping" element={<MississippiBookkeeping />} />
       <Route path="/panama-bookkeeping" element={<PanamaBookkeeping />} />
+      {/* Dallas / DFW Metro Routes */}
+      <Route path="/dallas-bookkeeping" element={<DallasBookkeeping />} />
+      <Route path="/dfw-bookkeeping" element={<DFWBookkeeping />} />
+      <Route path="/plano-bookkeeping" element={<PlanoBookkeeping />} />
+      <Route path="/frisco-bookkeeping" element={<FriscoBookkeeping />} />
+      <Route path="/mckinney-bookkeeping" element={<McKinneyBookkeeping />} />
+      <Route path="/fort-worth-bookkeeping" element={<FortWorthBookkeeping />} />
+      <Route path="/arlington-bookkeeping" element={<ArlingtonBookkeeping />} />
       {/* Industry Routes */}
       <Route path="/golf-course-bookkeeping" element={<GolfCourseBookkeeping />} />
       {/* Blog Routes */}

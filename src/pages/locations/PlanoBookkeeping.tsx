@@ -45,7 +45,7 @@ const PlanoBookkeeping = () => {
           'Year-end financial prep',
           'Multi-entity bookkeeping',
           'Audit-ready record keeping'
-        ]}
+        ]
       }}
       metaDescription="Professional bookkeeping services in Plano, TX. Certified QuickBooks ProAdvisor serving Plano businesses with monthly reconciliation, tax compliance, and financial reporting."
       metaKeywords="Plano bookkeeping, Plano TX bookkeeper, bookkeeping services Plano Texas, QuickBooks Plano, Plano small business bookkeeping, bookkeeper near me Plano TX, Plano accountant"
