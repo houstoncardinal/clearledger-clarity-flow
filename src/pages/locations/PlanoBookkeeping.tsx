@@ -38,7 +38,7 @@ const PlanoBookkeeping = () => {
       ]}
       specialCompliance={{
         title: 'Plano Business Tax Compliance',
-        items={[
+        items: [
           'Texas franchise tax filing',
           'Sales tax compliance',
           'Quarterly estimated payments',
