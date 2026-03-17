@@ -36,6 +36,13 @@ import NewMexicoBookkeeping from "./pages/locations/NewMexicoBookkeeping";
 import LouisianaBookkeeping from "./pages/locations/LouisianaBookkeeping";
 import MississippiBookkeeping from "./pages/locations/MississippiBookkeeping";
 import PanamaBookkeeping from "./pages/locations/PanamaBookkeeping";
+import DallasBookkeeping from "./pages/locations/DallasBookkeeping";
+import DFWBookkeeping from "./pages/locations/DFWBookkeeping";
+import PlanoBookkeeping from "./pages/locations/PlanoBookkeeping";
+import FriscoBookkeeping from "./pages/locations/FriscoBookkeeping";
+import McKinneyBookkeeping from "./pages/locations/McKinneyBookkeeping";
+import FortWorthBookkeeping from "./pages/locations/FortWorthBookkeeping";
+import ArlingtonBookkeeping from "./pages/locations/ArlingtonBookkeeping";
 // Industry Pages
 import GolfCourseBookkeeping from "./pages/industries/GolfCourseBookkeeping";
 // Blog Pages
