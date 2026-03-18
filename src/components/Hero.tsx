@@ -4,9 +4,6 @@ import { ArrowRight, Sparkles, Calendar, Shield, CheckCircle2, Award, TrendingUp
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
 import { BackgroundPaths } from '@/components/ui/background-paths';
-import { lazy, Suspense } from 'react';
-
-const Hero3DScene = lazy(() => import('@/components/Hero3DScene'));
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -162,22 +159,65 @@ const Hero = () => {
 
             {/* Enterprise card - right side (desktop only) */}
             <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.5 }}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
               className="hidden lg:block lg:col-span-5"
             >
-              <div className="relative h-[500px] xl:h-[550px]">
-                {/* Glow behind scene */}
-                <div className="absolute -inset-6 bg-gradient-to-br from-primary/15 via-transparent to-purple-500/15 rounded-[2rem] blur-3xl opacity-60" />
+              <div className="relative">
+                {/* Subtle glow effect behind card */}
+                <div className="absolute -inset-6 bg-gradient-to-br from-primary/10 via-transparent to-purple-500/10 rounded-[2rem] blur-3xl opacity-50" />
                 
-                <Suspense fallback={
-                  <div className="w-full h-full flex items-center justify-center">
-                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary/20 to-purple-500/20 animate-pulse" />
+                <div className="relative bg-background/95 backdrop-blur-xl border border-border/40 rounded-[1.5rem] overflow-hidden shadow-2xl">
+                  {/* Card header with gradient accent */}
+                  <div className="relative px-8 pt-8 pb-6">
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-purple-500 to-primary opacity-80" />
+                    <div className="flex items-center gap-4">
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center shadow-lg shadow-primary/20">
+                        <TrendingUp className="w-7 h-7 text-primary-foreground" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-foreground">ClearLedger</h3>
+                        <p className="text-sm text-muted-foreground">Financial Excellence</p>
+                      </div>
+                    </div>
                   </div>
-                }>
-                  <Hero3DScene />
-                </Suspense>
+                  
+                  {/* Highlights list */}
+                  <div className="px-8 pb-6 space-y-4">
+                    {highlights.map((item, index) => (
+                      <motion.div
+                        key={item.title}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
+                        className="flex items-center gap-4 p-4 rounded-xl bg-muted/20 hover:bg-muted/40 border border-border/30 transition-all duration-300 group"
+                      >
+                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                          <item.icon className="w-5 h-5 text-primary" />
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-foreground text-sm">{item.title}</h4>
+                          <p className="text-xs text-muted-foreground">{item.description}</p>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                  
+                  {/* Card footer */}
+                  <div className="px-8 py-5 bg-muted/20 border-t border-border/30">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                        <span className="text-sm text-muted-foreground">QuickBooks ProAdvisor</span>
+                      </div>
+                      <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20">
+                        <Award className="w-4 h-4 text-primary" />
+                        <span className="text-xs font-medium text-primary">Certified</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
