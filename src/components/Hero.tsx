@@ -4,6 +4,9 @@ import { ArrowRight, Sparkles, Calendar, Shield, CheckCircle2, Award, TrendingUp
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
 import { BackgroundPaths } from '@/components/ui/background-paths';
+import { lazy, Suspense } from 'react';
+
+const Hero3DScene = lazy(() => import('@/components/Hero3DScene'));
 
 const Hero = () => {
   const { t } = useLanguage();
