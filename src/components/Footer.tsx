@@ -25,14 +25,15 @@ const Footer = () => {
       ]
     },
     {
-      title: 'Service Areas',
+      title: 'Dallas-Fort Worth',
       links: [
-        { name: 'Texas Bookkeeping', href: '/texas-bookkeeping' },
-        { name: 'Oklahoma Bookkeeping', href: '/oklahoma-bookkeeping' },
-        { name: 'Louisiana Bookkeeping', href: '/louisiana-bookkeeping' },
-        { name: 'Mississippi Bookkeeping', href: '/mississippi-bookkeeping' },
-        { name: 'New Mexico Bookkeeping', href: '/new-mexico-bookkeeping' },
-        { name: 'Florida Bookkeeping', href: '/florida-bookkeeping' }
+        { name: 'Dallas Bookkeeping', href: '/dallas-bookkeeping' },
+        { name: 'Fort Worth Bookkeeping', href: '/fort-worth-bookkeeping' },
+        { name: 'Plano Bookkeeping', href: '/plano-bookkeeping' },
+        { name: 'Frisco Bookkeeping', href: '/frisco-bookkeeping' },
+        { name: 'McKinney Bookkeeping', href: '/mckinney-bookkeeping' },
+        { name: 'Arlington Bookkeeping', href: '/arlington-bookkeeping' },
+        { name: 'DFW Metroplex', href: '/dfw-bookkeeping' }
       ]
     },
     {
