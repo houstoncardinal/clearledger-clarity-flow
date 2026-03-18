@@ -37,12 +37,24 @@ const Footer = () => {
       ]
     },
     {
+      title: 'More Areas',
+      links: [
+        { name: 'Texas Bookkeeping', href: '/texas-bookkeeping' },
+        { name: 'Oklahoma Bookkeeping', href: '/oklahoma-bookkeeping' },
+        { name: 'Louisiana Bookkeeping', href: '/louisiana-bookkeeping' },
+        { name: 'Florida Bookkeeping', href: '/florida-bookkeeping' },
+        { name: 'Mississippi Bookkeeping', href: '/mississippi-bookkeeping' },
+        { name: 'New Mexico Bookkeeping', href: '/new-mexico-bookkeeping' }
+      ]
+    },
+    {
       title: 'Company',
       links: [
         { name: 'About Us', href: '/about' },
         { name: 'Blog', href: '/blog' },
         { name: 'Contact', href: '/contact' },
-        { name: 'Consultation', href: '/consultation' }
+        { name: 'Consultation', href: '/consultation' },
+        { name: 'Case Studies', href: '/case-studies' }
       ]
     },
     {

@@ -372,8 +372,8 @@ const DallasBookkeeping = () => {
                 <span className="text-sm font-medium text-primary">Dallas Bookkeeping Services</span>
               </div>
               <h2 className="font-heading text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-6">
-                Complete Financial Management for{' '}
-                <span className="text-gradient">Dallas Businesses</span>
+                Why Dallas Businesses Choose Our{' '}
+                <span className="text-gradient">Bookkeeping Company</span>
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                 From startups in Deep Ellum to enterprises in Uptown, we deliver comprehensive bookkeeping solutions tailored to Dallas's dynamic business landscape.
