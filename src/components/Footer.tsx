@@ -169,7 +169,7 @@ const Footer = () => {
 
           {/* Footer Links */}
           <div className="lg:col-span-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
               {footerSections.map((section) => (
                 <div key={section.title}>
                   <h3 className="font-heading text-sm font-semibold text-white mb-5 flex items-center gap-2">
