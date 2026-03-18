@@ -25,14 +25,26 @@ const Footer = () => {
       ]
     },
     {
-      title: 'Service Areas',
+      title: 'Dallas-Fort Worth',
+      links: [
+        { name: 'Dallas Bookkeeping', href: '/dallas-bookkeeping' },
+        { name: 'Fort Worth Bookkeeping', href: '/fort-worth-bookkeeping' },
+        { name: 'Plano Bookkeeping', href: '/plano-bookkeeping' },
+        { name: 'Frisco Bookkeeping', href: '/frisco-bookkeeping' },
+        { name: 'McKinney Bookkeeping', href: '/mckinney-bookkeeping' },
+        { name: 'Arlington Bookkeeping', href: '/arlington-bookkeeping' },
+        { name: 'DFW Metroplex', href: '/dfw-bookkeeping' }
+      ]
+    },
+    {
+      title: 'More Areas',
       links: [
         { name: 'Texas Bookkeeping', href: '/texas-bookkeeping' },
         { name: 'Oklahoma Bookkeeping', href: '/oklahoma-bookkeeping' },
         { name: 'Louisiana Bookkeeping', href: '/louisiana-bookkeeping' },
+        { name: 'Florida Bookkeeping', href: '/florida-bookkeeping' },
         { name: 'Mississippi Bookkeeping', href: '/mississippi-bookkeeping' },
-        { name: 'New Mexico Bookkeeping', href: '/new-mexico-bookkeeping' },
-        { name: 'Florida Bookkeeping', href: '/florida-bookkeeping' }
+        { name: 'New Mexico Bookkeeping', href: '/new-mexico-bookkeeping' }
       ]
     },
     {
@@ -41,7 +53,8 @@ const Footer = () => {
         { name: 'About Us', href: '/about' },
         { name: 'Blog', href: '/blog' },
         { name: 'Contact', href: '/contact' },
-        { name: 'Consultation', href: '/consultation' }
+        { name: 'Consultation', href: '/consultation' },
+        { name: 'Case Studies', href: '/case-studies' }
       ]
     },
     {
@@ -156,7 +169,7 @@ const Footer = () => {
 
           {/* Footer Links */}
           <div className="lg:col-span-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
               {footerSections.map((section) => (
                 <div key={section.title}>
                   <h3 className="font-heading text-sm font-semibold text-white mb-5 flex items-center gap-2">

@@ -23,8 +23,8 @@ const DallasBookkeeping = () => {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "@id": `${COMPANY_INFO.url}/dallas-bookkeeping#service`,
-      "name": "ClearLedger Solutions - Dallas Bookkeeping Services",
-      "description": "Professional bookkeeping services in Dallas, TX. Expert QuickBooks ProAdvisor serving Dallas businesses with monthly reconciliation, accounts payable, tax preparation, and financial reporting.",
+      "name": "ClearLedger Solutions - Best Bookkeeping Company in Dallas TX",
+      "description": "ClearLedger Solutions is the top-rated bookkeeping company in Dallas, TX. Certified QuickBooks ProAdvisor serving Dallas-Fort Worth businesses with monthly reconciliation, accounts payable, tax preparation, and financial reporting.",
       "url": `${COMPANY_INFO.url}/dallas-bookkeeping`,
       "telephone": COMPANY_INFO.phone,
       "email": COMPANY_INFO.email,
@@ -193,9 +193,9 @@ const DallasBookkeeping = () => {
   return (
     <>
       <SEO 
-        title="Dallas Bookkeeping Services | #1 QuickBooks ProAdvisor in DFW | ClearLedger"
-        description="Top-rated Dallas bookkeeping services. Certified QuickBooks ProAdvisor serving Dallas-Fort Worth businesses. Monthly reconciliation, tax prep, payroll & more. Call (903) 815-9488."
-        keywords="Dallas bookkeeping services, Dallas bookkeeper, bookkeeping Dallas TX, QuickBooks ProAdvisor Dallas, DFW bookkeeping, Dallas small business bookkeeping, Dallas accountant, bookkeeper near me Dallas, Dallas TX bookkeeping services, Dallas Fort Worth bookkeeping, monthly bookkeeping Dallas, accounts payable Dallas, tax preparation Dallas TX, payroll services Dallas"
+        title="Best Bookkeeping Company in Dallas TX | ClearLedger Solutions"
+        description="Looking for a bookkeeping company in Dallas TX? ClearLedger Solutions is the top-rated bookkeeping firm in Dallas-Fort Worth. QuickBooks ProAdvisor, 500+ clients, 4.9★ rated. Call (903) 815-9488."
+        keywords="bookkeeping company Dallas TX, bookkeeping company in Dallas, Dallas bookkeeping company, bookkeeping firm Dallas Texas, best bookkeeping company Dallas, bookkeeping companies near me Dallas, Dallas TX bookkeeping firm, small business bookkeeping company Dallas, bookkeeping services Dallas TX, QuickBooks ProAdvisor Dallas, DFW bookkeeping company, Dallas bookkeeper, bookkeeper near me Dallas TX, outsourced bookkeeping Dallas, accounting and bookkeeping Dallas"
         canonical="/dallas-bookkeeping"
         schema={schemas}
       />
@@ -220,18 +220,18 @@ const DallasBookkeeping = () => {
                 >
                   <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 border border-primary/20 mb-8">
                     <Sparkles className="w-4 h-4 text-primary" />
-                    <span className="text-sm font-semibold text-primary tracking-wide">#1 Rated Dallas Bookkeeper</span>
+                    <span className="text-sm font-semibold text-primary tracking-wide">#1 Bookkeeping Company in Dallas TX</span>
                   </div>
                   
                   <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground mb-6 leading-[1.05]">
-                    Dallas{' '}
-                    <span className="text-gradient">Bookkeeping</span>
+                    #1 Bookkeeping{' '}
+                    <span className="text-gradient">Company</span>
                     <br />
-                    Services
+                    in Dallas, TX
                   </h1>
                   
                   <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed mb-6 max-w-xl">
-                    Trusted by 500+ businesses across Dallas-Fort Worth. Expert QuickBooks ProAdvisor providing comprehensive bookkeeping, tax compliance, and financial management for Dallas businesses of all sizes.
+                    ClearLedger Solutions is the top-rated bookkeeping company in Dallas, Texas — trusted by 500+ businesses across Dallas-Fort Worth. Certified QuickBooks ProAdvisor providing full-service bookkeeping, tax compliance, and financial management.
                   </p>
 
                   <div className="flex items-center gap-2 mb-8">
@@ -372,8 +372,8 @@ const DallasBookkeeping = () => {
                 <span className="text-sm font-medium text-primary">Dallas Bookkeeping Services</span>
               </div>
               <h2 className="font-heading text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-6">
-                Complete Financial Management for{' '}
-                <span className="text-gradient">Dallas Businesses</span>
+                Why Dallas Businesses Choose Our{' '}
+                <span className="text-gradient">Bookkeeping Company</span>
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                 From startups in Deep Ellum to enterprises in Uptown, we deliver comprehensive bookkeeping solutions tailored to Dallas's dynamic business landscape.
