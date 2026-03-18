@@ -193,9 +193,9 @@ const DallasBookkeeping = () => {
   return (
     <>
       <SEO 
-        title="Dallas Bookkeeping Services | #1 QuickBooks ProAdvisor in DFW | ClearLedger"
-        description="Top-rated Dallas bookkeeping services. Certified QuickBooks ProAdvisor serving Dallas-Fort Worth businesses. Monthly reconciliation, tax prep, payroll & more. Call (903) 815-9488."
-        keywords="Dallas bookkeeping services, Dallas bookkeeper, bookkeeping Dallas TX, QuickBooks ProAdvisor Dallas, DFW bookkeeping, Dallas small business bookkeeping, Dallas accountant, bookkeeper near me Dallas, Dallas TX bookkeeping services, Dallas Fort Worth bookkeeping, monthly bookkeeping Dallas, accounts payable Dallas, tax preparation Dallas TX, payroll services Dallas"
+        title="Best Bookkeeping Company in Dallas TX | ClearLedger Solutions"
+        description="Looking for a bookkeeping company in Dallas TX? ClearLedger Solutions is the top-rated bookkeeping firm in Dallas-Fort Worth. QuickBooks ProAdvisor, 500+ clients, 4.9★ rated. Call (903) 815-9488."
+        keywords="bookkeeping company Dallas TX, bookkeeping company in Dallas, Dallas bookkeeping company, bookkeeping firm Dallas Texas, best bookkeeping company Dallas, bookkeeping companies near me Dallas, Dallas TX bookkeeping firm, small business bookkeeping company Dallas, bookkeeping services Dallas TX, QuickBooks ProAdvisor Dallas, DFW bookkeeping company, Dallas bookkeeper, bookkeeper near me Dallas TX, outsourced bookkeeping Dallas, accounting and bookkeeping Dallas"
         canonical="/dallas-bookkeeping"
         schema={schemas}
       />
