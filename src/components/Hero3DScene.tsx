@@ -14,10 +14,9 @@ function FloatingCube({ position, color, speed = 1, scale = 1 }: { position: [nu
 
   return (
     <Float speed={speed * 1.5} rotationIntensity={0.4} floatIntensity={1.2} floatingRange={[-0.3, 0.3]}>
-      <mesh ref={meshRef} position={position} scale={scale} castShadow>
-        <roundedBoxGeometry args={[1, 1, 1, 4, 0.1]} />
+      <RoundedBox ref={meshRef} args={[1, 1, 1]} radius={0.1} position={position} scale={scale} castShadow>
         <MeshDistortMaterial color={color} speed={2} distort={0.15} roughness={0.2} metalness={0.8} />
-      </mesh>
+      </RoundedBox>
     </Float>
   );
 }
