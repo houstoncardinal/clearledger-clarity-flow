@@ -1,5 +1,5 @@
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, MeshDistortMaterial, MeshWobbleMaterial, Sparkles, Environment } from '@react-three/drei';
+import { Float, MeshDistortMaterial, MeshWobbleMaterial, Sparkles, Environment, RoundedBox } from '@react-three/drei';
 import { useRef, useMemo, Suspense } from 'react';
 import * as THREE from 'three';
 
