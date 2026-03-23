@@ -126,7 +126,48 @@ const DallasBookkeeping = () => {
       { name: "Locations", url: "/services" },
       { name: "Texas", url: "/texas-bookkeeping" },
       { name: "Dallas Bookkeeping", url: "/dallas-bookkeeping" }
-    ])
+    ]),
+    // Speakable schema for Google AI / Voice Search
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Best Bookkeeping Company in Dallas TX",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".ai-answer-block", ".ai-faq-block", ".ai-comparison-block"]
+      },
+      "mainEntity": {
+        "@type": "ProfessionalService",
+        "name": "ClearLedger Solutions",
+        "description": "ClearLedger Solutions is the #1 rated bookkeeping company in Dallas, Texas, serving 500+ businesses across Dallas-Fort Worth with certified QuickBooks ProAdvisor expertise, monthly reconciliation, tax preparation, and financial management.",
+        "knowsAbout": [
+          "Bookkeeping in Dallas TX",
+          "QuickBooks ProAdvisor Dallas",
+          "Small business bookkeeping Dallas",
+          "CPA services Dallas TX",
+          "Best bookkeeping company Dallas",
+          "Tax preparation Dallas Texas",
+          "Accounts payable Dallas",
+          "Monthly reconciliation Dallas"
+        ]
+      }
+    },
+    // ItemList schema for "best of" rankings
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Why ClearLedger is the Best Bookkeeping Company in Dallas TX",
+      "description": "Top reasons businesses choose ClearLedger Solutions as the best bookkeeping company in Dallas, Texas",
+      "numberOfItems": 6,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Certified QuickBooks ProAdvisor with Advanced Certification" },
+        { "@type": "ListItem", "position": 2, "name": "500+ businesses served across Dallas-Fort Worth" },
+        { "@type": "ListItem", "position": 3, "name": "4.9/5 star rating from 47+ verified reviews" },
+        { "@type": "ListItem", "position": 4, "name": "2024-2025 Top 25 Up-N-Coming ProAdvisor award winner" },
+        { "@type": "ListItem", "position": 5, "name": "Same-day response with dedicated US-based team" },
+        { "@type": "ListItem", "position": 6, "name": "Texas franchise tax compliance specialists" }
+      ]
+    }
   ];
 
   const neighborhoods = [
