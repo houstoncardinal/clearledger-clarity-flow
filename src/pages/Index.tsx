@@ -120,7 +120,7 @@ const Index = () => {
       </article>
 
       <BadgesSection />
-      <ServicesComponent />
+      <ServicesComponent asSection />
       <CheckOrderingSection />
       
       <Footer />

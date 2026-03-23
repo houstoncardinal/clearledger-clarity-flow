@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const Services = () => {
+const Services = ({ asSection = false }: { asSection?: boolean }) => {
   const services = [
     {
       icon: Calculator,
@@ -98,10 +98,15 @@ const Services = () => {
             <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" />
             <span className="text-xs sm:text-sm">Our Services</span>
           </div>
-          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-4 sm:mb-6">
-            Complete Financial
-            <span className="text-gradient"> Management</span>
-          </h2>
+          {asSection ? (
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-4 sm:mb-6">
+              Complete Financial<span className="text-gradient"> Management</span>
+            </h2>
+          ) : (
+            <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-4 sm:mb-6">
+              Complete Financial<span className="text-gradient"> Management</span>
+            </h1>
+          )}
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             From daily bookkeeping to strategic financial planning, we provide comprehensive 
             outsourced financial services tailored to your business needs.

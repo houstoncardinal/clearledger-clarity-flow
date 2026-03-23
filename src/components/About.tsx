@@ -36,9 +36,9 @@ const About = () => {
               About ClearLedger
             </span>
           </div>
-          <h2 className="font-heading text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <h1 className="font-heading text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Your Trusted Financial Partner
-          </h2>
+          </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             At ClearLedger Solutions, we specialize in providing accurate, reliable, and transparent
             bookkeeping services tailored to small businesses and entrepreneurs.
