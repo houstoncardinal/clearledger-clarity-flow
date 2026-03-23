@@ -37,6 +37,22 @@ const Footer = () => {
       ]
     },
     {
+      title: 'Industries',
+      links: [
+        { name: 'All Industries', href: '/industries' },
+        { name: 'Restaurant', href: '/restaurant-bookkeeping' },
+        { name: 'Construction', href: '/construction-bookkeeping' },
+        { name: 'Real Estate', href: '/real-estate-bookkeeping' },
+        { name: 'Medical & Dental', href: '/medical-bookkeeping' },
+        { name: 'Technology', href: '/technology-bookkeeping' },
+        { name: 'Energy & Oil', href: '/energy-bookkeeping' },
+        { name: 'Manufacturing', href: '/manufacturing-bookkeeping' },
+        { name: 'Hospitality', href: '/hospitality-bookkeeping' },
+        { name: 'Agriculture', href: '/agriculture-bookkeeping' },
+        { name: 'Golf Courses', href: '/golf-course-bookkeeping' }
+      ]
+    },
+    {
       title: 'More Areas',
       links: [
         { name: 'Texas Bookkeeping', href: '/texas-bookkeeping' },
