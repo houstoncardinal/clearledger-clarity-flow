@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const Services = () => {
+const Services = ({ asSection = false }: { asSection?: boolean }) => {
   const services = [
     {
       icon: Calculator,
