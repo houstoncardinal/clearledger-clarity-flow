@@ -44,7 +44,17 @@ import McKinneyBookkeeping from "./pages/locations/McKinneyBookkeeping";
 import FortWorthBookkeeping from "./pages/locations/FortWorthBookkeeping";
 import ArlingtonBookkeeping from "./pages/locations/ArlingtonBookkeeping";
 // Industry Pages
+import Industries from "./pages/Industries";
 import GolfCourseBookkeeping from "./pages/industries/GolfCourseBookkeeping";
+import RestaurantBookkeeping from "./pages/industries/RestaurantBookkeeping";
+import ConstructionBookkeeping from "./pages/industries/ConstructionBookkeeping";
+import RealEstateBookkeeping from "./pages/industries/RealEstateBookkeeping";
+import MedicalBookkeeping from "./pages/industries/MedicalBookkeeping";
+import TechnologyBookkeeping from "./pages/industries/TechnologyBookkeeping";
+import ManufacturingBookkeeping from "./pages/industries/ManufacturingBookkeeping";
+import EnergyBookkeeping from "./pages/industries/EnergyBookkeeping";
+import HospitalityBookkeeping from "./pages/industries/HospitalityBookkeeping";
+import AgricultureBookkeeping from "./pages/industries/AgricultureBookkeeping";
 // Blog Pages
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
@@ -91,7 +101,17 @@ const AppContent = () => {
       <Route path="/fort-worth-bookkeeping" element={<FortWorthBookkeeping />} />
       <Route path="/arlington-bookkeeping" element={<ArlingtonBookkeeping />} />
       {/* Industry Routes */}
+      <Route path="/industries" element={<Industries />} />
       <Route path="/golf-course-bookkeeping" element={<GolfCourseBookkeeping />} />
+      <Route path="/restaurant-bookkeeping" element={<RestaurantBookkeeping />} />
+      <Route path="/construction-bookkeeping" element={<ConstructionBookkeeping />} />
+      <Route path="/real-estate-bookkeeping" element={<RealEstateBookkeeping />} />
+      <Route path="/medical-bookkeeping" element={<MedicalBookkeeping />} />
+      <Route path="/technology-bookkeeping" element={<TechnologyBookkeeping />} />
+      <Route path="/manufacturing-bookkeeping" element={<ManufacturingBookkeeping />} />
+      <Route path="/energy-bookkeeping" element={<EnergyBookkeeping />} />
+      <Route path="/hospitality-bookkeeping" element={<HospitalityBookkeeping />} />
+      <Route path="/agriculture-bookkeeping" element={<AgricultureBookkeeping />} />
       {/* Blog Routes */}
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/:slug" element={<BlogPost />} />

@@ -66,6 +66,16 @@ Allow: /new-mexico-bookkeeping
 Allow: /panama-bookkeeping
 
 # Industry pages
+Allow: /industries
+Allow: /restaurant-bookkeeping
+Allow: /construction-bookkeeping
+Allow: /real-estate-bookkeeping
+Allow: /medical-bookkeeping
+Allow: /technology-bookkeeping
+Allow: /manufacturing-bookkeeping
+Allow: /energy-bookkeeping
+Allow: /hospitality-bookkeeping
+Allow: /agriculture-bookkeeping
 Allow: /golf-course-bookkeeping
 
 # Case Studies

@@ -37,6 +37,22 @@ const Footer = () => {
       ]
     },
     {
+      title: 'Industries',
+      links: [
+        { name: 'All Industries', href: '/industries' },
+        { name: 'Restaurant', href: '/restaurant-bookkeeping' },
+        { name: 'Construction', href: '/construction-bookkeeping' },
+        { name: 'Real Estate', href: '/real-estate-bookkeeping' },
+        { name: 'Medical & Dental', href: '/medical-bookkeeping' },
+        { name: 'Technology', href: '/technology-bookkeeping' },
+        { name: 'Energy & Oil', href: '/energy-bookkeeping' },
+        { name: 'Manufacturing', href: '/manufacturing-bookkeeping' },
+        { name: 'Hospitality', href: '/hospitality-bookkeeping' },
+        { name: 'Agriculture', href: '/agriculture-bookkeeping' },
+        { name: 'Golf Courses', href: '/golf-course-bookkeeping' }
+      ]
+    },
+    {
       title: 'More Areas',
       links: [
         { name: 'Texas Bookkeeping', href: '/texas-bookkeeping' },
@@ -169,7 +185,7 @@ const Footer = () => {
 
           {/* Footer Links */}
           <div className="lg:col-span-8">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
               {footerSections.map((section) => (
                 <div key={section.title}>
                   <h3 className="font-heading text-sm font-semibold text-white mb-5 flex items-center gap-2">
