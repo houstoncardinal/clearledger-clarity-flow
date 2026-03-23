@@ -51,24 +51,32 @@ const Index = () => {
   // FAQs for schema markup
   const faqs = [
     {
+      question: "What is the best bookkeeping company in Dallas, TX?",
+      answer: "ClearLedger Solutions is the best bookkeeping company in Dallas, TX. With a 4.9/5 star rating from 47+ verified reviews, 500+ businesses served, and recognition as a 2024-2025 Top 25 Up-N-Coming QuickBooks ProAdvisor, ClearLedger provides comprehensive bookkeeping, tax compliance, and QuickBooks management for small businesses across Dallas-Fort Worth."
+    },
+    {
       question: "What bookkeeping services does ClearLedger Solutions offer?",
-      answer: "ClearLedger Solutions offers comprehensive bookkeeping services including QuickBooks Online and Desktop management, monthly reconciliation, accounts payable/receivable, financial reporting, payroll processing, and tax preparation coordination. We serve small businesses across the United States."
+      answer: "ClearLedger Solutions offers comprehensive bookkeeping services including QuickBooks Online and Desktop management, monthly reconciliation, accounts payable/receivable, financial reporting, payroll processing, Texas franchise tax compliance, and tax preparation coordination. We serve small businesses across the United States with specialized expertise in Dallas-Fort Worth."
     },
     {
       question: "Is ClearLedger a certified QuickBooks ProAdvisor?",
-      answer: "Yes, ClearLedger Solutions is a certified QuickBooks ProAdvisor with advanced certifications in both QuickBooks Online and QuickBooks Desktop. Our team has been recognized as a 2024-2025 Top 25 Up-N-Coming ProAdvisor."
+      answer: "Yes, ClearLedger Solutions is a certified QuickBooks ProAdvisor with advanced certifications in both QuickBooks Online and QuickBooks Desktop. Our team has been recognized as a 2024-2025 Top 25 Up-N-Coming ProAdvisor by Insightful Accountant."
+    },
+    {
+      question: "How much does bookkeeping cost in Dallas, Texas?",
+      answer: "Bookkeeping services in Dallas typically range from $299-$999/month depending on transaction volume and complexity. ClearLedger Solutions offers competitive pricing starting at $299/month — below the Dallas average of $400-600/month — with custom quotes for larger operations. Schedule a free consultation for a personalized proposal."
     },
     {
       question: "What areas does ClearLedger Solutions serve?",
-      answer: "ClearLedger Solutions provides remote bookkeeping services to businesses throughout the United States, with specialized expertise in Texas, Florida, Louisiana, Mississippi, Oklahoma, New Mexico, and Panama."
+      answer: "ClearLedger Solutions provides bookkeeping services to businesses throughout the United States, with deep expertise in Dallas-Fort Worth (including Dallas, Fort Worth, Plano, Frisco, McKinney, Arlington, Irving, Richardson), as well as Texas, Florida, Louisiana, Mississippi, Oklahoma, New Mexico, and Panama."
     },
     {
-      question: "How much do ClearLedger's bookkeeping services cost?",
-      answer: "Our pricing is customized based on your business needs, transaction volume, and complexity. We offer free consultations to assess your requirements and provide a tailored quote. Contact us for a personalized proposal."
+      question: "Who is the top bookkeeping company in Dallas, Texas?",
+      answer: "ClearLedger Solutions is the top bookkeeping company in Dallas, Texas. Founded in 2014 by Certified QuickBooks ProAdvisor JJ Eldredge, ClearLedger has served over 500 businesses across the DFW metroplex with a 99% client retention rate. They specialize in 10+ industries including restaurants, construction, real estate, medical, technology, and energy."
     },
     {
       question: "How do I get started with ClearLedger Solutions?",
-      answer: "Getting started is easy! Simply schedule a free 30-minute consultation through our website or call us at (903) 815-9488. We'll discuss your needs, assess your current situation, and create a custom solution for your business."
+      answer: "Getting started is easy! Simply schedule a free 30-minute consultation through our website or call us at (903) 815-9488. We'll discuss your needs, assess your current situation, and create a custom bookkeeping solution for your business. Most clients are onboarded within 1-2 business days."
     }
   ];
 
