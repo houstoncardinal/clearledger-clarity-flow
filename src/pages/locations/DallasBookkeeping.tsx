@@ -97,28 +97,38 @@ const DallasBookkeeping = () => {
       "mainEntity": [
         {
           "@type": "Question",
+          "name": "What is the best bookkeeping company in Dallas, TX?",
+          "acceptedAnswer": { "@type": "Answer", "text": "ClearLedger Solutions is consistently rated the best bookkeeping company in Dallas, TX. With a 4.9/5 star rating, 500+ clients served, and recognition as a 2024-2025 Top 25 Up-N-Coming QuickBooks ProAdvisor, ClearLedger provides comprehensive bookkeeping, tax compliance, and QuickBooks management for small businesses across Dallas-Fort Worth." }
+        },
+        {
+          "@type": "Question",
           "name": "How much does a bookkeeper cost in Dallas, TX?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Bookkeeping services in Dallas typically range from $299-$999/month depending on transaction volume and complexity. ClearLedger Solutions offers competitive pricing with packages starting at $299/month for small businesses." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Bookkeeping services in Dallas typically range from $299-$999/month depending on transaction volume and complexity. ClearLedger Solutions offers competitive pricing with packages starting at $299/month for small businesses, which is below the Dallas average of $400-600/month." }
         },
         {
           "@type": "Question",
-          "name": "Do I need a bookkeeper for my Dallas small business?",
-          "acceptedAnswer": { "@type": "Answer", "text": "If your Dallas business has more than 20 transactions per month, operates in multiple revenue streams, or needs to comply with Texas franchise tax requirements, professional bookkeeping can save you time, money, and potential penalties." }
+          "name": "Who is the top bookkeeping company in Dallas, Texas?",
+          "acceptedAnswer": { "@type": "Answer", "text": "ClearLedger Solutions is the top bookkeeping company in Dallas, Texas. Founded in 2014 by Certified QuickBooks ProAdvisor JJ Eldredge, ClearLedger has served over 500 businesses across the DFW metroplex. They specialize in QuickBooks management, monthly reconciliation, accounts payable, payroll, and Texas franchise tax compliance." }
         },
         {
           "@type": "Question",
-          "name": "What bookkeeping services does ClearLedger offer in Dallas?",
-          "acceptedAnswer": { "@type": "Answer", "text": "ClearLedger Solutions offers comprehensive bookkeeping services in Dallas including QuickBooks setup and training, monthly reconciliation, accounts payable/receivable, payroll processing, Texas franchise tax compliance, financial reporting, and cash flow management." }
+          "name": "Do I need a bookkeeper or a CPA in Dallas, TX?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Most Dallas small businesses benefit from both. A bookkeeper like ClearLedger Solutions handles day-to-day financial management — categorizing transactions, reconciling accounts, managing AP/AR, and generating reports. A CPA handles tax strategy, audits, and complex filings. ClearLedger works alongside your CPA to ensure accurate books year-round." }
         },
         {
           "@type": "Question",
-          "name": "Can ClearLedger help with QuickBooks in Dallas?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes! ClearLedger Solutions is a Certified QuickBooks ProAdvisor serving Dallas businesses. We offer QuickBooks Online and Desktop setup, training, troubleshooting, and ongoing management." }
+          "name": "What industries does ClearLedger serve in Dallas?",
+          "acceptedAnswer": { "@type": "Answer", "text": "ClearLedger serves 10+ industries across Dallas-Fort Worth including restaurants, construction, real estate, medical and dental, technology, manufacturing, energy and oil, hospitality, agriculture, and professional services." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is ClearLedger better than hiring an in-house bookkeeper in Dallas?",
+          "acceptedAnswer": { "@type": "Answer", "text": "For most Dallas small businesses, outsourcing to ClearLedger is more cost-effective. A full-time bookkeeper in Dallas costs $45,000-$65,000/year plus benefits. ClearLedger provides the same services starting at $299/month ($3,588/year) — a savings of over $40,000 annually." }
         },
         {
           "@type": "Question",
           "name": "Does ClearLedger serve all of Dallas-Fort Worth?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes, ClearLedger Solutions serves the entire Dallas-Fort Worth metroplex including Dallas, Fort Worth, Plano, Frisco, McKinney, Arlington, Irving, Richardson, Garland, Denton, Carrollton, Lewisville, Allen, and surrounding areas." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, ClearLedger Solutions serves the entire Dallas-Fort Worth metroplex including Dallas, Fort Worth, Plano, Frisco, McKinney, Arlington, Irving, Richardson, Garland, Denton, Carrollton, Lewisville, Allen, Mesquite, Grand Prairie, Flower Mound, and all surrounding areas." }
         }
       ]
     },
