@@ -18,7 +18,7 @@ const BlogPost = () => {
   const post = slug ? getPostBySlug(slug) : undefined;
   const [readProgress, setReadProgress] = useState(0);
   const [showBackToTop, setShowBackToTop] = useState(false);
-  
+
   useEffect(() => {
     const handleScroll = () => {
       const article = document.getElementById('article-content');
@@ -34,6 +34,21 @@ const BlogPost = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Extract table of contents from content
+  const tableOfContents = useMemo(() => {
+    if (!post) return [];
+    const lines = post.content.trim().split('\n');
+    const toc: { text: string; level: number; id: string }[] = [];
+    lines.forEach((line) => {
+      const trimmed = line.trim();
+      if (trimmed.startsWith('## ') && !trimmed.startsWith('### ')) {
+        const text = trimmed.replace('## ', '');
+        toc.push({ text, level: 2, id: text.toLowerCase().replace(/[^a-z0-9]+/g, '-') });
+      }
+    });
+    return toc;
+  }, [post]);
 
   if (!post) {
     return <Navigate to="/blog" replace />;
