@@ -81,6 +81,11 @@ Allow: /golf-course-bookkeeping
 # Case Studies
 Allow: /case-studies
 
+# LLMs.txt — AI model context file
+# https://llmstxt.org/
+Allow: /llms.txt
+Allow: /llms-full.txt
+
 # Sitemap
 Sitemap: https://www.yourclearledger.com/sitemap.xml
 
