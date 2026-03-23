@@ -132,19 +132,6 @@ const BlogPost = () => {
     }
   };
 
-  // Extract table of contents from content
-  const tableOfContents = useMemo(() => {
-    const lines = post.content.trim().split('\n');
-    const toc: { text: string; level: number; id: string }[] = [];
-    lines.forEach((line) => {
-      const trimmed = line.trim();
-      if (trimmed.startsWith('## ') && !trimmed.startsWith('### ')) {
-        const text = trimmed.replace('## ', '');
-        toc.push({ text, level: 2, id: text.toLowerCase().replace(/[^a-z0-9]+/g, '-') });
-      }
-    });
-    return toc;
-  }, [post.content]);
 
   const renderContent = (content: string) => {
     const lines = content.trim().split('\n');
