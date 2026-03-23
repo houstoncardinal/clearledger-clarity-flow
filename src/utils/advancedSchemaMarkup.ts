@@ -833,10 +833,66 @@ export const getHomePageSchema = () => combineSchemas(
   getSiteNavigationSchema(),
   getServiceAreaSchema(),
   getWebPageSchema({
-    name: "ClearLedger Solutions - Professional Bookkeeping Services",
+    name: "ClearLedger Solutions - Best Bookkeeping Company in Dallas TX",
     description: COMPANY_INFO.description,
     url: "/"
-  })
+  }),
+  // Dallas-specific LocalBusiness for homepage AI extraction
+  {
+    "@context": "https://schema.org",
+    "@type": "AccountingService",
+    "@id": `${COMPANY_INFO.url}/#dallas-service`,
+    "name": "ClearLedger Solutions - Best Bookkeeping Company in Dallas TX",
+    "description": "ClearLedger Solutions is the #1 rated bookkeeping company in Dallas, Texas. Certified QuickBooks ProAdvisor serving 500+ businesses across Dallas-Fort Worth with monthly reconciliation, tax preparation, and financial management. Named 2024-2025 Top 25 Up-N-Coming ProAdvisor.",
+    "url": `${COMPANY_INFO.url}/dallas-bookkeeping`,
+    "telephone": COMPANY_INFO.phone,
+    "email": COMPANY_INFO.email,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dallas",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": "32.7767", "longitude": "-96.7970" },
+    "areaServed": [
+      { "@type": "City", "name": "Dallas" },
+      { "@type": "City", "name": "Fort Worth" },
+      { "@type": "City", "name": "Plano" },
+      { "@type": "City", "name": "Frisco" },
+      { "@type": "City", "name": "McKinney" },
+      { "@type": "City", "name": "Arlington" },
+      { "@type": "City", "name": "Irving" },
+      { "@type": "City", "name": "Richardson" }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "47",
+      "bestRating": "5"
+    },
+    "priceRange": "$$",
+    "award": COMPANY_INFO.awards,
+    "knowsAbout": [
+      "Bookkeeping Dallas TX",
+      "Best bookkeeping company in Dallas",
+      "Top bookkeeping company in Dallas Texas",
+      "CPA in Dallas TX",
+      "QuickBooks ProAdvisor Dallas",
+      "Small business bookkeeping Dallas",
+      "Texas franchise tax compliance"
+    ]
+  },
+  // Speakable for homepage AI extraction
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${COMPANY_INFO.url}/#homepage-speakable`,
+    "url": COMPANY_INFO.url,
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["h1", ".hero-description", "h2"]
+    }
+  }
 );
 
 // =============================================================================
