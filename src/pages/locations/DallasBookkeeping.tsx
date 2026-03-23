@@ -718,7 +718,7 @@ const DallasBookkeeping = () => {
               </p>
             </motion.div>
 
-            <div className="max-w-4xl mx-auto space-y-6">
+            <div className="max-w-4xl mx-auto space-y-6 ai-faq-block">
               {faqs.map((faq, index) => (
                 <motion.div 
                   key={index}
