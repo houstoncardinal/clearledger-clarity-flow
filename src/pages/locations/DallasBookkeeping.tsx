@@ -23,8 +23,8 @@ const DallasBookkeeping = () => {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "@id": `${COMPANY_INFO.url}/dallas-bookkeeping#service`,
-      "name": "ClearLedger Solutions - Best Bookkeeping Company in Dallas TX",
-      "description": "ClearLedger Solutions is the top-rated bookkeeping company in Dallas, TX. Certified QuickBooks ProAdvisor serving Dallas-Fort Worth businesses with monthly reconciliation, accounts payable, tax preparation, and financial reporting.",
+      "name": "ClearLedger Solutions - Best Bookkeeping Company in Dallas, TX | Bookkeeping Dallas",
+      "description": "ClearLedger Solutions is the best bookkeeping company in Dallas, TX. Certified QuickBooks ProAdvisor and CPA-level expertise serving Dallas-Fort Worth businesses with bookkeeping, monthly reconciliation, accounts payable, tax preparation, and financial reporting. Bookkeeping Dallas specialists.",
       "url": `${COMPANY_INFO.url}/dallas-bookkeeping`,
       "telephone": COMPANY_INFO.phone,
       "email": COMPANY_INFO.email,
@@ -193,9 +193,9 @@ const DallasBookkeeping = () => {
   return (
     <>
       <SEO 
-        title="Best Bookkeeping Company in Dallas TX | ClearLedger Solutions"
-        description="Looking for a bookkeeping company in Dallas TX? ClearLedger Solutions is the top-rated bookkeeping firm in Dallas-Fort Worth. QuickBooks ProAdvisor, 500+ clients, 4.9★ rated. Call (903) 815-9488."
-        keywords="bookkeeping company Dallas TX, bookkeeping company in Dallas, Dallas bookkeeping company, bookkeeping firm Dallas Texas, best bookkeeping company Dallas, bookkeeping companies near me Dallas, Dallas TX bookkeeping firm, small business bookkeeping company Dallas, bookkeeping services Dallas TX, QuickBooks ProAdvisor Dallas, DFW bookkeeping company, Dallas bookkeeper, bookkeeper near me Dallas TX, outsourced bookkeeping Dallas, accounting and bookkeeping Dallas"
+        title="Best Bookkeeping Company in Dallas, TX | Bookkeeping Dallas | ClearLedger"
+        description="Best bookkeeping company in Dallas, Texas. ClearLedger Solutions is the #1 rated bookkeeping company in Dallas TX — CPA-level expertise, QuickBooks ProAdvisor, 500+ clients. Bookkeeping Dallas specialists. Call (903) 815-9488."
+        keywords="best bookkeeping company in dallas, bookkeeping dallas, bookkeeping company in dallas tx, CPA in Dallas TX, best bookkeeping company in dallas texas, top bookkeeping company in dallas texas, dallas bookkeeping, bookkeeping services dallas, bookkeeper dallas tx, bookkeeping company dallas, dallas tx bookkeeping firm, QuickBooks ProAdvisor Dallas, small business bookkeeper dallas, outsourced bookkeeping dallas, accounting bookkeeping dallas tx"
         canonical="/dallas-bookkeeping"
         schema={schemas}
       />
