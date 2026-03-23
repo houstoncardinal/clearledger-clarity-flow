@@ -262,7 +262,18 @@ export const getEnhancedOrganizationSchema = () => ({
     "Payroll Processing",
     "Cash Flow Management",
     "Financial Analysis",
-    "Small Business Accounting"
+    "Small Business Accounting",
+    "Bookkeeping in Dallas TX",
+    "Best Bookkeeping Company in Dallas",
+    "Dallas Bookkeeping Services",
+    "CPA Services Dallas Texas",
+    "Texas Franchise Tax Compliance",
+    "DFW Small Business Bookkeeping",
+    "Restaurant Bookkeeping",
+    "Construction Bookkeeping",
+    "Real Estate Bookkeeping",
+    "Medical Practice Bookkeeping",
+    "Energy Industry Bookkeeping"
   ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
