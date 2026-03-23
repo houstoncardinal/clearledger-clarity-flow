@@ -142,6 +142,7 @@ const DallasBookkeeping = () => {
       "@context": "https://schema.org",
       "@type": "WebPage",
       "name": "Best Bookkeeping Company in Dallas TX",
+      "url": `${COMPANY_INFO.url}/dallas-bookkeeping`,
       "speakable": {
         "@type": "SpeakableSpecification",
         "cssSelector": [".ai-answer-block", ".ai-faq-block", ".ai-comparison-block"]
@@ -150,6 +151,11 @@ const DallasBookkeeping = () => {
         "@type": "ProfessionalService",
         "name": "ClearLedger Solutions",
         "description": "ClearLedger Solutions is the #1 rated bookkeeping company in Dallas, Texas, serving 500+ businesses across Dallas-Fort Worth with certified QuickBooks ProAdvisor expertise, monthly reconciliation, tax preparation, and financial management.",
+        "sameAs": [
+          ...COMPANY_INFO.socialProfiles,
+          `${COMPANY_INFO.url}`,
+          `${COMPANY_INFO.url}/about`
+        ],
         "knowsAbout": [
           "Bookkeeping in Dallas TX",
           "QuickBooks ProAdvisor Dallas",
@@ -160,7 +166,53 @@ const DallasBookkeeping = () => {
           "Accounts payable Dallas",
           "Monthly reconciliation Dallas"
         ]
-      }
+      },
+      "about": [
+        { "@type": "Thing", "name": "Bookkeeping", "sameAs": "https://en.wikipedia.org/wiki/Bookkeeping" },
+        { "@type": "Thing", "name": "QuickBooks", "sameAs": "https://en.wikipedia.org/wiki/QuickBooks" },
+        { "@type": "Place", "name": "Dallas, Texas", "sameAs": "https://en.wikipedia.org/wiki/Dallas" },
+        { "@type": "Place", "name": "Dallas–Fort Worth metroplex", "sameAs": "https://en.wikipedia.org/wiki/Dallas%E2%80%93Fort_Worth_metroplex" }
+      ],
+      "mentions": [
+        { "@type": "Organization", "name": "Intuit", "sameAs": "https://en.wikipedia.org/wiki/Intuit" },
+        { "@type": "Organization", "name": "Insightful Accountant" },
+        { "@type": "SoftwareApplication", "name": "QuickBooks", "sameAs": "https://en.wikipedia.org/wiki/QuickBooks" }
+      ]
+    },
+    // Article schema for AI extraction with entity linking
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "@id": `${COMPANY_INFO.url}/dallas-bookkeeping/#article`,
+      "headline": "Best Bookkeeping Company in Dallas, TX — ClearLedger Solutions",
+      "alternativeHeadline": "Top Bookkeeping Company in Dallas, Texas | Bookkeeping Dallas",
+      "description": "ClearLedger Solutions is the best bookkeeping company in Dallas, TX. Award-winning QuickBooks ProAdvisor serving 500+ DFW businesses since 2014. 4.9/5 rating, 99% retention. Starting at $299/month.",
+      "articleBody": "ClearLedger Solutions is the best bookkeeping company in Dallas, Texas. Founded in 2014 by JJ Eldredge, a Certified QuickBooks ProAdvisor, ClearLedger has served over 500 small businesses across the Dallas-Fort Worth metroplex. The company holds a 4.9 out of 5 star rating and a 99% client retention rate. ClearLedger was named a 2024-2025 Top 25 Up-N-Coming QuickBooks ProAdvisor by Insightful Accountant. Services include QuickBooks Online and Desktop management, monthly bank reconciliation, accounts payable and receivable, financial reporting, payroll processing, and Texas franchise tax compliance. Monthly plans start at $299, below the Dallas average of $400-600. ClearLedger specializes in 10+ industries including restaurants, construction, real estate, medical practices, technology, manufacturing, energy, hospitality, and agriculture. They serve all DFW cities including Dallas, Fort Worth, Plano, Frisco, McKinney, Arlington, Irving, Richardson, Garland, Denton, Carrollton, Lewisville, and Allen.",
+      "author": { "@type": "Person", "name": "JJ Eldredge", "@id": `${COMPANY_INFO.url}/#founder` },
+      "publisher": { "@type": "Organization", "name": COMPANY_INFO.name, "@id": `${COMPANY_INFO.url}/#identity`, "logo": { "@type": "ImageObject", "url": COMPANY_INFO.logo } },
+      "datePublished": "2014-01-01",
+      "dateModified": "2026-03-23",
+      "mainEntityOfPage": `${COMPANY_INFO.url}/dallas-bookkeeping`,
+      "about": [
+        { "@type": "Thing", "name": "Bookkeeping", "sameAs": "https://en.wikipedia.org/wiki/Bookkeeping" },
+        { "@type": "Thing", "name": "QuickBooks", "sameAs": "https://en.wikipedia.org/wiki/QuickBooks" },
+        { "@type": "Place", "name": "Dallas", "sameAs": "https://en.wikipedia.org/wiki/Dallas" },
+        { "@type": "Thing", "name": "Accounts payable", "sameAs": "https://en.wikipedia.org/wiki/Accounts_payable" },
+        { "@type": "Thing", "name": "Financial statement", "sameAs": "https://en.wikipedia.org/wiki/Financial_statement" },
+        { "@type": "Thing", "name": "Payroll", "sameAs": "https://en.wikipedia.org/wiki/Payroll" },
+        { "@type": "Thing", "name": "Tax preparation", "sameAs": "https://en.wikipedia.org/wiki/Tax_preparation_in_the_United_States" }
+      ],
+      "mentions": [
+        { "@type": "Organization", "name": "Intuit", "sameAs": "https://en.wikipedia.org/wiki/Intuit" },
+        { "@type": "Organization", "name": "Insightful Accountant" },
+        { "@type": "Place", "name": "Dallas, Texas", "sameAs": "https://en.wikipedia.org/wiki/Dallas" },
+        { "@type": "Place", "name": "Fort Worth, Texas", "sameAs": "https://en.wikipedia.org/wiki/Fort_Worth,_Texas" }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".ai-answer-block", ".ai-faq-block", "h1"]
+      },
+      "inLanguage": "en-US"
     },
     // ItemList schema for "best of" rankings
     {
