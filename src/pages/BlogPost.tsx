@@ -136,9 +136,9 @@ const BlogPost = () => {
       if (trimmedLine.startsWith('# ')) {
         flushList();
         elements.push(
-          <h1 key={index} className="text-3xl md:text-4xl font-heading font-bold text-foreground mt-8 mb-6">
+          <h2 key={index} className="text-2xl md:text-3xl font-heading font-bold text-foreground mt-12 mb-6 pb-3 border-b border-border/50">
             {trimmedLine.replace('# ', '')}
-          </h1>
+          </h2>
         );
       } else if (trimmedLine.startsWith('## ')) {
         flushList();

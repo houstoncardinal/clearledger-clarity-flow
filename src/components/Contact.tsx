@@ -114,9 +114,9 @@ const Contact = () => {
               Get Started Today
             </span>
           </div>
-          <h2 className="font-heading text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <h1 className="font-heading text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Ready to Simplify Your Finances?
-          </h2>
+          </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Schedule your free consultation or get in touch with our team. 
             We're here to help you achieve financial clarity and compliance.
