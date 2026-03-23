@@ -30,7 +30,7 @@ const industries = [
     title: 'Restaurant & Food Service',
     slug: '/restaurant-bookkeeping',
     icon: UtensilsCrossed,
-    description: 'Specialized bookkeeping for restaurants, bars, cafes, food trucks, and catering companies in Dallas and beyond.',
+    description: 'Specialized bookkeeping for restaurants, bars, cafes, food trucks, and catering companies nationwide.',
     features: ['POS Integration', 'Food Cost Tracking', 'Tip Reporting', 'Payroll Management']
   },
   {
@@ -98,6 +98,13 @@ const industries = [
   }
 ];
 
+const serviceAreas = [
+  { region: 'Dallas-Fort Worth', cities: ['Dallas', 'Fort Worth', 'Plano', 'Frisco', 'McKinney', 'Arlington'] },
+  { region: 'Texas', cities: ['Houston', 'San Antonio', 'Austin', 'El Paso'] },
+  { region: 'South Central', cities: ['Oklahoma', 'Louisiana', 'Mississippi', 'New Mexico'] },
+  { region: 'Southeast', cities: ['Florida', 'Panama'] }
+];
+
 const Industries = () => {
   const breadcrumbs = [
     { name: "Industries", url: "/industries" }
@@ -106,8 +113,8 @@ const Industries = () => {
   const industriesSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Industry-Specific Bookkeeping Services in Dallas TX | ClearLedger Solutions",
-    "description": "ClearLedger Solutions provides specialized bookkeeping services for 10+ industries in Dallas, TX and nationwide.",
+    "name": "Industry-Specific Bookkeeping Services | ClearLedger Solutions",
+    "description": "ClearLedger Solutions provides specialized bookkeeping services for 10+ industries across Texas, Oklahoma, Louisiana, Florida, Mississippi, New Mexico, and nationwide.",
     "url": `${COMPANY_INFO.url}/industries`,
     "mainEntity": {
       "@type": "ItemList",
@@ -123,12 +130,15 @@ const Industries = () => {
       "name": COMPANY_INFO.name,
       "url": COMPANY_INFO.url,
       "telephone": COMPANY_INFO.phone,
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Dallas",
-        "addressRegion": "TX",
-        "addressCountry": "US"
-      }
+      "areaServed": [
+        { "@type": "State", "name": "Texas" },
+        { "@type": "State", "name": "Oklahoma" },
+        { "@type": "State", "name": "Louisiana" },
+        { "@type": "State", "name": "Florida" },
+        { "@type": "State", "name": "Mississippi" },
+        { "@type": "State", "name": "New Mexico" },
+        { "@type": "Country", "name": "Panama" }
+      ]
     }
   };
 
@@ -141,9 +151,9 @@ const Industries = () => {
   return (
     <>
       <SEO
-        title="Industry-Specific Bookkeeping Services Dallas TX | ClearLedger Solutions"
-        description="Specialized bookkeeping for restaurants, construction, real estate, medical, tech, manufacturing, energy, hospitality & agriculture in Dallas TX. Call (903) 815-9488."
-        keywords="industry bookkeeping Dallas TX, restaurant bookkeeping, construction bookkeeping, real estate bookkeeping Dallas, medical bookkeeping, manufacturing bookkeeping Texas, oil gas bookkeeping, agriculture bookkeeping"
+        title="Industry-Specific Bookkeeping Services | Dallas TX & Nationwide | ClearLedger"
+        description="Specialized bookkeeping for restaurants, construction, real estate, medical, tech, manufacturing, energy, hospitality & agriculture. Serving Dallas, Texas & nationwide. Call (903) 815-9488."
+        keywords="industry bookkeeping services, restaurant bookkeeping, construction bookkeeping, real estate bookkeeping, medical bookkeeping, manufacturing bookkeeping, oil gas bookkeeping, agriculture bookkeeping, Dallas bookkeeping, Texas bookkeeping, nationwide bookkeeping"
         canonical="/industries"
         schema={pageSchema}
       />
@@ -156,7 +166,7 @@ const Industries = () => {
             <div className="max-w-5xl mx-auto text-center">
               <div className="inline-flex items-center space-x-2 bg-accent/90 backdrop-blur-sm px-4 sm:px-6 py-2 sm:py-3 rounded-full mb-6 border border-accent-foreground/20 shadow-sm">
                 <Building2 className="w-4 h-4 sm:w-5 sm:h-5 text-accent-foreground flex-shrink-0" />
-                <span className="text-xs sm:text-sm font-semibold text-accent-foreground">Industry Expertise</span>
+                <span className="text-xs sm:text-sm font-semibold text-accent-foreground">Industry Expertise • Dallas TX & Nationwide</span>
               </div>
 
               <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
@@ -164,12 +174,12 @@ const Industries = () => {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dark">
                   Every Industry
                 </span>
-                {' '}in Dallas TX
+                {' '}Nationwide
               </h1>
 
               <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-3xl mx-auto">
                 Every industry has unique financial challenges. ClearLedger Solutions provides specialized bookkeeping 
-                tailored to your industry's specific needs — from job costing for contractors to tip reporting for restaurants.
+                tailored to your industry — serving businesses across Dallas-Fort Worth, Texas, Oklahoma, Louisiana, Florida, Mississippi, New Mexico, and Panama.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
@@ -222,15 +232,38 @@ const Industries = () => {
           </div>
         </section>
 
-        {/* CTA */}
+        {/* Service Areas */}
         <section className="py-16 bg-gradient-subtle">
+          <div className="container mx-auto px-4">
+            <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground mb-4 text-center">Where We Serve</h2>
+            <p className="text-lg text-muted-foreground text-center mb-12 max-w-2xl mx-auto">Industry-specific bookkeeping across all our service areas</p>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {serviceAreas.map((area, i) => (
+                <div key={i} className="bg-card rounded-xl p-6 shadow-card">
+                  <h3 className="font-heading text-lg font-bold text-foreground mb-3">{area.region}</h3>
+                  <ul className="space-y-2">
+                    {area.cities.map((city, j) => (
+                      <li key={j} className="flex items-center space-x-2 text-sm text-muted-foreground">
+                        <CheckCircle className="w-3.5 h-3.5 text-primary flex-shrink-0" />
+                        <span>{city}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="bg-card rounded-2xl p-8 shadow-premium text-center max-w-3xl mx-auto">
               <h2 className="font-heading text-2xl lg:text-3xl font-bold text-foreground mb-4">
                 Don't See Your Industry?
               </h2>
               <p className="text-muted-foreground mb-6">
-                We serve businesses in every industry. Contact us to discuss your specific bookkeeping needs.
+                We serve businesses in every industry across the United States. Contact us to discuss your specific bookkeeping needs.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link to="/contact">
