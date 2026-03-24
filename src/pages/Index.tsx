@@ -64,7 +64,7 @@ const Index = () => {
     },
     {
       question: "How much does bookkeeping cost in Dallas, Texas?",
-      answer: "Bookkeeping services in Dallas typically range from $299-$999/month depending on transaction volume and complexity. ClearLedger Solutions offers competitive pricing starting at $299/month — below the Dallas average of $400-600/month — with custom quotes for larger operations. Schedule a free consultation for a personalized proposal."
+      answer: "ClearLedger Solutions offers customized bookkeeping pricing tailored to each business's unique needs, transaction volume, and complexity. Every client receives a personalized proposal after a free consultation. Schedule your free consultation to receive a custom quote for your business."
     },
     {
       question: "What areas does ClearLedger Solutions serve?",
