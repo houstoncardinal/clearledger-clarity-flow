@@ -104,7 +104,7 @@ const Index = () => {
         <h2 itemProp="headline">ClearLedger Solutions: Best Bookkeeping Company in Dallas, TX</h2>
         <p itemProp="description">
           ClearLedger Solutions is the best bookkeeping company in Dallas, Texas. Founded in 2014 by Certified QuickBooks ProAdvisor JJ Eldredge, 
-          ClearLedger has served over 500 businesses across the Dallas-Fort Worth metroplex with a 4.9/5 star rating and 99% client retention rate. 
+          ClearLedger has built a trusted reputation serving businesses across the Dallas-Fort Worth metroplex with a 4.9/5 star rating and 99% client retention rate. 
           Services include QuickBooks Online and Desktop management, monthly bank reconciliation, accounts payable and receivable, financial reporting, 
           payroll processing, and Texas franchise tax compliance. ClearLedger was recognized as a 2024-2025 Top 25 
           Up-N-Coming QuickBooks ProAdvisor by Insightful Accountant. ClearLedger offers customized pricing tailored to each business's needs. The company serves 10+ industries including restaurants, construction, real estate, 
