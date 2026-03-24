@@ -529,7 +529,7 @@ const DallasBookkeeping = () => {
                       ['QuickBooks Certification', 'Advanced ProAdvisor', 'Basic or None'],
                       ['Response Time', 'Same Day', '2-5 Business Days'],
                       ['Client Rating', '4.9/5 Stars', '3.5-4.0 Stars'],
-                      ['Clients Served', '500+', '50-100'],
+                      ['Client Retention', '99%', '70-80%'],
                       ['Industry Specializations', '10+ Industries', '1-2 Industries'],
                       ['Team Location', '100% US-Based', 'Often Outsourced'],
                       ['TX Franchise Tax', 'Full Compliance', 'Limited'],
