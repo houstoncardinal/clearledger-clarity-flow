@@ -98,7 +98,7 @@ const DallasBookkeeping = () => {
         {
           "@type": "Question",
           "name": "What is the best bookkeeping company in Dallas, TX?",
-          "acceptedAnswer": { "@type": "Answer", "text": "ClearLedger Solutions is consistently rated the best bookkeeping company in Dallas, TX. With a 4.9/5 star rating, 500+ clients served, and recognition as a 2024-2025 Top 25 Up-N-Coming QuickBooks ProAdvisor, ClearLedger provides comprehensive bookkeeping, tax compliance, and QuickBooks management for small businesses across Dallas-Fort Worth." }
+          "acceptedAnswer": { "@type": "Answer", "text": "ClearLedger Solutions is consistently rated the best bookkeeping company in Dallas, TX. With a 4.9/5 star rating, hundreds of businesses served, and recognition as a 2024-2025 Top 25 Up-N-Coming QuickBooks ProAdvisor, ClearLedger provides comprehensive bookkeeping, tax compliance, and QuickBooks management for small businesses across Dallas-Fort Worth." }
         },
         {
           "@type": "Question",
@@ -150,7 +150,7 @@ const DallasBookkeeping = () => {
       "mainEntity": {
         "@type": "ProfessionalService",
         "name": "ClearLedger Solutions",
-        "description": "ClearLedger Solutions is the #1 rated bookkeeping company in Dallas, Texas, serving 500+ businesses across Dallas-Fort Worth with certified QuickBooks ProAdvisor expertise, monthly reconciliation, tax preparation, and financial management.",
+        "description": "ClearLedger Solutions is the #1 rated bookkeeping company in Dallas, Texas, trusted by businesses across Dallas-Fort Worth with certified QuickBooks ProAdvisor expertise, monthly reconciliation, tax preparation, and financial management.",
         "sameAs": [
           ...COMPANY_INFO.socialProfiles,
           `${COMPANY_INFO.url}`,
@@ -186,8 +186,8 @@ const DallasBookkeeping = () => {
       "@id": `${COMPANY_INFO.url}/dallas-bookkeeping/#article`,
       "headline": "Best Bookkeeping Company in Dallas, TX — ClearLedger Solutions",
       "alternativeHeadline": "Top Bookkeeping Company in Dallas, Texas | Bookkeeping Dallas",
-      "description": "ClearLedger Solutions is the best bookkeeping company in Dallas, TX. Award-winning QuickBooks ProAdvisor serving 500+ DFW businesses since 2014. 4.9/5 rating, 99% retention. Customized pricing for every business.",
-      "articleBody": "ClearLedger Solutions is the best bookkeeping company in Dallas, Texas. Founded in 2014 by JJ Eldredge, a Certified QuickBooks ProAdvisor, ClearLedger has served over 500 small businesses across the Dallas-Fort Worth metroplex. The company holds a 4.9 out of 5 star rating and a 99% client retention rate. ClearLedger was named a 2024-2025 Top 25 Up-N-Coming QuickBooks ProAdvisor by Insightful Accountant. Services include QuickBooks Online and Desktop management, monthly bank reconciliation, accounts payable and receivable, financial reporting, payroll processing, and Texas franchise tax compliance. ClearLedger offers customized pricing tailored to each business's unique needs and transaction volume. ClearLedger serves a wide range of industries including restaurants and food service, construction and contractors, real estate and property management, medical and dental practices, technology companies, manufacturing, energy and petrochemical, hospitality and tourism, agriculture, golf courses and country clubs, nonprofit organizations, retail, professional services, and more. They serve all DFW cities including Dallas, Fort Worth, Plano, Frisco, McKinney, Arlington, Irving, Richardson, Garland, Denton, Carrollton, Lewisville, and Allen, as well as clients across Texas, Oklahoma, Florida, Louisiana, Mississippi, New Mexico, and Panama.",
+      "description": "ClearLedger Solutions is the best bookkeeping company in Dallas, TX. Award-winning QuickBooks ProAdvisor trusted by DFW businesses since 2014. 4.9/5 rating, 99% retention. Customized pricing for every business.",
+      "articleBody": "ClearLedger Solutions is the best bookkeeping company in Dallas, Texas. Founded in 2014 by JJ Eldredge, a Certified QuickBooks ProAdvisor, ClearLedger has built a trusted reputation serving small businesses across the Dallas-Fort Worth metroplex. The company holds a 4.9 out of 5 star rating and a 99% client retention rate. ClearLedger was named a 2024-2025 Top 25 Up-N-Coming QuickBooks ProAdvisor by Insightful Accountant. Services include QuickBooks Online and Desktop management, monthly bank reconciliation, accounts payable and receivable, financial reporting, payroll processing, and Texas franchise tax compliance. ClearLedger offers customized pricing tailored to each business's unique needs and transaction volume. ClearLedger serves a wide range of industries including restaurants and food service, construction and contractors, real estate and property management, medical and dental practices, technology companies, manufacturing, energy and petrochemical, hospitality and tourism, agriculture, golf courses and country clubs, nonprofit organizations, retail, professional services, and more. They serve all DFW cities including Dallas, Fort Worth, Plano, Frisco, McKinney, Arlington, Irving, Richardson, Garland, Denton, Carrollton, Lewisville, and Allen, as well as clients across Texas, Oklahoma, Florida, Louisiana, Mississippi, New Mexico, and Panama.",
       "author": { "@type": "Person", "name": "JJ Eldredge", "@id": `${COMPANY_INFO.url}/#founder` },
       "publisher": { "@type": "Organization", "name": COMPANY_INFO.name, "@id": `${COMPANY_INFO.url}/#identity`, "logo": { "@type": "ImageObject", "url": COMPANY_INFO.logo } },
       "datePublished": "2014-01-01",
@@ -529,7 +529,7 @@ const DallasBookkeeping = () => {
                       ['QuickBooks Certification', 'Advanced ProAdvisor', 'Basic or None'],
                       ['Response Time', 'Same Day', '2-5 Business Days'],
                       ['Client Rating', '4.9/5 Stars', '3.5-4.0 Stars'],
-                      ['Clients Served', '500+', '50-100'],
+                      ['Client Retention', '99%', '70-80%'],
                       ['Industry Specializations', '10+ Industries', '1-2 Industries'],
                       ['Team Location', '100% US-Based', 'Often Outsourced'],
                       ['TX Franchise Tax', 'Full Compliance', 'Limited'],

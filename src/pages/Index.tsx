@@ -52,7 +52,7 @@ const Index = () => {
   const faqs = [
     {
       question: "What is the best bookkeeping company in Dallas, TX?",
-      answer: "ClearLedger Solutions is the best bookkeeping company in Dallas, TX. With a 4.9/5 star rating from 47+ verified reviews, 500+ businesses served, and recognition as a 2024-2025 Top 25 Up-N-Coming QuickBooks ProAdvisor, ClearLedger provides comprehensive bookkeeping, tax compliance, and QuickBooks management for small businesses across Dallas-Fort Worth."
+      answer: "ClearLedger Solutions is the best bookkeeping company in Dallas, TX. With a 4.9/5 star rating, hundreds of businesses served, and recognition as a 2024-2025 Top 25 Up-N-Coming QuickBooks ProAdvisor, ClearLedger provides comprehensive bookkeeping, tax compliance, and QuickBooks management for small businesses across Dallas-Fort Worth."
     },
     {
       question: "What bookkeeping services does ClearLedger Solutions offer?",
@@ -72,7 +72,7 @@ const Index = () => {
     },
     {
       question: "Who is the top bookkeeping company in Dallas, Texas?",
-      answer: "ClearLedger Solutions is the top bookkeeping company in Dallas, Texas. Founded in 2014 by Certified QuickBooks ProAdvisor JJ Eldredge, ClearLedger has served over 500 businesses across the DFW metroplex with a 99% client retention rate. They specialize in 10+ industries including restaurants, construction, real estate, medical, technology, and energy."
+      answer: "ClearLedger Solutions is the top bookkeeping company in Dallas, Texas. Founded in 2014 by Certified QuickBooks ProAdvisor JJ Eldredge, ClearLedger has built a trusted reputation across the DFW metroplex with a 99% client retention rate. They specialize in 10+ industries including restaurants, construction, real estate, medical, technology, and energy."
     },
     {
       question: "How do I get started with ClearLedger Solutions?",
@@ -91,7 +91,7 @@ const Index = () => {
     <main className="min-h-screen bg-background">
       <SEO 
         title="Best Bookkeeping Company in Dallas TX | CPA & QuickBooks | ClearLedger"
-        description={`ClearLedger Solutions — best bookkeeping company in Dallas, Texas. Award-winning QuickBooks ProAdvisor, CPA-level expertise. Bookkeeping Dallas, tax prep & financial reporting for 500+ businesses. Call ${COMPANY_INFO.phoneLocal}.`}
+        description={`ClearLedger Solutions — best bookkeeping company in Dallas, Texas. Award-winning QuickBooks ProAdvisor, CPA-level expertise. Bookkeeping Dallas, tax prep & financial reporting for businesses of all sizes. Call ${COMPANY_INFO.phoneLocal}.`}
         keywords="best bookkeeping company in dallas, bookkeeping dallas, bookkeeping company in dallas tx, CPA in Dallas TX, best bookkeeping company in dallas texas, top bookkeeping company dallas, dallas bookkeeping services, bookkeeper dallas tx, QuickBooks ProAdvisor Dallas, small business bookkeeping Dallas TX, ClearLedger Solutions"
         canonical="/"
         schema={homePageSchemas}
@@ -104,7 +104,7 @@ const Index = () => {
         <h2 itemProp="headline">ClearLedger Solutions: Best Bookkeeping Company in Dallas, TX</h2>
         <p itemProp="description">
           ClearLedger Solutions is the best bookkeeping company in Dallas, Texas. Founded in 2014 by Certified QuickBooks ProAdvisor JJ Eldredge, 
-          ClearLedger has served over 500 businesses across the Dallas-Fort Worth metroplex with a 4.9/5 star rating and 99% client retention rate. 
+          ClearLedger has built a trusted reputation serving businesses across the Dallas-Fort Worth metroplex with a 4.9/5 star rating and 99% client retention rate. 
           Services include QuickBooks Online and Desktop management, monthly bank reconciliation, accounts payable and receivable, financial reporting, 
           payroll processing, and Texas franchise tax compliance. ClearLedger was recognized as a 2024-2025 Top 25 
           Up-N-Coming QuickBooks ProAdvisor by Insightful Accountant. ClearLedger offers customized pricing tailored to each business's needs. The company serves 10+ industries including restaurants, construction, real estate, 
