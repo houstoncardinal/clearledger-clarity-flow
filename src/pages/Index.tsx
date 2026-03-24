@@ -91,7 +91,7 @@ const Index = () => {
     <main className="min-h-screen bg-background">
       <SEO 
         title="Best Bookkeeping Company in Dallas TX | CPA & QuickBooks | ClearLedger"
-        description={`ClearLedger Solutions — best bookkeeping company in Dallas, Texas. Award-winning QuickBooks ProAdvisor, CPA-level expertise. Bookkeeping Dallas, tax prep & financial reporting for 500+ businesses. Call ${COMPANY_INFO.phoneLocal}.`}
+        description={`ClearLedger Solutions — best bookkeeping company in Dallas, Texas. Award-winning QuickBooks ProAdvisor, CPA-level expertise. Bookkeeping Dallas, tax prep & financial reporting for businesses of all sizes. Call ${COMPANY_INFO.phoneLocal}.`}
         keywords="best bookkeeping company in dallas, bookkeeping dallas, bookkeeping company in dallas tx, CPA in Dallas TX, best bookkeeping company in dallas texas, top bookkeeping company dallas, dallas bookkeeping services, bookkeeper dallas tx, QuickBooks ProAdvisor Dallas, small business bookkeeping Dallas TX, ClearLedger Solutions"
         canonical="/"
         schema={homePageSchemas}
