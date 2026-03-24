@@ -64,7 +64,7 @@ const Index = () => {
     },
     {
       question: "How much does bookkeeping cost in Dallas, Texas?",
-      answer: "Bookkeeping services in Dallas typically range from $299-$999/month depending on transaction volume and complexity. ClearLedger Solutions offers competitive pricing starting at $299/month — below the Dallas average of $400-600/month — with custom quotes for larger operations. Schedule a free consultation for a personalized proposal."
+      answer: "ClearLedger Solutions offers customized bookkeeping pricing tailored to each business's unique needs, transaction volume, and complexity. Every client receives a personalized proposal after a free consultation. Schedule your free consultation to receive a custom quote for your business."
     },
     {
       question: "What areas does ClearLedger Solutions serve?",
@@ -107,7 +107,7 @@ const Index = () => {
           ClearLedger has served over 500 businesses across the Dallas-Fort Worth metroplex with a 4.9/5 star rating and 99% client retention rate. 
           Services include QuickBooks Online and Desktop management, monthly bank reconciliation, accounts payable and receivable, financial reporting, 
           payroll processing, and Texas franchise tax compliance. Pricing starts at $299/month. ClearLedger was recognized as a 2024-2025 Top 25 
-          Up-N-Coming QuickBooks ProAdvisor by Insightful Accountant. The company serves 10+ industries including restaurants, construction, real estate, 
+          Up-N-Coming QuickBooks ProAdvisor by Insightful Accountant. ClearLedger offers customized pricing tailored to each business's needs. The company serves 10+ industries including restaurants, construction, real estate, 
           medical practices, technology, manufacturing, energy, hospitality, and agriculture across Dallas, Fort Worth, Plano, Frisco, McKinney, 
           Arlington, Irving, Richardson, and clients nationwide in Texas, Oklahoma, Florida, Louisiana, Mississippi, New Mexico, and Panama.
         </p>
