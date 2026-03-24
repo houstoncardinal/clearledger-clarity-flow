@@ -73,7 +73,7 @@ export const SERVICE_CATALOG = {
     description: "Professional QuickBooks Online and Desktop bookkeeping services including transaction categorization, account reconciliation, and financial statement preparation.",
     url: "/quickbooks-services",
     category: "Bookkeeping",
-    price: "Starting at $299/month"
+    price: "Custom pricing tailored to your business"
   },
   monthlyManagement: {
     name: "Monthly Management & Reconciliation",
