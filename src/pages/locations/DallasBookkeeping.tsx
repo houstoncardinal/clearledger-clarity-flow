@@ -150,7 +150,7 @@ const DallasBookkeeping = () => {
       "mainEntity": {
         "@type": "ProfessionalService",
         "name": "ClearLedger Solutions",
-        "description": "ClearLedger Solutions is the #1 rated bookkeeping company in Dallas, Texas, serving 500+ businesses across Dallas-Fort Worth with certified QuickBooks ProAdvisor expertise, monthly reconciliation, tax preparation, and financial management.",
+        "description": "ClearLedger Solutions is the #1 rated bookkeeping company in Dallas, Texas, trusted by businesses across Dallas-Fort Worth with certified QuickBooks ProAdvisor expertise, monthly reconciliation, tax preparation, and financial management.",
         "sameAs": [
           ...COMPANY_INFO.socialProfiles,
           `${COMPANY_INFO.url}`,
