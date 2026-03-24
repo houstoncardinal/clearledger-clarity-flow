@@ -123,7 +123,7 @@ const DallasBookkeeping = () => {
         {
           "@type": "Question",
           "name": "Is ClearLedger better than hiring an in-house bookkeeper in Dallas?",
-          "acceptedAnswer": { "@type": "Answer", "text": "For most Dallas small businesses, outsourcing to ClearLedger is more cost-effective. A full-time bookkeeper in Dallas costs $45,000-$65,000/year plus benefits. ClearLedger provides the same services starting at $299/month ($3,588/year) — a savings of over $40,000 annually." }
+          "acceptedAnswer": { "@type": "Answer", "text": "For most Dallas small businesses, outsourcing to ClearLedger is significantly more cost-effective than hiring in-house. A full-time bookkeeper in Dallas costs $45,000-$65,000/year plus benefits, while ClearLedger provides the same comprehensive services at a fraction of the cost with no payroll taxes, benefits, or training expenses." }
         },
         {
           "@type": "Question",
