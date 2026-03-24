@@ -533,7 +533,7 @@ const DallasBookkeeping = () => {
                       ['Industry Specializations', '10+ Industries', '1-2 Industries'],
                       ['Team Location', '100% US-Based', 'Often Outsourced'],
                       ['TX Franchise Tax', 'Full Compliance', 'Limited'],
-                      ['Starting Price', '$299/month', '$400-600/month'],
+                      ['Pricing', 'Custom Tailored', 'One-Size-Fits-All'],
                     ].map(([feature, cl, avg], i) => (
                       <tr key={i} className="border-b border-border/50">
                         <td className="p-4 font-medium text-foreground">{feature}</td>
