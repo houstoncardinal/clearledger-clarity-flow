@@ -118,7 +118,7 @@ const DallasBookkeeping = () => {
         {
           "@type": "Question",
           "name": "What industries does ClearLedger serve in Dallas?",
-          "acceptedAnswer": { "@type": "Answer", "text": "ClearLedger serves 10+ industries across Dallas-Fort Worth including restaurants, construction, real estate, medical and dental, technology, manufacturing, energy and oil, hospitality, agriculture, and professional services." }
+          "acceptedAnswer": { "@type": "Answer", "text": "ClearLedger serves a wide range of industries across Dallas-Fort Worth and nationwide, including restaurants and food service, construction and contractors, real estate and property management, medical and dental practices, technology companies, manufacturing, energy and petrochemical, hospitality and tourism, agriculture, golf courses and country clubs, professional services, retail, nonprofit organizations, and more. We tailor our bookkeeping solutions to each industry's unique financial requirements." }
         },
         {
           "@type": "Question",
