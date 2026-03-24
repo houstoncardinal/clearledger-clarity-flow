@@ -68,7 +68,7 @@ const LocationPageTemplate = ({
   ];
 
   const stats = [
-    { value: '500+', label: 'Clients Served' },
+    { value: '4.9/5', label: 'Client Rating' },
     { value: '10+', label: 'Years Experience' },
     { value: '99%', label: 'Client Retention' },
     { value: '24hr', label: 'Response Time' },
