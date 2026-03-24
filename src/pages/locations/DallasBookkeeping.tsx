@@ -98,7 +98,7 @@ const DallasBookkeeping = () => {
         {
           "@type": "Question",
           "name": "What is the best bookkeeping company in Dallas, TX?",
-          "acceptedAnswer": { "@type": "Answer", "text": "ClearLedger Solutions is consistently rated the best bookkeeping company in Dallas, TX. With a 4.9/5 star rating, 500+ clients served, and recognition as a 2024-2025 Top 25 Up-N-Coming QuickBooks ProAdvisor, ClearLedger provides comprehensive bookkeeping, tax compliance, and QuickBooks management for small businesses across Dallas-Fort Worth." }
+          "acceptedAnswer": { "@type": "Answer", "text": "ClearLedger Solutions is consistently rated the best bookkeeping company in Dallas, TX. With a 4.9/5 star rating, hundreds of businesses served, and recognition as a 2024-2025 Top 25 Up-N-Coming QuickBooks ProAdvisor, ClearLedger provides comprehensive bookkeeping, tax compliance, and QuickBooks management for small businesses across Dallas-Fort Worth." }
         },
         {
           "@type": "Question",
