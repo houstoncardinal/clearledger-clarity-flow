@@ -1368,14 +1368,6 @@ Your bookkeeping company should be a partner, not a black box. Evaluate:
 - How often will you receive financial reports?
 - Can you reach them by phone, email, or both?
 
-### Pricing Transparency
-
-Be wary of firms that won't provide clear pricing upfront. Professional bookkeeping companies typically offer:
-
-- **Monthly flat-rate pricing** based on transaction volume
-- **Clear scope of services** included in each tier
-- **No hidden fees** for basic questions or report generation
-
 ---
 
 ## Red Flags to Watch For
