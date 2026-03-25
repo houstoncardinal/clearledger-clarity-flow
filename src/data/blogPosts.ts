@@ -7,6 +7,7 @@ export interface BlogPost {
   excerpt: string;
   content: string;
   image: string;
+  heroImage?: string;
   category: string;
   tags: string[];
   author: {
@@ -1737,32 +1738,6 @@ The business corridor along US-75 and the Dallas North Tollway is packed with co
 
 A family-oriented community with a growing base of small businesses, contractors, and service providers. ClearLedger offers straightforward, reliable bookkeeping for Lake Highlands businesses — monthly reconciliation, QuickBooks management, and year-end tax preparation support.
 
----
-
-## Also Serving Across the Entire DFW Metroplex
-
-ClearLedger's reach extends far beyond Dallas proper. We serve businesses throughout the Dallas-Fort Worth metroplex, including:
-
-| **City** | **Key Industries We Serve** |
-|---|---|
-| **Dallas** | Technology, Healthcare, Restaurants, Real Estate, Professional Services |
-| **Fort Worth** | Construction, Manufacturing, Hospitality, Agriculture, Energy |
-| **Arlington** | Retail, Entertainment, Healthcare, Food Service, Education |
-| **Plano** | Technology, Corporate Services, Healthcare, Retail, Finance |
-| **Irving** | Energy, Technology, Hospitality, International Business, Logistics |
-| **Frisco** | Technology, Real Estate, Sports & Entertainment, Healthcare, Retail |
-| **McKinney** | Construction, Professional Services, Healthcare, Retail, Agriculture |
-| **Garland** | Manufacturing, Construction, Healthcare, Retail, Food Service |
-| **Richardson** | Technology (Telecom Corridor), Healthcare, Professional Services, Education |
-| **Denton** | Education, Healthcare, Retail, Food Service, Agriculture |
-| **Carrollton** | Manufacturing, Technology, Professional Services, Retail, Construction |
-| **Lewisville** | Retail, Hospitality, Healthcare, Construction, Logistics |
-| **Allen** | Technology, Healthcare, Professional Services, Retail, Real Estate |
-| **Mesquite** | Construction, Retail, Manufacturing, Healthcare, Food Service |
-| **Grand Prairie** | Manufacturing, Retail, Construction, Entertainment, Logistics |
-| **Flower Mound** | Professional Services, Healthcare, Real Estate, Technology, Retail |
-
-No matter where your business operates in the DFW metroplex, ClearLedger provides the same high-caliber bookkeeping, financial reporting, and QuickBooks management that our clients depend on.
 
 ---
 
@@ -1832,6 +1807,7 @@ Your business deserves a bookkeeping partner that understands Dallas — every n
 **Ready to get your books in expert hands?** [Schedule your free consultation today](/consultation) or call **(903) 815-9488**.
     `,
     image: '/blog/dallas-bookkeeping-neighborhoods.jpg',
+    heroImage: '/blog/dallas-bookkeeping-neighborhoods.jpg',
     category: 'small-business',
     tags: ['Dallas bookkeeping', 'bookkeeping Dallas TX', 'Dallas bookkeeper', 'DFW bookkeeping', 'Uptown Dallas bookkeeping', 'Deep Ellum bookkeeping', 'North Dallas bookkeeper', 'Highland Park bookkeeping', 'Plano bookkeeping', 'Fort Worth bookkeeping', 'Frisco bookkeeping', 'McKinney bookkeeping', 'Arlington bookkeeping', 'best bookkeeping company Dallas'],
     author: defaultAuthor,

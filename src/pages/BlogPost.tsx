@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { Calendar, Clock, ArrowLeft, ArrowRight, Linkedin, Facebook, Share2, Tag, ChevronUp, BookOpen, Phone } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft, ArrowRight, Linkedin, Facebook, Share2, Tag, ChevronUp, BookOpen, Phone, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -139,6 +139,9 @@ const BlogPost = () => {
     let inList = false;
     let listItems: string[] = [];
     let isOrderedList = false;
+    let inTable = false;
+    let tableRows: string[][] = [];
+    let tableHeaders: string[] = [];
 
     const flushList = () => {
       if (listItems.length > 0) {
@@ -160,33 +163,95 @@ const BlogPost = () => {
       }
     };
 
+    const flushTable = () => {
+      if (tableHeaders.length > 0 || tableRows.length > 0) {
+        elements.push(
+          <div key={`table-${elements.length}`} className="overflow-x-auto mb-8 rounded-xl border border-border/50 shadow-sm">
+            <table className="w-full text-sm md:text-base">
+              {tableHeaders.length > 0 && (
+                <thead>
+                  <tr className="bg-primary/5 border-b border-border/50">
+                    {tableHeaders.map((h, i) => (
+                      <th key={i} className="p-4 text-left font-semibold text-foreground">
+                        <span dangerouslySetInnerHTML={{ __html: h.replace(/\*\*(.*?)\*\*/g, '$1') }} />
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+              )}
+              <tbody>
+                {tableRows.map((row, ri) => (
+                  <tr key={ri} className={`border-b border-border/30 ${ri % 2 === 0 ? 'bg-background' : 'bg-muted/20'}`}>
+                    {row.map((cell, ci) => (
+                      <td key={ci} className="p-4 text-muted-foreground">
+                        <span dangerouslySetInnerHTML={{ __html: cell.replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-foreground">$1</strong>') }} />
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        );
+        tableHeaders = [];
+        tableRows = [];
+        inTable = false;
+      }
+    };
+
+    const processInlineMarkdown = (text: string) => {
+      return text
+        .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-foreground">$1</strong>')
+        .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-primary underline underline-offset-2 hover:text-primary/80 transition-colors">$1</a>');
+    };
+
     lines.forEach((line, index) => {
       const trimmedLine = line.trim();
+
+      // Table detection
+      if (trimmedLine.startsWith('|') && trimmedLine.endsWith('|')) {
+        flushList();
+        const cells = trimmedLine.split('|').filter(c => c.trim() !== '').map(c => c.trim());
+        
+        // Skip separator rows
+        if (cells.every(c => /^[-:]+$/.test(c))) {
+          return;
+        }
+
+        if (!inTable) {
+          inTable = true;
+          tableHeaders = cells;
+        } else {
+          tableRows.push(cells);
+        }
+        return;
+      } else if (inTable) {
+        flushTable();
+      }
 
       if (!trimmedLine || trimmedLine === '---') {
         flushList();
         if (trimmedLine === '---') {
-          elements.push(<Separator key={`sep-${index}`} className="my-10" />);
+          elements.push(<div key={`sep-${index}`} className="my-12 flex items-center justify-center gap-3">
+            <span className="h-px w-16 bg-border" />
+            <span className="h-1.5 w-1.5 rounded-full bg-primary/40" />
+            <span className="h-px w-16 bg-border" />
+          </div>);
         }
         return;
       }
 
-      // H1 → render as H2 (page already has H1)
+      // H1 → render as styled subtitle
       if (trimmedLine.startsWith('# ') && !trimmedLine.startsWith('## ')) {
         flushList();
-        const text = trimmedLine.replace('# ', '');
-        const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-        elements.push(
-          <h2 key={index} id={id} className="text-2xl md:text-3xl font-heading font-bold text-foreground mt-14 mb-6 pb-3 border-b border-border/40 scroll-mt-24">
-            {text}
-          </h2>
-        );
+        return; // Skip H1 in body since we show it in hero
       } else if (trimmedLine.startsWith('## ')) {
         flushList();
         const text = trimmedLine.replace('## ', '');
         const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-');
         elements.push(
-          <h2 key={index} id={id} className="text-2xl md:text-3xl font-heading font-bold text-foreground mt-14 mb-6 pb-3 border-b border-border/40 scroll-mt-24">
+          <h2 key={index} id={id} className="text-2xl md:text-3xl font-heading font-bold text-foreground mt-16 mb-6 pb-3 border-b border-border/40 scroll-mt-24 flex items-center gap-3">
+            <span className="h-8 w-1 rounded-full bg-primary inline-block" />
             {text}
           </h2>
         );
@@ -215,21 +280,18 @@ const BlogPost = () => {
       } else if (trimmedLine.startsWith('✅')) {
         flushList();
         elements.push(
-          <div key={index} className="flex items-start gap-3 mb-3 p-3 rounded-lg bg-primary/5 border border-primary/10">
+          <div key={index} className="flex items-start gap-3 mb-3 p-4 rounded-xl bg-primary/5 border border-primary/10">
             <span className="text-primary text-lg mt-0.5">✅</span>
             <span className="text-foreground text-base md:text-lg leading-relaxed">{trimmedLine.replace('✅ ', '')}</span>
           </div>
         );
       } else {
         flushList();
-        const processedLine = trimmedLine.replace(
-          /\*\*(.*?)\*\*/g,
-          '<strong class="font-semibold text-foreground">$1</strong>'
-        );
+        const processedLine = processInlineMarkdown(trimmedLine);
         elements.push(
           <p
             key={index}
-            className="text-muted-foreground text-base md:text-lg leading-[1.8] mb-6"
+            className="text-muted-foreground text-base md:text-lg leading-[1.85] mb-6"
             dangerouslySetInnerHTML={{ __html: processedLine }}
           />
         );
@@ -237,6 +299,7 @@ const BlogPost = () => {
     });
 
     flushList();
+    flushTable();
     return elements;
   };
 
@@ -270,8 +333,29 @@ const BlogPost = () => {
 
       <Header />
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-16 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+      {/* Hero Image Banner */}
+      {post.heroImage && (
+        <div className="relative w-full h-[280px] sm:h-[360px] md:h-[440px] overflow-hidden mt-16">
+          <img 
+            src={post.heroImage} 
+            alt={post.title}
+            className="w-full h-full object-cover"
+            width={1200}
+            height={630}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
+            <div className="container mx-auto max-w-3xl">
+              <Badge className="bg-primary text-primary-foreground border-0 font-medium mb-3 shadow-lg">
+                {categoryName}
+              </Badge>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Article Header */}
+      <section className={`relative ${post.heroImage ? 'pt-8 pb-10' : 'pt-32 pb-16 bg-gradient-to-br from-primary/5 via-background to-secondary/5'}`}>
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -280,7 +364,7 @@ const BlogPost = () => {
             className="max-w-3xl mx-auto"
           >
             {/* Breadcrumb */}
-            <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
+            <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
               <Link to="/" className="hover:text-primary transition-colors">Home</Link>
               <span aria-hidden="true">/</span>
               <Link to="/blog" className="hover:text-primary transition-colors">Blog</Link>
@@ -288,15 +372,17 @@ const BlogPost = () => {
               <span className="text-foreground truncate max-w-[250px]">{post.title}</span>
             </nav>
 
-            <div className="flex items-center gap-3 mb-6">
-              <Badge className="bg-primary/10 text-primary border-primary/20 font-medium">
-                {categoryName}
-              </Badge>
-              <span className="text-sm text-muted-foreground flex items-center gap-1">
-                <BookOpen className="w-3.5 h-3.5" />
-                {wordCount.toLocaleString()} words
-              </span>
-            </div>
+            {!post.heroImage && (
+              <div className="flex items-center gap-3 mb-6">
+                <Badge className="bg-primary/10 text-primary border-primary/20 font-medium">
+                  {categoryName}
+                </Badge>
+                <span className="text-sm text-muted-foreground flex items-center gap-1">
+                  <BookOpen className="w-3.5 h-3.5" />
+                  {wordCount.toLocaleString()} words
+                </span>
+              </div>
+            )}
 
             <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] font-heading font-bold text-foreground mb-6 leading-[1.15] tracking-tight">
               {post.title}
@@ -332,6 +418,10 @@ const BlogPost = () => {
                 <span className="flex items-center gap-1.5">
                   <Clock className="w-4 h-4" />
                   {post.readTime} min read
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <BookOpen className="w-3.5 h-3.5" />
+                  {wordCount.toLocaleString()} words
                 </span>
               </div>
 
