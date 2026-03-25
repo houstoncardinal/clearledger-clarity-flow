@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { Calendar, Clock, ArrowLeft, ArrowRight, Linkedin, Facebook, Share2, Tag, ChevronUp, BookOpen, Phone } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft, ArrowRight, Linkedin, Facebook, Share2, Tag, ChevronUp, BookOpen, Phone, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
