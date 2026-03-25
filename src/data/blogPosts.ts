@@ -7,6 +7,7 @@ export interface BlogPost {
   excerpt: string;
   content: string;
   image: string;
+  heroImage?: string;
   category: string;
   tags: string[];
   author: {
