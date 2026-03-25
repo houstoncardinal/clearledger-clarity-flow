@@ -1120,7 +1120,7 @@ If you'd rather spend those 2 hours growing your business, we're here to help. O
 
 There's a moment in every growing business when DIY bookkeeping goes from "manageable" to "drowning." The problem is, most entrepreneurs don't recognize that moment until they're already in trouble.
 
-We've onboarded over 500 clients at ClearLedger Solutions. Almost every single one came to us after experiencing multiple warning signs they'd been ignoring for months — sometimes years.
+We've onboarded hundreds of clients at ClearLedger Solutions. Almost every single one came to us after experiencing multiple warning signs they'd been ignoring for months — sometimes years.
 
 **Here are the 10 most common signs it's time to hire a professional.** If you recognize 3 or more, you're overdue.
 
