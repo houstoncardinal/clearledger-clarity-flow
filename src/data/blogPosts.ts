@@ -34,9 +34,9 @@ export const blogCategories = [
 ];
 
 const defaultAuthor = {
-  name: 'JJ Eldredge',
-  avatar: '/team/jj-eldredge.jpg',
-  title: 'Owner & Certified QuickBooks ProAdvisor'
+  name: 'ClearLedger Solutions',
+  avatar: '/logo.png',
+  title: 'www.yourclearledger.com/blog'
 };
 
 export const blogPosts: BlogPost[] = [
@@ -1806,8 +1806,8 @@ Your business deserves a bookkeeping partner that understands Dallas — every n
 
 **Ready to get your books in expert hands?** [Schedule your free consultation today](/consultation) or call **(903) 815-9488**.
     `,
-    image: '/blog/dallas-bookkeeping-neighborhoods.jpg',
-    heroImage: '/blog/dallas-bookkeeping-neighborhoods.jpg',
+    image: '/blog/dallas-skyline.jpg',
+    heroImage: '/blog/dallas-skyline.jpg',
     category: 'small-business',
     tags: ['Dallas bookkeeping', 'bookkeeping Dallas TX', 'Dallas bookkeeper', 'DFW bookkeeping', 'Uptown Dallas bookkeeping', 'Deep Ellum bookkeeping', 'North Dallas bookkeeper', 'Highland Park bookkeeping', 'Plano bookkeeping', 'Fort Worth bookkeeping', 'Frisco bookkeeping', 'McKinney bookkeeping', 'Arlington bookkeeping', 'best bookkeeping company Dallas'],
     author: defaultAuthor,
