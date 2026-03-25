@@ -34,9 +34,9 @@ export const blogCategories = [
 ];
 
 const defaultAuthor = {
-  name: 'JJ Eldredge',
-  avatar: '/team/jj-eldredge.jpg',
-  title: 'Owner & Certified QuickBooks ProAdvisor'
+  name: 'ClearLedger Solutions',
+  avatar: '/logo.png',
+  title: 'www.yourclearledger.com/blog'
 };
 
 export const blogPosts: BlogPost[] = [
