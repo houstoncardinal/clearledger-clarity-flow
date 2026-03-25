@@ -395,9 +395,13 @@ const BlogPost = () => {
             {/* Author & Meta */}
             <div className="flex flex-wrap items-center gap-6 pb-8 border-b border-border/50">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground font-bold text-lg shadow-md">
-                  {post.author.name.split(' ').map(n => n[0]).join('')}
-                </div>
+                {post.author.avatar && post.author.avatar.includes('logo') ? (
+                  <img src={post.author.avatar} alt={post.author.name} className="w-12 h-12 rounded-full object-contain bg-background border border-border/50 p-1 shadow-sm" />
+                ) : (
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground font-bold text-lg shadow-md">
+                    {post.author.name.split(' ').map(n => n[0]).join('')}
+                  </div>
+                )}
                 <div>
                   <p className="font-semibold text-foreground text-sm">{post.author.name}</p>
                   <p className="text-xs text-muted-foreground">{post.author.title}</p>
