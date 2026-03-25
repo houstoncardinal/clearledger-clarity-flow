@@ -205,7 +205,7 @@ const Blog = () => {
 /* ─── Latest Post (Hero Card) ─── */
 const LatestPostCard = ({ post }: { post: BlogPost }) => {
   const categoryName = blogCategories.find(c => c.id === post.category)?.name || post.category;
-
+  const hasImage = !!(post.heroImage || post.image);
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
