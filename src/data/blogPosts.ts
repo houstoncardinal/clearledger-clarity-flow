@@ -568,7 +568,7 @@ The 30 minutes per month you invest in reconciliation can literally save your bu
 
 ## Let ClearLedger Handle Your Reconciliation
 
-Bank reconciliation is one of our most-requested services. We handle it for over 500 businesses, ensuring every account is reconciled accurately every single month.
+Bank reconciliation is one of our most-requested services. We handle it for businesses of all sizes across Dallas-Fort Worth, ensuring every account is reconciled accurately every single month.
 
 **Schedule your free consultation** at [yourclearledger.com/consultation](/consultation) or call us at **(903) 815-9488**.
     `,
