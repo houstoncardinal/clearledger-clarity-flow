@@ -1401,13 +1401,13 @@ Use these questions during your initial consultation:
 
 ## Why Dallas Businesses Choose ClearLedger Solutions
 
-At ClearLedger Solutions, we've served over 500 businesses across Dallas-Fort Worth since 2014. Our team holds advanced QuickBooks certifications and was recognized as a Top 25 Up-N-Coming QuickBooks ProAdvisor for 2024 and 2025.
+At ClearLedger Solutions, we've built a trusted reputation across Dallas-Fort Worth since 2014. Our team holds advanced QuickBooks certifications and was recognized as a Top 25 Up-N-Coming QuickBooks ProAdvisor for 2024 and 2025.
 
 **What sets us apart:**
 
 - Dedicated account management with a commitment to same-day responses
 - Industry expertise across 15+ sectors including restaurants, construction, healthcare, and technology
-- Transparent monthly pricing with no hidden fees
+- Customized pricing tailored to each business's unique needs
 - Comprehensive services from daily bookkeeping to year-end tax coordination
 
 ---
