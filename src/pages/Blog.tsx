@@ -276,21 +276,18 @@ const PostCard = ({ post, index }: { post: BlogPost; index: number }) => {
     >
       <Link to={`/blog/${post.slug}`} className="group block h-full">
         <article className="h-full rounded-xl border border-border/50 bg-card overflow-hidden hover:shadow-lg hover:border-border transition-all duration-300 flex flex-col">
-          {/* Thumbnail */}
-          <div className="relative aspect-[16/9] overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/5">
-            {post.heroImage || post.image ? (
+          {/* Thumbnail — only render if image exists */}
+          {(post.heroImage || post.image) && (
+            <div className="relative aspect-[16/9] overflow-hidden">
               <img 
                 src={post.heroImage || post.image} 
                 alt={post.title}
                 loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                onError={(e) => { (e.target as HTMLImageElement).parentElement!.style.display = 'none'; }}
               />
-            ) : (
-              <div className="absolute inset-0 flex items-center justify-center">
-                <BookOpen className="w-10 h-10 text-primary/15" />
-              </div>
-            )}
-          </div>
+            </div>
+          )}
 
           {/* Content */}
           <div className="p-5 flex flex-col flex-1">
