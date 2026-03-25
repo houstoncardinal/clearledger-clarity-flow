@@ -225,7 +225,7 @@ Your books don't have to be a source of stress. Let's fix them — together.
 
 Most small business owners didn't start their company to do bookkeeping. But here's the uncomfortable truth: **businesses that maintain organized financial records are 30% more likely to survive past their fifth year** (U.S. Bureau of Labor Statistics).
 
-Whether you handle your own books or work with a professional, having a clear checklist ensures nothing slips through the cracks. This isn't generic advice — it's the exact system we use with our 500+ clients at ClearLedger Solutions.
+Whether you handle your own books or work with a professional, having a clear checklist ensures nothing slips through the cracks. This isn't generic advice — it's the exact system we use with our clients at ClearLedger Solutions.
 
 Print this out. Bookmark it. Share it with your business partner. This is your financial management roadmap for 2026.
 
