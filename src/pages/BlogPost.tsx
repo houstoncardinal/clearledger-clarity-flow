@@ -333,8 +333,29 @@ const BlogPost = () => {
 
       <Header />
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-16 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+      {/* Hero Image Banner */}
+      {post.heroImage && (
+        <div className="relative w-full h-[280px] sm:h-[360px] md:h-[440px] overflow-hidden mt-16">
+          <img 
+            src={post.heroImage} 
+            alt={post.title}
+            className="w-full h-full object-cover"
+            width={1200}
+            height={630}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
+            <div className="container mx-auto max-w-3xl">
+              <Badge className="bg-primary text-primary-foreground border-0 font-medium mb-3 shadow-lg">
+                {categoryName}
+              </Badge>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Article Header */}
+      <section className={`relative ${post.heroImage ? 'pt-8 pb-10' : 'pt-32 pb-16 bg-gradient-to-br from-primary/5 via-background to-secondary/5'}`}>
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -343,7 +364,7 @@ const BlogPost = () => {
             className="max-w-3xl mx-auto"
           >
             {/* Breadcrumb */}
-            <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
+            <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
               <Link to="/" className="hover:text-primary transition-colors">Home</Link>
               <span aria-hidden="true">/</span>
               <Link to="/blog" className="hover:text-primary transition-colors">Blog</Link>
@@ -351,15 +372,17 @@ const BlogPost = () => {
               <span className="text-foreground truncate max-w-[250px]">{post.title}</span>
             </nav>
 
-            <div className="flex items-center gap-3 mb-6">
-              <Badge className="bg-primary/10 text-primary border-primary/20 font-medium">
-                {categoryName}
-              </Badge>
-              <span className="text-sm text-muted-foreground flex items-center gap-1">
-                <BookOpen className="w-3.5 h-3.5" />
-                {wordCount.toLocaleString()} words
-              </span>
-            </div>
+            {!post.heroImage && (
+              <div className="flex items-center gap-3 mb-6">
+                <Badge className="bg-primary/10 text-primary border-primary/20 font-medium">
+                  {categoryName}
+                </Badge>
+                <span className="text-sm text-muted-foreground flex items-center gap-1">
+                  <BookOpen className="w-3.5 h-3.5" />
+                  {wordCount.toLocaleString()} words
+                </span>
+              </div>
+            )}
 
             <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] font-heading font-bold text-foreground mb-6 leading-[1.15] tracking-tight">
               {post.title}
@@ -395,6 +418,10 @@ const BlogPost = () => {
                 <span className="flex items-center gap-1.5">
                   <Clock className="w-4 h-4" />
                   {post.readTime} min read
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <BookOpen className="w-3.5 h-3.5" />
+                  {wordCount.toLocaleString()} words
                 </span>
               </div>
 
