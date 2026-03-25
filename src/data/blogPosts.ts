@@ -1807,6 +1807,7 @@ Your business deserves a bookkeeping partner that understands Dallas — every n
 **Ready to get your books in expert hands?** [Schedule your free consultation today](/consultation) or call **(903) 815-9488**.
     `,
     image: '/blog/dallas-bookkeeping-neighborhoods.jpg',
+    heroImage: '/blog/dallas-bookkeeping-neighborhoods.jpg',
     category: 'small-business',
     tags: ['Dallas bookkeeping', 'bookkeeping Dallas TX', 'Dallas bookkeeper', 'DFW bookkeeping', 'Uptown Dallas bookkeeping', 'Deep Ellum bookkeeping', 'North Dallas bookkeeper', 'Highland Park bookkeeping', 'Plano bookkeeping', 'Fort Worth bookkeeping', 'Frisco bookkeeping', 'McKinney bookkeeping', 'Arlington bookkeeping', 'best bookkeeping company Dallas'],
     author: defaultAuthor,
