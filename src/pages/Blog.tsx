@@ -214,26 +214,23 @@ const LatestPostCard = ({ post }: { post: BlogPost }) => {
     >
       <Link to={`/blog/${post.slug}`} className="group block">
         <div className="relative rounded-2xl overflow-hidden border border-border/50 bg-card shadow-sm hover:shadow-xl transition-all duration-500">
-          <div className="grid lg:grid-cols-2">
-            {/* Image side */}
-            <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden bg-gradient-to-br from-primary/10 to-secondary/10">
-              {post.heroImage || post.image ? (
+          <div className={`grid ${hasImage ? 'lg:grid-cols-2' : ''}`}>
+            {/* Image side — only if image exists */}
+            {hasImage && (
+              <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden bg-gradient-to-br from-primary/10 to-secondary/10">
                 <img 
-                  src={post.heroImage || post.image} 
+                  src={(post.heroImage || post.image)!} 
                   alt={post.title}
                   className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                  onError={(e) => { (e.target as HTMLImageElement).parentElement!.style.display = 'none'; }}
                 />
-              ) : (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <BookOpen className="w-16 h-16 text-primary/20" />
+                <div className="absolute top-4 left-4">
+                  <Badge className="bg-primary text-primary-foreground border-0 shadow-lg text-xs">
+                    Latest
+                  </Badge>
                 </div>
-              )}
-              <div className="absolute top-4 left-4">
-                <Badge className="bg-primary text-primary-foreground border-0 shadow-lg text-xs">
-                  Latest
-                </Badge>
               </div>
-            </div>
+            )}
 
             {/* Content side */}
             <div className="p-8 lg:p-10 flex flex-col justify-center">
