@@ -835,7 +835,7 @@ export const getKnowledgeGraphSchema = () => ({
   "url": COMPANY_INFO.url,
   "logo": COMPANY_INFO.logo,
   "image": COMPANY_INFO.image,
-  "description": "ClearLedger Solutions is the #1 rated bookkeeping company in Dallas, Texas, founded in 2014. Certified QuickBooks ProAdvisor serving 500+ businesses with monthly reconciliation, tax preparation, accounts payable, and financial reporting across the United States.",
+  "description": "ClearLedger Solutions is the #1 rated bookkeeping company in Dallas, Texas, founded in 2014. Certified QuickBooks ProAdvisor trusted by businesses nationwide with monthly reconciliation, tax preparation, accounts payable, and financial reporting across the United States.",
   "foundingDate": "2014",
   "foundingLocation": {
     "@type": "Place",
