@@ -497,9 +497,9 @@ export const getBlogPostSchema = (post: {
   "datePublished": post.datePublished,
   "dateModified": post.dateModified || post.datePublished,
   "author": {
-    "@type": "Person",
-    "name": post.author || COMPANY_INFO.founder.name,
-    "url": `${COMPANY_INFO.url}/about`
+    "@type": "Organization",
+    "name": post.author || COMPANY_INFO.name,
+    "url": COMPANY_INFO.url
   },
   "publisher": {
     "@id": `${COMPANY_INFO.url}/#organization`
