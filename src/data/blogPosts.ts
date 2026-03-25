@@ -920,7 +920,7 @@ Every successful entrepreneur we know has one thing in common: **they know their
 
 Not approximately. Not "we're doing fine." They know exactly what came in, what went out, what's owed to them, and what they owe — every single month.
 
-This checklist is the exact process we follow for over 500 clients at ClearLedger Solutions. It takes about 2 hours per month for a typical small business. That's 2 hours that can save you thousands of dollars and countless headaches.
+This checklist is the exact process we follow for our clients at ClearLedger Solutions. It takes about 2 hours per month for a typical small business. That's 2 hours that can save you thousands of dollars and countless headaches.
 
 ---
 
