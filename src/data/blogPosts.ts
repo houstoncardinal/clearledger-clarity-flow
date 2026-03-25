@@ -225,7 +225,7 @@ Your books don't have to be a source of stress. Let's fix them — together.
 
 Most small business owners didn't start their company to do bookkeeping. But here's the uncomfortable truth: **businesses that maintain organized financial records are 30% more likely to survive past their fifth year** (U.S. Bureau of Labor Statistics).
 
-Whether you handle your own books or work with a professional, having a clear checklist ensures nothing slips through the cracks. This isn't generic advice — it's the exact system we use with our 500+ clients at ClearLedger Solutions.
+Whether you handle your own books or work with a professional, having a clear checklist ensures nothing slips through the cracks. This isn't generic advice — it's the exact system we use with our clients at ClearLedger Solutions.
 
 Print this out. Bookmark it. Share it with your business partner. This is your financial management roadmap for 2026.
 
@@ -568,7 +568,7 @@ The 30 minutes per month you invest in reconciliation can literally save your bu
 
 ## Let ClearLedger Handle Your Reconciliation
 
-Bank reconciliation is one of our most-requested services. We handle it for over 500 businesses, ensuring every account is reconciled accurately every single month.
+Bank reconciliation is one of our most-requested services. We handle it for businesses of all sizes across Dallas-Fort Worth, ensuring every account is reconciled accurately every single month.
 
 **Schedule your free consultation** at [yourclearledger.com/consultation](/consultation) or call us at **(903) 815-9488**.
     `,
@@ -920,7 +920,7 @@ Every successful entrepreneur we know has one thing in common: **they know their
 
 Not approximately. Not "we're doing fine." They know exactly what came in, what went out, what's owed to them, and what they owe — every single month.
 
-This checklist is the exact process we follow for over 500 clients at ClearLedger Solutions. It takes about 2 hours per month for a typical small business. That's 2 hours that can save you thousands of dollars and countless headaches.
+This checklist is the exact process we follow for our clients at ClearLedger Solutions. It takes about 2 hours per month for a typical small business. That's 2 hours that can save you thousands of dollars and countless headaches.
 
 ---
 
@@ -1120,7 +1120,7 @@ If you'd rather spend those 2 hours growing your business, we're here to help. O
 
 There's a moment in every growing business when DIY bookkeeping goes from "manageable" to "drowning." The problem is, most entrepreneurs don't recognize that moment until they're already in trouble.
 
-We've onboarded over 500 clients at ClearLedger Solutions. Almost every single one came to us after experiencing multiple warning signs they'd been ignoring for months — sometimes years.
+We've onboarded hundreds of clients at ClearLedger Solutions. Almost every single one came to us after experiencing multiple warning signs they'd been ignoring for months — sometimes years.
 
 **Here are the 10 most common signs it's time to hire a professional.** If you recognize 3 or more, you're overdue.
 
@@ -1368,14 +1368,6 @@ Your bookkeeping company should be a partner, not a black box. Evaluate:
 - How often will you receive financial reports?
 - Can you reach them by phone, email, or both?
 
-### Pricing Transparency
-
-Be wary of firms that won't provide clear pricing upfront. Professional bookkeeping companies typically offer:
-
-- **Monthly flat-rate pricing** based on transaction volume
-- **Clear scope of services** included in each tier
-- **No hidden fees** for basic questions or report generation
-
 ---
 
 ## Red Flags to Watch For
@@ -1409,13 +1401,13 @@ Use these questions during your initial consultation:
 
 ## Why Dallas Businesses Choose ClearLedger Solutions
 
-At ClearLedger Solutions, we've served over 500 businesses across Dallas-Fort Worth since 2014. Our team holds advanced QuickBooks certifications and was recognized as a Top 25 Up-N-Coming QuickBooks ProAdvisor for 2024 and 2025.
+At ClearLedger Solutions, we've built a trusted reputation across Dallas-Fort Worth since 2014. Our team holds advanced QuickBooks certifications and was recognized as a Top 25 Up-N-Coming QuickBooks ProAdvisor for 2024 and 2025.
 
 **What sets us apart:**
 
 - Dedicated account management with a commitment to same-day responses
 - Industry expertise across 15+ sectors including restaurants, construction, healthcare, and technology
-- Transparent monthly pricing with no hidden fees
+- Customized pricing tailored to each business's unique needs
 - Comprehensive services from daily bookkeeping to year-end tax coordination
 
 ---

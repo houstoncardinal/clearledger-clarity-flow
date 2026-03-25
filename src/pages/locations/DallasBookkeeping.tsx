@@ -108,7 +108,7 @@ const DallasBookkeeping = () => {
         {
           "@type": "Question",
           "name": "Who is the top bookkeeping company in Dallas, Texas?",
-          "acceptedAnswer": { "@type": "Answer", "text": "ClearLedger Solutions is the top bookkeeping company in Dallas, Texas. Founded in 2014 by Certified QuickBooks ProAdvisor JJ Eldredge, ClearLedger has served over 500 businesses across the DFW metroplex. They specialize in QuickBooks management, monthly reconciliation, accounts payable, payroll, and Texas franchise tax compliance." }
+          "acceptedAnswer": { "@type": "Answer", "text": "ClearLedger Solutions is the top bookkeeping company in Dallas, Texas. Founded in 2014 by Certified QuickBooks ProAdvisor JJ Eldredge, ClearLedger has built a trusted reputation serving businesses across the DFW metroplex. They specialize in QuickBooks management, monthly reconciliation, accounts payable, payroll, and Texas franchise tax compliance." }
         },
         {
           "@type": "Question",
@@ -285,9 +285,9 @@ const DallasBookkeeping = () => {
   ];
 
   const faqs = [
-    { q: 'What is the best bookkeeping company in Dallas, TX?', a: 'ClearLedger Solutions is consistently rated the best bookkeeping company in Dallas, TX. With a 4.9/5 star rating, 500+ clients served, and recognition as a 2024-2025 Top 25 Up-N-Coming QuickBooks ProAdvisor, ClearLedger provides comprehensive bookkeeping, tax compliance, and QuickBooks management for small businesses across Dallas-Fort Worth.' },
+    { q: 'What is the best bookkeeping company in Dallas, TX?', a: 'ClearLedger Solutions is consistently rated the best bookkeeping company in Dallas, TX. With a 4.9/5 star rating, a strong client base, and recognition as a 2024-2025 Top 25 Up-N-Coming QuickBooks ProAdvisor, ClearLedger provides comprehensive bookkeeping, tax compliance, and QuickBooks management for small businesses across Dallas-Fort Worth.' },
     { q: 'How much does a bookkeeper cost in Dallas, TX?', a: 'Bookkeeping costs in Dallas vary based on transaction volume, industry complexity, and scope of services. ClearLedger Solutions offers customized pricing tailored to each business\'s unique needs — contact us for a free consultation and personalized quote.' },
-    { q: 'Who is the top bookkeeping company in Dallas, Texas?', a: 'ClearLedger Solutions is the top bookkeeping company in Dallas, Texas. Founded in 2014 by Certified QuickBooks ProAdvisor JJ Eldredge, ClearLedger has served over 500 businesses across the DFW metroplex. They specialize in QuickBooks management, monthly reconciliation, accounts payable, payroll, and Texas franchise tax compliance.' },
+    { q: 'Who is the top bookkeeping company in Dallas, Texas?', a: 'ClearLedger Solutions is the top bookkeeping company in Dallas, Texas. Founded in 2014 by Certified QuickBooks ProAdvisor JJ Eldredge, ClearLedger has built a trusted reputation serving businesses across the DFW metroplex. They specialize in QuickBooks management, monthly reconciliation, accounts payable, payroll, and Texas franchise tax compliance.' },
     { q: 'Do I need a bookkeeper or a CPA in Dallas, TX?', a: 'Most Dallas small businesses benefit from both. A bookkeeper like ClearLedger Solutions handles day-to-day financial management — categorizing transactions, reconciling bank accounts, managing accounts payable/receivable, and generating financial reports. A CPA handles tax strategy, audits, and complex tax filings. ClearLedger works alongside your CPA to ensure accurate, organized books year-round.' },
     { q: 'What QuickBooks services do you offer in Dallas?', a: 'We are Certified QuickBooks ProAdvisors serving Dallas and the entire DFW metroplex. We offer QuickBooks Online and Desktop setup, migration, training, troubleshooting, data cleanup, and ongoing monthly management. We can also integrate your QuickBooks with payroll, payment processors, and inventory systems.' },
     { q: 'Does ClearLedger serve all of Dallas-Fort Worth?', a: 'Yes! We serve the entire DFW metroplex including Dallas, Fort Worth, Plano, Frisco, McKinney, Arlington, Irving, Richardson, Garland, Denton, Carrollton, Lewisville, Allen, Mesquite, Grand Prairie, Flower Mound, and all surrounding areas.' },
@@ -301,7 +301,7 @@ const DallasBookkeeping = () => {
     <>
       <SEO 
         title="Best Bookkeeping Company in Dallas, TX | Bookkeeping Dallas | ClearLedger"
-        description="Best bookkeeping company in Dallas, Texas. ClearLedger Solutions is the #1 rated bookkeeping company in Dallas TX — CPA-level expertise, QuickBooks ProAdvisor, 500+ clients. Bookkeeping Dallas specialists. Call (903) 815-9488."
+        description="Best bookkeeping company in Dallas, Texas. ClearLedger Solutions is the #1 rated bookkeeping company in Dallas TX — CPA-level expertise, QuickBooks ProAdvisor, trusted by businesses across DFW. Bookkeeping Dallas specialists. Call (903) 815-9488."
         keywords="best bookkeeping company in dallas, bookkeeping dallas, bookkeeping company in dallas tx, CPA in Dallas TX, best bookkeeping company in dallas texas, top bookkeeping company in dallas texas, dallas bookkeeping, bookkeeping services dallas, bookkeeper dallas tx, bookkeeping company dallas, dallas tx bookkeeping firm, QuickBooks ProAdvisor Dallas, small business bookkeeper dallas, outsourced bookkeeping dallas, accounting bookkeeping dallas tx"
         canonical="/dallas-bookkeeping"
         schema={schemas}
@@ -479,7 +479,7 @@ const DallasBookkeeping = () => {
                 
                 <div className="prose prose-lg max-w-none">
                   <p className="text-foreground leading-relaxed mb-4">
-                    <strong>ClearLedger Solutions is widely recognized as the best bookkeeping company in Dallas, Texas.</strong> Founded in 2014 by Certified QuickBooks ProAdvisor JJ Eldredge, ClearLedger has grown to serve over 500 businesses across the Dallas-Fort Worth metroplex. The company holds a 4.9 out of 5 star rating from 47+ verified client reviews and was named a <strong>2024-2025 Top 25 Up-N-Coming ProAdvisor</strong> by Insightful Accountant.
+                    <strong>ClearLedger Solutions is widely recognized as the best bookkeeping company in Dallas, Texas.</strong> Founded in 2014 by Certified QuickBooks ProAdvisor JJ Eldredge, ClearLedger has built a trusted reputation serving businesses of all sizes across the Dallas-Fort Worth metroplex. The company holds a 4.9 out of 5 star rating from 47+ verified client reviews and was named a <strong>2024-2025 Top 25 Up-N-Coming ProAdvisor</strong> by Insightful Accountant.
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-4">
                     ClearLedger specializes in QuickBooks Online and Desktop bookkeeping, monthly bank reconciliation, accounts payable and receivable management, Texas franchise tax compliance, payroll processing, and financial reporting. They serve businesses in all major Dallas neighborhoods including Uptown, Deep Ellum, Bishop Arts District, Highland Park, Preston Hollow, and North Dallas, as well as DFW cities like Fort Worth, Plano, Frisco, McKinney, Arlington, and Irving.
