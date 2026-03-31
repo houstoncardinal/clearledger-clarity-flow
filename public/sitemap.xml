@@ -7,78 +7,77 @@
   <!-- Homepage — Primary ranking target -->
   <url>
     <loc>https://www.yourclearledger.com/</loc>
-    <lastmod>2026-03-23</lastmod>
+    <lastmod>2026-03-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Main Pages -->
-  <url><loc>https://www.yourclearledger.com/about</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.yourclearledger.com/services</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.yourclearledger.com/contact</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.yourclearledger.com/consultation</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.yourclearledger.com/about</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.yourclearledger.com/services</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.yourclearledger.com/contact</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.yourclearledger.com/consultation</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Service Pages -->
-  <url><loc>https://www.yourclearledger.com/quickbooks-services</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.yourclearledger.com/monthly-management</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.yourclearledger.com/billing-accounts-payable</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.yourclearledger.com/cleanup-advisory</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.yourclearledger.com/check-ordering</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.yourclearledger.com/bookkeeping</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.yourclearledger.com/quickbooks-services</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.yourclearledger.com/monthly-management</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.yourclearledger.com/billing-accounts-payable</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.yourclearledger.com/cleanup-advisory</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourclearledger.com/check-ordering</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- DALLAS / DFW METRO PAGES (Priority Targets) -->
-  <url><loc>https://www.yourclearledger.com/dallas-bookkeeping</loc><lastmod>2026-03-23</lastmod><changefreq>weekly</changefreq><priority>0.95</priority></url>
-  <url><loc>https://www.yourclearledger.com/dfw-bookkeeping</loc><lastmod>2026-03-23</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.yourclearledger.com/fort-worth-bookkeeping</loc><lastmod>2026-03-23</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.yourclearledger.com/plano-bookkeeping</loc><lastmod>2026-03-23</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.yourclearledger.com/frisco-bookkeeping</loc><lastmod>2026-03-23</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.yourclearledger.com/mckinney-bookkeeping</loc><lastmod>2026-03-23</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.yourclearledger.com/arlington-bookkeeping</loc><lastmod>2026-03-23</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.yourclearledger.com/dallas-bookkeeping</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://www.yourclearledger.com/dfw-bookkeeping</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.yourclearledger.com/fort-worth-bookkeeping</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.yourclearledger.com/plano-bookkeeping</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.yourclearledger.com/frisco-bookkeeping</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.yourclearledger.com/mckinney-bookkeeping</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.yourclearledger.com/arlington-bookkeeping</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
 
   <!-- State Location Pages -->
-  <url><loc>https://www.yourclearledger.com/texas-bookkeeping</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.yourclearledger.com/oklahoma-bookkeeping</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.yourclearledger.com/florida-bookkeeping</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.yourclearledger.com/louisiana-bookkeeping</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.yourclearledger.com/mississippi-bookkeeping</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.yourclearledger.com/new-mexico-bookkeeping</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.yourclearledger.com/panama-bookkeeping</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourclearledger.com/texas-bookkeeping</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourclearledger.com/oklahoma-bookkeeping</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourclearledger.com/florida-bookkeeping</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourclearledger.com/louisiana-bookkeeping</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourclearledger.com/mississippi-bookkeeping</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourclearledger.com/new-mexico-bookkeeping</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourclearledger.com/panama-bookkeeping</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- INDUSTRY PAGES -->
-  <url><loc>https://www.yourclearledger.com/industries</loc><lastmod>2026-03-23</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.yourclearledger.com/restaurant-bookkeeping</loc><lastmod>2026-03-23</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.yourclearledger.com/construction-bookkeeping</loc><lastmod>2026-03-23</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.yourclearledger.com/real-estate-bookkeeping</loc><lastmod>2026-03-23</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.yourclearledger.com/medical-bookkeeping</loc><lastmod>2026-03-23</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.yourclearledger.com/technology-bookkeeping</loc><lastmod>2026-03-23</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.yourclearledger.com/manufacturing-bookkeeping</loc><lastmod>2026-03-23</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.yourclearledger.com/energy-bookkeeping</loc><lastmod>2026-03-23</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.yourclearledger.com/hospitality-bookkeeping</loc><lastmod>2026-03-23</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.yourclearledger.com/agriculture-bookkeeping</loc><lastmod>2026-03-23</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.yourclearledger.com/golf-course-bookkeeping</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourclearledger.com/industries</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.yourclearledger.com/restaurant-bookkeeping</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.yourclearledger.com/construction-bookkeeping</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.yourclearledger.com/real-estate-bookkeeping</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.yourclearledger.com/medical-bookkeeping</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.yourclearledger.com/technology-bookkeeping</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.yourclearledger.com/manufacturing-bookkeeping</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.yourclearledger.com/energy-bookkeeping</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.yourclearledger.com/hospitality-bookkeeping</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.yourclearledger.com/agriculture-bookkeeping</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.yourclearledger.com/golf-course-bookkeeping</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- Blog Hub -->
-  <url><loc>https://www.yourclearledger.com/blog</loc><lastmod>2026-03-23</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.yourclearledger.com/blog</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
 
   <!-- Blog Articles -->
-  <url><loc>https://www.yourclearledger.com/blog/fix-messy-quickbooks-30-minutes</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.yourclearledger.com/blog/small-business-bookkeeping-checklist-2026</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.yourclearledger.com/blog/how-often-reconcile-bank-accounts</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.yourclearledger.com/blog/what-happens-if-business-books-are-incorrect</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.yourclearledger.com/blog/quickbooks-vs-hiring-bookkeeper</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.yourclearledger.com/blog/monthly-bookkeeping-checklist-entrepreneurs</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.yourclearledger.com/blog/10-signs-your-business-needs-a-bookkeeper</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.yourclearledger.com/blog/choose-bookkeeping-company-dallas-tx</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.yourclearledger.com/blog/quickbooks-online-vs-desktop-2026</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.yourclearledger.com/blog/texas-franchise-tax-guide-2026</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.yourclearledger.com/blog/bookkeeping-services-dallas-texas-neighborhoods</loc><lastmod>2026-03-24</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.yourclearledger.com/blog/fix-messy-quickbooks-30-minutes</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourclearledger.com/blog/small-business-bookkeeping-checklist-2026</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourclearledger.com/blog/how-often-reconcile-bank-accounts</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourclearledger.com/blog/what-happens-if-business-books-are-incorrect</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourclearledger.com/blog/quickbooks-vs-hiring-bookkeeper</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourclearledger.com/blog/monthly-bookkeeping-checklist-entrepreneurs</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourclearledger.com/blog/10-signs-your-business-needs-a-bookkeeper</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourclearledger.com/blog/choose-bookkeeping-company-dallas-tx</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.yourclearledger.com/blog/quickbooks-online-vs-desktop-2026</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourclearledger.com/blog/texas-franchise-tax-guide-2026</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourclearledger.com/blog/bookkeeping-services-dallas-texas-neighborhoods</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
 
   <!-- Case Studies -->
-  <url><loc>https://www.yourclearledger.com/case-studies</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourclearledger.com/case-studies</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- Legal Pages -->
-  <url><loc>https://www.yourclearledger.com/privacy-policy</loc><lastmod>2026-03-23</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://www.yourclearledger.com/terms-of-service</loc><lastmod>2026-03-23</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://www.yourclearledger.com/cookie-policy</loc><lastmod>2026-03-23</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://www.yourclearledger.com/privacy-policy</loc><lastmod>2026-03-31</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://www.yourclearledger.com/terms-of-service</loc><lastmod>2026-03-31</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://www.yourclearledger.com/cookie-policy</loc><lastmod>2026-03-31</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
 
 </urlset>
