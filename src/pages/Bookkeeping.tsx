@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import SEO from '@/components/SEO';
 import { 
   BarChart3, 
   TrendingUp, 
@@ -366,6 +367,12 @@ const Bookkeeping = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="Bookkeeping Dashboard | ClearLedger Solutions"
+        description="Internal bookkeeping dashboard for ClearLedger Solutions. Manage orders, track revenue, and monitor business performance."
+        noindex={true}
+        nofollow={true}
+      />
       {/* Header */}
       <header className="bg-card border-b border-border sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
