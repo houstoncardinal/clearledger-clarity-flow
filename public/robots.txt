@@ -39,7 +39,7 @@ Allow: /billing-accounts-payable
 Allow: /cleanup-advisory
 Allow: /check-ordering
 Allow: /consultation
-Allow: /bookkeeping
+
 
 # Blog pages
 Allow: /blog
