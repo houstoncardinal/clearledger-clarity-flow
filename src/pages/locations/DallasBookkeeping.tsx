@@ -338,7 +338,7 @@ const DallasBookkeeping = () => {
                   </h1>
                   
                   <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed mb-6 max-w-xl">
-                    ClearLedger Solutions is the top-rated bookkeeping company in Dallas, Texas — trusted by 500+ businesses across Dallas-Fort Worth. Certified QuickBooks ProAdvisor providing full-service bookkeeping, tax compliance, and financial management.
+                    ClearLedger Solutions is the top-rated bookkeeping company in Dallas, Texas — trusted by hundreds of businesses across Dallas-Fort Worth. Certified QuickBooks ProAdvisor providing full-service bookkeeping, tax compliance, and financial management.
                   </p>
 
                   <div className="flex items-center gap-2 mb-8">
