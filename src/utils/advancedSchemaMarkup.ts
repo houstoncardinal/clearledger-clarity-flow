@@ -80,7 +80,7 @@ export const SERVICE_CATALOG = {
     description: "Comprehensive monthly bookkeeping and reconciliation services including bank reconciliation, financial reporting, and variance analysis.",
     url: "/monthly-management",
     category: "Bookkeeping",
-    price: "Starting at $399/month"
+    price: "Custom pricing — contact for consultation"
   },
   billingAP: {
     name: "Billing & Accounts Payable",
