@@ -847,7 +847,7 @@ const DallasBookkeeping = () => {
                   Ready to Simplify Your Dallas Business Finances?
                 </h2>
                 <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto">
-                  Join 500+ businesses across Dallas-Fort Worth who trust ClearLedger with their bookkeeping. Get your free consultation today.
+                  Join hundreds of businesses across Dallas-Fort Worth who trust ClearLedger with their bookkeeping. Get your free consultation today.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link to="/contact">
