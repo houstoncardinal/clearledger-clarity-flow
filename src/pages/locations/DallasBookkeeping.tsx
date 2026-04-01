@@ -491,12 +491,12 @@ const DallasBookkeeping = () => {
 
                 <div className="grid sm:grid-cols-3 gap-4 mt-8">
                   <div className="text-center p-4 rounded-xl bg-accent/40 border border-border/50">
-                    <div className="text-2xl font-bold text-gradient">500+</div>
+                    <div className="text-2xl font-bold text-gradient">Hundreds</div>
                     <div className="text-sm text-muted-foreground">Dallas Businesses Served</div>
                   </div>
                   <div className="text-center p-4 rounded-xl bg-accent/40 border border-border/50">
-                    <div className="text-2xl font-bold text-gradient">4.9★</div>
-                    <div className="text-sm text-muted-foreground">Average Client Rating</div>
+                    <div className="text-2xl font-bold text-gradient">Top-Rated</div>
+                    <div className="text-sm text-muted-foreground">Client Satisfaction</div>
                   </div>
                   <div className="text-center p-4 rounded-xl bg-accent/40 border border-border/50">
                     <div className="text-2xl font-bold text-gradient">10+ Yrs</div>
