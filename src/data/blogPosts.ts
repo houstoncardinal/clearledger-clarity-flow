@@ -912,7 +912,7 @@ We're a certified QuickBooks ProAdvisor firm that provides outsourced bookkeepin
     id: '12',
     title: 'Monthly Bookkeeping Checklist Every Entrepreneur Must Follow',
     slug: 'monthly-bookkeeping-checklist-entrepreneurs',
-    excerpt: 'This isn\'t a generic checklist — it\'s the exact monthly process used by 500+ businesses we manage. Follow these 7 steps to maintain financial clarity every single month.',
+    excerpt: 'This isn\'t a generic checklist — it\'s the exact monthly process we use with every client we manage. Follow these 7 steps to maintain financial clarity every single month.',
     content: `
 # Monthly Bookkeeping Checklist Every Entrepreneur Must Follow
 
