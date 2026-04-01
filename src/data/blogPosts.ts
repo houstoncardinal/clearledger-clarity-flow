@@ -1292,7 +1292,7 @@ We're not just bookkeepers — we're **Certified QuickBooks ProAdvisors** who sp
 - ✅ Direct phone, text, and email access to your bookkeeper
 - ✅ QuickBooks setup, cleanup, and optimization
 
-**Serving 500+ businesses** across Texas, Oklahoma, Louisiana, Mississippi, Florida, New Mexico, and internationally.
+**Serving businesses** across Texas, Oklahoma, Louisiana, Mississippi, Florida, New Mexico, and internationally.
 
 **Ready to take bookkeeping off your plate?** Schedule your free consultation at [yourclearledger.com/consultation](/consultation) or call **(903) 815-9488**.
 
