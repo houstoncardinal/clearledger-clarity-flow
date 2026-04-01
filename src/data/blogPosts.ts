@@ -1675,7 +1675,7 @@ ClearLedger Solutions is a **Certified QuickBooks ProAdvisor** firm headquartere
 
 Dallas isn't a one-size-fits-all city, and your bookkeeping shouldn't be either. Here's what sets ClearLedger apart:
 
-- **4.9/5 star client rating** with a 99% retention rate
+- **Highly rated** with exceptional client retention
 - **2024-2025 Top 25 Up-N-Coming QuickBooks ProAdvisor** (Insightful Accountant)
 - **Certified in QuickBooks Online and Desktop** — advanced proficiency
 - **Industry-specific expertise** across 10+ sectors
