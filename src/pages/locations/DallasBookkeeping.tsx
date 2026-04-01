@@ -278,9 +278,9 @@ const DallasBookkeeping = () => {
   ];
 
   const stats = [
-    { value: '500+', label: 'Clients Served' },
+    { value: 'Hundreds', label: 'Clients Served' },
     { value: '10+', label: 'Years Experience' },
-    { value: '99%', label: 'Client Retention' },
+    { value: 'Top-Rated', label: 'Client Satisfaction' },
     { value: '24hr', label: 'Response Time' },
   ];
 
