@@ -2446,8 +2446,8 @@ We give you the financial clarity to make confident decisions about your busines
     id: '20',
     title: 'Year-End Bookkeeping Checklist: Close Your Books Like a Pro',
     slug: 'year-end-bookkeeping-checklist-close-books',
-    excerpt: 'Year-end bookkeeping doesn\\'t have to be a nightmare. This professional checklist covers everything — from final reconciliation to 1099 preparation — so your books are closed accurately and your CPA is happy.',
-    content: \`
+    excerpt: 'Year-end bookkeeping doesn\'t have to be a nightmare. This professional checklist covers everything — from final reconciliation to 1099 preparation — so your books are closed accurately and your CPA is happy.',
+    content: `
 # Year-End Bookkeeping Checklist: Close Your Books Like a Pro
 
 December is approaching, and that means it's time to close out the year. Year-end bookkeeping is the most important financial task your business performs — it determines the accuracy of your tax filing, the reliability of your financial statements, and your readiness for the year ahead.
