@@ -223,8 +223,8 @@ const DallasBookkeeping = () => {
       "numberOfItems": 6,
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Certified QuickBooks ProAdvisor with Advanced Certification" },
-        { "@type": "ListItem", "position": 2, "name": "500+ businesses served across Dallas-Fort Worth" },
-        { "@type": "ListItem", "position": 3, "name": "4.9/5 star rating from 47+ verified reviews" },
+        { "@type": "ListItem", "position": 2, "name": "Hundreds of businesses served across Dallas-Fort Worth" },
+        { "@type": "ListItem", "position": 3, "name": "Highly rated with exceptional client retention" },
         { "@type": "ListItem", "position": 4, "name": "2024-2025 Top 25 Up-N-Coming ProAdvisor award winner" },
         { "@type": "ListItem", "position": 5, "name": "Same-day response with dedicated US-based team" },
         { "@type": "ListItem", "position": 6, "name": "Texas franchise tax compliance specialists" }
