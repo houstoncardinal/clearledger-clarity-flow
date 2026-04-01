@@ -895,7 +895,7 @@ We're a certified QuickBooks ProAdvisor firm that provides outsourced bookkeepin
 - **Tax-ready books** that make filing season stress-free
 - **Direct communication** — call, text, or email anytime
 
-Starting at **$300/month** for basic bookkeeping services.
+**Every engagement is custom-priced** based on your transaction volume and complexity.
 
 **Schedule your free consultation** to find out which approach is right for your business: [yourclearledger.com/consultation](/consultation) or call **(903) 815-9488**.
     `,
