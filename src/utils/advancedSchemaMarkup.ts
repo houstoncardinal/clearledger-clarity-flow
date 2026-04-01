@@ -80,7 +80,7 @@ export const SERVICE_CATALOG = {
     description: "Comprehensive monthly bookkeeping and reconciliation services including bank reconciliation, financial reporting, and variance analysis.",
     url: "/monthly-management",
     category: "Bookkeeping",
-    price: "Starting at $399/month"
+    price: "Custom pricing — contact for consultation"
   },
   billingAP: {
     name: "Billing & Accounts Payable",
@@ -982,7 +982,7 @@ export const getHomePageSchema = () => combineSchemas(
     "@type": "AccountingService",
     "@id": `${COMPANY_INFO.url}/#dallas-service`,
     "name": "ClearLedger Solutions - Best Bookkeeping Company in Dallas TX",
-    "description": "ClearLedger Solutions is the #1 rated bookkeeping company in Dallas, Texas. Certified QuickBooks ProAdvisor serving 500+ businesses across Dallas-Fort Worth with monthly reconciliation, tax preparation, and financial management. Named 2024-2025 Top 25 Up-N-Coming ProAdvisor.",
+    "description": "ClearLedger Solutions is the #1 rated bookkeeping company in Dallas, Texas. Certified QuickBooks ProAdvisor serving hundreds of businesses across Dallas-Fort Worth with monthly reconciliation, tax preparation, and financial management. Named 2024-2025 Top 25 Up-N-Coming ProAdvisor.",
     "url": `${COMPANY_INFO.url}/dallas-bookkeeping`,
     "telephone": COMPANY_INFO.phone,
     "email": COMPANY_INFO.email,

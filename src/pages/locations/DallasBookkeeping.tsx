@@ -223,8 +223,8 @@ const DallasBookkeeping = () => {
       "numberOfItems": 6,
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Certified QuickBooks ProAdvisor with Advanced Certification" },
-        { "@type": "ListItem", "position": 2, "name": "500+ businesses served across Dallas-Fort Worth" },
-        { "@type": "ListItem", "position": 3, "name": "4.9/5 star rating from 47+ verified reviews" },
+        { "@type": "ListItem", "position": 2, "name": "Hundreds of businesses served across Dallas-Fort Worth" },
+        { "@type": "ListItem", "position": 3, "name": "Highly rated with exceptional client retention" },
         { "@type": "ListItem", "position": 4, "name": "2024-2025 Top 25 Up-N-Coming ProAdvisor award winner" },
         { "@type": "ListItem", "position": 5, "name": "Same-day response with dedicated US-based team" },
         { "@type": "ListItem", "position": 6, "name": "Texas franchise tax compliance specialists" }
@@ -278,14 +278,14 @@ const DallasBookkeeping = () => {
   ];
 
   const stats = [
-    { value: '500+', label: 'Clients Served' },
+    { value: 'Hundreds', label: 'Clients Served' },
     { value: '10+', label: 'Years Experience' },
-    { value: '99%', label: 'Client Retention' },
+    { value: 'Top-Rated', label: 'Client Satisfaction' },
     { value: '24hr', label: 'Response Time' },
   ];
 
   const faqs = [
-    { q: 'What is the best bookkeeping company in Dallas, TX?', a: 'ClearLedger Solutions is consistently rated the best bookkeeping company in Dallas, TX. With a 4.9/5 star rating, a strong client base, and recognition as a 2024-2025 Top 25 Up-N-Coming QuickBooks ProAdvisor, ClearLedger provides comprehensive bookkeeping, tax compliance, and QuickBooks management for small businesses across Dallas-Fort Worth.' },
+    { q: 'What is the best bookkeeping company in Dallas, TX?', a: 'ClearLedger Solutions is consistently rated the best bookkeeping company in Dallas, TX. With a strong client base and recognition as a 2024-2025 Top 25 Up-N-Coming QuickBooks ProAdvisor, ClearLedger provides comprehensive bookkeeping, tax compliance, and QuickBooks management for small businesses across Dallas-Fort Worth.' },
     { q: 'How much does a bookkeeper cost in Dallas, TX?', a: 'Bookkeeping costs in Dallas vary based on transaction volume, industry complexity, and scope of services. ClearLedger Solutions offers customized pricing tailored to each business\'s unique needs — contact us for a free consultation and personalized quote.' },
     { q: 'Who is the top bookkeeping company in Dallas, Texas?', a: 'ClearLedger Solutions is the top bookkeeping company in Dallas, Texas. Founded in 2014 by Certified QuickBooks ProAdvisor JJ Eldredge, ClearLedger has built a trusted reputation serving businesses across the DFW metroplex. They specialize in QuickBooks management, monthly reconciliation, accounts payable, payroll, and Texas franchise tax compliance.' },
     { q: 'Do I need a bookkeeper or a CPA in Dallas, TX?', a: 'Most Dallas small businesses benefit from both. A bookkeeper like ClearLedger Solutions handles day-to-day financial management — categorizing transactions, reconciling bank accounts, managing accounts payable/receivable, and generating financial reports. A CPA handles tax strategy, audits, and complex tax filings. ClearLedger works alongside your CPA to ensure accurate, organized books year-round.' },
@@ -338,7 +338,7 @@ const DallasBookkeeping = () => {
                   </h1>
                   
                   <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed mb-6 max-w-xl">
-                    ClearLedger Solutions is the top-rated bookkeeping company in Dallas, Texas — trusted by 500+ businesses across Dallas-Fort Worth. Certified QuickBooks ProAdvisor providing full-service bookkeeping, tax compliance, and financial management.
+                    ClearLedger Solutions is the top-rated bookkeeping company in Dallas, Texas — trusted by hundreds of businesses across Dallas-Fort Worth. Certified QuickBooks ProAdvisor providing full-service bookkeeping, tax compliance, and financial management.
                   </p>
 
                   <div className="flex items-center gap-2 mb-8">
@@ -491,12 +491,12 @@ const DallasBookkeeping = () => {
 
                 <div className="grid sm:grid-cols-3 gap-4 mt-8">
                   <div className="text-center p-4 rounded-xl bg-accent/40 border border-border/50">
-                    <div className="text-2xl font-bold text-gradient">500+</div>
+                    <div className="text-2xl font-bold text-gradient">Hundreds</div>
                     <div className="text-sm text-muted-foreground">Dallas Businesses Served</div>
                   </div>
                   <div className="text-center p-4 rounded-xl bg-accent/40 border border-border/50">
-                    <div className="text-2xl font-bold text-gradient">4.9★</div>
-                    <div className="text-sm text-muted-foreground">Average Client Rating</div>
+                    <div className="text-2xl font-bold text-gradient">Top-Rated</div>
+                    <div className="text-sm text-muted-foreground">Client Satisfaction</div>
                   </div>
                   <div className="text-center p-4 rounded-xl bg-accent/40 border border-border/50">
                     <div className="text-2xl font-bold text-gradient">10+ Yrs</div>
@@ -847,7 +847,7 @@ const DallasBookkeeping = () => {
                   Ready to Simplify Your Dallas Business Finances?
                 </h2>
                 <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto">
-                  Join 500+ businesses across Dallas-Fort Worth who trust ClearLedger with their bookkeeping. Get your free consultation today.
+                  Join hundreds of businesses across Dallas-Fort Worth who trust ClearLedger with their bookkeeping. Get your free consultation today.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link to="/contact">

@@ -12,8 +12,8 @@ const Pricing = () => {
   const pricingTiers = [
     {
       name: 'Essentials',
-      price: 'Starting at $299',
-      period: '/month',
+      price: 'Custom Pricing',
+      period: '',
       description: 'Perfect for small businesses with basic bookkeeping needs',
       icon: Calculator,
       popular: false,
@@ -29,8 +29,8 @@ const Pricing = () => {
     },
     {
       name: 'Professional',
-      price: 'Starting at $599',
-      period: '/month',
+      price: 'Custom Pricing',
+      period: '',
       description: 'Comprehensive financial management for growing businesses',
       icon: TrendingUp,
       popular: true,
@@ -69,12 +69,12 @@ const Pricing = () => {
   ];
 
   const addOns = [
-    { name: 'Additional QuickBooks Company File', price: '$25/month per file' },
-    { name: 'Extra Transaction Blocks (100)', price: '$50/month' },
-    { name: 'Expedited Monthly Close', price: '$150/month' },
-    { name: 'Custom Integration Setup', price: '$500 one-time' },
-    { name: 'Financial Planning & Analysis', price: '$200/month' },
-    { name: 'Audit Support Services', price: '$150/hour' }
+    { name: 'Additional QuickBooks Company File', price: 'Contact for pricing' },
+    { name: 'Extra Transaction Blocks (100)', price: 'Contact for pricing' },
+    { name: 'Expedited Monthly Close', price: 'Contact for pricing' },
+    { name: 'Custom Integration Setup', price: 'Contact for pricing' },
+    { name: 'Financial Planning & Analysis', price: 'Contact for pricing' },
+    { name: 'Audit Support Services', price: 'Contact for pricing' }
   ];
 
   return (
