@@ -2654,7 +2654,7 @@ Our year-end services include:
 - New year setup and budgeting support
 
 **Get your year-end handled right.** Schedule your free consultation at [yourclearledger.com/consultation](/consultation) or call **(903) 815-9488**.
-    \`,
+    `,
     image: '/blog/year-end-checklist.jpg',
     category: 'bookkeeping-tips',
     tags: ['year-end bookkeeping checklist', 'close books year-end', '1099 preparation', 'year-end financial statements', 'bookkeeping year-end process'],
