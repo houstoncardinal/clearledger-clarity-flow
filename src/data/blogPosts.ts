@@ -194,7 +194,7 @@ If your books are more than 6 months behind, or you have complex issues like:
 
 ...it may be faster and cheaper to hire a professional. A certified QuickBooks ProAdvisor can clean up months of backlog in a few hours — work that might take you days.
 
-At **ClearLedger Solutions**, we specialize in QuickBooks cleanup for small businesses. We've helped over 500 business owners go from financial chaos to clarity.
+At **ClearLedger Solutions**, we specialize in QuickBooks cleanup for small businesses. We've helped hundreds of business owners go from financial chaos to clarity.
 
 ---
 
