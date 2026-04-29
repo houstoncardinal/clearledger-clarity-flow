@@ -80,8 +80,6 @@ Allow: /hospitality-bookkeeping
 Allow: /agriculture-bookkeeping
 Allow: /golf-course-bookkeeping
 
-# Case Studies
-Allow: /case-studies
 
 # LLMs.txt — AI model context file
 # https://llmstxt.org/

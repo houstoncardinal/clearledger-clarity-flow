@@ -69,8 +69,7 @@ const Footer = () => {
         { name: 'About Us', href: '/about' },
         { name: 'Blog', href: '/blog' },
         { name: 'Contact', href: '/contact' },
-        { name: 'Consultation', href: '/consultation' },
-        { name: 'Case Studies', href: '/case-studies' }
+        { name: 'Consultation', href: '/consultation' }
       ]
     },
     {
