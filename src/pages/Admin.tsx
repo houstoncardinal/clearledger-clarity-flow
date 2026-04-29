@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Bell, Search, Plus } from 'lucide-react';
+import { useState, useEffect, useCallback } from 'react';
+import { Bell, Search, Plus, Lock, Delete } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import AdminSidebar, { navSections } from '@/components/admin/AdminSidebar';
@@ -29,10 +29,137 @@ import {
   XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 
+const ADMIN_PIN = '011491';
+
+const AdminPinGate = ({ onUnlock }: { onUnlock: () => void }) => {
+  const [pin, setPin] = useState('');
+  const [error, setError] = useState(false);
+  const [shake, setShake] = useState(false);
+
+  const submitPin = useCallback((currentPin: string) => {
+    if (currentPin === ADMIN_PIN) {
+      sessionStorage.setItem('cl_admin_auth', '1');
+      onUnlock();
+    } else {
+      setShake(true);
+      setTimeout(() => {
+        setPin('');
+        setError(false);
+        setShake(false);
+      }, 700);
+      setError(true);
+    }
+  }, [onUnlock]);
+
+  const handleDigit = useCallback((d: string) => {
+    setPin(prev => {
+      if (prev.length >= 6) return prev;
+      const next = prev + d;
+      if (next.length === 6) setTimeout(() => submitPin(next), 80);
+      return next;
+    });
+    setError(false);
+  }, [submitPin]);
+
+  const handleDelete = useCallback(() => {
+    setPin(prev => prev.slice(0, -1));
+    setError(false);
+  }, []);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key >= '0' && e.key <= '9') handleDigit(e.key);
+      if (e.key === 'Backspace') handleDelete();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [handleDigit, handleDelete]);
+
+  const keys = ['1','2','3','4','5','6','7','8','9','','0','⌫'];
+
+  return (
+    <div className="min-h-screen bg-background flex items-center justify-center p-4">
+      <div className="w-full max-w-sm">
+        {/* Logo */}
+        <div className="flex flex-col items-center mb-10">
+          <img src="/logo.png" alt="ClearLedger Solutions" className="h-16 object-contain mb-4" />
+          <div className="flex items-center gap-2 text-muted-foreground">
+            <Lock className="w-4 h-4" />
+            <span className="text-sm font-medium tracking-wide">Admin Access</span>
+          </div>
+        </div>
+
+        {/* PIN dots */}
+        <div
+          className={`flex justify-center gap-4 mb-8 transition-transform ${shake ? 'animate-[shake_0.4s_ease-in-out]' : ''}`}
+          style={shake ? { animation: 'shake 0.4s ease-in-out' } : {}}
+        >
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div
+              key={i}
+              className={`w-4 h-4 rounded-full border-2 transition-all duration-150 ${
+                i < pin.length
+                  ? error
+                    ? 'bg-destructive border-destructive'
+                    : 'bg-primary border-primary'
+                  : 'border-border bg-transparent'
+              }`}
+            />
+          ))}
+        </div>
+
+        {error && (
+          <p className="text-center text-sm text-destructive mb-4 font-medium">Incorrect PIN. Try again.</p>
+        )}
+
+        {/* Numpad */}
+        <div className="grid grid-cols-3 gap-3">
+          {keys.map((key, i) => {
+            if (key === '') return <div key={i} />;
+            const isDelete = key === '⌫';
+            return (
+              <button
+                key={i}
+                onClick={() => isDelete ? handleDelete() : handleDigit(key)}
+                className={`
+                  h-16 rounded-2xl text-xl font-semibold transition-all duration-100 select-none
+                  ${isDelete
+                    ? 'bg-transparent text-muted-foreground hover:text-foreground hover:bg-accent flex items-center justify-center'
+                    : 'bg-card border border-border/50 text-foreground hover:bg-accent hover:border-primary/30 active:scale-95 shadow-sm'
+                  }
+                `}
+              >
+                {isDelete ? <Delete className="w-5 h-5" /> : key}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes shake {
+          0%, 100% { transform: translateX(0); }
+          20% { transform: translateX(-8px); }
+          40% { transform: translateX(8px); }
+          60% { transform: translateX(-6px); }
+          80% { transform: translateX(6px); }
+        }
+      `}</style>
+    </div>
+  );
+};
+
 const Admin = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    () => sessionStorage.getItem('cl_admin_auth') === '1'
+  );
   const [activeTab, setActiveTab] = useState('overview');
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [isContentModalOpen, setIsContentModalOpen] = useState(false);
+
+  if (!isAuthenticated) {
+    return <AdminPinGate onUnlock={() => setIsAuthenticated(true)} />;
+  }
 
   const activeLabel = navSections.flatMap(s => s.items).find(i => i.id === activeTab)?.label || 'Dashboard';
 

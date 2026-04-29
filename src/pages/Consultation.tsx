@@ -146,7 +146,7 @@ const Consultation = () => {
     {
       step: '03',
       title: 'Custom Solution',
-      description: 'Receive a tailored proposal within 24 hours'
+      description: 'Receive a tailored proposal built around your business needs'
     },
     {
       step: '04',
@@ -179,8 +179,8 @@ const Consultation = () => {
   return (
     <>
       <SEO 
-        title="FREE 30-Min Bookkeeping Consultation | Custom Quote in 24 Hrs"
-        description="Book your FREE 30-minute consultation. Get expert QuickBooks advice & custom proposal in 24 hours. No obligation. Call (903) 815-9488 or schedule online."
+        title="FREE 30-Min Bookkeeping Consultation | ClearLedger Solutions"
+        description="Book your FREE 30-minute consultation. Get expert QuickBooks advice & a personalized proposal. No obligation. Call (903) 815-9488 or schedule online."
         keywords="free bookkeeping consultation, QuickBooks consultation, bookkeeping quote, free financial assessment, small business bookkeeping help, ClearLedger consultation"
         canonical="/consultation"
         schema={pageSchema}
@@ -215,7 +215,7 @@ const Consultation = () => {
                 </div>
                 <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                   <CheckCircle className="w-4 h-4 text-primary" />
-                  <span>Custom proposal within 24 hours</span>
+                  <span>Custom proposal tailored to your business</span>
                 </div>
                 <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                   <CheckCircle className="w-4 h-4 text-primary" />
@@ -615,7 +615,7 @@ const Consultation = () => {
                       </div>
                       <div className="flex items-center space-x-2">
                         <CheckCircle className="w-4 h-4 text-primary" />
-                        <span className="text-sm text-foreground">24-hour response commitment</span>
+                        <span className="text-sm text-foreground">Responsive team during business hours</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <CheckCircle className="w-4 h-4 text-primary" />

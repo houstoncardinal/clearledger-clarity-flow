@@ -58,7 +58,7 @@ const CaseStudies = () => {
         { metric: '0', label: 'Compliance issues', icon: Shield },
         { metric: '60%', label: 'Bookkeeping processing time reduced', icon: Clock },
         { metric: '3', label: 'Entities managed seamlessly', icon: Users },
-        { metric: '24h', label: 'Response time commitment', icon: Clock }
+        { metric: '100%', label: 'Work kept in-house, never outsourced', icon: Clock }
       ],
       testimonial: 'The bookkeeping and compliance support has been exceptional. ClearLedger handles everything from processing to compliance, giving us peace of mind.',
       client: 'Michael Rodriguez, Operations Director',
@@ -77,7 +77,7 @@ const CaseStudies = () => {
         { metric: '100%', label: 'Compliance maintained', icon: Award },
         { metric: '50%', label: 'Audit preparation time reduced', icon: Clock },
         { metric: '100%', label: 'Accuracy maintained', icon: Shield },
-        { metric: '24h', label: 'Response time', icon: Clock }
+        { metric: '4.9/5', label: 'Client satisfaction rating', icon: Clock }
       ],
       testimonial: 'ClearLedger\'s expertise in regulatory requirements gives us confidence that our financial data is compliant and well-managed.',
       client: 'Lisa Thompson, CFO',

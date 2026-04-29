@@ -22,7 +22,7 @@ const McKinneyBookkeeping = () => {
         { name: 'Small Business & Retail', description: 'Bookkeeping for McKinney\'s vibrant small business community and downtown retailers' },
         { name: 'Healthcare & Wellness', description: 'Medical practice, dental, and wellness business financial management' },
         { name: 'Construction & Home Services', description: 'Job costing, contractor payments, and builder accounting for McKinney\'s growth' },
-        { name: 'Professional Services', description: 'Law firms, CPA firms, consultants, and professional service providers' },
+        { name: 'Professional Services', description: 'Law firms, accounting firms, consultants, and professional service providers' },
         { name: 'Restaurants & Hospitality', description: 'Restaurant bookkeeping and food service financial management' },
         { name: 'Technology', description: 'Tech startup and established technology company financial management' }
       ]}

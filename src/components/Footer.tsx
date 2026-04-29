@@ -101,7 +101,7 @@ const Footer = () => {
       icon: Mail,
       label: 'Email',
       value: 'jj@yourclearledger.com',
-      subtext: '24-hour response commitment'
+      subtext: 'Prompt response during business hours'
     },
     {
       icon: MapPin,

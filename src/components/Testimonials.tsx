@@ -38,8 +38,8 @@ const Testimonials = () => {
       companySize: '45 employees',
       industry: 'Construction',
       rating: 5,
-      content: 'The bookkeeping and compliance support has been exceptional. ClearLedger handles everything from processing to compliance, giving us peace of mind. Their response time is incredible - always under 24 hours.',
-      results: ['Streamlined bookkeeping process', 'Zero compliance issues', '24h response guarantee met'],
+      content: 'The bookkeeping and compliance support has been exceptional. ClearLedger handles everything from processing to compliance, giving us complete peace of mind. Their team is professional, attentive, and always on top of things.',
+      results: ['Streamlined bookkeeping process', 'Zero compliance issues', 'Professional, attentive team'],
       avatar: 'CB'
     },
     {
@@ -59,7 +59,7 @@ const Testimonials = () => {
     { value: '100%', label: 'Compliance Rate', icon: Shield },
     { value: '15+', label: 'Industries Served', icon: Users },
     { value: '10+', label: 'Years Experience', icon: Award },
-    { value: '24h', label: 'Response Time', icon: TrendingUp }
+    { value: '4.9/5', label: 'Client Rating', icon: TrendingUp }
   ];
 
   const nextTestimonial = () => {

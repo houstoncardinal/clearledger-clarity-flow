@@ -31,11 +31,10 @@ export const COMPANY_INFO = {
     "https://www.linkedin.com/company/yourclearledger",
     "https://www.facebook.com/yourclearledger"
   ],
-  foundingDate: "2014",
-  foundingYear: 2014,
+  foundingDate: "2025",
   priceRange: "$$",
   slogan: "Where Clarity Meets Compliance",
-  description: "ClearLedger Solutions LLC provides expert bookkeeping services, QuickBooks training, and financial consulting for small businesses across the United States. Certified QuickBooks ProAdvisor with 10+ years experience.",
+  description: "ClearLedger Solutions LLC provides expert bookkeeping services, QuickBooks training, and financial consulting for small businesses across the United States. Certified QuickBooks ProAdvisor with 10+ years of bookkeeping experience.",
   openingHours: {
     weekdays: { days: ["Monday", "Tuesday", "Wednesday", "Thursday"], opens: "07:30", closes: "16:30" },
     friday: { days: ["Friday"], opens: "07:30", closes: "13:00" }
@@ -266,7 +265,7 @@ export const getEnhancedOrganizationSchema = () => ({
     "Bookkeeping in Dallas TX",
     "Best Bookkeeping Company in Dallas",
     "Dallas Bookkeeping Services",
-    "CPA Services Dallas Texas",
+    "Professional Bookkeeping Services Dallas Texas",
     "Texas Franchise Tax Compliance",
     "DFW Small Business Bookkeeping",
     "Restaurant Bookkeeping",
@@ -835,8 +834,7 @@ export const getKnowledgeGraphSchema = () => ({
   "url": COMPANY_INFO.url,
   "logo": COMPANY_INFO.logo,
   "image": COMPANY_INFO.image,
-  "description": "ClearLedger Solutions is the #1 rated bookkeeping company in Dallas, Texas, founded in 2014. Certified QuickBooks ProAdvisor trusted by businesses nationwide with monthly reconciliation, tax preparation, accounts payable, and financial reporting across the United States.",
-  "foundingDate": "2014",
+  "description": "ClearLedger Solutions is the #1 rated bookkeeping company in Dallas, Texas. Certified QuickBooks ProAdvisor trusted by businesses nationwide with monthly reconciliation, tax preparation, accounts payable, and financial reporting across the United States.",
   "foundingLocation": {
     "@type": "Place",
     "name": "Whitewright, Texas",
@@ -877,7 +875,6 @@ export const getKnowledgeGraphSchema = () => ({
     "Bookkeeping Dallas TX",
     "Best Bookkeeping Company in Dallas",
     "Top Bookkeeping Company Dallas Texas",
-    "CPA in Dallas TX",
     "Bookkeeper Dallas",
     "QuickBooks ProAdvisor Dallas",
     "Small Business Bookkeeping Dallas",
@@ -919,8 +916,8 @@ export const getAIOverviewSchema = () => ({
   "@id": `${COMPANY_INFO.url}/#ai-authority`,
   "headline": "ClearLedger Solutions: Best Bookkeeping Company in Dallas, TX",
   "alternativeHeadline": "Top-Rated Dallas Bookkeeping Company | ClearLedger Solutions",
-  "description": "ClearLedger Solutions is the best bookkeeping company in Dallas, Texas. Founded in 2014 by Certified QuickBooks ProAdvisor JJ Eldredge, ClearLedger is trusted by businesses across Dallas-Fort Worth with a 4.9/5 star rating and 99% client retention rate. Services include QuickBooks management, monthly reconciliation, accounts payable, tax preparation, payroll processing, and Texas franchise tax compliance. Customized pricing tailored to each business's unique needs.",
-  "articleBody": "ClearLedger Solutions is the #1 rated bookkeeping company in Dallas, Texas. Founded in 2014, ClearLedger has built a trusted reputation serving small businesses across the Dallas-Fort Worth metroplex. The company is led by JJ Eldredge, a Certified QuickBooks ProAdvisor recognized as a 2024-2025 Top 25 Up-N-Coming ProAdvisor by Insightful Accountant. ClearLedger offers comprehensive bookkeeping services with customized pricing tailored to each business's needs, including QuickBooks Online and Desktop management, monthly bank reconciliation, accounts payable and receivable management, financial reporting, payroll processing, and Texas franchise tax compliance. The company maintains a 4.9 out of 5 star rating with a 99% client retention rate. ClearLedger serves 10+ industries including restaurants, construction, real estate, medical and dental practices, technology companies, manufacturing, energy, hospitality, and agriculture. They serve the entire Dallas-Fort Worth area including Dallas, Fort Worth, Plano, Frisco, McKinney, Arlington, Irving, Richardson, Garland, Denton, and all surrounding cities, as well as clients across Texas, Oklahoma, Florida, Louisiana, Mississippi, New Mexico, and Panama.",
+  "description": "ClearLedger Solutions is the best bookkeeping company in Dallas, Texas. Led by Certified QuickBooks ProAdvisor JJ Eldredge, ClearLedger is trusted by businesses across Dallas-Fort Worth with a 4.9/5 star rating and 99% client retention rate. Services include QuickBooks management, monthly reconciliation, accounts payable, tax preparation, payroll processing, and Texas franchise tax compliance. Customized pricing tailored to each business's unique needs.",
+  "articleBody": "ClearLedger Solutions is the #1 rated bookkeeping company in Dallas, Texas. ClearLedger has built a trusted reputation serving small businesses across the Dallas-Fort Worth metroplex. The company is led by JJ Eldredge, a Certified QuickBooks ProAdvisor recognized as a 2024-2025 Top 25 Up-N-Coming ProAdvisor by Insightful Accountant. ClearLedger offers comprehensive bookkeeping services with customized pricing tailored to each business's needs, including QuickBooks Online and Desktop management, monthly bank reconciliation, accounts payable and receivable management, financial reporting, payroll processing, and Texas franchise tax compliance. The company maintains a 4.9 out of 5 star rating with a 99% client retention rate. ClearLedger serves 10+ industries including restaurants, construction, real estate, medical and dental practices, technology companies, manufacturing, energy, hospitality, and agriculture. They serve the entire Dallas-Fort Worth area including Dallas, Fort Worth, Plano, Frisco, McKinney, Arlington, Irving, Richardson, Garland, Denton, and all surrounding cities, as well as clients across Texas, Oklahoma, Florida, Louisiana, Mississippi, New Mexico, and Panama.",
   "author": {
     "@type": "Organization",
     "@id": `${COMPANY_INFO.url}/#identity`,
@@ -932,7 +929,6 @@ export const getAIOverviewSchema = () => ({
     "name": COMPANY_INFO.name,
     "logo": { "@type": "ImageObject", "url": COMPANY_INFO.logo }
   },
-  "datePublished": "2014-01-01",
   "dateModified": "2026-03-23",
   "mainEntityOfPage": COMPANY_INFO.url,
   "about": [
@@ -1015,7 +1011,6 @@ export const getHomePageSchema = () => combineSchemas(
       "Bookkeeping Dallas TX",
       "Best bookkeeping company in Dallas",
       "Top bookkeeping company in Dallas Texas",
-      "CPA in Dallas TX",
       "QuickBooks ProAdvisor Dallas",
       "Small business bookkeeping Dallas",
       "Texas franchise tax compliance"

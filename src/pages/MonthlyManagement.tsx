@@ -25,20 +25,20 @@ import {
 const MonthlyManagement = () => {
   const faqs = [
     {
-      question: "How quickly will I receive my monthly financial reports?",
-      answer: "ClearLedger delivers your monthly financial reports within 5 business days of month-end. This includes Profit & Loss, Balance Sheet, Cash Flow statements, and variance analysis."
+      question: "What financial reports do I receive each month?",
+      answer: "Each month you receive a complete financial package including a Profit & Loss Statement, Balance Sheet, Cash Flow Statement, and variance analysis. Reports are delivered on a consistent schedule coordinated with you during onboarding — so your financial picture is always current and ready when you need it."
     },
     {
       question: "What is bank reconciliation and why is it important?",
-      answer: "Bank reconciliation is the process of matching your bookkeeping records with your bank statements. It helps detect duplicate transactions, identify missing income, prevent inaccurate reporting, and maintain clean records for tax filing."
+      answer: "Bank reconciliation is the process of matching your bookkeeping records with your bank statements. It helps detect duplicate transactions, identify missing income, prevent inaccurate reporting, and maintain clean records for tax filing. Done consistently every month, it's the foundation of trustworthy books."
     },
     {
       question: "Can you handle multiple bank accounts and credit cards?",
-      answer: "Yes, we reconcile all bank accounts, credit cards, and payment platforms your business uses. We ensure every transaction is properly categorized and accounted for across all accounts."
+      answer: "Yes — we reconcile every bank account, credit card, and payment platform your business uses. Every transaction is properly categorized and accounted for across all accounts, so nothing slips through the cracks."
     },
     {
       question: "What happens if you find errors during reconciliation?",
-      answer: "We investigate and correct any discrepancies found during reconciliation. We document all adjustments and provide a summary of corrections so you always know the status of your financial records."
+      answer: "We investigate and correct any discrepancies found during reconciliation. We document all adjustments and provide a clear summary of corrections so you always know the full status of your financial records."
     }
   ];
 
@@ -71,17 +71,17 @@ const MonthlyManagement = () => {
   ];
 
   const benefits = [
-    { icon: Clock, title: 'Timely Reporting', description: 'Get your financial reports within 5 business days of month-end' },
-    { icon: Shield, title: 'Compliance Ready', description: 'Ensure your books are always audit-ready and compliant' },
-    { icon: TrendingUp, title: 'Better Decisions', description: 'Make informed business decisions with accurate financial data' },
-    { icon: Zap, title: 'Peace of Mind', description: 'Know your financial position is always current and accurate' }
+    { icon: Clock, title: 'Consistent Reporting', description: 'Reliable financial reports on a set monthly schedule — so your numbers are always ready when you need them' },
+    { icon: Shield, title: 'Audit-Ready Books', description: 'Your records are kept clean, organized, and compliant — ready for any lender, tax preparer, or financial review' },
+    { icon: TrendingUp, title: 'Smarter Decisions', description: 'Accurate P&L, cash flow, and variance data so you lead your business with confidence, not guesswork' },
+    { icon: Zap, title: 'Peace of Mind', description: 'Stop worrying about your books. We handle the details so you can focus on running your business' }
   ];
 
   const process = [
-    { step: '01', title: 'Data Collection', description: 'We gather all bank statements, credit card statements, and supporting documentation' },
-    { step: '02', title: 'Reconciliation', description: 'We reconcile all accounts and identify any discrepancies or missing transactions' },
-    { step: '03', title: 'Analysis', description: 'We analyze variances, trends, and prepare comprehensive financial reports' },
-    { step: '04', title: 'Reporting', description: 'We deliver detailed financial statements and insights within 5 business days' }
+    { step: '01', title: 'Data Collection', description: 'We gather all bank statements, credit card statements, and supporting documentation for the month' },
+    { step: '02', title: 'Reconciliation', description: 'Every account is reconciled line by line — discrepancies are identified, investigated, and resolved' },
+    { step: '03', title: 'Analysis', description: 'We analyze variances and trends against prior periods and budget to surface what actually matters' },
+    { step: '04', title: 'Reporting', description: 'You receive a complete financial package every month — clear, accurate, and ready for any decision or review' }
   ];
 
   const reports = [
@@ -94,8 +94,8 @@ const MonthlyManagement = () => {
   return (
     <>
       <SEO 
-        title="Monthly Reconciliation Services | Reports in 5 Days | ClearLedger"
-        description={`Expert monthly bookkeeping & bank reconciliation. Financial reports delivered in 5 business days. Cash flow analysis, variance reports. Call ${COMPANY_INFO.phoneLocal}.`}
+        title="Monthly Bookkeeping & Reconciliation Services | ClearLedger Solutions"
+        description={`Expert monthly bookkeeping & bank reconciliation for small businesses. Accurate financial reports every month — P&L, balance sheet, cash flow, variance analysis. Call ${COMPANY_INFO.phoneLocal}.`}
         keywords="monthly bookkeeping services, bank reconciliation, financial reporting, variance analysis, cash flow monitoring, month-end closing, P&L statement, balance sheet, ClearLedger"
         canonical="/monthly-management"
         schema={schemas}
@@ -116,7 +116,7 @@ const MonthlyManagement = () => {
               </h1>
               
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed mb-8 sm:mb-12 max-w-3xl mx-auto px-4 sm:px-0">
-                Comprehensive monthly financial management to keep your business on track and compliant. Get accurate financial reports within 5 business days of month-end.
+                Comprehensive monthly financial management that keeps your business on track, compliant, and always decision-ready. Accurate books. Clear reports. No surprises.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0">
@@ -213,8 +213,8 @@ const MonthlyManagement = () => {
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
             <div className="bg-card rounded-3xl p-12 shadow-premium text-center">
-              <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground mb-6">Ready for Better Monthly Management?</h2>
-              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">Get accurate, timely financial reports that help you make better business decisions.</p>
+              <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground mb-6">Ready to Know Exactly Where Your Business Stands?</h2>
+              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">Let ClearLedger handle the books so you can focus on what you do best. Start with a free consultation — no pressure, no obligation.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/contact">
                   <Button size="lg" className="btn-primary text-lg px-8 py-4">Start Your Free Consultation <ArrowRight className="w-5 h-5 ml-2" /></Button>

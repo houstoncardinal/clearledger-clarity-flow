@@ -80,7 +80,7 @@ const Contact = () => {
       icon: Mail,
       title: 'Email',
       details: 'jj@yourclearledger.com',
-      subtext: '24-hour response commitment'
+      subtext: 'Prompt response during business hours'
     },
     {
       icon: MapPin,
@@ -100,7 +100,7 @@ const Contact = () => {
     'Free 30-minute financial assessment',
     'Custom service recommendations',
     'No-obligation pricing quote',
-    'Same-day response commitment'
+    'Dedicated client support'
   ];
 
   return (
@@ -332,7 +332,7 @@ const Contact = () => {
                 </div>
               </div>
                   <p className="text-sm text-muted-foreground mt-4 text-center">
-                    Average response time: Under 2 hours
+                    We respond to all inquiries as promptly as possible during business hours
                   </p>
             </div>
 

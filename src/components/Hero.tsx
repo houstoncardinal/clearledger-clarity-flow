@@ -60,7 +60,7 @@ const Hero = () => {
                   <Shield className="w-4 h-4 text-primary" />
                   <span className="text-xs sm:text-sm font-semibold text-foreground">Trusted by Businesses Nationwide</span>
                   <div className="hidden sm:block h-4 w-px bg-border/50" />
-                  <span className="hidden sm:block text-xs text-muted-foreground font-medium">Est. 2014</span>
+                  <span className="hidden sm:block text-xs text-muted-foreground font-medium">Award-Winning ProAdvisor</span>
                 </div>
               </motion.div>
 

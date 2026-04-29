@@ -29,7 +29,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.ctaSecondary': 'Book Directly',
     'hero.noCommitment': 'No commitment',
     'hero.strategySession': '30-minute strategy session',
-    'hero.customProposal': 'Custom proposal within 24 hours',
+    'hero.customProposal': 'Custom proposal tailored to your business',
     
     // Benefits
     'benefits.quickbooks': 'QuickBooks Online & Desktop Expertise',

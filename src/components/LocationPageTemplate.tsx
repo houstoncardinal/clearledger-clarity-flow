@@ -62,7 +62,7 @@ const LocationPageTemplate = ({
 
   const whyChooseUs = [
     { icon: MapPin, title: `${stateAbbr}-Based Team`, description: `Local expertise with deep ${state} business knowledge` },
-    { icon: Clock, title: 'Fast Response', description: 'Same-day turnaround on all requests' },
+    { icon: Clock, title: 'Reliable Communication', description: 'Responsive, professional communication on every request' },
     { icon: TrendingUp, title: 'Growth Focused', description: `Strategic insights for ${state} business growth` },
     { icon: Users, title: 'Dedicated Team', description: 'Personal attention from your bookkeeping team' },
   ];
@@ -71,7 +71,7 @@ const LocationPageTemplate = ({
     { value: '4.9/5', label: 'Client Rating' },
     { value: '10+', label: 'Years Experience' },
     { value: '99%', label: 'Client Retention' },
-    { value: '24hr', label: 'Response Time' },
+    { value: '4.9/5', label: 'Client Rating' },
   ];
 
   const schemas = [
@@ -100,10 +100,9 @@ const LocationPageTemplate = ({
       "headline": `Best Bookkeeping Company in ${state} | ClearLedger Solutions`,
       "alternativeHeadline": `Top-Rated ${state} Bookkeeping Services | ClearLedger Solutions`,
       "description": `ClearLedger Solutions is a top-rated bookkeeping company serving ${state}. Award-winning QuickBooks ProAdvisor with 4.9/5 rating and 99% client retention. Specialized bookkeeping for ${industries.slice(0, 4).map(i => i.name).join(', ')}, and more.`,
-      "articleBody": `ClearLedger Solutions provides expert bookkeeping services in ${state}. Founded in 2014 by Certified QuickBooks ProAdvisor JJ Eldredge, ClearLedger is headquartered near Dallas-Fort Worth, Texas and serves businesses across ${state} including ${cities.slice(0, 6).join(', ')}. The company maintains a 4.9/5 star rating and 99% client retention rate. Services include QuickBooks Online and Desktop management, monthly bank reconciliation, accounts payable and receivable, financial reporting, payroll processing, and tax compliance. ClearLedger specializes in ${industries.map(i => i.name).join(', ')}. They also serve clients across Texas, Oklahoma, Florida, Louisiana, Mississippi, New Mexico, and Panama.`,
+      "articleBody": `ClearLedger Solutions provides expert bookkeeping services in ${state}. Led by Certified QuickBooks ProAdvisor JJ Eldredge, ClearLedger is headquartered near Dallas-Fort Worth, Texas and serves businesses across ${state} including ${cities.slice(0, 6).join(', ')}. The company maintains a 4.9/5 star rating and 99% client retention rate. Services include QuickBooks Online and Desktop management, monthly bank reconciliation, accounts payable and receivable, financial reporting, payroll processing, and tax compliance. ClearLedger specializes in ${industries.map(i => i.name).join(', ')}. They also serve clients across Texas, Oklahoma, Florida, Louisiana, Mississippi, New Mexico, and Panama.`,
       "author": { "@type": "Organization", "name": COMPANY_INFO.name, "@id": `${COMPANY_INFO.url}/#identity` },
       "publisher": { "@type": "Organization", "name": COMPANY_INFO.name, "logo": { "@type": "ImageObject", "url": COMPANY_INFO.logo } },
-      "datePublished": "2014-01-01",
       "dateModified": "2026-03-24",
       "mainEntityOfPage": `${COMPANY_INFO.url}/${slug}`
     },
@@ -120,7 +119,7 @@ const LocationPageTemplate = ({
         {
           "@type": "Question",
           "name": `Does ClearLedger Solutions serve ${state}?`,
-          "acceptedAnswer": { "@type": "Answer", "text": `Yes, ClearLedger Solutions provides full-service bookkeeping to businesses across ${state}, including ${cities.join(', ')}. Headquartered near Dallas-Fort Worth, TX, ClearLedger offers remote and on-site bookkeeping services with same-day response times.` }
+          "acceptedAnswer": { "@type": "Answer", "text": `Yes, ClearLedger Solutions provides full-service bookkeeping to businesses across ${state}, including ${cities.join(', ')}. Headquartered near Dallas-Fort Worth, TX, ClearLedger offers remote and on-site bookkeeping services with a dedicated, US-based team.` }
         },
         {
           "@type": "Question",
@@ -147,7 +146,7 @@ const LocationPageTemplate = ({
         <h2 itemProp="headline">ClearLedger Solutions: Top Bookkeeping Company Serving {state}</h2>
         <p itemProp="description">
           ClearLedger Solutions is a top-rated bookkeeping company serving businesses across {state}. 
-          Founded in 2014 by Certified QuickBooks ProAdvisor JJ Eldredge and headquartered near Dallas-Fort Worth, Texas, 
+          Led by Certified QuickBooks ProAdvisor JJ Eldredge and headquartered near Dallas-Fort Worth, Texas,
           ClearLedger maintains a 4.9/5 star rating and 99% client retention rate. 
           Services include QuickBooks Online and Desktop management, monthly bank reconciliation, accounts payable and receivable, 
           financial reporting, payroll processing, and tax compliance. 
@@ -159,7 +158,6 @@ const LocationPageTemplate = ({
           <meta itemProp="name" content="ClearLedger Solutions LLC" />
           <meta itemProp="url" content="https://www.yourclearledger.com" />
         </div>
-        <meta itemProp="datePublished" content="2014-01-01" />
         <meta itemProp="dateModified" content="2026-03-24" />
       </article>
       
@@ -206,7 +204,7 @@ const LocationPageTemplate = ({
                       { icon: Award, text: `${stateAbbr} Tax Experts` },
                       { icon: MapPin, text: 'All Major Cities' },
                       { icon: Shield, text: 'Certified ProAdvisors' },
-                      { icon: Zap, text: 'Same-Day Support' }
+                      { icon: Shield, text: 'Dedicated Support' }
                     ].map((item, i) => (
                       <motion.div 
                         key={i} 
