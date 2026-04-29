@@ -546,10 +546,9 @@ const LocationPageTemplate = ({
                     </Button>
                   </Link>
                   <a href="tel:(903) 815-9488">
-                    <Button 
-                      size="lg" 
-                      variant="outline" 
-                      className="border-2 border-white/40 text-primary-foreground hover:bg-white/10 hover:border-white/60 font-semibold px-10 py-6 rounded-2xl backdrop-blur-sm"
+                    <Button
+                      size="lg"
+                      className="bg-white/15 border-2 border-white text-white hover:bg-white/25 hover:border-white font-semibold px-10 py-6 rounded-2xl backdrop-blur-sm"
                     >
                       Call (903) 815-9488
                     </Button>
