@@ -87,8 +87,7 @@ const DallasBookkeeping = () => {
       ],
       "sameAs": COMPANY_INFO.socialProfiles,
       "openingHoursSpecification": [
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "07:30", "closes": "16:30" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday"], "opens": "07:30", "closes": "13:00" }
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "17:00" }
       ]
     },
     {

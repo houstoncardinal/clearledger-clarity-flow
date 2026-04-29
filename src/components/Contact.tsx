@@ -74,7 +74,7 @@ const Contact = () => {
       icon: Phone,
       title: 'Phone',
       details: '(903) 815-9488',
-      subtext: 'M-Th 7:30am-4:30pm, Fri 7:30am-1:00pm'
+      subtext: 'Mon-Fri 9:00am-5:00pm CST'
     },
     {
       icon: Mail,
@@ -85,13 +85,13 @@ const Contact = () => {
     {
       icon: MapPin,
       title: 'Headquarters',
-              details: 'Whitewright, TX',
-        subtext: 'Serving clients worldwide'
+      details: 'Whitewright, TX',
+      subtext: 'Serving clients nationwide'
     },
     {
       icon: Clock,
       title: 'Business Hours',
-      details: 'M-Th 7:30am-4:30pm, Fri 7:30am-1:00pm',
+      details: 'Mon-Fri 9:00am-5:00pm CST',
       subtext: 'Saturday & Sunday - Closed'
     }
   ];

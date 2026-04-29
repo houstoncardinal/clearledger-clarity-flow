@@ -36,8 +36,8 @@ export const COMPANY_INFO = {
   slogan: "Where Clarity Meets Compliance",
   description: "ClearLedger Solutions LLC provides expert bookkeeping services, QuickBooks training, and financial consulting for small businesses across the United States. Certified QuickBooks ProAdvisor with 10+ years of bookkeeping experience.",
   openingHours: {
-    weekdays: { days: ["Monday", "Tuesday", "Wednesday", "Thursday"], opens: "07:30", closes: "16:30" },
-    friday: { days: ["Friday"], opens: "07:30", closes: "13:00" }
+    weekdays: { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "09:00", closes: "17:00" },
+    friday: { days: ["Friday"], opens: "09:00", closes: "17:00" }
   },
   founder: {
     name: "JJ Eldredge",
