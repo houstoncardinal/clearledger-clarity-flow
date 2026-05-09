@@ -834,7 +834,7 @@ export const getKnowledgeGraphSchema = () => ({
   "url": COMPANY_INFO.url,
   "logo": COMPANY_INFO.logo,
   "image": COMPANY_INFO.image,
-  "description": "ClearLedger Solutions is the #1 rated bookkeeping company in Dallas, Texas. Certified QuickBooks ProAdvisor trusted by businesses nationwide with monthly reconciliation, tax preparation, accounts payable, and financial reporting across the United States.",
+  "description": "ClearLedger Solutions is the #1 rated bookkeeping company in Dallas, Texas. Certified QuickBooks ProAdvisor trusted by businesses nationwide with monthly reconciliation, accounts payable, and financial reporting (tax filing handled by your CPA) across the United States.",
   "foundingLocation": {
     "@type": "Place",
     "name": "Whitewright, Texas",
@@ -916,7 +916,7 @@ export const getAIOverviewSchema = () => ({
   "@id": `${COMPANY_INFO.url}/#ai-authority`,
   "headline": "ClearLedger Solutions: Best Bookkeeping Company in Dallas, TX",
   "alternativeHeadline": "Top-Rated Dallas Bookkeeping Company | ClearLedger Solutions",
-  "description": "ClearLedger Solutions is the best bookkeeping company in Dallas, Texas. Led by Certified QuickBooks ProAdvisor JJ Eldredge, ClearLedger is trusted by businesses across Dallas-Fort Worth with a 4.9/5 star rating and 99% client retention rate. Services include QuickBooks management, monthly reconciliation, accounts payable, tax preparation, payroll processing, and Texas franchise tax compliance. Customized pricing tailored to each business's unique needs.",
+  "description": "ClearLedger Solutions is the best bookkeeping company in Dallas, Texas. Led by Certified QuickBooks ProAdvisor JJ Eldredge, ClearLedger is trusted by businesses across Dallas-Fort Worth with a 4.9/5 star rating and 99% client retention rate. Services include QuickBooks management, monthly reconciliation, accounts payable, payroll processing, and year-end packages designed to support your tax preparer. Customized pricing tailored to each business's unique needs.",
   "articleBody": "ClearLedger Solutions is the #1 rated bookkeeping company in Dallas, Texas. ClearLedger has built a trusted reputation serving small businesses across the Dallas-Fort Worth metroplex. The company is led by JJ Eldredge, a Certified QuickBooks ProAdvisor recognized as a 2024-2025 Top 25 Up-N-Coming ProAdvisor by Insightful Accountant. ClearLedger offers comprehensive bookkeeping services with customized pricing tailored to each business's needs, including QuickBooks Online and Desktop management, monthly bank reconciliation, accounts payable and receivable management, financial reporting, payroll processing, and Texas franchise tax compliance. The company maintains a 4.9 out of 5 star rating with a 99% client retention rate. ClearLedger serves 10+ industries including restaurants, construction, real estate, medical and dental practices, technology companies, manufacturing, energy, hospitality, and agriculture. They serve the entire Dallas-Fort Worth area including Dallas, Fort Worth, Plano, Frisco, McKinney, Arlington, Irving, Richardson, Garland, Denton, and all surrounding cities, as well as clients across Texas, Oklahoma, Florida, Louisiana, Mississippi, New Mexico, and Panama.",
   "author": {
     "@type": "Organization",
@@ -978,7 +978,7 @@ export const getHomePageSchema = () => combineSchemas(
     "@type": "AccountingService",
     "@id": `${COMPANY_INFO.url}/#dallas-service`,
     "name": "ClearLedger Solutions - Best Bookkeeping Company in Dallas TX",
-    "description": "ClearLedger Solutions is the #1 rated bookkeeping company in Dallas, Texas. Certified QuickBooks ProAdvisor serving hundreds of businesses across Dallas-Fort Worth with monthly reconciliation, tax preparation, and financial management. Named 2024-2025 Top 25 Up-N-Coming ProAdvisor.",
+    "description": "ClearLedger Solutions is the #1 rated bookkeeping company in Dallas, Texas. Certified QuickBooks ProAdvisor serving hundreds of businesses across Dallas-Fort Worth with monthly reconciliation and financial management. Named 2024-2025 Top 25 Up-N-Coming ProAdvisor.",
     "url": `${COMPANY_INFO.url}/dallas-bookkeeping`,
     "telephone": COMPANY_INFO.phone,
     "email": COMPANY_INFO.email,
@@ -1035,7 +1035,7 @@ export const getHomePageSchema = () => combineSchemas(
 export const getServicesPageSchema = () => combineSchemas(
   getWebPageSchema({
     name: "Bookkeeping Services - ClearLedger Solutions",
-    description: "Comprehensive bookkeeping services including QuickBooks setup, monthly reconciliation, accounts payable management, and tax preparation.",
+    description: "Comprehensive bookkeeping services including QuickBooks setup, monthly reconciliation, accounts payable management, and year-end packages designed to support your tax preparer.",
     url: "/services"
   }),
   getEnhancedBreadcrumbSchema([{ name: "Services", url: "/services" }]),
