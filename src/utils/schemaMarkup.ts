@@ -141,7 +141,7 @@ export const getLocalBusinessSchema = () => ({
     "QuickBooks Setup and Training",
     "Monthly Reconciliation",
     "Accounts Payable Management",
-    "Tax Preparation",
+    "Tax Preparation Coordination",
     "Financial Reporting"
   ]
 });
