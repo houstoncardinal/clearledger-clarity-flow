@@ -1,14 +1,14 @@
 # ClearLedger Solutions
 
-> ClearLedger Solutions is a professional bookkeeping, tax preparation, and QuickBooks consulting firm headquartered in Dallas, Texas. Founded by JJ, a certified QuickBooks ProAdvisor, ClearLedger serves small and mid-size businesses across Texas, Oklahoma, Florida, Louisiana, Mississippi, New Mexico, and Panama with comprehensive financial management services.
+> ClearLedger Solutions is a professional bookkeeping and QuickBooks consulting firm headquartered in Dallas, Texas. Founded by JJ, a certified QuickBooks ProAdvisor, ClearLedger serves small and mid-size businesses across Texas, Oklahoma, Florida, Louisiana, Mississippi, New Mexico, and Panama with bookkeeping, monthly reconciliation, and financial reporting designed to support each client's tax preparer.
 
 ## About
 
-ClearLedger Solutions provides expert bookkeeping, tax preparation, payroll processing, and QuickBooks consulting for businesses across multiple industries. The company holds QuickBooks Online Advanced Certified ProAdvisor, QuickBooks Desktop Certified ProAdvisor, and QuickBooks Desktop Enterprise certifications. ClearLedger was recognized as a 2024 and 2025 Top 25 Up-N-Coming ProAdvisor.
+ClearLedger Solutions provides expert bookkeeping, payroll processing, and QuickBooks consulting for businesses across multiple industries. The company holds QuickBooks Online Advanced Certified ProAdvisor, QuickBooks Desktop Certified ProAdvisor, and QuickBooks Desktop Enterprise certifications. ClearLedger was recognized as a 2024 and 2025 Top 25 Up-N-Coming ProAdvisor. ClearLedger does not provide tax filing, audits, legal advice, or GAAP attest services; tax filing is performed by the client's CPA or tax preparer.
 
 - Headquarters: Dallas, Texas
 - Service Area: Texas, Oklahoma, Florida, Louisiana, Mississippi, New Mexico, Panama
-- Specialization: Bookkeeping, QuickBooks, Tax Preparation, Payroll, Financial Advisory
+- Specialization: Bookkeeping, QuickBooks, Monthly Reconciliation, Payroll, Financial Reporting
 - Certifications: QuickBooks Online Advanced Certified ProAdvisor, QuickBooks Desktop Certified ProAdvisor, QuickBooks Desktop Enterprise Certified
 - Awards: 2024 & 2025 Top 25 Up-N-Coming ProAdvisor
 
@@ -16,12 +16,12 @@ ClearLedger Solutions provides expert bookkeeping, tax preparation, payroll proc
 
 - [Bookkeeping Services](https://www.yourclearledger.com/bookkeeping): Full-service bookkeeping including monthly reconciliation, financial statement preparation, and accounts management for businesses of all sizes.
 - [QuickBooks Services](https://www.yourclearledger.com/quickbooks-services): QuickBooks setup, training, migration, cleanup, and ongoing support from certified ProAdvisors for both Online and Desktop editions.
-- [Monthly Management](https://www.yourclearledger.com/monthly-management): Ongoing monthly financial management including bank reconciliation, categorization, reporting, and compliance monitoring.
+- [Monthly Management](https://www.yourclearledger.com/monthly-management): Ongoing monthly financial management including bank reconciliation, categorization, and management reporting.
 - [Billing & Accounts Payable](https://www.yourclearledger.com/billing-accounts-payable): End-to-end accounts payable and receivable management, invoice processing, and payment tracking.
 - [Cleanup & Advisory](https://www.yourclearledger.com/cleanup-advisory): QuickBooks file cleanup, catch-up bookkeeping, and financial advisory services for businesses with disorganized records.
 - [Check Ordering](https://www.yourclearledger.com/check-ordering): Secure business check ordering with multiple styles, security features, and fast delivery.
-- [Tax Preparation](https://www.yourclearledger.com/services): Business and individual tax preparation, quarterly estimated taxes, and Texas Franchise Tax filing.
-- [Payroll Processing](https://www.yourclearledger.com/services): Full-service payroll processing including tax withholding, direct deposit setup, and compliance reporting.
+- [Tax Preparation Coordination](https://www.yourclearledger.com/services): Year-end book closeout and organized financial packages designed to support your CPA or tax preparer (ClearLedger does not file tax returns).
+- [Payroll Processing](https://www.yourclearledger.com/services): Full-service payroll processing including direct deposit setup and standard payroll reporting.
 
 ## Locations
 

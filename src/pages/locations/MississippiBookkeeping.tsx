@@ -39,7 +39,7 @@ const MississippiBookkeeping = () => {
       specialCompliance={{
         title: 'Mississippi Tax Compliance',
         items: [
-          'Mississippi income tax preparation',
+          'Mississippi tax preparer coordination & year-end packages',
           'Sales tax compliance',
           'Franchise tax filing',
           'Quarterly estimated payments',
