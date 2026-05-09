@@ -39,7 +39,7 @@ const OklahomaBookkeeping = () => {
       specialCompliance={{
         title: 'Oklahoma Tax Compliance',
         items: [
-          'Oklahoma tax preparer coordination & year-end packages',
+          'Oklahoma income tax preparation',
           'Gross production tax tracking',
           'Sales tax compliance',
           'Quarterly estimated payments',

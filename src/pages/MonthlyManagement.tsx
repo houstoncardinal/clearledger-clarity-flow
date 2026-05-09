@@ -72,7 +72,7 @@ const MonthlyManagement = () => {
 
   const benefits = [
     { icon: Clock, title: 'Consistent Reporting', description: 'Reliable financial reports on a set monthly schedule — so your numbers are always ready when you need them' },
-    { icon: Shield, title: 'Organized & Review-Ready', description: 'Your records are kept clean and well-organized — designed to support your lender, tax preparer, or internal review process' },
+    { icon: Shield, title: 'Audit-Ready Books', description: 'Your records are kept clean, organized, and compliant — ready for any lender, tax preparer, or financial review' },
     { icon: TrendingUp, title: 'Smarter Decisions', description: 'Accurate P&L, cash flow, and variance data so you lead your business with confidence, not guesswork' },
     { icon: Zap, title: 'Peace of Mind', description: 'Stop worrying about your books. We handle the details so you can focus on running your business' }
   ];

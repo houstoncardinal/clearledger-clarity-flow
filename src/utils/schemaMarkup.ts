@@ -7,7 +7,7 @@ export const getOrganizationSchema = () => ({
   "url": "https://clearledger.com",
   "logo": "https://clearledger.com/logo.png",
   "image": "https://clearledger.com/thumbnail.png",
-  "description": "Professional bookkeeping services for small businesses and entrepreneurs. QuickBooks ProAdvisor certified with expertise in monthly reconciliation, accounts payable, and year-end packages designed to support your tax preparer.",
+  "description": "Professional bookkeeping services for small businesses and entrepreneurs. QuickBooks ProAdvisor certified with expertise in monthly reconciliation, accounts payable, and tax preparation.",
   "foundingDate": "2020",
   "address": {
     "@type": "PostalAddress",
@@ -141,7 +141,7 @@ export const getLocalBusinessSchema = () => ({
     "QuickBooks Setup and Training",
     "Monthly Reconciliation",
     "Accounts Payable Management",
-    "Tax Preparation Coordination",
+    "Tax Preparation",
     "Financial Reporting"
   ]
 });

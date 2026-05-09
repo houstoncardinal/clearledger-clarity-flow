@@ -1,10 +1,10 @@
 # ClearLedger Solutions — Full Documentation
 
-> ClearLedger Solutions is a professional bookkeeping and QuickBooks consulting firm headquartered in Dallas, Texas. Founded by JJ, a certified QuickBooks ProAdvisor, the company provides comprehensive financial management services for small and mid-size businesses across Texas, Oklahoma, Florida, Louisiana, Mississippi, New Mexico, and Panama. ClearLedger was recognized as a 2024 and 2025 Top 25 Up-N-Coming ProAdvisor.
+> ClearLedger Solutions is a professional bookkeeping, tax preparation, and QuickBooks consulting firm headquartered in Dallas, Texas. Founded by JJ, a certified QuickBooks ProAdvisor, the company provides comprehensive financial management services for small and mid-size businesses across Texas, Oklahoma, Florida, Louisiana, Mississippi, New Mexico, and Panama. ClearLedger was recognized as a 2024 and 2025 Top 25 Up-N-Coming ProAdvisor.
 
 ## Company Overview
 
-ClearLedger Solutions specializes in helping businesses maintain accurate financial records, optimize their QuickBooks workflows, and improve financial clarity. The firm serves over 15 industries and 
+ClearLedger Solutions specializes in helping businesses maintain accurate financial records, optimize their QuickBooks workflows, and achieve regulatory compliance. The firm serves over 15 industries and maintains a 100% compliance rate across all client engagements.
 
 ### Core Competencies
 
@@ -12,7 +12,7 @@ ClearLedger Solutions specializes in helping businesses maintain accurate financ
 
 2. **QuickBooks Consulting**: As certified ProAdvisors for both QuickBooks Online and Desktop, ClearLedger provides setup and configuration, data migration between platforms, file cleanup and error correction, custom reporting, third-party app integration, and ongoing training.
 
-3. **Tax Preparation Coordination**: Year-end book closeout, organized financial packages, and coordination with your CPA or tax preparer. ClearLedger does not file tax returns or provide legal/audit services.
+3. **Tax Preparation & Compliance**: Business and individual tax return preparation, quarterly estimated tax calculations, Texas Franchise Tax filing, multi-state tax compliance, and year-end tax planning strategies.
 
 4. **Payroll Services**: Full-service payroll processing including federal and state tax withholding, direct deposit setup, W-2 and 1099 preparation, workers compensation tracking, and compliance reporting.
 
@@ -42,7 +42,7 @@ ClearLedger Solutions is headquartered in Dallas, Texas and serves clients in th
 
 ### Bookkeeping Services
 
-Full-service bookkeeping for businesses of all sizes. Includes monthly bank and credit card reconciliation, categorization of transactions, financial statement preparation, and management reporting. ClearLedger maintains accurate books using industry best practices designed to support your tax preparer and provide business owners with clear financial visibility.
+Full-service bookkeeping for businesses of all sizes. Includes monthly bank and credit card reconciliation, categorization of transactions, financial statement preparation, and management reporting. ClearLedger maintains accurate books using industry best practices to ensure compliance and provide business owners with clear financial visibility.
 
 URL: https://www.yourclearledger.com/bookkeeping
 

@@ -11,9 +11,9 @@ const ServicesPage = () => {
   return (
     <main className="min-h-screen bg-background">
       <SEO 
-        title="Expert Bookkeeping Services | QuickBooks, A/P & Reporting | ClearLedger"
-        description={`Full-service bookkeeping: QuickBooks setup, monthly reconciliation, accounts payable & financial reporting designed to support your tax preparer. Trusted nationwide. Call ${COMPANY_INFO.phoneLocal}.`}
-        keywords="bookkeeping services Texas, QuickBooks setup services, monthly reconciliation, accounts payable management, tax preparation coordination, financial reporting, small business bookkeeping, outsourced bookkeeping, ClearLedger Solutions"
+        title="Expert Bookkeeping Services | QuickBooks, A/P & Tax Prep | ClearLedger"
+        description={`Full-service bookkeeping: QuickBooks setup, monthly reconciliation, accounts payable, tax prep & financial reporting. Trusted by businesses nationwide. Call ${COMPANY_INFO.phoneLocal}.`}
+        keywords="bookkeeping services Texas, QuickBooks setup services, monthly reconciliation, accounts payable management, tax preparation, financial reporting, small business bookkeeping, outsourced bookkeeping, ClearLedger Solutions"
         canonical="/services"
         schema={getServicesPageSchema()}
       />
