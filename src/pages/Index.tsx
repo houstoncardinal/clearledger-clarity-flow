@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import BadgesSection from '@/components/BadgesSection';
 import ServicesComponent from '@/components/Services';
+import VisualTrustBand from '@/components/VisualTrustBand';
 import CheckOrderingSection from '@/components/CheckOrderingSection';
 import Testimonials from '@/components/Testimonials';
 import Footer from '@/components/Footer';
