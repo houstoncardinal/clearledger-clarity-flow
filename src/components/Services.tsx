@@ -113,13 +113,13 @@ const Services = ({ asSection = false }: { asSection?: boolean }) => {
           </p>
         </motion.div>
 
-        {/* Services Grid */}
+        {/* Services Grid - 4 column compact luxury cards */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-10 sm:mb-12 md:mb-16"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-10 sm:mb-12 md:mb-16"
         >
           {services.map((service, index) => {
             const IconComponent = service.icon;
@@ -127,43 +127,47 @@ const Services = ({ asSection = false }: { asSection?: boolean }) => {
               <motion.div 
                 key={index} 
                 variants={itemVariants}
-                className="card-service group"
+                className="group relative flex flex-col h-full rounded-3xl bg-white/80 backdrop-blur-xl border border-primary/10 p-6 lg:p-7 shadow-[0_4px_30px_-8px_rgba(168,85,247,0.12)] hover:shadow-[0_20px_60px_-15px_rgba(168,85,247,0.35)] hover:-translate-y-2 hover:border-primary/30 transition-all duration-500 overflow-hidden"
               >
+                {/* Top accent line */}
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                {/* Soft corner glow */}
+                <div className="absolute -top-16 -right-16 w-40 h-40 bg-gradient-to-br from-primary/15 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
                 {/* Icon */}
-                <div className="icon-container mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 w-12 h-12 sm:w-14 sm:h-14">
-                  <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-primary-foreground" />
+                <div className="relative mb-5">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary via-purple-500 to-primary-dark flex items-center justify-center shadow-lg shadow-primary/30 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
+                    <IconComponent className="w-6 h-6 text-white" />
+                  </div>
                 </div>
 
-                {/* Content */}
-                <h3 className="font-heading text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-2 sm:mb-4">
+                {/* Title */}
+                <h3 className="font-heading text-lg lg:text-xl font-bold text-foreground mb-2 leading-snug">
                   {service.title}
                 </h3>
-                <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 leading-relaxed">
+
+                {/* Description */}
+                <p className="text-sm text-muted-foreground mb-5 leading-relaxed line-clamp-3">
                   {service.description}
                 </p>
 
-                {/* Features */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 mb-4 sm:mb-6">
-                  {service.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-start gap-1.5 sm:gap-2">
-                      <CheckCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-xs sm:text-sm text-foreground">{feature}</span>
-                    </div>
+                {/* Features - compact list */}
+                <ul className="space-y-2 mb-6 flex-1">
+                  {service.features.slice(0, 3).map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-start gap-2">
+                      <CheckCircle className="w-3.5 h-3.5 text-primary mt-[3px] flex-shrink-0" />
+                      <span className="text-xs text-foreground/80 leading-snug">{feature}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
 
-                {/* Ideal For */}
-                <div className="bg-accent/50 p-3 sm:p-4 rounded-xl sm:rounded-2xl mb-4 sm:mb-6 border border-primary/10">
-                  <h4 className="font-semibold text-accent-foreground mb-0.5 sm:mb-1 text-xs sm:text-sm">Ideal For:</h4>
-                  <p className="text-xs sm:text-sm text-accent-foreground/80">{service.idealFor}</p>
-                </div>
-
-                {/* CTA */}
-                <Link to={service.href}>
-                  <Button variant="outline" className="w-full btn-secondary group/btn text-xs sm:text-sm h-10 sm:h-11">
-                    Learn More
-                    <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
-                  </Button>
+                {/* CTA - text link style */}
+                <Link 
+                  to={service.href}
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2.5 transition-all duration-300 mt-auto"
+                >
+                  Learn More
+                  <ArrowRight className="w-4 h-4 transition-transform" />
                 </Link>
               </motion.div>
             );
