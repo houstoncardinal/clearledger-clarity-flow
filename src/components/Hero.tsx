@@ -165,55 +165,82 @@ const Hero = () => {
               className="hidden lg:block lg:col-span-5"
             >
               <div className="relative">
-                {/* Subtle glow effect behind card */}
-                <div className="absolute -inset-6 bg-gradient-to-br from-primary/10 via-transparent to-purple-500/10 rounded-[2rem] blur-3xl opacity-50" />
-                
-                <div className="relative bg-background/95 backdrop-blur-xl border border-border/40 rounded-[1.5rem] overflow-hidden shadow-2xl">
-                  {/* Card header with gradient accent */}
-                  <div className="relative px-8 pt-8 pb-6">
-                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-purple-500 to-primary opacity-80" />
+                {/* Layered glow effects */}
+                <div className="absolute -inset-8 bg-gradient-to-br from-primary/20 via-purple-500/10 to-pink-500/15 rounded-[2.5rem] blur-3xl opacity-60" />
+                <div className="absolute -inset-2 bg-gradient-to-br from-primary/30 to-purple-500/20 rounded-[2rem] blur-xl opacity-40" />
+
+                <div className="relative bg-gradient-to-br from-white via-white to-primary/[0.02] backdrop-blur-xl border border-primary/10 rounded-[1.75rem] overflow-hidden shadow-[0_25px_80px_-20px_rgba(168,85,247,0.35)]">
+                  {/* Premium top accent */}
+                  <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary via-purple-500 to-primary" />
+
+                  {/* Award ribbon */}
+                  <div className="absolute top-5 right-5 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-amber-50 to-yellow-50 border border-amber-200/60 shadow-sm">
+                    <Award className="w-3.5 h-3.5 text-amber-600" />
+                    <span className="text-[10px] font-bold tracking-wide text-amber-900 uppercase">Top 25 ProAdvisor</span>
+                  </div>
+
+                  {/* Card header */}
+                  <div className="relative px-7 pt-9 pb-5">
                     <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center shadow-lg shadow-primary/20">
-                        <TrendingUp className="w-7 h-7 text-primary-foreground" />
+                      <div className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-primary via-purple-500 to-primary-dark flex items-center justify-center shadow-lg shadow-primary/30">
+                        <TrendingUp className="w-7 h-7 text-white" />
+                        <div className="absolute inset-0 rounded-2xl ring-1 ring-white/30" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-foreground">ClearLedger</h3>
-                        <p className="text-sm text-muted-foreground">Financial Excellence</p>
+                        <h3 className="font-heading text-lg font-bold text-foreground tracking-tight">ClearLedger Solutions</h3>
+                        <p className="text-xs text-muted-foreground font-medium">Where Clarity Meets Compliance</p>
                       </div>
                     </div>
                   </div>
-                  
+
+                  {/* KPI Strip */}
+                  <div className="mx-7 mb-5 grid grid-cols-3 gap-2 p-3 rounded-2xl bg-gradient-to-br from-primary/5 to-purple-500/5 border border-primary/10">
+                    {[
+                      { value: '10+', label: 'Years' },
+                      { value: '15+', label: 'Industries' },
+                      { value: '4.9★', label: 'Rating' },
+                    ].map((stat) => (
+                      <div key={stat.label} className="text-center">
+                        <div className="font-heading text-base font-bold bg-gradient-to-br from-primary to-purple-600 bg-clip-text text-transparent">{stat.value}</div>
+                        <div className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider mt-0.5">{stat.label}</div>
+                      </div>
+                    ))}
+                  </div>
+
                   {/* Highlights list */}
-                  <div className="px-8 pb-6 space-y-4">
+                  <div className="px-7 pb-6 space-y-2.5">
                     {highlights.map((item, index) => (
                       <motion.div
                         key={item.title}
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
-                        className="flex items-center gap-4 p-4 rounded-xl bg-muted/20 hover:bg-muted/40 border border-border/30 transition-all duration-300 group"
+                        className="flex items-center gap-3.5 p-3 rounded-xl bg-white hover:bg-primary/[0.03] border border-primary/5 hover:border-primary/20 hover:shadow-md transition-all duration-300 group"
                       >
-                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/10 to-purple-500/10 flex items-center justify-center group-hover:from-primary/20 group-hover:to-purple-500/20 group-hover:scale-105 transition-all">
                           <item.icon className="w-5 h-5 text-primary" />
                         </div>
-                        <div>
-                          <h4 className="font-medium text-foreground text-sm">{item.title}</h4>
-                          <p className="text-xs text-muted-foreground">{item.description}</p>
+                        <div className="flex-1 min-w-0">
+                          <h4 className="font-semibold text-foreground text-sm leading-tight">{item.title}</h4>
+                          <p className="text-xs text-muted-foreground mt-0.5">{item.description}</p>
                         </div>
                       </motion.div>
                     ))}
                   </div>
-                  
+
                   {/* Card footer */}
-                  <div className="px-8 py-5 bg-muted/20 border-t border-border/30">
+                  <div className="px-7 py-4 bg-gradient-to-r from-primary/[0.03] via-purple-500/[0.04] to-primary/[0.03] border-t border-primary/10">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                        <span className="text-sm text-muted-foreground">QuickBooks ProAdvisor</span>
+                        <div className="relative">
+                          <div className="w-2 h-2 rounded-full bg-emerald-500" />
+                          <div className="absolute inset-0 w-2 h-2 rounded-full bg-emerald-500 animate-ping opacity-75" />
+                        </div>
+                        <span className="text-xs font-medium text-foreground">Accepting New Clients</span>
                       </div>
-                      <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20">
-                        <Award className="w-4 h-4 text-primary" />
-                        <span className="text-xs font-medium text-primary">Certified</span>
+                      <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20">
+                        <CheckCircle2 className="w-3 h-3 text-primary" />
+                        <span className="text-[10px] font-semibold text-primary uppercase tracking-wider">Certified</span>
                       </div>
                     </div>
                   </div>
