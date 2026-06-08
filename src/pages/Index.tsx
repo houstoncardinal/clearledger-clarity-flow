@@ -119,6 +119,7 @@ const Index = () => {
         <meta itemProp="dateModified" content="2026-03-23" />
       </article>
 
+      <ConsultationOptIn />
       <BadgesSection />
       <ServicesComponent asSection />
       <CheckOrderingSection />
