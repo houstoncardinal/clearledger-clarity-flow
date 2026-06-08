@@ -4,6 +4,7 @@ import BadgesSection from '@/components/BadgesSection';
 import ServicesComponent from '@/components/Services';
 import CheckOrderingSection from '@/components/CheckOrderingSection';
 import Testimonials from '@/components/Testimonials';
+import ConsultationOptIn from '@/components/ConsultationOptIn';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
 import { 
