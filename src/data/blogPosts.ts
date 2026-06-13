@@ -184,6 +184,161 @@ At **ClearLedger Solutions**, we partner with small businesses across Texas and 
     featured: true,
   },
   {
+    id: 'monthly-bookkeeping-checklist-small-business',
+    title: 'The Monthly Bookkeeping Checklist for Small Business Owners',
+    slug: 'monthly-bookkeeping-checklist-small-business',
+    excerpt: 'A consistent monthly routine is the secret behind books that are always current and useful. Here is the eight-step close that keeps small business owners calm, confident, and tax-ready.',
+    content: `
+# The Monthly Bookkeeping Checklist for Small Business Owners
+
+A consistent monthly routine is the secret behind books that are always current and useful. Here is the eight-step close that keeps owners calm, confident, and ready for whatever the year brings.
+
+Most small business owners do not need more bookkeeping tools — they need a steady rhythm. The checklist below is the same monthly close professional bookkeepers run for their clients, simplified so any owner can follow it.
+
+---
+
+## In This Article
+
+1. Record and categorize all transactions
+2. Reconcile your bank and credit card accounts
+3. Review accounts receivable
+4. Review accounts payable
+5. Review payroll
+6. Review your financial reports
+7. Set aside funds for tax obligations
+8. Back up and organize documentation
+9. Weekly vs. monthly: a quick rhythm
+
+---
+
+## 1. Record and Categorize All Transactions
+
+Make sure every transaction for the month — income and expenses — is entered and assigned to the right category. Accurate categorization is what makes your reports meaningful.
+
+A few habits that make this step painless:
+
+- Connect your bank feeds so transactions flow into QuickBooks automatically
+- Set up bank rules for recurring vendors to speed up categorization
+- Review uncategorized transactions weekly so nothing piles up
+
+When every transaction lands in the right place, your profit and loss statement tells the truth about your business.
+
+---
+
+## 2. Reconcile Your Bank and Credit Card Accounts
+
+Match your books against your bank and credit card statements to confirm everything lines up. Regular reconciliation is one of the most important habits for reliable numbers.
+
+Reconciliation catches what data entry misses — duplicate charges, missing deposits, and transactions that hit the wrong account. A monthly reconciliation keeps your books trustworthy and protects you from surprises at tax time.
+
+---
+
+## 3. Review Accounts Receivable
+
+Check which customer invoices are outstanding and follow up on any that are overdue. Staying on top of receivables supports healthy cash flow.
+
+A simple monthly receivables review covers:
+
+- Which invoices are current, 30 days late, 60 days late, or 90+ days late
+- Which customers need a friendly reminder this week
+- Whether any balances should be written off or sent to collections
+
+The owners with the steadiest cash flow are usually the ones who look at receivables every single month.
+
+---
+
+## 4. Review Accounts Payable
+
+Confirm upcoming bills and payment dates so nothing slips through the cracks. Knowing what is due — and when — keeps your cash flow steady.
+
+This is also the moment to catch duplicate bills, vendor pricing changes, and recurring charges you no longer need. A quick review each month can quietly save real money over the course of a year.
+
+---
+
+## 5. Review Payroll
+
+If you have employees, confirm payroll was processed correctly and recorded in your books for the month. Verify that wages, taxes, and benefits are posted to the correct accounts so your labor costs are accurate on your financial reports.
+
+---
+
+## 6. Review Your Financial Reports
+
+Look at your profit and loss statement and a snapshot of your financial position. These internal management reports help you understand how the month actually went and guide your next decisions.
+
+Three questions worth asking every month:
+
+- Did revenue land where I expected?
+- Were any expense categories higher than usual — and why?
+- How does this month compare to the same month last year?
+
+You do not need to be an accountant to find these answers useful. You just need to look.
+
+---
+
+## 7. Set Aside Funds for Tax Obligations
+
+Many owners find it helpful to regularly set aside money toward future tax obligations, so filing time feels manageable. How much to set aside is a question for your tax professional — but a simple monthly transfer to a dedicated savings account is a habit that pays off every April.
+
+---
+
+## 8. Back Up and Organize Documentation
+
+Keep receipts, invoices, and key documents organized and stored. Clean documentation supports smoother tax preparation and overall peace of mind.
+
+A few practical tips:
+
+- Use a single cloud folder structure organized by year and month
+- Attach receipts directly to transactions inside QuickBooks Online when possible
+- Keep vendor W-9s and customer contracts in a dedicated folder you can find in seconds
+
+---
+
+## Weekly vs. Monthly: A Quick Rhythm
+
+You do not have to do everything monthly. Many owners find a light weekly touch — entering transactions and checking receivables — makes the monthly close fast and painless. The goal is a steady rhythm, not a year-end marathon.
+
+A rhythm that works well for most small businesses:
+
+- **Weekly (15 minutes):** categorize new transactions, glance at receivables
+- **Monthly (60–90 minutes):** run the full eight-step close above
+- **Quarterly:** review reports with your bookkeeper and check in on tax savings
+- **Annually:** hand off clean books to your CPA for tax filing
+
+---
+
+## Frequently Asked Questions
+
+### How often should I do bookkeeping?
+
+A light weekly touch plus a monthly close is a great rhythm for most small businesses. Consistency is what keeps books reliable and tax season calm.
+
+### What is reconciliation in bookkeeping?
+
+Reconciliation means matching your books against your bank and credit card statements to confirm everything agrees — a key step for accurate records and trustworthy financial reports.
+
+### Can I outsource this checklist?
+
+Absolutely. Many owners hand the entire monthly routine to a bookkeeping team to save time and ensure consistency. A professional bookkeeper runs this same close every month so you can focus on running your business.
+
+---
+
+## Want This Checklist Run for You Every Month?
+
+At **ClearLedger Solutions**, we run a structured monthly close for small businesses inside QuickBooks Online — so your books stay current, your reports stay meaningful, and tax season stays calm.
+
+**Schedule a complimentary consultation** at [yourclearledger.com/consultation](/consultation) or call **(903) 815-9488**. *Where clarity meets compliance.*
+    `,
+    image: '/blog/monthly-bookkeeping-checklist.jpg',
+    heroImage: '/blog/monthly-bookkeeping-checklist.jpg',
+    category: 'bookkeeping-tips',
+    tags: ['monthly bookkeeping checklist', 'small business bookkeeping', 'monthly close', 'bank reconciliation', 'QuickBooks Online', 'cash flow management'],
+    author: defaultAuthor,
+    datePublished: '2026-06-13',
+    dateModified: '2026-06-13',
+    readTime: 9,
+    featured: true,
+  },
+  {
     id: '7',
     title: 'How to Fix Messy QuickBooks in 30 Minutes (Step-by-Step Guide)',
     slug: 'fix-messy-quickbooks-30-minutes',
