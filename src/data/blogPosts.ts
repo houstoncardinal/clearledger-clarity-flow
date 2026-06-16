@@ -184,6 +184,105 @@ At **ClearLedger Solutions**, we partner with small businesses across Texas and 
     featured: true,
   },
   {
+    id: 'chart-of-accounts-strategy-document',
+    title: 'Your Chart of Accounts Is a Strategy Document: How to Design One That Earns Its Keep',
+    slug: 'chart-of-accounts-strategy-document',
+    excerpt: 'Most owners inherit a default chart of accounts and live with it forever. A thoughtful one quietly changes how clearly you see your business — here is how to design one that earns its keep.',
+    content: `
+# Your Chart of Accounts Is a Strategy Document: How to Design One That Earns Its Keep
+
+Most owners inherit a default chart of accounts and live with it forever. A thoughtful one quietly changes how clearly you see your business.
+
+The chart of accounts is the unglamorous backbone of your bookkeeping. It is the list of categories your transactions are sorted into — and it shapes every report you ever read about your business. When it is well designed, your profit and loss tells a clear story. When it is cluttered or vague, even accurate books feel hard to interpret.
+
+---
+
+## In This Article
+
+1. The job of a good chart of accounts
+2. Principles that hold up over time
+3. Common cleanup wins
+4. How to use it once it is clean
+
+---
+
+## The Job of a Good Chart of Accounts
+
+A useful chart of accounts answers the questions you actually ask: where is revenue really coming from, which costs are tied to delivering the work, and which are the cost of being in business at all. The structure should make those answers visible at a glance.
+
+---
+
+## Principles That Hold Up Over Time
+
+### 1. Group by Decision, Not by Transaction
+
+Categories exist to support decisions. If two lines never lead to a different action, consider merging them. If one big line hides two very different stories, split it.
+
+### 2. Separate Cost of Services from Overhead
+
+Direct costs — materials, subcontractors, anything tied to delivering the work — belong above the line as cost of goods or services. Rent, software, and admin belong in operating expenses. The split is what makes gross margin meaningful.
+
+### 3. Keep the List Lean
+
+Most small businesses can run beautifully on 30 to 60 active accounts. Anything beyond that should earn its place. Use classes, locations, or projects for slicing — not endless new accounts.
+
+### 4. Name Accounts in Plain Language
+
+If an account name needs a footnote, rename it. "Software — Operations" is friendlier than "Misc Subscriptions." Future-you, your bookkeeper, and your tax preparer will all benefit.
+
+---
+
+## Common Cleanup Wins
+
+- Retire categories with no activity in the last 12 months.
+- Merge near-duplicate accounts ("Office Supplies" and "Office Expenses").
+- Move owner-related transactions into their own clearly named accounts.
+- Move loan payments out of operating expenses; split principal and interest correctly.
+- Confirm any "Ask My Accountant" or "Uncategorized" line is empty before month end.
+
+---
+
+## How to Use It Once It Is Clean
+
+A tidy chart of accounts unlocks better reports — gross margin trends, a percent-of-revenue view of expenses, and the ability to compare months without flinching. This is what we mean by financial clarity for internal management decisions: you stop reading lists of numbers and start seeing the shape of your business.
+
+Always coordinate any structural changes with your tax professional so categories continue to line up cleanly with how your return is prepared.
+
+---
+
+## Frequently Asked Questions
+
+### How many accounts should a small business have?
+
+Most run well on roughly 30 to 60 active accounts. The right number is the smallest one that still answers the questions you ask of your numbers.
+
+### Can I change my chart of accounts mid-year?
+
+Yes, with care. Merging or renaming is usually safe; restructuring categories is best done with a bookkeeper and in coordination with your tax professional.
+
+### What is the difference between cost of goods sold and operating expenses?
+
+Cost of goods or services covers what it takes to deliver the work. Operating expenses are the cost of being in business — rent, software, admin, marketing.
+
+---
+
+## Ready to Redesign Your Chart of Accounts?
+
+A well-built chart of accounts pays for itself every time you open a report. If yours feels cluttered, vague, or inherited from a template that never fit, ClearLedger Solutions can help you redesign it — cleanly, carefully, and in coordination with your tax professional.
+
+[Schedule a free consultation](/consultation) to see what a strategic chart of accounts could reveal about your business.
+`,
+    image: '/blog/chart-of-accounts-strategy.jpg',
+    heroImage: '/blog/chart-of-accounts-strategy.jpg',
+    category: 'bookkeeping-tips',
+    tags: ['Chart of Accounts', 'Bookkeeping', 'Financial Reporting', 'Small Business', 'QuickBooks', 'Gross Margin'],
+    author: defaultAuthor,
+    datePublished: '2026-06-16',
+    dateModified: '2026-06-16',
+    readTime: 7,
+    featured: true,
+  },
+  {
     id: 'monthly-bookkeeping-checklist-small-business',
     title: 'The Monthly Bookkeeping Checklist for Small Business Owners',
     slug: 'monthly-bookkeeping-checklist-small-business',
