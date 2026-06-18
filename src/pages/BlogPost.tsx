@@ -306,8 +306,8 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title={`${post.title} | ClearLedger Solutions Blog`}
-        description={post.excerpt}
+        title={post.seoTitle || `${post.title} | ClearLedger Solutions Blog`}
+        description={post.seoDescription || post.excerpt}
         keywords={post.tags.join(', ')}
         canonical={`/blog/${post.slug}`}
         ogImage={`https://www.yourclearledger.com${post.image}`}
