@@ -23,6 +23,8 @@ export interface BlogPost {
     url: string;
   };
   featured?: boolean;
+  seoTitle?: string;
+  seoDescription?: string;
 }
 
 export const blogCategories = [
