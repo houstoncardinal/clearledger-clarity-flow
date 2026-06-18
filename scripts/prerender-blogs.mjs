@@ -45,8 +45,8 @@ function escapeHtml(s = '') {
 
 function buildMetaBlock(post) {
   const url = `${SITE_URL}/blog/${post.slug}`;
-  const title = `${post.title} | ClearLedger Solutions Blog`;
-  const description = post.excerpt;
+  const title = post.seoTitle || `${post.title} | ClearLedger Solutions Blog`;
+  const description = post.seoDescription || post.excerpt;
   const image = `${SITE_URL}${post.image}`;
   const keywords = (post.tags || []).join(', ');
   const articleSchema = {
