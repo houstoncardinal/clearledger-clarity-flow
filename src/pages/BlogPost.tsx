@@ -202,6 +202,7 @@ const BlogPost = () => {
     const processInlineMarkdown = (text: string) => {
       return text
         .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-foreground">$1</strong>')
+        .replace(/(^|[\s(])\*([^*\n]+)\*(?=[\s.,;:!?)]|$)/g, '$1<em class="italic">$2</em>')
         .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-primary underline underline-offset-2 hover:text-primary/80 transition-colors">$1</a>');
     };
 
@@ -276,6 +277,29 @@ const BlogPost = () => {
           <p key={index} className="font-semibold text-foreground text-lg mb-4 mt-6">
             {trimmedLine.replace(/\*\*/g, '')}
           </p>
+        );
+      } else if (trimmedLine.startsWith('> ')) {
+        flushList();
+        const text = processInlineMarkdown(trimmedLine.replace(/^>\s?/, ''));
+        elements.push(
+          <blockquote
+            key={index}
+            className="my-8 rounded-2xl border-l-4 border-primary bg-gradient-to-br from-primary/5 to-primary/[0.02] px-6 py-5 text-foreground/90 text-lg md:text-xl leading-relaxed italic shadow-sm"
+            dangerouslySetInnerHTML={{ __html: text }}
+          />
+        );
+      } else if (/^!\[[^\]]*\]\([^)]+\)$/.test(trimmedLine)) {
+        flushList();
+        const m = trimmedLine.match(/^!\[([^\]]*)\]\(([^)]+)\)$/)!;
+        elements.push(
+          <figure key={index} className="my-12 flex justify-center">
+            <img
+              src={m[2]}
+              alt={m[1]}
+              loading="lazy"
+              className="w-full max-w-md h-auto"
+            />
+          </figure>
         );
       } else if (trimmedLine.startsWith('✅')) {
         flushList();
