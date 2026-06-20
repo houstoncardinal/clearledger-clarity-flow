@@ -218,6 +218,8 @@ Rather than relying on assumptions, reconciliation provides a structured way to 
 
 ## 01 · What Reconciliation Really Is
 
+![Isometric illustration of a laptop showing a reconciled bank statement with a green checkmark](/blog/illustrations/reconciliation-routine.png)
+
 Bank reconciliation is the process of matching the transactions recorded in your accounting system to the transactions reported by your financial institution for a specific period.
 
 When the ending balance in your books agrees with the ending balance on the bank statement — after accounting for legitimate outstanding items — the account is considered **reconciled**.
@@ -269,6 +271,8 @@ After resolving discrepancies, complete the reconciliation and save the reconcil
 
 ## 03 · Common Discrepancies and How to Handle Them
 
+![Isometric illustration of a magnifying glass over a stack of financial documents](/blog/illustrations/discrepancies.png)
+
 Even well-maintained books occasionally contain discrepancies. Most reconciliation issues fall into a few common categories.
 
 ### Missing Transactions
@@ -304,6 +308,8 @@ A consistent review process helps maintain reliable bookkeeping and reduces the 
 ---
 
 ## 04 · Why Monthly Beats Quarterly
+
+![Isometric illustration of a monthly calendar with checkmarks next to a stack of ledger books](/blog/illustrations/monthly-cadence.png)
 
 Monthly reconciliation offers a practical advantage: **the workload remains manageable.**
 
