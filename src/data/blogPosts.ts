@@ -3475,6 +3475,7 @@ If you're looking for clearer financial records, more organized bookkeeping proc
 [Schedule your free consultation](/consultation) today.
     `,
     image: '/blog/profit-loss-statement-insights.png',
+    heroImage: '/blog/profit-loss-statement-insights.png',
     category: 'bookkeeping-tips',
     tags: ['Profit and Loss Statement', 'P&L Statement', 'Small Business Bookkeeping', 'QuickBooks Bookkeeping', 'Financial Reporting', 'Business Financial Management', 'Bookkeeping Services', 'Financial Clarity', 'Monthly Bookkeeping', 'QuickBooks ProAdvisor'],
     author: defaultAuthor,
