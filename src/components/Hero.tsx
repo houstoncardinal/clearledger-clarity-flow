@@ -1,285 +1,115 @@
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, Calendar, Shield, CheckCircle2, Award, TrendingUp, Users, Zap, Building2, FileCheck } from 'lucide-react';
+import { ArrowRight, Calendar, Shield, CheckCircle2, Star } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
-import { BackgroundPaths } from '@/components/ui/background-paths';
+import heroWorkspace from '@/assets/hero-workspace.jpg';
 
 const Hero = () => {
   const { t } = useLanguage();
 
-  const features = [
-    { label: 'QuickBooks Certified', icon: Award },
-    { label: 'Monthly Management', icon: TrendingUp },
-    { label: 'Payroll Processing', icon: Users },
-    { label: 'Financial Reporting', icon: CheckCircle2 }
-  ];
-
-  const highlights = [
-    { icon: Building2, title: 'Enterprise Solutions', description: 'Scalable financial management' },
-    { icon: FileCheck, title: 'Full Compliance', description: 'Industry-standard practices' },
-    { icon: Zap, title: 'Dedicated Support', description: 'Expert guidance always' }
+  const trustPoints = [
+    t('hero.noCommitment') || 'No commitment required',
+    t('hero.strategySession') || 'Free 30-min strategy session',
+    t('hero.customProposal') || 'Custom proposal in 24 hours',
   ];
 
   return (
-    <section className="relative min-h-[100svh] flex items-center overflow-hidden">
-      {/* Gradient base background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
-      
-      {/* Animated background paths */}
-      <BackgroundPaths />
-      
-      {/* Overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-background/40 pointer-events-none" />
-      
+    <section className="relative min-h-[92svh] lg:min-h-[100svh] flex items-center overflow-hidden bg-background">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <img
+          src={heroWorkspace}
+          alt="Modern small business workspace with laptop showing financial charts, ledger, and coffee"
+          width={1920}
+          height={1280}
+          fetchPriority="high"
+          className="w-full h-full object-cover object-center scale-105"
+        />
+        {/* Left-to-right gradient for text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/20" />
+        {/* Bottom fade */}
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
+        {/* Subtle brand tint */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-transparent mix-blend-multiply" />
+      </div>
+
       {/* Top accent line */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-60" />
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
-      <div className="container relative z-10 px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-24 lg:py-28">
-        <div className="max-w-5xl mx-auto">
-          
-          {/* Two-column layout on larger screens */}
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
-            {/* Main content - left side */}
-            <div className="lg:col-span-7 text-center lg:text-left space-y-6 sm:space-y-8">
-              
-              {/* Premium Badge */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="flex justify-center lg:justify-start"
-              >
-                <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-2.5 sm:py-3 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm shadow-lg shadow-primary/5">
-                  <motion.div
-                    animate={{ scale: [1, 1.3, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="w-2 h-2 rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/50"
-                  />
-                  <Shield className="w-4 h-4 text-primary" />
-                  <span className="text-xs sm:text-sm font-semibold text-foreground">Trusted by Businesses Nationwide</span>
-                  <div className="hidden sm:block h-4 w-px bg-border/50" />
-                  <span className="hidden sm:block text-xs text-muted-foreground font-medium">Award-Winning ProAdvisor</span>
-                </div>
-              </motion.div>
-
-              {/* Main Headline */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.1 }}
-              >
-                <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl leading-[1.1] tracking-tight text-foreground font-medium">
-                  <span className="block mb-1">Where Clarity</span>
-                  <span className="bg-gradient-to-r from-primary via-purple-500 to-primary bg-[length:200%_auto] animate-[gradient_3s_linear_infinite] bg-clip-text text-transparent whitespace-nowrap">
-                    Meets Compliance
-                  </span>
-                </h1>
-              </motion.div>
-
-              {/* Subheadline */}
-              <motion.p 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-                className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0"
-              >
-                {t('hero.subtitle')}
-                <span className="font-semibold text-foreground"> {t('hero.saveTime')}</span> {t('hero.description')}
-              </motion.p>
-
-              {/* Feature Pills */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3"
-              >
-                {features.map((feature, index) => (
-                  <motion.div
-                    key={feature.label}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 bg-background/80 backdrop-blur-sm border border-border/50 rounded-full shadow-md hover:shadow-lg hover:border-primary/40 transition-all duration-300 group cursor-default"
-                  >
-                    <feature.icon className="w-4 h-4 text-primary group-hover:scale-110 transition-transform" />
-                    <span className="text-xs sm:text-sm font-medium text-foreground">{feature.label}</span>
-                  </motion.div>
-                ))}
-              </motion.div>
-
-              {/* CTA Buttons */}
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.4 }}
-                className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4 pt-2"
-              >
-                <Link to="/contact" className="w-full sm:w-auto">
-                  <Button 
-                    size="lg"
-                    className="group w-full sm:w-auto h-14 sm:h-16 px-8 sm:px-10 rounded-2xl bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90 text-primary-foreground font-semibold text-base sm:text-lg shadow-xl shadow-primary/25 hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    <Sparkles className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300 flex-shrink-0" />
-                    <span className="whitespace-nowrap">Get Started</span>
-                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0" />
-                  </Button>
-                </Link>
-                
-                <a href="https://calendly.com/jj-yourclearledger" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                  <Button 
-                    variant="outline"
-                    size="lg"
-                    className="group w-full sm:w-auto h-14 sm:h-16 px-8 sm:px-10 rounded-2xl border-2 border-border/80 hover:border-primary/50 bg-background/80 backdrop-blur-sm hover:bg-primary/5 font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    <Calendar className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform text-primary" />
-                    <span className="whitespace-nowrap">Book a Strategy Call</span>
-                  </Button>
-                </a>
-              </motion.div>
-
-              {/* Trust Indicators */}
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                className="flex flex-wrap justify-center lg:justify-start items-center gap-x-6 gap-y-2 pt-2 text-sm"
-              >
-                {[t('hero.noCommitment'), t('hero.strategySession'), t('hero.customProposal')].map((item, index) => (
-                  <span key={index} className="flex items-center gap-2 text-muted-foreground">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" />
-                    <span>{item}</span>
-                  </span>
-                ))}
-              </motion.div>
-            </div>
-
-            {/* Enterprise card - right side (desktop only) */}
-            <motion.div 
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="hidden lg:block lg:col-span-5"
-            >
-              <div className="relative">
-                {/* Layered glow effects */}
-                <div className="absolute -inset-8 bg-gradient-to-br from-primary/20 via-purple-500/10 to-pink-500/15 rounded-[2.5rem] blur-3xl opacity-60" />
-                <div className="absolute -inset-2 bg-gradient-to-br from-primary/30 to-purple-500/20 rounded-[2rem] blur-xl opacity-40" />
-
-                <div className="relative bg-gradient-to-br from-white via-white to-primary/[0.02] backdrop-blur-xl border border-primary/10 rounded-[1.75rem] overflow-hidden shadow-[0_25px_80px_-20px_rgba(168,85,247,0.35)]">
-                  {/* Premium top accent */}
-                  <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary via-purple-500 to-primary" />
-
-                  {/* Award ribbon */}
-                  <div className="absolute top-5 right-5 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-amber-50 to-yellow-50 border border-amber-200/60 shadow-sm">
-                    <Award className="w-3.5 h-3.5 text-amber-600" />
-                    <span className="text-[10px] font-bold tracking-wide text-amber-900 uppercase">Top 25 ProAdvisor</span>
-                  </div>
-
-                  {/* Card header */}
-                  <div className="relative px-7 pt-9 pb-5">
-                    <div className="flex items-center gap-4">
-                      <div className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-primary via-purple-500 to-primary-dark flex items-center justify-center shadow-lg shadow-primary/30">
-                        <TrendingUp className="w-7 h-7 text-white" />
-                        <div className="absolute inset-0 rounded-2xl ring-1 ring-white/30" />
-                      </div>
-                      <div>
-                        <h3 className="font-heading text-lg font-bold text-foreground tracking-tight">ClearLedger Solutions</h3>
-                        <p className="text-xs text-muted-foreground font-medium">Where Clarity Meets Compliance</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* KPI Strip */}
-                  <div className="mx-7 mb-5 grid grid-cols-3 gap-2 p-3 rounded-2xl bg-gradient-to-br from-primary/5 to-purple-500/5 border border-primary/10">
-                    {[
-                      { value: '10+', label: 'Years' },
-                      { value: '15+', label: 'Industries' },
-                      { value: '4.9★', label: 'Rating' },
-                    ].map((stat) => (
-                      <div key={stat.label} className="text-center">
-                        <div className="font-heading text-base font-bold bg-gradient-to-br from-primary to-purple-600 bg-clip-text text-transparent">{stat.value}</div>
-                        <div className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider mt-0.5">{stat.label}</div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Highlights list */}
-                  <div className="px-7 pb-6 space-y-2.5">
-                    {highlights.map((item, index) => (
-                      <motion.div
-                        key={item.title}
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
-                        className="flex items-center gap-3.5 p-3 rounded-xl bg-white hover:bg-primary/[0.03] border border-primary/5 hover:border-primary/20 hover:shadow-md transition-all duration-300 group"
-                      >
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/10 to-purple-500/10 flex items-center justify-center group-hover:from-primary/20 group-hover:to-purple-500/20 group-hover:scale-105 transition-all">
-                          <item.icon className="w-5 h-5 text-primary" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <h4 className="font-semibold text-foreground text-sm leading-tight">{item.title}</h4>
-                          <p className="text-xs text-muted-foreground mt-0.5">{item.description}</p>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  {/* Card footer */}
-                  <div className="px-7 py-4 bg-gradient-to-r from-primary/[0.03] via-purple-500/[0.04] to-primary/[0.03] border-t border-primary/10">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <div className="relative">
-                          <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                          <div className="absolute inset-0 w-2 h-2 rounded-full bg-emerald-500 animate-ping opacity-75" />
-                        </div>
-                        <span className="text-xs font-medium text-foreground">Accepting New Clients</span>
-                      </div>
-                      <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20">
-                        <CheckCircle2 className="w-3 h-3 text-primary" />
-                        <span className="text-[10px] font-semibold text-primary uppercase tracking-wider">Certified</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-          
-          {/* Mobile highlights - shown only on smaller screens */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            className="lg:hidden mt-10 sm:mt-12"
-          >
-            <div className="grid grid-cols-3 gap-3">
-              {highlights.map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, delay: 0.8 + index * 0.1 }}
-                  className="text-center p-4 rounded-2xl bg-background/90 backdrop-blur-sm border border-border/40 shadow-lg"
-                >
-                  <div className="w-10 h-10 mx-auto mb-2 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <item.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <div className="text-xs font-medium text-foreground leading-tight">
-                    {item.title}
-                  </div>
-                </motion.div>
+      <div className="container relative z-10 px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-2xl"
+        >
+          {/* Trust badge */}
+          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-background/70 backdrop-blur-md border border-primary/20 shadow-sm mb-8">
+            <Shield className="w-4 h-4 text-primary" />
+            <span className="text-xs sm:text-sm font-semibold text-foreground">
+              Award-Winning QuickBooks ProAdvisor
+            </span>
+            <div className="hidden sm:flex items-center gap-0.5 pl-2 border-l border-border/60">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
               ))}
             </div>
-          </motion.div>
-        </div>
+          </div>
+
+          {/* Headline */}
+          <h1 className="font-display font-medium tracking-tight text-foreground text-[2.5rem] sm:text-6xl lg:text-7xl leading-[1.05]">
+            <span className="block">Where Clarity</span>
+            <span className="block bg-gradient-to-r from-primary via-purple-500 to-primary bg-[length:200%_auto] animate-[gradient_4s_linear_infinite] bg-clip-text text-transparent">
+              Meets Compliance.
+            </span>
+          </h1>
+
+          {/* Subheadline — single, focused sentence */}
+          <p className="mt-6 text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-xl">
+            Premium bookkeeping and QuickBooks expertise for small businesses and entrepreneurs — so you can stop chasing your books and start growing your company.
+          </p>
+
+          {/* CTAs */}
+          <div className="mt-9 flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <Link to="/contact" className="w-full sm:w-auto">
+              <Button
+                size="lg"
+                className="group w-full sm:w-auto h-14 px-8 rounded-xl bg-gradient-to-r from-primary to-purple-600 text-primary-foreground font-semibold text-base shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:brightness-110 transition-all duration-300"
+              >
+                <span>Get Your Free Consultation</span>
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+
+            <a
+              href="https://calendly.com/jj-yourclearledger"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto"
+            >
+              <Button
+                variant="outline"
+                size="lg"
+                className="group w-full sm:w-auto h-14 px-8 rounded-xl border-2 border-border bg-background/80 backdrop-blur-md hover:bg-background hover:border-primary/40 font-semibold text-base transition-all duration-300"
+              >
+                <Calendar className="w-5 h-5 mr-2 text-primary" />
+                <span>Book a Strategy Call</span>
+              </Button>
+            </a>
+          </div>
+
+          {/* Trust indicators */}
+          <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            {trustPoints.map((item, i) => (
+              <span key={i} className="flex items-center gap-2 text-muted-foreground">
+                <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+                <span>{item}</span>
+              </span>
+            ))}
+          </div>
+        </motion.div>
       </div>
-      
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent pointer-events-none" />
     </section>
   );
 };
