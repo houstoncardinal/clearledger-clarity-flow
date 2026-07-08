@@ -323,7 +323,7 @@ const Hero = () => {
               <ChevronLeft className="w-5 h-5" />
             </button>
 
-            <div className="flex-1 overflow-x-auto scrollbar-hide">
+            <div className="flex-1 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
               <div className="flex items-stretch gap-1.5 min-w-max">
                 {slides.map((s, i) => {
                   const isActive = i === index;
